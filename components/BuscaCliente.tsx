@@ -131,7 +131,7 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
       {consulta.trim().length >= 2 && (
         <>
           <div className="mt-4 flex flex-wrap items-center gap-2">
-            <span className="kicker">
+            <span className="kicker" aria-live="polite" aria-atomic="true">
               {visiveis.length} {visiveis.length === 1 ? "resultado" : "resultados"}
             </span>
             {ORDEM_TIPO.filter((t) => contagem(t) > 0).map((t) => {

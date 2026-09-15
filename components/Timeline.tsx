@@ -7,12 +7,12 @@ import { ConfiancaBadge, SourceTag } from "./SourceTag";
 function DataColuna({ iso }: { iso: string }) {
   const [ano, mes, dia] = iso.split("-");
   return (
-    <div className="numero shrink-0 text-right leading-none">
+    <time dateTime={iso} className="numero block shrink-0 text-right leading-none">
       <div className="text-2xl font-medium text-ink">{dia}</div>
       <div className="text-[0.625rem] uppercase tracking-[0.14em] text-ink-3">
         {mes}/{ano}
       </div>
-    </div>
+    </time>
   );
 }
 
@@ -31,7 +31,7 @@ export function EventoItem({
   compacta?: boolean;
 }) {
   return (
-    <li id={e.id} className="grid grid-cols-[3.25rem_1px_1fr] gap-x-4 scroll-mt-24">
+    <li id={e.id} className="grid grid-cols-[3.25rem_1px_1fr] gap-x-4 scroll-mt-40">
       <div className="pt-5">
         <DataColuna iso={e.data} />
       </div>
@@ -40,7 +40,7 @@ export function EventoItem({
       <div className="relative bg-rule">
         <span
           className={`absolute left-1/2 top-6 h-2.5 w-2.5 -translate-x-1/2 rotate-45 ${
-            e.milestone ? "bg-seal" : "bg-paper border border-ink-3"
+            e.milestone ? "bg-seal shadow-[0_0_12px_rgba(67,216,230,0.65)]" : "bg-paper border border-ink-3"
           }`}
         />
       </div>
@@ -52,7 +52,7 @@ export function EventoItem({
           <ConfiancaBadge confianca={e.confianca} />
         </div>
 
-        <h3 className="headline mt-1.5 text-xl text-ink">
+        <h3 className="mt-1.5 text-lg font-semibold text-ink sm:text-xl">
           <Link href={`/eventos/${e.id}`} className="text-ink no-underline hover:text-seal">
             {e.titulo}
           </Link>

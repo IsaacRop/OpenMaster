@@ -19,8 +19,10 @@ export default function MainNav() {
     <nav aria-label="Navegação principal" className="overflow-x-auto">
       <ul className="flex min-w-max items-center gap-1">
         {NAV.map((item) => {
-          const ativo =
-            item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+          const ativo = item.href === "/"
+            ? pathname === "/"
+            : pathname.startsWith(item.href) ||
+              (item.href === "/timeline" && pathname.startsWith("/eventos/"));
 
           return (
             <li key={item.href}>
