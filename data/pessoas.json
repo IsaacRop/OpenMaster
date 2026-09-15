@@ -243,7 +243,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/gastos-de-vorcaro-chegaram-a-r-846-milhoes-em-1-mes/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 60,
+      "y": 250
+    }
   },
   {
     "id": "belline-santana",
@@ -313,7 +317,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/grupo-de-vorcaro-acessou-processos-sigilosos-do-mpf-diz-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 30,
+      "y": 420
+    }
   },
   {
     "id": "marilson-roseno",
@@ -411,7 +419,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/castro-e-vorcaro-tinham-lacos-de-amizade-diz-relatorio-da-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-12"
+    "source_date": "2026-09-12",
+    "pos": {
+      "x": 320,
+      "y": 680
+    }
   },
   {
     "id": "deivis-marcon-antunes",
@@ -467,7 +479,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/pf-quer-apurar-atuacao-de-flavio-eduardo-e-mario-frias/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 1100,
+      "y": 720
+    }
   },
   {
     "id": "eduardo-bolsonaro",
@@ -495,7 +511,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/produtora-de-dark-horse-pagou-faturas-do-cartao-de-mario-frias/",
     "source_name": "Poder360",
-    "source_date": "2026-09-12"
+    "source_date": "2026-09-12",
+    "pos": {
+      "x": 1200,
+      "y": 570
+    }
   },
   {
     "id": "freixo-mineiro",
@@ -509,7 +529,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/pf-diz-que-mineiro-montou-estrutura-para-dinheiro-ilicito-do-master/",
     "source_name": "Poder360",
-    "source_date": "2026-09-12"
+    "source_date": "2026-09-12",
+    "pos": {
+      "x": 1080,
+      "y": 540
+    }
   },
   {
     "id": "thiago-miranda",
