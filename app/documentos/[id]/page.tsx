@@ -39,7 +39,7 @@ export default async function DocumentoPage({ params }: { params: Promise<{ id: 
     <article className="space-y-10">
       <header>
         <Link href="/documentos" className="kicker no-underline hover:text-seal">
-          ← Documentos
+          ← Voltar para documentos
         </Link>
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <span className="numero border border-gold px-2 py-0.5 text-[0.6875rem] uppercase tracking-[0.12em] text-gold">
@@ -53,7 +53,7 @@ export default async function DocumentoPage({ params }: { params: Promise<{ id: 
       </header>
 
       <section>
-        <h3 className="kicker">O que a peça faz</h3>
+        <h3 className="kicker">O que este documento faz</h3>
         <p className="mt-2 max-w-3xl text-lg leading-relaxed text-ink">{d.resumo}</p>
         <div className="mt-3">
           <SourceTag fonte={d} />
@@ -80,7 +80,7 @@ export default async function DocumentoPage({ params }: { params: Promise<{ id: 
       </section>
 
       <section>
-        <h3 className="kicker">Inteiro teor</h3>
+        <h3 className="kicker">Documento original</h3>
         {d.pdf_url ? (
           <a
             href={d.pdf_url}

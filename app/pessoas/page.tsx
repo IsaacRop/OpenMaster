@@ -26,13 +26,15 @@ export default function PessoasPage() {
   return (
     <div className="space-y-10">
       <header>
-        <p className="kicker">Quem é quem</p>
-        <h2 className="headline mt-1 text-4xl text-ink">Envolvidos</h2>
+        <p className="eyebrow">Guia de nomes</p>
+        <h2 className="headline mt-2 text-4xl text-ink">Quem é quem</h2>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-2">
-          As {pessoasPorPresenca.length} pessoas e instituições mapeadas, agrupadas por{" "}
-          <strong className="font-semibold">nível de presença</strong> — protagonismo nos fatos,
-          não frequência de menção. Quem é citado dez vezes de passagem continua periférico; quem
-          assina o ato que muda o caso é central ainda que apareça uma vez.
+          Conheça as {pessoasPorPresenca.length} pessoas e instituições que aparecem na base e
+          entenda, em poucas linhas, qual é o papel de cada uma.
+        </p>
+        <p className="plain-note mt-4 max-w-3xl text-sm leading-relaxed">
+          O nível de presença mostra quanto alguém participa dos acontecimentos centrais. Não é
+          uma acusação, medida de culpa ou simples contagem de vezes em que o nome aparece.
         </p>
         <div className="rule-thick mt-4" />
       </header>
@@ -52,7 +54,7 @@ export default function PessoasPage() {
 
             <ul className="mt-4 grid gap-4 md:grid-cols-2">
               {grupo.map((p) => (
-                <li key={p.id} className="flex h-full flex-col border border-rule bg-paper-3/60 p-4">
+                <li key={p.id} className="panel flex h-full flex-col p-4 transition-colors hover:border-seal/60">
                   <div className="flex flex-wrap items-baseline gap-2">
                     <Link href={`/pessoas/${p.id}`} className="no-underline">
                       <h4 className="headline text-xl text-ink hover:text-seal">{p.nome}</h4>

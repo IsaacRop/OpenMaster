@@ -24,7 +24,7 @@ export default function ProcessCard({ processo: p }: { processo: Processo }) {
   const syncNota = SYNC_NOTA[p.sync];
 
   return (
-    <article className="flex h-full flex-col border border-rule bg-paper-3/60 p-4">
+    <article className="panel group flex h-full flex-col p-4 transition-colors hover:border-seal/60">
       <header className="flex items-start justify-between gap-3">
         <Link href={`/processos/${p.id}`} className="no-underline">
           <h3 className="numero text-lg font-medium text-ink hover:text-seal">{p.numero}</h3>
@@ -36,9 +36,9 @@ export default function ProcessCard({ processo: p }: { processo: Processo }) {
         </span>
       </header>
 
-      <p className="headline mt-1 text-base text-ink-2">{p.apelido}</p>
+      <p className="mt-1 text-base font-semibold text-ink-2">{p.apelido}</p>
 
-      <p className="mt-3 text-sm leading-relaxed text-ink-2 line-clamp-4">{p.objeto}</p>
+      <p className="mt-3 text-sm leading-relaxed text-ink-2 line-clamp-3">{p.objeto}</p>
 
       <dl className="mt-4 space-y-1 text-xs text-ink-2">
         <div className="flex gap-2">

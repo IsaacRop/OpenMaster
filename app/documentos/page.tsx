@@ -17,13 +17,16 @@ export default function DocumentosPage() {
   return (
     <div className="space-y-8">
       <header>
-        <p className="kicker">Peças</p>
-        <h2 className="headline mt-1 text-4xl text-ink">Documentos</h2>
+        <p className="eyebrow">Base documental</p>
+        <h2 className="headline mt-2 text-4xl text-ink">Documentos identificados</h2>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-2">
-          As {documentosDesc.length} peças que as fontes públicas identificam nominalmente —
-          decisões, liminares e ofícios — com quem assinou, em que processo caiu e o que dela se
-          noticiou. O painel registra a existência e o efeito de cada peça, nunca o inteiro teor;
-          quando não há link público para o documento, não há link, e não se inventa um.
+          Decisões, ordens e ofícios mencionados pelas fontes públicas. Para cada um dos{" "}
+          {documentosDesc.length} documentos, mostramos quem assinou, a qual processo pertence e o
+          que ele fez.
+        </p>
+        <p className="plain-note mt-4 max-w-3xl text-sm leading-relaxed">
+          No vocabulário jurídico, esses documentos também são chamados de “peças”. Quando o
+          arquivo original não está disponível publicamente, mostramos apenas o que a fonte relata.
         </p>
         <div className="rule-thick mt-4" />
       </header>

@@ -32,7 +32,7 @@ export default async function PessoaPage({ params }: { params: Promise<{ id: str
     <article className="space-y-10">
       <header>
         <Link href="/pessoas" className="kicker no-underline hover:text-seal">
-          ← Envolvidos
+          ← Voltar para quem é quem
         </Link>
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <h2 className="headline text-4xl text-ink">{p.nome}</h2>
@@ -47,7 +47,7 @@ export default async function PessoaPage({ params }: { params: Promise<{ id: str
       </header>
 
       <section>
-        <h3 className="kicker">Participação no caso</h3>
+        <h3 className="kicker">Como aparece no caso</h3>
         <p className="mt-2 max-w-3xl text-lg leading-relaxed text-ink">{p.resumo_participacao}</p>
         {p.descricao && (
           <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-2">{p.descricao}</p>

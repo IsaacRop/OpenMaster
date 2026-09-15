@@ -12,18 +12,18 @@ const CELULAS = [
 
 export default function StatBar() {
   return (
-    <section className="border-y border-rule">
-      <dl className="grid grid-cols-2 divide-rule sm:grid-cols-3 lg:grid-cols-7 lg:divide-x">
+    <section className="panel overflow-hidden">
+      <dl className="grid grid-cols-2 gap-px bg-rule sm:grid-cols-3 lg:grid-cols-7">
         {CELULAS.map((c) => (
-          <div key={c.label} className="border-b border-rule px-4 py-4 lg:border-b-0">
+          <div key={c.label} className="bg-paper-2 px-4 py-4">
             <dd
-              className={`numero text-3xl font-medium ${
+              className={`numero text-2xl font-medium ${
                 c.destaque ? "text-seal" : "text-ink"
               }`}
             >
               {String(c.valor).padStart(2, "0")}
             </dd>
-            <dt className="kicker mt-1 leading-snug">{c.label}</dt>
+            <dt className="mt-1 text-xs leading-snug text-ink-3">{c.label}</dt>
           </div>
         ))}
       </dl>

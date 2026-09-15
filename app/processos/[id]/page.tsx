@@ -59,7 +59,7 @@ export default async function ProcessoPage({
     <article className="space-y-10">
       <header>
         <Link href="/processos" className="kicker no-underline hover:text-seal">
-          ← Processos
+          ← Voltar para processos
         </Link>
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <h2 className="numero text-4xl font-medium text-ink">{p.numero}</h2>
@@ -83,7 +83,7 @@ export default async function ProcessoPage({
       )}
 
       <section>
-        <h3 className="kicker">Objeto</h3>
+        <h3 className="kicker">O que este processo trata</h3>
         <p className="mt-2 max-w-3xl text-base leading-relaxed text-ink">{p.objeto}</p>
         <div className="mt-3">
           <SourceTag fonte={p} />
@@ -92,7 +92,7 @@ export default async function ProcessoPage({
 
       <section className="grid gap-8 sm:grid-cols-2">
         <div>
-          <h3 className="kicker">Relatoria</h3>
+          <h3 className="kicker">Quem conduz o processo</h3>
           <p className="mt-2 text-base text-ink">{p.relator_atual}</p>
           {p.relator_originario && (
             <p className="mt-1 text-sm text-ink-3">
@@ -117,7 +117,7 @@ export default async function ProcessoPage({
         </div>
 
         <div>
-          <h3 className="kicker">Tramitação</h3>
+          <h3 className="kicker">Movimentação mais recente</h3>
           {p.ultima_movimentacao ? (
             <>
               <p className="numero mt-2 text-lg text-ink">
@@ -174,7 +174,7 @@ export default async function ProcessoPage({
 
       {eventos.length > 0 && (
         <section>
-          <h3 className="kicker border-b border-ink pb-1.5">Neste processo</h3>
+          <h3 className="kicker border-b border-ink pb-1.5">O que aconteceu neste processo</h3>
           <div className="mt-2">
             <Timeline eventos={eventos} compacta />
           </div>
@@ -184,7 +184,7 @@ export default async function ProcessoPage({
       {pecas.length > 0 && (
         <section>
           <h3 className="kicker border-b border-ink pb-1.5">
-            Peças identificadas · {pecas.length}
+            Documentos identificados · {pecas.length}
           </h3>
           <p className="mt-2 max-w-3xl text-sm text-ink-2">
             Peças que as fontes públicas nomeiam. O painel registra o que cada uma decidiu

@@ -37,7 +37,7 @@ export default async function EventoPage({ params }: { params: Promise<{ id: str
     <article className="space-y-10">
       <header>
         <Link href="/timeline" className="kicker no-underline hover:text-seal">
-          ← Linha do tempo
+          ← Voltar para o que aconteceu
         </Link>
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <span className="numero text-2xl text-seal">{dataBR(e.data)}</span>

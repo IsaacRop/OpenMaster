@@ -10,8 +10,10 @@ export function SourceTag({ fonte }: { fonte: Fonte }) {
       href={fonte.source_url}
       target="_blank"
       rel="noopener noreferrer"
-      className="numero text-[0.6875rem] text-ink-3 underline decoration-rule underline-offset-2 hover:text-seal hover:decoration-seal"
+      aria-label={`Abrir fonte: ${fonte.source_name}`}
+      className="numero inline-flex min-h-7 items-center gap-1.5 text-xs text-ink-3 underline decoration-rule underline-offset-2 hover:text-seal hover:decoration-seal"
     >
+      <span className="text-seal" aria-hidden="true">↗</span>
       Fonte: {fonte.source_name}
       {fonte.source_date ? ` (${fonte.source_date.split("-").reverse().join("/")})` : ""}
     </a>

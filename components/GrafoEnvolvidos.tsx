@@ -372,10 +372,7 @@ export default function GrafoEnvolvidos({
                     markerEnd={a.direcionada ? "url(#seta-grafo)" : undefined}
                     opacity={apagada ? 0.12 : 0.85}
                   >
-                    <title>
-                      {s.rotulo} → {t.rotulo}: {a.rotulo}
-                      {a.apuracao ? " (em apuração)" : ""}
-                    </title>
+                    <title>{`${s.rotulo} → ${t.rotulo}: ${a.rotulo}${a.apuracao ? " (em apuração)" : ""}`}</title>
                   </line>
                 );
               })}
@@ -412,10 +409,7 @@ export default function GrafoEnvolvidos({
                       }
                     }}
                   >
-                    <title>
-                      {n.rotulo} — {n.papel} · {n.grau}{" "}
-                      {n.grau === 1 ? "referência" : "referências"}
-                    </title>
+                    <title>{`${n.rotulo} — ${n.papel} · ${n.grau} ${n.grau === 1 ? "referência" : "referências"}`}</title>
 
                     {n.grupo === "processo" ? (
                       <rect

@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* Diário oficial, não SaaS. */
-  --color-paper: #ede6d6;
-  --color-paper-2: #e4dbc7;
-  --color-paper-3: #f4efe3;
-  --color-ink: #17150f;
-  --color-ink-2: #46402f;
-  --color-ink-3: #7a715c;
-  --color-rule: #c9bfa5;
-  --color-seal: #96271f;
-  --color-seal-soft: #b8453c;
-  --color-gold: #a67f2e;
+  /* Central de análise: escura, precisa e legível. */
+  --color-paper: #071116;
+  --color-paper-2: #0b1a22;
+  --color-paper-3: #10232d;
+  --color-ink: #edf8fa;
+  --color-ink-2: #b7cdd2;
+  --color-ink-3: #86a5ad;
+  --color-rule: #294650;
+  --color-seal: #43d8e6;
+  --color-seal-soft: #79e5ed;
+  --color-gold: #ffd166;
 
   --font-serif: var(--font-serif-stack);
   --font-mono: var(--font-mono-stack);
@@ -23,6 +23,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   background-color: var(--color-paper);
 }
 
@@ -30,30 +31,117 @@ body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
-  /* Fibra do papel: ruído sutil, sem imagem externa. */
+  min-width: 320px;
+  /* Grade técnica discreta: atmosfera de análise sem competir com o conteúdo. */
   background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(122, 113, 92, 0.035) 0px,
-      rgba(122, 113, 92, 0.035) 1px,
-      transparent 1px,
-      transparent 3px
-    );
+    radial-gradient(circle at 76% 8%, rgba(67, 216, 230, 0.08), transparent 28rem),
+    linear-gradient(rgba(67, 216, 230, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(67, 216, 230, 0.025) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
 }
 
 ::selection {
-  background: var(--color-gold);
-  color: var(--color-paper-3);
+  background: var(--color-seal);
+  color: var(--color-paper);
 }
 
 a {
   text-underline-offset: 3px;
 }
 
+:focus-visible {
+  outline: 2px solid var(--color-seal);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  border: 1px solid var(--color-seal);
+  background: var(--color-paper-3);
+  padding: 0.65rem 1rem;
+  color: var(--color-ink);
+  font-size: 0.875rem;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--color-rule);
+  background: color-mix(in srgb, var(--color-paper) 92%, transparent);
+  backdrop-filter: blur(16px);
+}
+
+.brand-mark {
+  display: grid;
+  height: 2.7rem;
+  width: 2.7rem;
+  place-items: center;
+  border: 1px solid var(--color-seal);
+  background: rgba(67, 216, 230, 0.06);
+  color: var(--color-seal);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  box-shadow: inset 0 0 0 4px var(--color-paper), inset 0 0 0 5px rgba(67, 216, 230, 0.22);
+}
+
+.status-line,
+.meta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-3);
+  text-decoration: none;
+}
+
+.status-dot {
+  height: 0.42rem;
+  width: 0.42rem;
+  flex: none;
+  border-radius: 999px;
+  background: var(--color-seal);
+  box-shadow: 0 0 0.75rem rgba(67, 216, 230, 0.85);
+}
+
+.nav-link {
+  display: block;
+  border-bottom: 2px solid transparent;
+  padding: 0.7rem 0.85rem 0.65rem;
+  color: var(--color-ink-2);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 150ms ease, color 150ms ease, background 150ms ease;
+}
+
+.nav-link:hover {
+  color: var(--color-ink);
+  background: rgba(67, 216, 230, 0.045);
+}
+
+.nav-link-active {
+  border-color: var(--color-seal);
+  color: var(--color-seal);
+}
+
 /* Régua tipográfica da gazeta ------------------------------------------- */
 
 .rule-thick {
-  border-top: 3px double var(--color-ink);
+  height: 2px;
+  border: 0;
+  background: linear-gradient(90deg, var(--color-seal), var(--color-rule) 45%, transparent);
 }
 
 .rule-thin {
@@ -62,17 +150,17 @@ a {
 
 .kicker {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-ink-3);
 }
 
 .headline {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.08;
+  font-family: var(--font-sans);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
 }
 
 .numero {
@@ -90,12 +178,93 @@ a {
   color: var(--color-seal);
   border: 1.5px solid var(--color-seal);
   padding: 0.1rem 0.4rem;
-  transform: rotate(-1.2deg);
   display: inline-block;
+}
+
+.panel {
+  border: 1px solid var(--color-rule);
+  background: linear-gradient(145deg, rgba(16, 35, 45, 0.9), rgba(11, 26, 34, 0.78));
+  box-shadow: 0 1.25rem 4rem rgba(0, 0, 0, 0.18);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-seal);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.25rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.plain-note {
+  border-left: 2px solid var(--color-seal);
+  background: rgba(67, 216, 230, 0.055);
+  padding: 0.8rem 1rem;
+  color: var(--color-ink-2);
+}
+
+.action-primary,
+.action-secondary {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease;
+}
+
+.action-primary { border: 1px solid var(--color-seal); background: var(--color-seal); color: var(--color-paper); }
+.action-secondary { border: 1px solid var(--color-rule); color: var(--color-ink); }
+.action-primary:hover, .action-secondary:hover { transform: translateY(-1px); }
+.action-secondary:hover { border-color: var(--color-seal); background: rgba(67, 216, 230, 0.055); }
+
+.discovery-card {
+  position: relative;
+  display: flex;
+  min-height: 15rem;
+  flex-direction: column;
+  border: 1px solid var(--color-rule);
+  background: linear-gradient(150deg, rgba(16, 35, 45, 0.88), rgba(7, 17, 22, 0.9));
+  padding: 1.25rem;
+  text-decoration: none;
+  transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.discovery-card::after {
+  content: "";
+  position: absolute;
+  right: 1.25rem;
+  top: 1.25rem;
+  height: 0.55rem;
+  width: 0.55rem;
+  border: 1px solid var(--color-rule);
+  transform: rotate(45deg);
+}
+
+.discovery-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-seal);
+  background: linear-gradient(150deg, rgba(18, 44, 54, 0.95), rgba(7, 17, 22, 0.95));
 }
 
 @media print {
   body {
     background: #fff;
+    color: #111;
   }
+
+  .site-header { position: static; }
 }
