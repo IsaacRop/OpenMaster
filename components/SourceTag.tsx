@@ -25,23 +25,25 @@ export function SourceTag({ fonte }: { fonte: Fonte }) {
  * marca visível para que nada em apuração seja lido como fato assentado.
  */
 export function ConfiancaBadge({ confianca }: { confianca: Confianca }) {
-  const label = CONFIANCA_LABEL[confianca];
-  if (!label) return null;
+  const label = CONFIANCA_LABEL[confianca] ?? "Confirmado";
+  const estilo = {
+    confirmado: "border-ok/60 text-ok",
+    apuracao: "border-seal/60 text-seal",
+    controverso: "border-disputed/60 text-disputed",
+  }[confianca];
 
-  const estilo =
-    confianca === "apuracao"
-      ? "border-gold text-gold"
-      : "border-seal text-seal";
+  const titulo = {
+    confirmado: "Informação sustentada pela fonte indicada.",
+    apuracao: "A fonte trata como apuração em curso ou evento ainda por ocorrer.",
+    controverso: "Há disputa pública sobre este ponto.",
+  }[confianca];
 
   return (
     <span
-      className={`numero inline-block border ${estilo} px-1.5 py-px text-[0.625rem] uppercase tracking-[0.12em]`}
-      title={
-        confianca === "apuracao"
-          ? "A fonte trata como apuração em curso ou evento ainda por ocorrer."
-          : "Há disputa pública sobre este ponto."
-      }
+      className={`numero inline-flex items-center gap-1.5 border ${estilo} px-1.5 py-px text-[0.625rem] uppercase tracking-[0.12em]`}
+      title={titulo}
     >
+      <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
       {label}
     </span>
   );

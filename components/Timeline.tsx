@@ -40,7 +40,7 @@ export function EventoItem({
       <div className="relative bg-rule">
         <span
           className={`absolute left-1/2 top-6 h-2.5 w-2.5 -translate-x-1/2 rotate-45 ${
-            e.milestone ? "bg-seal shadow-[0_0_12px_rgba(67,216,230,0.65)]" : "bg-paper border border-ink-3"
+            e.milestone ? "bg-seal shadow-[0_0_12px_rgba(233,180,76,0.55)]" : "bg-paper border border-ink-3"
           }`}
         />
       </div>

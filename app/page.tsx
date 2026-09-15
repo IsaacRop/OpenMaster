@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import NetworkMap from "@/components/NetworkMap";
 import ProcessCard from "@/components/ProcessCard";
+import { ConfiancaBadge } from "@/components/SourceTag";
 import StatBar from "@/components/StatBar";
 import Timeline from "@/components/Timeline";
 import { dataCorte, processos, timelineDesc } from "@/lib/data";
@@ -129,6 +130,18 @@ export default function Home() {
           )}
 
           <div className="mt-6 border-t border-rule pt-4">
+            <p className="kicker mb-2">Como ler os estados</p>
+            <div className="flex flex-wrap gap-2" aria-label="Legenda de verificação">
+              <ConfiancaBadge confianca="confirmado" />
+              <ConfiancaBadge confianca="apuracao" />
+              <ConfiancaBadge confianca="controverso" />
+            </div>
+            <p className="mt-2 text-xs leading-relaxed text-ink-3">
+              As cores indicam o grau de verificação, não culpa ou inocência.
+            </p>
+          </div>
+
+          <div className="mt-5 border-t border-rule pt-4">
             <p className="status-line">
               <span className="status-dot" aria-hidden="true" />
               Corte dos dados: {dataCorte.split("-").reverse().join("/")}
