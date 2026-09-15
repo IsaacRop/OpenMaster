@@ -6,8 +6,13 @@
     "papel": "controlador do Banco Master, preso preventivamente",
     "grupo": "central",
     "descricao": "",
+    "nivel_presenca": "central",
+    "resumo_participacao": "Ex-controlador do Banco Master, alvo original da Operação Compliance Zero. É o autor dos contatos e mensagens que, segundo relatório da PF, endereçam-se a um número salvo como associado a Alexandre de Moraes — esse relatório é o fato gerador de toda a disputa institucional em curso.",
     "confianca": "confirmado",
-    "pos": { "x": 235, "y": 330 },
+    "pos": {
+      "x": 235,
+      "y": 330
+    },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
     "source_date": "2026-09-13"
@@ -19,8 +24,13 @@
     "papel": "instituição financeira sob liquidação extrajudicial",
     "grupo": "instituicao",
     "descricao": "",
+    "nivel_presenca": "central",
+    "resumo_participacao": "Banco controlado por Vorcaro, teve liquidação extrajudicial decretada pelo Bacen em 18/11/2025; é o objeto financeiro original da Operação Compliance Zero, com bloqueio Sisbajud de R$ 2,24 bi e prejuízo estimado em R$ 17 bi.",
     "confianca": "confirmado",
-    "pos": { "x": 120, "y": 150 },
+    "pos": {
+      "x": 120,
+      "y": 150
+    },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
     "source_date": "2026-09-13"
@@ -32,8 +42,13 @@
     "papel": "ex-ministro das Comunicações (gov. Bolsonaro)",
     "grupo": "outros",
     "descricao": "",
-    "confianca": "confirmado",
-    "pos": { "x": 105, "y": 500 },
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Ex-ministro das Comunicações; segundo o relatório da PF, teria repassado a Vorcaro, em dezembro de 2023, o contato salvo depois como associado a Alexandre de Moraes.",
+    "confianca": "apuracao",
+    "pos": {
+      "x": 105,
+      "y": 500
+    },
     "source_url": "https://www.cnnbrasil.com.br/politica/entenda-o-que-o-stf-vai-discutir-no-plenario-em-15-de-setembro/",
     "source_name": "CNN Brasil"
   },
@@ -44,8 +59,13 @@
     "papel": "ministro do STF",
     "grupo": "stf",
     "descricao": "",
-    "confianca": "confirmado",
-    "pos": { "x": 660, "y": 110 },
+    "nivel_presenca": "central",
+    "resumo_participacao": "Ministro citado nos relatórios de inteligência como possível interlocutor de Vorcaro. Pede julgamento conjunto das Pets 16.662 e 16.704, levantamento total de sigilo e intimação dos magistrados citados (Ofício GMAM 07/2026); aponta possíveis irregularidades na atuação de Mendonça em 03/09.",
+    "confianca": "apuracao",
+    "pos": {
+      "x": 660,
+      "y": 110
+    },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
     "source_date": "2026-09-13"
@@ -57,8 +77,13 @@
     "papel": "ministro do STF, relator originário da Pet 16.662",
     "grupo": "stf",
     "descricao": "",
+    "nivel_presenca": "central",
+    "resumo_participacao": "Relator originário da Pet 16.662 e da Rcl 88.121 de Vorcaro. Pediu à PF, em 24/08, a atualização das investigações que resultou no relatório citando Moraes; em 08/09 afastou dois delegados da PF com base nesse material — decisão suspensa dias depois e origem direta da disputa institucional.",
     "confianca": "confirmado",
-    "pos": { "x": 775, "y": 270 },
+    "pos": {
+      "x": 775,
+      "y": 270
+    },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
     "source_date": "2026-09-13"
@@ -70,8 +95,13 @@
     "papel": "Presidente do STF",
     "grupo": "stf",
     "descricao": "",
+    "nivel_presenca": "central",
+    "resumo_participacao": "Presidente do STF; instaurou de ofício a Pet 16.704 para coordenar os feitos, suspendeu as decisões conflitantes de Mendonça e Dino via liminar na SL 1.946-MC, e em 12/09 assumiu a relatoria da Pet 16.662, concentrando a condução processual do caso.",
     "confianca": "confirmado",
-    "pos": { "x": 1000, "y": 300 },
+    "pos": {
+      "x": 1000,
+      "y": 300
+    },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
     "source_date": "2026-09-13"
@@ -83,8 +113,13 @@
     "papel": "decano do STF",
     "grupo": "stf",
     "descricao": "",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Decano do STF; contestou formalmente, via Ofício 003/MGM, a própria natureza processual da Pet 16.662 e pediu sua avocação pela Presidência, citando também a nulidade do relatório policial arguida pela PGR.",
     "confianca": "confirmado",
-    "pos": { "x": 1120, "y": 120 },
+    "pos": {
+      "x": 1120,
+      "y": 120
+    },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
     "source_date": "2026-09-13"
@@ -96,8 +131,13 @@
     "papel": "ministro do STF",
     "grupo": "stf",
     "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Ministro do STF; formulou, antes de Moraes, pedido de levantamento de sigilo dos procedimentos relacionados à Pet 15.556 (Ofício GMCZ 13/2026), atendido pela Presidência.",
     "confianca": "confirmado",
-    "pos": { "x": 1150, "y": 470 },
+    "pos": {
+      "x": 1150,
+      "y": 470
+    },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
     "source_date": "2026-09-13"
@@ -109,8 +149,13 @@
     "papel": "ministro do STF",
     "grupo": "stf",
     "descricao": "",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Ministro do STF; em 09/09 determinou a reintegração dos dois delegados afastados por Mendonça, decisão suspensa no mesmo dia pela liminar de Fachin — um dos três atos conflitantes que motivaram a intervenção da Presidência.",
     "confianca": "confirmado",
-    "pos": { "x": 790, "y": 585 },
+    "pos": {
+      "x": 790,
+      "y": 585
+    },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
     "source_date": "2026-09-13"
@@ -122,8 +167,13 @@
     "papel": "diretor-geral da Polícia Federal, afastado em 08/09",
     "grupo": "outros",
     "descricao": "",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Diretor-geral da Polícia Federal; afastado preventivamente por Mendonça em 08/09 no âmbito da Pet 16.662, pediu reintegração (Pet 16.669), concedida por Dino e depois suspensa por Fachin.",
     "confianca": "confirmado",
-    "pos": { "x": 445, "y": 600 },
+    "pos": {
+      "x": 445,
+      "y": 600
+    },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
     "source_date": "2026-09-13"
@@ -135,8 +185,13 @@
     "papel": "diretor de Inteligência da Polícia Federal, afastado em 08/09",
     "grupo": "outros",
     "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Diretor de Inteligência da Polícia Federal, afastado preventivamente junto com Rodrigues na mesma decisão de 08/09; as fontes disponíveis dão menos detalhe individual sobre sua atuação além do afastamento.",
     "confianca": "confirmado",
-    "pos": { "x": 625, "y": 700 },
+    "pos": {
+      "x": 625,
+      "y": 700
+    },
     "source_url": "https://www.correiobraziliense.com.br/politica/2026/09/7497303-fachin-convoca-sessao-do-stf-para-terca-15-9-sobre-caso-vorcaro.html",
     "source_name": "Correio Braziliense"
   },
@@ -147,8 +202,13 @@
     "papel": "conduz a Operação Compliance Zero",
     "grupo": "instituicao",
     "descricao": "",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Conduz a Operação Compliance Zero desde a primeira fase; produziu, a pedido de Mendonça, o relatório de inteligência que deu origem à Pet 16.662 e à disputa institucional em curso.",
     "confianca": "confirmado",
-    "pos": { "x": 175, "y": 665 },
+    "pos": {
+      "x": 175,
+      "y": 665
+    },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
     "source_date": "2026-09-13"
@@ -160,8 +220,13 @@
     "papel": "pede nulidade do relatório policial que originou a Pet 16.662",
     "grupo": "instituicao",
     "descricao": "",
-    "confianca": "confirmado",
-    "pos": { "x": 340, "y": 60 },
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Pede a anulação da ordem de Mendonça que determinou a identificação de interlocutores de Vorcaro e do relatório policial resultante, alegando que o ministro teria buscado informações contra outro integrante do Supremo sem autorização do plenário.",
+    "confianca": "apuracao",
+    "pos": {
+      "x": 340,
+      "y": 60
+    },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
     "source_date": "2026-09-13"

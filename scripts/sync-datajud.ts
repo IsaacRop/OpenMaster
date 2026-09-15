@@ -37,14 +37,14 @@ type Pendente = {
   detectado_em: string;
 };
 
-function carregarProcessos(): Processo[] {
-  const raw = JSON.parse(readFileSync(ARQ_PROCESSOS, "utf8"));
-  const r = ProcessoArray.safeParse(raw);
+function carregarProcessos(): { processos: Processo[]; bruto: string } {
+  const bruto = readFileSync(ARQ_PROCESSOS, "utf8").replace(/\r\n/g, "\n");
+  const r = ProcessoArray.safeParse(JSON.parse(bruto));
   if (!r.success) {
     console.error("data/processos.json inválido — rode `npm run validate` antes.");
     process.exit(1);
   }
-  return r.data;
+  return { processos: r.data, bruto };
 }
 
 function carregarPendentes(): Pendente[] {
@@ -57,7 +57,7 @@ function carregarPendentes(): Pendente[] {
 }
 
 async function main() {
-  const processos = carregarProcessos();
+  const { processos, bruto: brutoOriginal } = carregarProcessos();
   const pendentes = carregarPendentes();
   const agora = new Date().toISOString();
 
@@ -66,9 +66,11 @@ async function main() {
   const semNumero = processos.filter((p) => !p.numero_cnj);
   const comNumero = processos.filter((p) => p.numero_cnj);
 
+  // Sem carimbo de sync_checked_at aqui: verificação nenhuma aconteceu. Carimbar
+  // geraria um diff diário só de timestamps — um PR por dia sem conteúdo algum,
+  // que treina o revisor a aprovar o que o robô manda sem ler.
   for (const p of semNumero) {
     p.sync = "sem_numero_cnj";
-    p.sync_checked_at = agora;
   }
   if (semNumero.length) {
     console.log(
@@ -82,8 +84,7 @@ async function main() {
   }
 
   if (comNumero.length === 0) {
-    console.log("Nenhum processo elegível para consulta. Nada a fazer.");
-    if (!dryRun) gravarProcessos(processos);
+    console.log("Nenhum processo elegível para consulta. Nada a escrever.");
     return;
   }
 
@@ -107,7 +108,7 @@ async function main() {
       p.sync = "tribunal_indisponivel";
       p.sync_checked_at = agora;
     }
-    if (!dryRun) gravarProcessos(processos);
+    if (!dryRun) relatarEscrita(gravarProcessos(processos, brutoOriginal));
     return;
   }
 
@@ -176,13 +177,34 @@ async function main() {
     return;
   }
 
-  gravarProcessos(processos);
-  writeFileSync(ARQ_PENDENTES, JSON.stringify(pendentes, null, 2) + "\n", "utf8");
-  console.log("data/processos.json e data/_pending.json atualizados.");
+  relatarEscrita(gravarProcessos(processos, brutoOriginal));
+  if (novos > 0) {
+    writeFileSync(ARQ_PENDENTES, JSON.stringify(pendentes, null, 2) + "\n", "utf8");
+    console.log("data/_pending.json atualizado.");
+  }
 }
 
-function gravarProcessos(processos: Processo[]) {
-  writeFileSync(ARQ_PROCESSOS, JSON.stringify(processos, null, 2) + "\n", "utf8");
+/**
+ * Escreve só quando o conteúdo mudou de fato, e devolve se escreveu.
+ *
+ * O formato precisa bater com o canônico de scripts/format-data.ts: se o arquivo
+ * versionado estiver formatado de outro jeito, a comparação acusa diferença a
+ * cada execução e o ruído volta pela porta dos fundos. É por isso que
+ * `npm run validate` recusa data/ fora do formato canônico.
+ */
+function gravarProcessos(processos: Processo[], original: string): boolean {
+  const conteudo = JSON.stringify(processos, null, 2) + "\n";
+  if (conteudo === original) return false;
+  writeFileSync(ARQ_PROCESSOS, conteudo, "utf8");
+  return true;
+}
+
+function relatarEscrita(escreveu: boolean) {
+  console.log(
+    escreveu
+      ? "data/processos.json atualizado."
+      : "Nada mudou em data/processos.json — nenhum arquivo escrito, nenhum PR a propor.",
+  );
 }
 
 main().catch((e) => {

@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 /**
- * Schema das quatro entidades do painel.
+ * Schema das cinco entidades do painel.
  *
  * Regra editorial central, aplicada aqui e não na revisão humana: toda
  * entidade estende `Fonte`, então um dado sem `source_url` não passa na
@@ -27,6 +27,15 @@ export type Confianca = z.infer<typeof Confianca>;
 
 export const Sigilo = z.enum(["publico", "parcial", "sigiloso"]);
 export type Sigilo = z.infer<typeof Sigilo>;
+
+/**
+ * Protagonismo da pessoa nos fatos — não frequência de menção. Um nome citado
+ * em dez eventos como pano de fundo continua `periferico`; quem pratica os atos
+ * que movem o caso é `central`, ainda que apareça uma vez. A distinção existe
+ * para que o grafo e os filtros não confundam volume com importância.
+ */
+export const NivelPresenca = z.enum(["central", "recorrente", "periferico"]);
+export type NivelPresenca = z.infer<typeof NivelPresenca>;
 
 const Id = z.string().regex(/^[a-z0-9-]+$/, "id deve ser kebab-case");
 
@@ -134,18 +143,64 @@ export const Pessoa = Fonte.extend({
   papel: z.string().min(3),
   grupo: z.enum(["central", "stf", "instituicao", "outros"]),
   descricao: z.string().max(400).default(""),
+  /** Ver NivelPresenca: julgamento editorial explícito, obrigatório. */
+  nivel_presenca: NivelPresenca,
+  /**
+   * 2-4 frases sobre o papel *específico* desta pessoa no caso. Curado à mão e
+   * coberto pela `Fonte` da própria Pessoa. É o texto que a página de Pessoa
+   * mostra em destaque, antes dos backlinks — os backlinks dizem onde a pessoa
+   * aparece; isto diz por que ela importa.
+   */
+  resumo_participacao: z.string().min(40).max(1200),
   confianca: Confianca.default("confirmado"),
   pos: Pos.optional(),
 });
 export type Pessoa = z.infer<typeof Pessoa>;
 
 // ---------------------------------------------------------------------------
-// 4. Relação (aresta do mapa)
+// 4. Documento (peça processual)
+// ---------------------------------------------------------------------------
+
+export const TipoDocumento = z.enum(["despacho", "decisao", "oficio", "liminar"]);
+export type TipoDocumento = z.infer<typeof TipoDocumento>;
+
+/**
+ * Uma peça identificável dentro de um processo. Registra que a peça existe, de
+ * quem partiu e o que decidiu segundo a fonte pública — nunca o inteiro teor.
+ *
+ * Convenção de id: `<tipo>-<referência em kebab-case>`, com sufixo quando o
+ * mesmo autor assina duas peças no mesmo processo e dia
+ * (`decisao-pet-16704-2026-09-12-avocacao`).
+ */
+export const Documento = Fonte.extend({
+  id: Id,
+  /** Aponta para um Processo — validado em scripts/validate.ts. */
+  processo_id: Id,
+  tipo: TipoDocumento,
+  data: z.string().date(),
+  /** Aponta para uma Pessoa — validado em scripts/validate.ts. */
+  autor_id: Id,
+  /** Como a peça é citada nas fontes: "Ofício GMAM 07/2026". */
+  numero_referencia: z.string().min(3),
+  resumo: z.string().min(10),
+  /**
+   * Só quando existe link público e real para o inteiro teor. Ausente é o
+   * estado normal e correto: link quebrado é pior que link nenhum.
+   */
+  pdf_url: z.string().url().optional(),
+  confianca: Confianca.default("confirmado"),
+  /** Mesmo guardrail de EventoTimeline — ver scripts/validate.ts. */
+  sigilo_ack: z.boolean().default(false),
+});
+export type Documento = z.infer<typeof Documento>;
+
+// ---------------------------------------------------------------------------
+// 5. Relação (aresta do mapa)
 // ---------------------------------------------------------------------------
 
 export const Relacao = Fonte.extend({
   id: Id,
-  /** Aceita id de Pessoa OU de Processo — validado em scripts/validate.ts. */
+  /** Aceita id de Pessoa, Processo OU Documento — validado em scripts/validate.ts. */
   from: Id,
   to: Id,
   rotulo: z.string().min(2),
@@ -160,6 +215,7 @@ export type Relacao = z.infer<typeof Relacao>;
 export const ProcessoArray = z.array(Processo);
 export const EventoTimelineArray = z.array(EventoTimeline);
 export const PessoaArray = z.array(Pessoa);
+export const DocumentoArray = z.array(Documento);
 export const RelacaoArray = z.array(Relacao);
 
 export const STATUS_LABEL: Record<Processo["status"], string> = {
@@ -179,6 +235,19 @@ export const CONFIANCA_LABEL: Record<Confianca, string | null> = {
   confirmado: null,
   apuracao: "Em apuração",
   controverso: "Ponto controverso",
+};
+
+export const NIVEL_PRESENCA_LABEL: Record<NivelPresenca, string> = {
+  central: "Central",
+  recorrente: "Recorrente",
+  periferico: "Periférico",
+};
+
+export const TIPO_DOCUMENTO_LABEL: Record<TipoDocumento, string> = {
+  despacho: "Despacho",
+  decisao: "Decisão",
+  oficio: "Ofício",
+  liminar: "Liminar",
 };
 
 export const TIPO_LABEL: Record<EventoTimeline["tipo"], string> = {

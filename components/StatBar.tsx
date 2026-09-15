@@ -7,12 +7,13 @@ const CELULAS = [
   { valor: stats.decididos, label: "decididos" },
   { valor: stats.marcos, label: "marcos na linha do tempo" },
   { valor: stats.envolvidos, label: "envolvidos mapeados" },
+  { valor: stats.documentos, label: "peças identificadas" },
 ];
 
 export default function StatBar() {
   return (
     <section className="border-y border-rule">
-      <dl className="grid grid-cols-2 divide-rule sm:grid-cols-3 lg:grid-cols-6 lg:divide-x">
+      <dl className="grid grid-cols-2 divide-rule sm:grid-cols-3 lg:grid-cols-7 lg:divide-x">
         {CELULAS.map((c) => (
           <div key={c.label} className="border-b border-rule px-4 py-4 lg:border-b-0">
             <dd

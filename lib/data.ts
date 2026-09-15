@@ -1,13 +1,16 @@
 import processosRaw from "../data/processos.json";
 import timelineRaw from "../data/timeline.json";
 import pessoasRaw from "../data/pessoas.json";
+import documentosRaw from "../data/documentos.json";
 import relacoesRaw from "../data/relacoes.json";
 
 import {
+  DocumentoArray,
   EventoTimelineArray,
   PessoaArray,
   ProcessoArray,
   RelacaoArray,
+  type Documento,
   type EventoTimeline,
   type Pessoa,
   type Processo,
@@ -35,11 +38,14 @@ export const processos = parse<Processo[]>(ProcessoArray, processosRaw, "process
 export const timeline = parse<EventoTimeline[]>(EventoTimelineArray, timelineRaw, "timeline.json");
 export const pessoas = parse<Pessoa[]>(PessoaArray, pessoasRaw, "pessoas.json");
 export const relacoes = parse<Relacao[]>(RelacaoArray, relacoesRaw, "relacoes.json");
+export const documentos = parse<Documento[]>(DocumentoArray, documentosRaw, "documentos.json");
 
 // --- Acessores ------------------------------------------------------------
 
 export const processoPorId = (id: string) => processos.find((p) => p.id === id);
 export const pessoaPorId = (id: string) => pessoas.find((p) => p.id === id);
+export const documentoPorId = (id: string) => documentos.find((d) => d.id === id);
+export const eventoPorId = (id: string) => timeline.find((e) => e.id === id);
 
 /** Ordem cronológica decrescente — o mais recente primeiro. */
 export const timelineDesc = [...timeline].sort((a, b) => b.data.localeCompare(a.data));
@@ -50,6 +56,29 @@ export const eventosDoProcesso = (id: string) =>
 
 export const relacoesDoNo = (id: string) =>
   relacoes.filter((r) => r.from === id || r.to === id);
+
+/** Peças de um processo, da mais antiga para a mais recente. */
+export const documentosDoProcesso = (id: string) =>
+  documentos.filter((d) => d.processo_id === id).sort((a, b) => a.data.localeCompare(b.data));
+
+export const documentosDoAutor = (id: string) =>
+  documentos.filter((d) => d.autor_id === id).sort((a, b) => a.data.localeCompare(b.data));
+
+export const eventosDaPessoa = (id: string) => timelineAsc.filter((e) => e.pessoas.includes(id));
+
+export const documentosDesc = [...documentos].sort((a, b) => b.data.localeCompare(a.data));
+
+/** Ordena pessoas pelo protagonismo declarado, depois pelo nome. */
+const ORDEM_PRESENCA: Record<Pessoa["nivel_presenca"], number> = {
+  central: 0,
+  recorrente: 1,
+  periferico: 2,
+};
+export const pessoasPorPresenca = [...pessoas].sort(
+  (a, b) =>
+    ORDEM_PRESENCA[a.nivel_presenca] - ORDEM_PRESENCA[b.nivel_presenca] ||
+    a.nome.localeCompare(b.nome, "pt-BR"),
+);
 
 /** Data de corte do painel: a movimentação mais recente registrada. */
 export const dataCorte = [...processos]
@@ -64,6 +93,7 @@ export const stats = {
   decididos: processos.filter((p) => p.status === "decidido").length,
   marcos: timeline.filter((e) => e.milestone).length,
   envolvidos: pessoas.length,
+  documentos: documentos.length,
 };
 
 /**

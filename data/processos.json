@@ -38,7 +38,10 @@
     },
     "sync": "sem_numero_cnj",
     "sync_checked_at": null,
-    "pos": { "x": 540, "y": 400 },
+    "pos": {
+      "x": 540,
+      "y": 400
+    },
     "updated_at": "2026-09-14",
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
@@ -61,7 +64,10 @@
       "origem": "manual"
     },
     "movimentacoes": [],
-    "proximo_evento": { "data": "2026-09-23", "descricao": "Sessão de pauta." },
+    "proximo_evento": {
+      "data": "2026-09-23",
+      "descricao": "Sessão de pauta."
+    },
     "sync": "sem_numero_cnj",
     "sync_checked_at": null,
     "updated_at": "2026-09-14",
@@ -97,7 +103,10 @@
     "proximo_evento": null,
     "sync": "sem_numero_cnj",
     "sync_checked_at": null,
-    "pos": { "x": 470, "y": 175 },
+    "pos": {
+      "x": 470,
+      "y": 175
+    },
     "updated_at": "2026-09-14",
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
@@ -214,7 +223,10 @@
     "proximo_evento": null,
     "sync": "sem_numero_cnj",
     "sync_checked_at": null,
-    "pos": { "x": 985, "y": 650 },
+    "pos": {
+      "x": 985,
+      "y": 650
+    },
     "updated_at": "2026-09-14",
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
@@ -240,7 +252,10 @@
     "proximo_evento": null,
     "sync": "sem_numero_cnj",
     "sync_checked_at": null,
-    "pos": { "x": 880, "y": 460 },
+    "pos": {
+      "x": 880,
+      "y": 460
+    },
     "updated_at": "2026-09-14",
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",

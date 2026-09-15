@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { pessoas, processos, relacoes, timeline } from "@/lib/data";
+import { documentos, pessoas, processos, relacoes, timeline } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Metodologia — OpenMaster",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 /** As fontes efetivamente citadas nos dados, contadas a partir deles. */
 const fontes = (() => {
   const mapa = new Map<string, { nome: string; url: string; n: number }>();
-  for (const item of [...processos, ...timeline, ...pessoas, ...relacoes]) {
+  for (const item of [...processos, ...timeline, ...pessoas, ...documentos, ...relacoes]) {
     const atual = mapa.get(item.source_url);
     if (atual) atual.n++;
     else mapa.set(item.source_url, { nome: item.source_name, url: item.source_url, n: 1 });
@@ -101,6 +101,60 @@ export default function MetodologiaPage() {
           disputa pública. Quando um ato pautado acontece, o resultado entra como evento novo; o
           item de pauta permanece como estava, para que o registro do que se esperava não seja
           reescrito pelo que veio depois.
+        </p>
+      </Secao>
+
+      <Secao titulo="Nível de presença e resumo de participação">
+        <p>
+          Cada envolvido carrega dois campos que são julgamento editorial declarado, não medição:
+          o <strong className="font-semibold text-ink">nível de presença</strong> (central,
+          recorrente ou periférico) e um{" "}
+          <strong className="font-semibold text-ink">resumo de participação</strong> de duas a
+          quatro frases. O nível mede protagonismo nos fatos, não frequência de menção — quem é
+          citado dez vezes de passagem continua periférico, e quem assina o ato que muda o rumo do
+          caso é central ainda que apareça uma vez. Quem quiser a medida de volume tem o número de
+          referências, que é contado e aparece em cada página.
+        </p>
+        <p>
+          Os dois campos são curados à mão e cobertos pela mesma exigência de fonte que todo o
+          resto. São redação nossa apoiada na fonte, não citação literal dela.
+        </p>
+      </Secao>
+
+      <Secao titulo="Documentos: o que registramos de cada peça">
+        <p>
+          O painel cataloga as peças que as fontes públicas nomeiam — decisões, liminares,
+          despachos e ofícios — com autor, data, processo e o efeito que a cobertura lhes
+          atribui. Não há transcrição de inteiro teor, e o link para o documento só existe quando
+          há um link público real: campo vazio é informação, link quebrado é ruído.
+        </p>
+      </Secao>
+
+      <Secao titulo="Backlinks são calculados, nunca escritos">
+        <p>
+          A seção “o que aponta para aqui”, presente em toda página de entidade, é derivada dos
+          dados a cada build, a partir das referências que já existem: os processos e pessoas que
+          um evento cita, o processo e o autor de uma peça, as duas pontas de cada relação.
+        </p>
+        <p>
+          Nenhum arquivo em <code className="numero text-sm">/data</code> guarda essa contagem, e a
+          validação recusa qualquer tentativa de escrevê-la à mão. O motivo é simples: um campo
+          desses é verdadeiro no dia em que é preenchido e falso no dia seguinte, quando alguém
+          acrescenta um evento e esquece de atualizá-lo — e um dado errado tem exatamente a mesma
+          aparência de um certo.
+        </p>
+      </Secao>
+
+      <Secao titulo="Busca e filtros">
+        <p>
+          A busca é gerada no build e roda inteira no navegador de quem pesquisa: não há servidor
+          de busca, e portanto não há onde registrar quem procurou o quê. Num painel sobre
+          investigação criminal, isso é parte do que o projeto promete, não detalhe de
+          arquitetura.
+        </p>
+        <p>
+          Os filtros de processos e da linha do tempo guardam seu estado na barra de endereços,
+          para que um recorte específico possa ser copiado e citado como link.
         </p>
       </Secao>
 
