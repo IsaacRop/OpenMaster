@@ -11,8 +11,8 @@ import type { RefEntidade, TipoEntidade } from "@/lib/backlinks";
 
 export const MARCA_TIPO: Record<TipoEntidade, { sigla: string; classe: string }> = {
   processo: { sigla: "PROC", classe: "border-ink-2 text-ink-2" },
-  pessoa: { sigla: "PESS", classe: "border-seal text-seal" },
-  documento: { sigla: "DOC", classe: "border-gold text-gold" },
+  pessoa: { sigla: "PESS", classe: "border-rule-strong text-ink-2" },
+  documento: { sigla: "DOC", classe: "border-rule-strong text-ink-3" },
   evento: { sigla: "EVT", classe: "border-ink-3 text-ink-3" },
 };
 

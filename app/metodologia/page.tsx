@@ -94,10 +94,10 @@ export default function MetodologiaPage() {
       <Secao titulo="Hedging: por que alguns itens vêm marcados">
         <p>
           Cada registro carrega um grau de confiança que espelha o da própria fonte.{" "}
-          <span className="numero text-gold">Em apuração</span> marca o que a imprensa ainda trata
+          <span className="numero text-seal">Em apuração</span> marca o que a imprensa ainda trata
           como apuração em curso, e também atos apenas pautados — uma sessão marcada não é um
           julgamento realizado.{" "}
-          <span className="numero text-seal">Ponto controverso</span> marca aquilo sobre o que há
+          <span className="numero text-disputed">Ponto controverso</span> marca aquilo sobre o que há
           disputa pública. Quando um ato pautado acontece, o resultado entra como evento novo; o
           item de pauta permanece como estava, para que o registro do que se esperava não seja
           reescrito pelo que veio depois.
