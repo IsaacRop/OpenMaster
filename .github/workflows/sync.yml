@@ -1,0 +1,83 @@
+name: sync-datajud
+
+# Consulta a API Pública do DataJud e ABRE UM PR com o que mudou.
+# Nunca commita direto em main: metadado novo passa por revisão humana antes
+# de virar página publicada — é o mesmo princípio que mantém a timeline como
+# curadoria.
+#
+# Não existe auto-merge aqui, e é intencional. Duas travas distintas, que é
+# fácil confundir:
+#
+#   - a permissão "Allow GitHub Actions to create and approve pull requests"
+#     (Settings → Actions → General) autoriza este workflow a CRIAR o PR;
+#   - quem impede o MERGE sem revisão é a branch protection de `main` com
+#     "Require review from Code Owners", combinada com .github/CODEOWNERS.
+#
+# Ligar a primeira sem configurar a segunda deixa o robô livre para abrir e
+# mergear. As duas precisam existir.
+
+on:
+  schedule:
+    - cron: "0 9 * * *" # 09:00 UTC ≈ 06:00 BRT, diário
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Sincronizar com o DataJud
+        env:
+          DATAJUD_API_KEY: ${{ secrets.DATAJUD_API_KEY }}
+          DATAJUD_ALIAS: ${{ vars.DATAJUD_ALIAS || 'stf' }}
+        run: npm run sync
+
+      # Validação roda AQUI, e não só no PR: um PR aberto com o GITHUB_TOKEN
+      # não dispara outros workflows (regra do GitHub contra recursão), então
+      # o validate.yml não rodaria sozinho sobre este PR.
+      - name: Validar o resultado antes de propor
+        run: npm run validate
+
+      - name: Abrir PR com as mudanças
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: sync/datajud
+          base: main
+          # Draft: trava mecânica que não depende de configuração do repo.
+          # Um PR em rascunho não pode ser mergeado — alguém precisa marcá-lo
+          # como pronto à mão, depois de ler o diff.
+          draft: true
+          labels: |
+            sync
+            revisao-humana-obrigatoria
+          title: "sync: movimentações do DataJud"
+          commit-message: "sync: atualiza movimentações a partir do DataJud/CNJ"
+          add-paths: |
+            data/processos.json
+            data/_pending.json
+          body: |
+            Atualização automática a partir da API Pública do DataJud (CNJ).
+
+            **Este PR é rascunho de propósito.** Marque como pronto só depois de
+            ler o diff; o merge ainda exigirá aprovação de um code owner.
+
+            **O que ele contém:** metadados objetivos de tramitação.
+
+            **O que ele não contém:** nenhum evento de timeline. Movimentos novos
+            ficam em `data/_pending.json` aguardando curadoria — se algum merecer
+            virar evento, adicione-o a `data/timeline.json` neste mesmo PR, com
+            `source_url` e a `confianca` que a fonte sustenta.
+
+            Antes de aprovar, confira se `sync` não mudou de estado para
+            `tribunal_indisponivel` ou `erro` em algum processo.
+          delete-branch: true

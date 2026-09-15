@@ -1,0 +1,249 @@
+[
+  {
+    "id": "pet-16662",
+    "numero": "Pet 16.662/DF",
+    "tribunal": "STF",
+    "apelido": "Relatórios de inteligência da PF",
+    "objeto": "Procedimento sobre relatórios de inteligência da PF sobre suposta rede de influência de Daniel Vorcaro citando contatos com o Min. Alexandre de Moraes; decisão de 08/09/2026 afastou preventivamente o diretor-geral e o diretor de Inteligência da PF e suspendeu a produção de relatórios de inteligência sobre atos de prestação jurisdicional, advocacia pública e polícia judiciária.",
+    "status": "pautado",
+    "sigilo": "parcial",
+    "confianca": "confirmado",
+    "relator_atual": "Presidência do STF (Min. Fachin), por substituição em 12/09/2026",
+    "relator_originario": "Min. André Mendonça",
+    "historico_relatoria": [
+      {
+        "relator": "Min. André Mendonça",
+        "de": null,
+        "ate": "2026-09-12",
+        "motivo": "Remessa à Presidência determinada pelo próprio relator (RISTF, art. 5º, I).",
+        "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/"
+      },
+      {
+        "relator": "Presidência do STF (Min. Edson Fachin)",
+        "de": "2026-09-12",
+        "ate": null,
+        "motivo": "Relatoria substituída nos termos do RISTF, art. 13, XV.",
+        "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/"
+      }
+    ],
+    "ultima_movimentacao": {
+      "data": "2026-09-12",
+      "descricao": "Relatoria substituída para a Presidência (RISTF art. 13, XV), após remessa determinada pelo próprio Min. Mendonça (RISTF art. 5º, I).",
+      "origem": "manual"
+    },
+    "movimentacoes": [],
+    "proximo_evento": {
+      "data": "2026-09-15",
+      "descricao": "Sessão extraordinária do Plenário, 10h."
+    },
+    "sync": "sem_numero_cnj",
+    "sync_checked_at": null,
+    "pos": { "x": 540, "y": 400 },
+    "updated_at": "2026-09-14",
+    "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
+    "source_name": "ConJur — Alexandre Morais da Rosa",
+    "source_date": "2026-09-13"
+  },
+  {
+    "id": "pet-16704",
+    "numero": "Pet 16.704/DF",
+    "tribunal": "STF",
+    "apelido": "Coordenação dos feitos relacionados",
+    "objeto": "Procedimento de ofício, instaurado em 03/09/2026, para coordenar os feitos relacionados (reúne informações e manifestações sobre a Pet 16.662 e o Inq 4.781/DF).",
+    "status": "em_aberto",
+    "sigilo": "parcial",
+    "confianca": "confirmado",
+    "relator_atual": "Min. Edson Fachin (Presidente)",
+    "historico_relatoria": [],
+    "ultima_movimentacao": {
+      "data": "2026-09-12",
+      "descricao": "Fachin indefere julgamento conjunto com a Pet 16.662 por razão de calendário processual; determina inclusão em pauta para 23/09.",
+      "origem": "manual"
+    },
+    "movimentacoes": [],
+    "proximo_evento": { "data": "2026-09-23", "descricao": "Sessão de pauta." },
+    "sync": "sem_numero_cnj",
+    "sync_checked_at": null,
+    "updated_at": "2026-09-14",
+    "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
+    "source_name": "ConJur — Alexandre Morais da Rosa",
+    "source_date": "2026-09-13"
+  },
+  {
+    "id": "rcl-88121",
+    "numero": "Rcl 88.121/DF",
+    "tribunal": "STF",
+    "apelido": "Reclamação de Daniel Vorcaro",
+    "objeto": "Reclamação de Daniel Vorcaro contra busca e apreensão e prisão.",
+    "status": "em_aberto",
+    "sigilo": "parcial",
+    "confianca": "confirmado",
+    "relator_atual": "Min. André Mendonça",
+    "historico_relatoria": [
+      {
+        "relator": "Min. André Mendonça",
+        "de": "2026-02-27",
+        "ate": null,
+        "motivo": "Redistribuição.",
+        "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/"
+      }
+    ],
+    "ultima_movimentacao": {
+      "data": "2026-02-27",
+      "descricao": "Redistribuída ao Min. André Mendonça.",
+      "origem": "manual"
+    },
+    "movimentacoes": [],
+    "proximo_evento": null,
+    "sync": "sem_numero_cnj",
+    "sync_checked_at": null,
+    "pos": { "x": 470, "y": 175 },
+    "updated_at": "2026-09-14",
+    "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
+    "source_name": "ConJur — Alexandre Morais da Rosa",
+    "source_date": "2026-09-13"
+  },
+  {
+    "id": "inq-4781",
+    "numero": "Inq 4.781/DF",
+    "tribunal": "STF",
+    "apelido": "Inquérito incorporado à Pet 16.704",
+    "objeto": "Decisão originária incorporada à Pet 16.704.",
+    "status": "decidido",
+    "sigilo": "sigiloso",
+    "confianca": "confirmado",
+    "relator_atual": "Min. Alexandre de Moraes",
+    "historico_relatoria": [],
+    "ultima_movimentacao": {
+      "data": "2026-09-04",
+      "descricao": "Conteúdo desentranhado e anexado à Pet 16.704.",
+      "origem": "manual"
+    },
+    "movimentacoes": [],
+    "proximo_evento": null,
+    "sync": "sem_numero_cnj",
+    "sync_checked_at": null,
+    "updated_at": "2026-09-14",
+    "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
+    "source_name": "ConJur — Alexandre Morais da Rosa",
+    "source_date": "2026-09-13"
+  },
+  {
+    "id": "pet-15556",
+    "numero": "Pet 15.556/DF",
+    "tribunal": "STF",
+    "apelido": "Autos da Operação Compliance Zero",
+    "objeto": "Autos do inquérito da PF — Operação Compliance Zero.",
+    "status": "em_aberto",
+    "sigilo": "parcial",
+    "confianca": "confirmado",
+    "relator_atual": "Presidência do STF (Min. Fachin), após remessa de 12/09/2026",
+    "historico_relatoria": [
+      {
+        "relator": "Presidência do STF (Min. Edson Fachin)",
+        "de": "2026-09-12",
+        "ate": null,
+        "motivo": "Avocação, com remessa de todos os autos relacionados.",
+        "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/"
+      }
+    ],
+    "ultima_movimentacao": {
+      "data": "2026-09-12",
+      "descricao": "Remetida à Presidência com todos os autos relacionados (avocação); última peça conhecida antes disso é de 25/08/2026, dando vista ao MPF.",
+      "origem": "manual"
+    },
+    "movimentacoes": [],
+    "proximo_evento": null,
+    "sync": "sem_numero_cnj",
+    "sync_checked_at": null,
+    "updated_at": "2026-09-14",
+    "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
+    "source_name": "ConJur — Alexandre Morais da Rosa",
+    "source_date": "2026-09-13"
+  },
+  {
+    "id": "pet-15041",
+    "numero": "Pet 15.041/DF",
+    "tribunal": "STF",
+    "apelido": "Petição avocada pela Presidência",
+    "objeto": "Objeto não especificado nos documentos públicos disponíveis.",
+    "status": "em_aberto",
+    "sigilo": "sigiloso",
+    "confianca": "confirmado",
+    "relator_atual": "Presidência do STF (Min. Fachin)",
+    "historico_relatoria": [
+      {
+        "relator": "Presidência do STF (Min. Edson Fachin)",
+        "de": "2026-09-12",
+        "ate": null,
+        "motivo": "Avocação, com remessa dos autos relacionados.",
+        "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/"
+      }
+    ],
+    "ultima_movimentacao": {
+      "data": "2026-09-12",
+      "descricao": "Remetida à Presidência com os autos relacionados (avocação).",
+      "origem": "manual"
+    },
+    "movimentacoes": [],
+    "proximo_evento": null,
+    "sync": "sem_numero_cnj",
+    "sync_checked_at": null,
+    "updated_at": "2026-09-14",
+    "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
+    "source_name": "ConJur — Alexandre Morais da Rosa",
+    "source_date": "2026-09-13"
+  },
+  {
+    "id": "pet-16669",
+    "numero": "Pet 16.669/DF",
+    "tribunal": "STF",
+    "apelido": "Requerimento de Andrei Rodrigues",
+    "objeto": "Requerimento de Andrei A. P. Rodrigues contra o afastamento decretado na Pet 16.662.",
+    "status": "decidido",
+    "sigilo": "parcial",
+    "confianca": "confirmado",
+    "relator_atual": "Min. Flávio Dino",
+    "historico_relatoria": [],
+    "ultima_movimentacao": {
+      "data": "2026-09-09",
+      "descricao": "Decisão de reintegração suspensa pela Presidência no mesmo dia.",
+      "origem": "manual"
+    },
+    "movimentacoes": [],
+    "proximo_evento": null,
+    "sync": "sem_numero_cnj",
+    "sync_checked_at": null,
+    "pos": { "x": 985, "y": 650 },
+    "updated_at": "2026-09-14",
+    "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
+    "source_name": "ConJur — Alexandre Morais da Rosa",
+    "source_date": "2026-09-13"
+  },
+  {
+    "id": "sl-1946",
+    "numero": "SL 1.946-MC/DF",
+    "tribunal": "STF",
+    "apelido": "Suspensão de liminar (União)",
+    "objeto": "Suspensão da liminar do Min. André Mendonça na Pet 16.662.",
+    "status": "decidido",
+    "sigilo": "publico",
+    "confianca": "confirmado",
+    "relator_atual": "Min. Edson Fachin (Presidente); requerente: União",
+    "historico_relatoria": [],
+    "ultima_movimentacao": {
+      "data": "2026-09-09",
+      "descricao": "Liminar concedida, suspendendo também a decisão do Min. Flávio Dino (Pet 16.669).",
+      "origem": "manual"
+    },
+    "movimentacoes": [],
+    "proximo_evento": null,
+    "sync": "sem_numero_cnj",
+    "sync_checked_at": null,
+    "pos": { "x": 880, "y": 460 },
+    "updated_at": "2026-09-14",
+    "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
+    "source_name": "ConJur — Alexandre Morais da Rosa",
+    "source_date": "2026-09-13"
+  }
+]

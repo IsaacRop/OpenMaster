@@ -1,0 +1,14 @@
+# Aprovação obrigatória em todo o repositório.
+#
+# Uma única regra, cobrindo tudo: qualquer PR — inclusive os que o workflow
+# sync-datajud abre sozinho — exige review de um code owner antes do merge.
+#
+# ATENÇÃO: esta linha só tem efeito se o nome de usuário estiver correto E se
+# houver branch protection em `main` com "Require review from Code Owners"
+# ligado. GitHub ignora silenciosamente um usuário inexistente aqui — não há
+# erro, a regra apenas deixa de valer. Confira em
+# Settings → Branches → main → a aba de code owners mostra se a regra resolve.
+#
+# TROQUE @ISAAC-USUARIO-GITHUB pelo usuário real antes de abrir o repositório.
+
+*       @ISAAC-USUARIO-GITHUB

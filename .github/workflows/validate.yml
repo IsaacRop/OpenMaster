@@ -1,0 +1,24 @@
+name: validate
+
+# O portão de qualidade dos dados. Roda em todo PR: sem fonte, sem
+# referência resolvida ou sem sigilo_ack onde é exigido, o PR não passa.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Validar dados
+        run: npm run validate
+      - name: Build (valida os dados uma segunda vez, via lib/data.ts)
+        run: npm run build

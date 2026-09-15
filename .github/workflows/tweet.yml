@@ -1,0 +1,51 @@
+name: post-twitter
+
+# Posta no X depois que o dado já passou por revisão — ou seja, depois do
+# merge em main, nunca a partir de um PR aberto pelo sync. A fila é explícita:
+# só entra evento marcado com "tweet": true e sem "tweeted_at".
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Só imprimir o que seria postado"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  tweet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Postar
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        # Sem os secrets configurados, o script cai em dry-run sozinho.
+        run: npm run tweet -- --limit 4 ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Gravar tweeted_at
+        run: |
+          if [ -n "$(git status --porcelain data/)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/
+            git commit -m "chore: marca tweeted_at [skip ci]"
+            git push
+          fi
