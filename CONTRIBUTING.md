@@ -9,6 +9,7 @@ A contribuição mais valiosa aqui não é código: é **dado com fonte**. O pai
 3. `npm run validate` — se passar, os dados estão bem formados e todas as referências resolvem.
 4. Abra o PR descrevendo **qual fonte** sustenta a mudança.
 5. A CI roda `validate` e o build. PR que não valida não é mergeado.
+6. Todo PR exige aprovação de um code owner (`.github/CODEOWNERS`) antes do merge — inclusive os abertos pelo robô de sincronização, e inclusive os do mantenedor. A validação automática pega dado malformado; ela não pega um `confianca` trocado de `apuracao` para `confirmado`, nem um `objeto` sutilmente reescrito. Isso só leitura humana pega.
 
 Não é preciso saber React para contribuir. Quase toda contribuição é uma edição de JSON.
 

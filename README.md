@@ -56,10 +56,11 @@ Outros comandos:
 
 | comando | o que faz |
 | --- | --- |
-| `npm run validate` | valida os 4 JSONs: schema, ids únicos, integridade referencial, guardrail de sigilo |
+| `npm run validate` | valida os 4 JSONs: schema, ids únicos, integridade referencial, guardrail de sigilo, forma do histórico de relatoria |
 | `npm run build` | build de produção (valida os dados de novo, via `lib/data.ts`) |
 | `npm run sync -- --dry-run` | consulta o DataJud e relata, sem escrever |
 | `npm run tweet -- --dry-run` | imprime exatamente o que seria postado no X |
+| `npm run pos-sessao` | checklist verificável da atualização pós-sessão da Pet 16.662 |
 
 ---
 
@@ -78,11 +79,15 @@ lib/
   schema.ts               Zod das 4 entidades + rótulos de UI
   data.ts                 carga, validação e acessores
   datajud-client.ts       client tipado da API Pública do CNJ
+  tweet-template.ts       geração do texto dos posts (lida sem executar nada)
 scripts/
   validate.ts             o portão de qualidade
   sync-datajud.ts         sincronização de metadados
   post-twitter.ts         publicação no X (OAuth 1.0a, sem dependências)
-.github/workflows/        validate.yml · sync.yml (abre PR) · tweet.yml (posta após merge)
+  post-sessao.ts          checklist verificável do dia seguinte à sessão
+.github/
+  CODEOWNERS              aprovação obrigatória em todo PR
+  workflows/              validate.yml · sync.yml (abre PR) · tweet.yml (posta após merge)
 ```
 
 ---
@@ -203,7 +208,33 @@ O cron fica no GitHub Actions e não na Vercel: o plano Hobby limita a uma execu
 
 Secrets a configurar em *Settings → Secrets and variables → Actions*: `DATAJUD_API_KEY`, `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_TOKEN_SECRET`. Variáveis: `SITE_URL` e, opcionalmente, `DATAJUD_ALIAS`.
 
-Para o `sync.yml` conseguir abrir PR: *Settings → Actions → General → Workflow permissions* → marque **Allow GitHub Actions to create and approve pull requests**.
+### Duas travas diferentes, que é fácil confundir
+
+Elas parecem a mesma coisa e não são:
+
+| trava | onde se configura | o que controla |
+| --- | --- | --- |
+| *Allow GitHub Actions to create and approve pull requests* | Settings → Actions → General → Workflow permissions | se o robô pode **criar** o PR |
+| Branch protection + `.github/CODEOWNERS` | Settings → Branches → regra para `main` | se qualquer PR pode ser **mergeado** sem review |
+
+Ligar a primeira sem configurar a segunda é o pior dos mundos: o robô ganha permissão de abrir e aprovar, e nada exige olho humano antes do merge. A permissão de Actions é necessária para o `sync.yml` funcionar — mas só depois que a branch protection estiver de pé.
+
+Configure `main` com, no mínimo:
+
+- **Require a pull request before merging**, com 1 aprovação;
+- **Require review from Code Owners**;
+- **Require status checks to pass** → `validate`;
+- **Do not allow bypassing the above settings** (sem isso, quem é admin — você — contorna tudo sem perceber).
+
+O PR do `sync.yml` ainda nasce em **rascunho**, que é uma trava mecânica independente de configuração: rascunho não mergeia, alguém precisa marcá-lo como pronto à mão.
+
+Um detalhe que economiza confusão: PR aberto com o `GITHUB_TOKEN` não dispara outros workflows (regra do GitHub contra recursão), então o `validate.yml` não roda sozinho sobre o PR do sync. Por isso o `sync.yml` roda `npm run validate` antes de propor.
+
+### Por que essa trava existe
+
+Não é paranoia performática. Um repositório open source sobre um processo em andamento envolvendo ministros do STF é alvo plausível de um PR que **pareça** correção de dado e seja distorção: trocar `confianca` de `apuracao` para `confirmado` num evento que ainda é apuração, editar sutilmente o `objeto` de um processo, apontar um `source_url` para uma cobertura que não sustenta o que o texto afirma. São diffs de uma linha, plausíveis, e a validação automática não pega nenhum deles — todos passam no schema.
+
+O que pega é leitura humana do diff contra a fonte. CODEOWNERS existe para garantir que essa leitura aconteça sempre, inclusive nos PRs que o próprio robô abre, e inclusive quando quem edita é o mantenedor com pressa.
 
 ---
 
