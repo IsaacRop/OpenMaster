@@ -9,6 +9,5 @@
 # erro, a regra apenas deixa de valer. Confira em
 # Settings → Branches → main → a aba de code owners mostra se a regra resolve.
 #
-# TROQUE @ISAAC-USUARIO-GITHUB pelo usuário real antes de abrir o repositório.
 
-*       @ISAAC-USUARIO-GITHUB
+*       @IsaacRop
