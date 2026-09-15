@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { IBM_Plex_Mono, Inter, Source_Serif_4 } from "next/font/google";
+import { Archivo, IBM_Plex_Mono } from "next/font/google";
 
 import Disclaimer from "@/components/Disclaimer";
+import LogoMark from "@/components/LogoMark";
 import MainNav from "@/components/MainNav";
 import { dataCorte } from "@/lib/data";
 import "./globals.css";
-
-const serif = Source_Serif_4({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-serif-stack",
-  display: "swap",
-});
 
 const mono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -21,8 +15,9 @@ const mono = IBM_Plex_Mono({
   display: "swap",
 });
 
-const sans = Inter({
+const sans = Archivo({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans-stack",
   display: "swap",
 });
@@ -35,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${serif.variable} ${mono.variable} ${sans.variable}`}>
+    <html lang="pt-BR" className={`${mono.variable} ${sans.variable}`}>
       <body className="min-h-screen antialiased">
         <a href="#conteudo" className="skip-link">
           Pular para o conteúdo
@@ -54,11 +49,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3 py-5">
-              <Link href="/" className="group inline-flex items-center gap-3 no-underline">
-                <span className="brand-mark" aria-hidden="true">OM</span>
+              <Link href="/" className="group inline-flex items-center gap-3 no-underline" aria-label="OpenMaster - início">
+                <LogoMark size={44} />
                 <span>
                   <span className="block text-[1.55rem] font-semibold leading-none tracking-[-0.04em] text-ink sm:text-[1.8rem]">
-                    OpenMaster
+                    <span className="font-normal text-ink">Open</span><span className="font-bold text-white">Master</span>
                   </span>
                   <span className="mt-1 block font-mono text-[0.7rem] uppercase tracking-[0.16em] text-ink-3">
                     inteligência pública acessível
