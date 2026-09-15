@@ -3,6 +3,8 @@ import Link from "next/link";
 import { IBM_Plex_Mono, Inter, Source_Serif_4 } from "next/font/google";
 
 import Disclaimer from "@/components/Disclaimer";
+import MainNav from "@/components/MainNav";
+import { dataCorte } from "@/lib/data";
 import "./globals.css";
 
 const serif = Source_Serif_4({
@@ -31,54 +33,51 @@ export const metadata: Metadata = {
     "Acompanhamento público do cluster de processos do caso Banco Master / Daniel Vorcaro no STF: linha do tempo, estado de cada processo, peças identificadas e mapa navegável dos envolvidos, com fonte em cada afirmação.",
 };
 
-const NAV = [
-  { href: "/", label: "Capa" },
-  { href: "/processos", label: "Processos" },
-  { href: "/timeline", label: "Linha do tempo" },
-  { href: "/documentos", label: "Documentos" },
-  { href: "/pessoas", label: "Envolvidos" },
-  { href: "/busca", label: "Busca" },
-  { href: "/metodologia", label: "Metodologia" },
-];
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${serif.variable} ${mono.variable} ${sans.variable}`}>
       <body className="min-h-screen antialiased">
-        <header className="border-b border-rule">
-          <div className="mx-auto max-w-6xl px-5 pt-6 pb-3">
-            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-              <Link href="/" className="no-underline">
-                <h1 className="headline text-3xl sm:text-4xl text-ink">
-                  OpenMaster
-                </h1>
+        <a href="#conteudo" className="skip-link">
+          Pular para o conteúdo
+        </a>
+
+        <header className="site-header">
+          <div className="mx-auto max-w-6xl px-5">
+            <div className="flex min-h-7 items-center justify-between gap-4 border-b border-rule/70 py-1.5">
+              <p className="status-line">
+                <span className="status-dot" aria-hidden="true" />
+                Base pública verificada até {dataCorte.split("-").reverse().join("/")}
+              </p>
+              <Link href="/metodologia" className="meta-link hidden sm:inline-flex">
+                Como verificamos
               </Link>
-              <p className="kicker">
-                Banco Master · Vorcaro · STF · Operação Compliance Zero
+            </div>
+
+            <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3 py-5">
+              <Link href="/" className="group inline-flex items-center gap-3 no-underline">
+                <span className="brand-mark" aria-hidden="true">OM</span>
+                <span>
+                  <span className="block text-[1.55rem] font-semibold leading-none tracking-[-0.04em] text-ink sm:text-[1.8rem]">
+                    OpenMaster
+                  </span>
+                  <span className="mt-1 block font-mono text-[0.7rem] uppercase tracking-[0.16em] text-ink-3">
+                    inteligência pública acessível
+                  </span>
+                </span>
+              </Link>
+
+              <p className="hidden max-w-sm text-right text-sm leading-relaxed text-ink-2 lg:block">
+                Processos, decisões e pessoas conectados a partir de fontes públicas.
               </p>
             </div>
+
+            <MainNav />
           </div>
-
-          <div className="rule-thick mx-auto max-w-6xl" />
-
-          <nav className="mx-auto max-w-6xl px-5 py-2">
-            <ul className="flex flex-wrap gap-x-6 gap-y-1">
-              {NAV.map((n) => (
-                <li key={n.href}>
-                  <Link
-                    href={n.href}
-                    className="kicker no-underline hover:text-seal transition-colors"
-                  >
-                    {n.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <div className="rule-thin mx-auto max-w-6xl" />
         </header>
 
-        <main className="mx-auto max-w-6xl px-5 py-8">{children}</main>
+        <main id="conteudo" className="mx-auto max-w-6xl px-5 py-8 sm:py-10">
+          {children}
+        </main>
 
         <Disclaimer />
       </body>
