@@ -37,40 +37,32 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
 
         <header className="site-header">
-          <div className="mx-auto max-w-6xl px-5">
-            <div className="flex min-h-7 items-center justify-between gap-4 border-b border-rule/70 py-1.5">
-              <p className="status-line">
-                <span className="status-dot" aria-hidden="true" />
-                Base pública verificada até {dataCorte.split("-").reverse().join("/")}
-              </p>
-              <Link href="/metodologia" className="meta-link hidden sm:inline-flex">
-                Como verificamos
-              </Link>
+          <div className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-x-5 gap-y-2 px-4 py-3 sm:px-6">
+            <Link href="/" className="inline-flex shrink-0 items-center gap-2.5 no-underline" aria-label="OpenMaster - início">
+              <LogoMark size={30} />
+              <span className="text-[1.08rem] tracking-[-0.025em]">
+                <span className="font-normal text-ink">Open</span><span className="font-bold text-white">Master</span>
+              </span>
+            </Link>
+
+            <div className="order-3 w-full border-t border-rule pt-1 lg:order-none lg:w-auto lg:border-0 lg:pt-0">
+              <MainNav />
             </div>
 
-            <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-3 py-5">
-              <Link href="/" className="group inline-flex items-center gap-3 no-underline" aria-label="OpenMaster - início">
-                <LogoMark size={44} />
-                <span>
-                  <span className="block text-[1.55rem] font-semibold leading-none tracking-[-0.04em] text-ink sm:text-[1.8rem]">
-                    <span className="font-normal text-ink">Open</span><span className="font-bold text-white">Master</span>
-                  </span>
-                  <span className="mt-1 block font-mono text-[0.7rem] uppercase tracking-[0.16em] text-ink-3">
-                    inteligência pública acessível
-                  </span>
-                </span>
-              </Link>
+            <Link href="/busca" className="search-affordance ml-auto lg:min-w-64 lg:flex-1">
+              <span className="numero text-ink-3" aria-hidden="true">/</span>
+              <span className="hidden sm:inline">Buscar processo, pessoa, documento…</span>
+              <span className="sm:hidden">Buscar</span>
+            </Link>
 
-              <p className="hidden max-w-sm text-right text-sm leading-relaxed text-ink-2 lg:block">
-                Processos, decisões e pessoas conectados a partir de fontes públicas.
-              </p>
-            </div>
-
-            <MainNav />
+            <Link href="/metodologia" className="status-line hidden xl:inline-flex">
+              <span className="h-1.5 w-1.5 rounded-full bg-ok" aria-hidden="true" />
+              Dados até {dataCorte.split("-").reverse().join("/")}
+            </Link>
           </div>
         </header>
 
-        <main id="conteudo" className="mx-auto max-w-6xl px-5 py-8 sm:py-10">
+        <main id="conteudo" className="mx-auto max-w-[1440px] px-4 py-4 sm:px-6 sm:py-6">
           {children}
         </main>
 

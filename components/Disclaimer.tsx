@@ -2,8 +2,8 @@ import { dataCorte } from "@/lib/data";
 
 export default function Disclaimer() {
   return (
-    <footer className="mt-16 border-t border-rule">
-      <div className="mx-auto max-w-6xl px-5 py-8">
+    <footer className="mt-8 border-t border-rule">
+      <div className="mx-auto max-w-[1440px] px-4 py-8 sm:px-6">
         <div className="rule-thick mb-4" />
         <p className="kicker mb-3">Aviso</p>
         <p className="max-w-3xl text-sm leading-relaxed text-ink-2">

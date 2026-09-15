@@ -5,18 +5,17 @@ import { usePathname } from "next/navigation";
 
 const NAV = [
   { href: "/", label: "Visão geral" },
-  { href: "/timeline", label: "O que aconteceu" },
-  { href: "/pessoas", label: "Quem é quem" },
+  { href: "/timeline", label: "Linha do tempo" },
   { href: "/processos", label: "Processos" },
+  { href: "/pessoas", label: "Pessoas e instituições" },
   { href: "/documentos", label: "Documentos" },
-  { href: "/busca", label: "Buscar" },
 ];
 
 export default function MainNav() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Navegação principal" className="overflow-x-auto">
+    <nav aria-label="Navegação principal" className="min-w-0 overflow-x-auto">
       <ul className="flex min-w-max items-center gap-1">
         {NAV.map((item) => {
           const ativo = item.href === "/"
