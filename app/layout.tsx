@@ -23,9 +23,9 @@ const sans = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "OpenMaster — acompanhamento independente",
+  title: "OpenMaster — inteligência pública com IA",
   description:
-    "Acompanhamento público do cluster de processos do caso Banco Master / Daniel Vorcaro no STF: linha do tempo, estado de cada processo, peças identificadas e mapa navegável dos envolvidos, com fonte em cada afirmação.",
+    "Painel público de consulta ao caso Banco Master: um agente de IA apoiado por processos, documentos, linha do tempo e relações verificáveis, com fonte em cada afirmação.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
