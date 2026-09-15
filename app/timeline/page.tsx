@@ -23,14 +23,15 @@ export default function TimelinePage() {
   return (
     <div className="space-y-6">
       <header>
-        <p className="kicker">Cronologia</p>
-        <h2 className="headline mt-1 text-4xl text-ink">Linha do tempo</h2>
+        <p className="eyebrow">O caso passo a passo</p>
+        <h2 className="headline mt-2 text-4xl text-ink">O que aconteceu</h2>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-2">
-          {timelineDesc.length} eventos registrados, {marcos} deles marcados como marco. Os
-          eventos aparecem do mais recente para o mais antigo. Itens marcados{" "}
-          <span className="numero text-gold">em apuração</span> são apurações em curso ou atos
-          ainda por ocorrer — não resultados. O sigilo de um evento é o do processo mais restrito
-          que ele toca.
+          Reunimos {timelineDesc.length} acontecimentos em ordem, do mais recente para o mais
+          antigo. Os {marcos} pontos que mudaram o rumo do caso recebem a indicação “marco”.
+        </p>
+        <p className="plain-note mt-4 max-w-3xl text-sm leading-relaxed">
+          <strong className="text-ink">Em apuração</strong> significa que algo ainda está sendo
+          verificado ou ainda pode acontecer. Não deve ser lido como resultado ou fato encerrado.
         </p>
       </header>
 
@@ -40,7 +41,7 @@ export default function TimelinePage() {
           cartoes={cartoes}
           opcoes={OPCOES}
           layout="linha"
-          rotuloVazio="Nenhum evento registrado satisfaz esse recorte. A ausência aqui é ausência no que foi mapeado, não no que aconteceu."
+          rotuloVazio="Nenhum acontecimento registrado corresponde a esses filtros. A ausência aqui vale apenas para o que já foi mapeado."
         />
       </Suspense>
     </div>
