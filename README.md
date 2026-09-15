@@ -67,21 +67,30 @@ Outros comandos:
 ## Estrutura
 
 ```
-app/                      rotas (capa, /processos, /processos/[id], /timeline, /metodologia)
-components/               Timeline, ProcessCard, NetworkMap, StatBar, SourceTag, Disclaimer
+app/                      rotas: capa, /busca, /processos[/id], /timeline, /eventos/[id],
+                          /pessoas[/id], /documentos[/id], /metodologia
+components/               Timeline, ProcessCard, NetworkMap, GrafoEnvolvidos, Backlinks,
+                          BuscaCliente, ListaFiltravel, Entidade, NivelBadge, StatBar,
+                          SourceTag, Disclaimer
 data/
   processos.json          o cluster
   timeline.json           cronologia curada
   pessoas.json            nós do mapa (pessoas e instituições)
+  documentos.json         peças processuais identificadas nas fontes
   relacoes.json           arestas do mapa
   _pending.json           movimentos do DataJud aguardando curadoria (gerado)
 lib/
-  schema.ts               Zod das 4 entidades + rótulos de UI
+  schema.ts               Zod das 5 entidades + rótulos de UI
   data.ts                 carga, validação e acessores
+  backlinks.ts            backlinks derivados — o que aponta para cada entidade
+  busca.ts                índice de busca gerado em build time
+  filtros.ts              metadados dos filtros cruzados
+  grafo.ts                nós e arestas prontos para o grafo interativo
   datajud-client.ts       client tipado da API Pública do CNJ
   tweet-template.ts       geração do texto dos posts (lida sem executar nada)
 scripts/
   validate.ts             o portão de qualidade
+  format-data.ts          normaliza os JSONs para o formato canônico
   sync-datajud.ts         sincronização de metadados
   post-twitter.ts         publicação no X (OAuth 1.0a, sem dependências)
   post-sessao.ts          checklist verificável do dia seguinte à sessão
@@ -147,11 +156,42 @@ Regra de ouro ao registrar o desfecho de um ato pautado: **crie um evento novo, 
 
 ### Uma pessoa e uma relação
 
-`data/pessoas.json` leva `id`, `nome`, `tipo` (`pessoa` | `instituicao`), `papel`, `grupo` (`central` | `stf` | `instituicao` | `outros`), `pos` e fonte.
+`data/pessoas.json` leva `id`, `nome`, `tipo` (`pessoa` | `instituicao`), `papel`, `grupo` (`central` | `stf` | `instituicao` | `outros`), `pos`, fonte e mais dois campos curados:
 
-`data/relacoes.json` leva `from`, `to`, `rotulo`, `peso` (`forte` | `normal`), `confianca` e fonte. **`from` e `to` aceitam id de Pessoa _ou_ de Processo** — várias arestas ligam processo a pessoa, como `pet-16662 → afastou preventivamente → rodrigues`. A validação confere as duas pontas contra a união das duas coleções.
+- **`nivel_presenca`** — `central` | `recorrente` | `periferico`. Protagonismo nos fatos, **não** frequência de menção. Quem é citado dez vezes de passagem continua `periferico`; quem assina o ato que muda o caso é `central` ainda que apareça uma vez. Quem quiser a medida de volume tem a contagem de backlinks, que é calculada.
+- **`resumo_participacao`** — 2 a 4 frases sobre o papel específico daquela pessoa. É redação apoiada na fonte, não citação literal dela.
 
-O layout do mapa é editorial: `pos` é coordenada fixa no `viewBox="20 10 1220 760"`, sem física nem force-directed. Dois deploys iguais desenham o mesmo mapa. `npm run validate` avisa se dois nós colidem ou se algum nó posicionado ficou sem nenhuma aresta.
+`data/relacoes.json` leva `from`, `to`, `rotulo`, `peso` (`forte` | `normal`), `confianca` e fonte. **`from` e `to` aceitam id de Pessoa, Processo _ou_ Documento** — várias arestas ligam processo a pessoa, como `pet-16662 → afastou preventivamente → rodrigues`. A validação confere as duas pontas contra a união das três coleções.
+
+### Um documento (peça processual)
+
+Em `data/documentos.json`. Convenção de `id`: `<tipo>-<referência em kebab-case>`, com sufixo quando o mesmo autor assina duas peças no mesmo processo e dia (`decisao-pet-16704-2026-09-12-avocacao`).
+
+```jsonc
+{
+  "id": "oficio-gmam-07-2026",
+  "processo_id": "pet-16704",          // precisa existir em processos.json
+  "tipo": "oficio",                    // despacho | decisao | oficio | liminar
+  "data": "2026-09-12",
+  "autor_id": "moraes",                // precisa existir em pessoas.json
+  "numero_referencia": "Ofício GMAM 07/2026",
+  "resumo": "O que a peça faz, segundo a fonte — nunca o inteiro teor.",
+  "confianca": "confirmado",
+  "sigilo_ack": false,                 // true e obrigatório se o processo for sigiloso
+  "source_url": "https://...",
+  "source_name": "..."
+}
+```
+
+`pdf_url` é opcional e **só existe quando há link público real**. Não invente um: campo vazio é informação, link quebrado é ruído. A validação recusa `pdf_url` em peça de processo sob sigilo.
+
+### Backlinks: nunca escreva um
+
+Toda entidade tem página própria com a seção “o que aponta para aqui”, derivada em build time por `lib/backlinks.ts` a partir de `relacoes.json`, `processo_id` e `autor_id`. **Isso nunca é campo de dado.** `npm run validate` varre o JSON bruto e recusa chaves como `backlinks`, `aparece_em` ou `citado_por` — o Zod as descartaria em silêncio, e um campo desses fica verdadeiro exatamente um dia: até alguém acrescentar um evento e esquecer de atualizá-lo.
+
+### O mapa
+
+`pos` continua sendo dado editorial, mas mudou de papel: deixou de ser a posição final e virou a **posição inicial** da simulação `d3-force`. O mapa abre reconhecível, e a partir daí o leitor pode arrastar, aproximar e filtrar por grupo e nível de presença. O tamanho de cada nó é seu número de backlinks. Filtrar esconde o nó, nunca o remove — um nó removido reorganizaria o resto e sugeriria um caso com outra forma. `npm run validate` segue avisando se dois nós nascem na mesma posição ou se algum nó posicionado ficou sem aresta.
 
 ---
 

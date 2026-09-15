@@ -28,13 +28,16 @@ const sans = Inter({
 export const metadata: Metadata = {
   title: "OpenMaster — acompanhamento independente",
   description:
-    "Acompanhamento público do cluster de processos do caso Banco Master / Daniel Vorcaro no STF: linha do tempo, estado de cada processo e mapa dos envolvidos, com fonte em cada afirmação.",
+    "Acompanhamento público do cluster de processos do caso Banco Master / Daniel Vorcaro no STF: linha do tempo, estado de cada processo, peças identificadas e mapa navegável dos envolvidos, com fonte em cada afirmação.",
 };
 
 const NAV = [
   { href: "/", label: "Capa" },
   { href: "/processos", label: "Processos" },
   { href: "/timeline", label: "Linha do tempo" },
+  { href: "/documentos", label: "Documentos" },
+  { href: "/pessoas", label: "Envolvidos" },
+  { href: "/busca", label: "Busca" },
   { href: "/metodologia", label: "Metodologia" },
 ];
 

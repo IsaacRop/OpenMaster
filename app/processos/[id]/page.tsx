@@ -2,17 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import Backlinks from "@/components/Backlinks";
 import { DataBR } from "@/components/ProcessCard";
 import Timeline from "@/components/Timeline";
 import { ConfiancaBadge, SourceTag } from "@/components/SourceTag";
+import { EntidadeLink } from "@/components/Entidade";
+import { backlinks, dataBR, ref } from "@/lib/backlinks";
 import {
+  documentosDoProcesso,
   eventosDoProcesso,
-  pessoaPorId,
   processoPorId,
   processos,
-  relacoesDoNo,
 } from "@/lib/data";
-import { SIGILO_LABEL, STATUS_LABEL } from "@/lib/schema";
+import { SIGILO_LABEL, STATUS_LABEL, TIPO_DOCUMENTO_LABEL } from "@/lib/schema";
 
 export function generateStaticParams() {
   return processos.map((p) => ({ id: p.id }));
@@ -51,7 +53,7 @@ export default async function ProcessoPage({
   if (!p) notFound();
 
   const eventos = eventosDoProcesso(p.id);
-  const relacoes = relacoesDoNo(p.id);
+  const pecas = documentosDoProcesso(p.id);
 
   return (
     <article className="space-y-10">
@@ -179,42 +181,43 @@ export default async function ProcessoPage({
         </section>
       )}
 
-      {relacoes.length > 0 && (
+      {pecas.length > 0 && (
         <section>
-          <h3 className="kicker border-b border-ink pb-1.5">Relações registradas</h3>
+          <h3 className="kicker border-b border-ink pb-1.5">
+            Peças identificadas · {pecas.length}
+          </h3>
+          <p className="mt-2 max-w-3xl text-sm text-ink-2">
+            Peças que as fontes públicas nomeiam. O painel registra o que cada uma decidiu
+            segundo a fonte — nunca o inteiro teor.
+          </p>
           <ul className="mt-3 divide-y divide-rule">
-            {relacoes.map((r) => {
-              const outro = r.from === p.id ? r.to : r.from;
-              const pessoa = pessoaPorId(outro);
-              const proc = processoPorId(outro);
-              const nome = pessoa?.nome ?? proc?.numero ?? outro;
-              const direcao = r.from === p.id ? "→" : "←";
-              return (
-                <li key={r.id} className="py-3">
+            {pecas.map((d) => (
+              <li key={d.id} className="grid gap-x-4 gap-y-1 py-3 sm:grid-cols-[5.5rem_1fr]">
+                <div className="numero text-sm text-ink-3">
+                  <div className="text-ink">{dataBR(d.data)}</div>
+                  <div className="kicker mt-0.5">{TIPO_DOCUMENTO_LABEL[d.tipo]}</div>
+                </div>
+                <div>
                   <div className="flex flex-wrap items-baseline gap-2">
-                    <span className="text-ink-3">{direcao}</span>
-                    {proc ? (
-                      <Link
-                        href={`/processos/${proc.id}`}
-                        className="headline text-base text-ink no-underline hover:text-seal"
-                      >
-                        {nome}
-                      </Link>
-                    ) : (
-                      <span className="headline text-base text-ink">{nome}</span>
-                    )}
-                    <ConfiancaBadge confianca={r.confianca} />
+                    <EntidadeLink entidade={ref(d.id)} comTipo={false} />
+                    <ConfiancaBadge confianca={d.confianca} />
                   </div>
-                  <p className="mt-0.5 text-sm text-ink-2">{r.rotulo}</p>
-                  <div className="mt-1">
-                    <SourceTag fonte={r} />
-                  </div>
-                </li>
-              );
-            })}
+                  <p className="mt-1 max-w-3xl text-sm leading-relaxed text-ink-2">{d.resumo}</p>
+                  <p className="mt-1 text-xs text-ink-3">
+                    Assinada por{" "}
+                    <Link href={ref(d.autor_id).href} className="underline hover:text-seal">
+                      {ref(d.autor_id).rotulo}
+                    </Link>
+                  </p>
+                </div>
+              </li>
+            ))}
           </ul>
         </section>
       )}
+
+      <Backlinks backlinks={backlinks(p.id)} />
+
     </article>
   );
 }

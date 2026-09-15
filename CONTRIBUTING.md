@@ -42,7 +42,8 @@ Rode `npm run validate && npm run build` antes de abrir o PR — o build faz a c
 Duas linhas de design que não mudamos sem conversa antes:
 
 - **O sync não cria evento de timeline.** Automação cuida de metadado; interpretação é humana.
-- **O layout do mapa é dado, não algoritmo.** `pos` é fixo de propósito, para que o grafo não se reorganize sozinho a cada visita.
+- **O mapa abre sempre igual.** `pos` é dado editorial e define a posição *inicial* da simulação, para que o grafo abra reconhecível em toda visita — a partir daí o leitor explora à vontade. Filtrar esconde o nó, nunca o remove: um nó removido reorganizaria o resto e sugeriria um caso com outra forma.
+- **A lista abaixo do grafo é a versão citável.** O SVG dá o panorama, mas quem carrega rótulo e fonte clicável é a lista. Zoom não substitui procedência.
 
 ## Licença
 

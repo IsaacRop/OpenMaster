@@ -4,7 +4,8 @@ import NetworkMap from "@/components/NetworkMap";
 import ProcessCard from "@/components/ProcessCard";
 import StatBar from "@/components/StatBar";
 import Timeline from "@/components/Timeline";
-import { dataCorte, processos, timelineDesc } from "@/lib/data";
+import { dataBR, ref } from "@/lib/backlinks";
+import { dataCorte, documentosDesc, processos, timelineDesc } from "@/lib/data";
 
 function SecaoTitulo({ kicker, titulo, href, hrefLabel }: {
   kicker: string;
@@ -108,7 +109,40 @@ export default function Home() {
       </section>
 
       <section>
-        <SecaoTitulo kicker="Quem é quem" titulo="Mapa dos envolvidos" />
+        <SecaoTitulo
+          kicker="Peças"
+          titulo="Últimos documentos"
+          href="/documentos"
+          hrefLabel="todas as peças"
+        />
+        <ul className="mt-4 divide-y divide-rule border-b border-rule">
+          {documentosDesc.slice(0, 5).map((d) => (
+            <li key={d.id} className="flex flex-wrap items-baseline gap-x-4 gap-y-1 py-3">
+              <span className="numero text-sm text-ink-3">{dataBR(d.data)}</span>
+              <Link
+                href={`/documentos/${d.id}`}
+                className="numero text-sm text-ink no-underline hover:text-seal"
+              >
+                {d.numero_referencia}
+              </Link>
+              <span className="text-sm text-ink-2">{ref(d.autor_id).rotulo}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <SecaoTitulo
+          kicker="Quem é quem"
+          titulo="Mapa dos envolvidos"
+          href="/pessoas"
+          hrefLabel="ficha de cada envolvido"
+        />
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink-2">
+          O mapa é explorável: arraste, aproxime, filtre por grupo e por nível de presença. Cada
+          nó abre a página da entidade, e seu tamanho é o número de referências que chegam até
+          ela.
+        </p>
         <div className="mt-5">
           <NetworkMap />
         </div>

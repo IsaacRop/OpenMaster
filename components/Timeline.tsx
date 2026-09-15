@@ -16,6 +16,76 @@ function DataColuna({ iso }: { iso: string }) {
   );
 }
 
+/**
+ * Um evento da linha do tempo, isolado do `<ol>` que o contém.
+ *
+ * A separação existe porque a lista filtrável (`ListaFiltravel`) monta o `<ol>`
+ * no cliente e precisa inserir só os itens que passaram no filtro — o fio
+ * vertical é do contêiner, o nó é do item.
+ */
+export function EventoItem({
+  evento: e,
+  compacta = false,
+}: {
+  evento: EventoTimeline;
+  compacta?: boolean;
+}) {
+  return (
+    <li id={e.id} className="grid grid-cols-[3.25rem_1px_1fr] gap-x-4 scroll-mt-24">
+      <div className="pt-5">
+        <DataColuna iso={e.data} />
+      </div>
+
+      {/* Fio da linha do tempo, com o nó do marco em vermelho de selo. */}
+      <div className="relative bg-rule">
+        <span
+          className={`absolute left-1/2 top-6 h-2.5 w-2.5 -translate-x-1/2 rotate-45 ${
+            e.milestone ? "bg-seal" : "bg-paper border border-ink-3"
+          }`}
+        />
+      </div>
+
+      <div className="py-5">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="kicker">{TIPO_LABEL[e.tipo]}</span>
+          {e.milestone && <span className="selo">Marco</span>}
+          <ConfiancaBadge confianca={e.confianca} />
+        </div>
+
+        <h3 className="headline mt-1.5 text-xl text-ink">
+          <Link href={`/eventos/${e.id}`} className="text-ink no-underline hover:text-seal">
+            {e.titulo}
+          </Link>
+        </h3>
+        <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-ink-2">{e.descricao}</p>
+
+        {!compacta && e.processos.length > 0 && (
+          <ul className="mt-2.5 flex flex-wrap gap-2">
+            {e.processos.map((id) => {
+              const p = processoPorId(id);
+              if (!p) return null;
+              return (
+                <li key={id}>
+                  <Link
+                    href={`/processos/${id}`}
+                    className="numero border border-rule px-1.5 py-0.5 text-[0.6875rem] text-ink-2 no-underline hover:border-seal hover:text-seal"
+                  >
+                    {p.numero.replace("/DF", "")}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+
+        <div className="mt-2.5">
+          <SourceTag fonte={e} />
+        </div>
+      </div>
+    </li>
+  );
+}
+
 export default function Timeline({
   eventos,
   compacta = false,
@@ -26,58 +96,7 @@ export default function Timeline({
   return (
     <ol className="relative">
       {eventos.map((e) => (
-        <li
-          key={e.id}
-          id={e.id}
-          className="grid grid-cols-[3.25rem_1px_1fr] gap-x-4 scroll-mt-24"
-        >
-          <div className="pt-5">
-            <DataColuna iso={e.data} />
-          </div>
-
-          {/* Fio da linha do tempo, com o nó do marco em vermelho de selo. */}
-          <div className="relative bg-rule">
-            <span
-              className={`absolute left-1/2 top-6 h-2.5 w-2.5 -translate-x-1/2 rotate-45 ${
-                e.milestone ? "bg-seal" : "bg-paper border border-ink-3"
-              }`}
-            />
-          </div>
-
-          <div className="py-5">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="kicker">{TIPO_LABEL[e.tipo]}</span>
-              {e.milestone && <span className="selo">Marco</span>}
-              <ConfiancaBadge confianca={e.confianca} />
-            </div>
-
-            <h3 className="headline mt-1.5 text-xl text-ink">{e.titulo}</h3>
-            <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-ink-2">{e.descricao}</p>
-
-            {!compacta && e.processos.length > 0 && (
-              <ul className="mt-2.5 flex flex-wrap gap-2">
-                {e.processos.map((id) => {
-                  const p = processoPorId(id);
-                  if (!p) return null;
-                  return (
-                    <li key={id}>
-                      <Link
-                        href={`/processos/${id}`}
-                        className="numero border border-rule px-1.5 py-0.5 text-[0.6875rem] text-ink-2 no-underline hover:border-seal hover:text-seal"
-                      >
-                        {p.numero.replace("/DF", "")}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            )}
-
-            <div className="mt-2.5">
-              <SourceTag fonte={e} />
-            </div>
-          </div>
-        </li>
+        <EventoItem key={e.id} evento={e} compacta={compacta} />
       ))}
     </ol>
   );

@@ -8,7 +8,10 @@
     "tipo": "operacao",
     "confianca": "confirmado",
     "processos": [],
-    "pessoas": ["master", "pf"],
+    "pessoas": [
+      "master",
+      "pf"
+    ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
@@ -25,7 +28,9 @@
     "tipo": "operacao",
     "confianca": "confirmado",
     "processos": [],
-    "pessoas": ["pf"],
+    "pessoas": [
+      "pf"
+    ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
@@ -58,8 +63,13 @@
     "milestone": false,
     "tipo": "movimentacao",
     "confianca": "confirmado",
-    "processos": ["rcl-88121"],
-    "pessoas": ["pf", "mendonca"],
+    "processos": [
+      "rcl-88121"
+    ],
+    "pessoas": [
+      "pf",
+      "mendonca"
+    ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
@@ -76,7 +86,10 @@
     "tipo": "operacao",
     "confianca": "confirmado",
     "processos": [],
-    "pessoas": ["pf", "vorcaro"],
+    "pessoas": [
+      "pf",
+      "vorcaro"
+    ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
@@ -126,8 +139,14 @@
     "milestone": false,
     "tipo": "movimentacao",
     "confianca": "confirmado",
-    "processos": ["pet-16662"],
-    "pessoas": ["mendonca", "pf", "vorcaro"],
+    "processos": [
+      "pet-16662"
+    ],
+    "pessoas": [
+      "mendonca",
+      "pf",
+      "vorcaro"
+    ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
@@ -142,8 +161,14 @@
     "milestone": true,
     "tipo": "institucional",
     "confianca": "confirmado",
-    "processos": ["pet-16704"],
-    "pessoas": ["fachin", "moraes", "mendonca"],
+    "processos": [
+      "pet-16704"
+    ],
+    "pessoas": [
+      "fachin",
+      "moraes",
+      "mendonca"
+    ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
@@ -159,8 +184,13 @@
     "milestone": false,
     "tipo": "movimentacao",
     "confianca": "confirmado",
-    "processos": ["inq-4781", "pet-16704"],
-    "pessoas": ["moraes"],
+    "processos": [
+      "inq-4781",
+      "pet-16704"
+    ],
+    "pessoas": [
+      "moraes"
+    ],
     "sigilo_ack": true,
     "tweet": false,
     "tweeted_at": null,
@@ -176,8 +206,15 @@
     "milestone": true,
     "tipo": "decisao",
     "confianca": "confirmado",
-    "processos": ["pet-16662"],
-    "pessoas": ["mendonca", "rodrigues", "almada", "pf"],
+    "processos": [
+      "pet-16662"
+    ],
+    "pessoas": [
+      "mendonca",
+      "rodrigues",
+      "almada",
+      "pf"
+    ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
@@ -192,8 +229,18 @@
     "milestone": true,
     "tipo": "decisao",
     "confianca": "confirmado",
-    "processos": ["pet-16669", "sl-1946", "pet-16662"],
-    "pessoas": ["dino", "fachin", "mendonca", "rodrigues", "almada"],
+    "processos": [
+      "pet-16669",
+      "sl-1946",
+      "pet-16662"
+    ],
+    "pessoas": [
+      "dino",
+      "fachin",
+      "mendonca",
+      "rodrigues",
+      "almada"
+    ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
@@ -209,8 +256,14 @@
     "milestone": true,
     "tipo": "institucional",
     "confianca": "confirmado",
-    "processos": ["pet-16662"],
-    "pessoas": ["gilmar", "zanin", "fachin"],
+    "processos": [
+      "pet-16662"
+    ],
+    "pessoas": [
+      "gilmar",
+      "zanin",
+      "fachin"
+    ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
@@ -226,8 +279,14 @@
     "milestone": true,
     "tipo": "decisao",
     "confianca": "confirmado",
-    "processos": ["pet-16662", "pet-16704"],
-    "pessoas": ["fachin", "mendonca"],
+    "processos": [
+      "pet-16662",
+      "pet-16704"
+    ],
+    "pessoas": [
+      "fachin",
+      "mendonca"
+    ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
@@ -243,8 +302,14 @@
     "milestone": true,
     "tipo": "decisao",
     "confianca": "apuracao",
-    "processos": ["pet-16662"],
-    "pessoas": ["fachin", "mendonca", "pgr"],
+    "processos": [
+      "pet-16662"
+    ],
+    "pessoas": [
+      "fachin",
+      "mendonca",
+      "pgr"
+    ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
@@ -260,8 +325,12 @@
     "milestone": false,
     "tipo": "movimentacao",
     "confianca": "apuracao",
-    "processos": ["pet-16704"],
-    "pessoas": ["fachin"],
+    "processos": [
+      "pet-16704"
+    ],
+    "pessoas": [
+      "fachin"
+    ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
