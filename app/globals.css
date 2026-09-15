@@ -151,6 +151,51 @@ a {
   padding-bottom: 0.75rem;
 }
 
+.agent-panel {
+  overflow: hidden;
+  border: 1px solid var(--color-rule-strong);
+  background: var(--color-paper-3);
+  box-shadow: inset 3px 0 0 var(--color-seal), 0 1.5rem 4rem rgba(0, 0, 0, 0.16);
+}
+
+.agent-symbol {
+  position: relative;
+  display: grid;
+  height: 2rem;
+  width: 2rem;
+  flex: none;
+  place-items: center;
+  border: 1px solid var(--color-rule-strong);
+}
+
+.agent-symbol::before,
+.agent-symbol::after {
+  content: "";
+  position: absolute;
+  background: var(--color-seal);
+}
+
+.agent-symbol::before { height: 1px; width: 1.2rem; }
+.agent-symbol::after { height: 1.2rem; width: 1px; }
+.agent-symbol span { position: relative; z-index: 1; height: 0.45rem; width: 0.45rem; border: 1.5px solid white; border-radius: 999px; background: var(--color-paper-3); }
+
+.agent-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--color-seal);
+  padding: 0.5rem 0.8rem;
+  color: var(--color-paper);
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.agent-submit:disabled {
+  cursor: not-allowed;
+  background: var(--color-rule-strong);
+  color: var(--color-ink-3);
+}
+
 /* Régua tipográfica da gazeta ------------------------------------------- */
 
 .rule-thick {
