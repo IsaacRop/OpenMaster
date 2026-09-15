@@ -61,7 +61,7 @@ async function main() {
   const pendentes = carregarPendentes();
   const agora = new Date().toISOString();
 
-  console.log(`painel-caso-master — sync DataJud${dryRun ? " (dry-run)" : ""}\n`);
+  console.log(`openmaster — sync DataJud${dryRun ? " (dry-run)" : ""}\n`);
 
   const semNumero = processos.filter((p) => !p.numero_cnj);
   const comNumero = processos.filter((p) => p.numero_cnj);

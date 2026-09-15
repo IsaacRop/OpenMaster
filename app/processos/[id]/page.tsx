@@ -25,9 +25,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const p = processoPorId(id);
-  if (!p) return { title: "Processo não encontrado — Painel do Caso Master" };
+  if (!p) return { title: "Processo não encontrado — OpenMaster" };
   return {
-    title: `${p.numero} — Painel do Caso Master`,
+    title: `${p.numero} — OpenMaster`,
     description: p.apelido,
   };
 }

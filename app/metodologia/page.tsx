@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { pessoas, processos, relacoes, timeline } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Metodologia — Painel do Caso Master",
+  title: "Metodologia — OpenMaster",
   description:
     "De onde vem cada dado do painel, o que não publicamos e por quê, e como pedir uma correção.",
 };

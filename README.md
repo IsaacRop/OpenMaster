@@ -1,4 +1,4 @@
-# Painel do Caso Master
+# OpenMaster
 
 Painel público de acompanhamento do caso **Daniel Vorcaro / Banco Master / Operação Compliance Zero** no STF: linha do tempo, estado do cluster de processos relacionados e mapa dos envolvidos.
 

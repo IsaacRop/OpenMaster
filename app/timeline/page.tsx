@@ -4,7 +4,7 @@ import Timeline from "@/components/Timeline";
 import { timelineDesc } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Linha do tempo — Painel do Caso Master",
+  title: "Linha do tempo — OpenMaster",
   description:
     "Cronologia do caso Banco Master / Vorcaro, da liquidação extrajudicial às sessões pautadas no STF, com fonte em cada evento.",
 };

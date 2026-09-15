@@ -26,7 +26,7 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Painel do Caso Master — acompanhamento independente",
+  title: "OpenMaster — acompanhamento independente",
   description:
     "Acompanhamento público do cluster de processos do caso Banco Master / Daniel Vorcaro no STF: linha do tempo, estado de cada processo e mapa dos envolvidos, com fonte em cada afirmação.",
 };
@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
               <Link href="/" className="no-underline">
                 <h1 className="headline text-3xl sm:text-4xl text-ink">
-                  Painel do Caso Master
+                  OpenMaster
                 </h1>
               </Link>
               <p className="kicker">

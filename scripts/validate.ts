@@ -206,7 +206,7 @@ for (const e of timeline) {
 // --- saída ----------------------------------------------------------------
 
 const n = (x: unknown[]) => String(x.length).padStart(3);
-console.log("painel-caso-master — validação de dados\n");
+console.log("openmaster — validação de dados\n");
 console.log(`${n(processos)} processos`);
 console.log(`${n(timeline)} eventos de timeline`);
 console.log(`${n(pessoas)} pessoas/instituições`);

@@ -103,7 +103,7 @@ const novos = timeline.filter(
 );
 const resultado: EventoTimeline | undefined = novos[0];
 
-console.log("painel-caso-master — checklist pós-sessão da Pet 16.662 (15/09/2026)");
+console.log("openmaster — checklist pós-sessão da Pet 16.662 (15/09/2026)");
 console.log("Este script não escreve, não abre PR e não posta. Só confere.");
 
 // 1 -------------------------------------------------------------------------

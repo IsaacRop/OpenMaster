@@ -5,7 +5,7 @@ import { processos } from "@/lib/data";
 import { STATUS_LABEL, type Processo } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Processos — Painel do Caso Master",
+  title: "Processos — OpenMaster",
   description:
     "Estado de cada processo do cluster do caso Banco Master / Vorcaro no STF, com relator, objeto e última movimentação.",
 };

@@ -9,7 +9,7 @@ import { CONFIANCA_LABEL, type EventoTimeline } from "./schema";
 export const LIMITE_CHARS = 280;
 
 export const siteUrl = () =>
-  process.env.SITE_URL ?? "https://painel-caso-master.vercel.app";
+  process.env.SITE_URL ?? "https://openmaster.vercel.app";
 
 export function formatarData(iso: string): string {
   const [a, m, d] = iso.split("-");

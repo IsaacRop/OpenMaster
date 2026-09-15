@@ -100,7 +100,7 @@ async function postar(texto: string): Promise<{ ok: boolean; detalhe: string }> 
 // --- execução -------------------------------------------------------------
 
 async function main() {
-  console.log(`painel-caso-master — post-twitter${dryRun ? " (dry-run)" : ""}`);
+  console.log(`openmaster — post-twitter${dryRun ? " (dry-run)" : ""}`);
   if (!temCreds) {
     console.log(
       "Credenciais ausentes (X_API_KEY / X_API_SECRET / X_ACCESS_TOKEN / " +
