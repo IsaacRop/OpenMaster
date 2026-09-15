@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "description": "Painel público de acompanhamento do caso Banco Master / Vorcaro no STF",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsaacRop/OpenMaster.git"
+  },
+  "homepage": "https://github.com/IsaacRop/OpenMaster#readme",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
