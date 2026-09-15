@@ -5,10 +5,12 @@ import { usePathname } from "next/navigation";
 
 const NAV = [
   { href: "/", label: "Visão geral" },
+  { href: "/agente", label: "Agente IA" },
   { href: "/timeline", label: "Linha do tempo" },
   { href: "/processos", label: "Processos" },
   { href: "/pessoas", label: "Pessoas e instituições" },
   { href: "/documentos", label: "Documentos" },
+  { href: "/busca", label: "Busca literal" },
 ];
 
 export default function MainNav() {

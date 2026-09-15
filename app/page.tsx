@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import AgentPanel from "@/components/AgentPanel";
 import HubGraph from "@/components/HubGraph";
 import { ConfiancaBadge, SourceTag } from "@/components/SourceTag";
 import { grau } from "@/lib/backlinks";
@@ -32,15 +33,19 @@ export default function Home() {
     <div>
       <header className="mb-4 flex flex-wrap items-end justify-between gap-3 border-b border-rule pb-4">
         <div>
-          <p className="kicker text-seal">Hub de acompanhamento · Caso Banco Master</p>
-          <h1 className="mt-1 text-xl font-semibold tracking-[-0.02em] text-ink sm:text-2xl">Visão geral</h1>
-          <p className="mt-1 text-sm text-ink-3">O que mudou, onde está e quem aparece — com a fonte ao lado.</p>
+          <p className="kicker text-seal">Central de inteligência · Caso Banco Master</p>
+          <h1 className="mt-1 text-xl font-semibold tracking-[-0.02em] text-ink sm:text-2xl">Painel de consulta</h1>
+          <p className="mt-1 text-sm text-ink-3">Pergunte ao agente ou examine diretamente as evidências da base.</p>
         </div>
         <div className="flex items-center gap-2 font-mono text-xs text-ink-3">
           <span className="h-1.5 w-1.5 rounded-full bg-ok" aria-hidden="true" />
           Base verificada até {dataBR(dataCorte)}
         </div>
       </header>
+
+      <div className="mb-px">
+        <AgentPanel />
+      </div>
 
       <section aria-label="Resumo da base" className="mb-px grid grid-cols-2 gap-px bg-rule md:grid-cols-4">
         {[

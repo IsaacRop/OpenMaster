@@ -49,10 +49,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <MainNav />
             </div>
 
-            <Link href="/busca" className="search-affordance ml-auto lg:min-w-64 lg:flex-1">
-              <span className="numero text-ink-3" aria-hidden="true">/</span>
-              <span className="hidden sm:inline">Buscar processo, pessoa, documento…</span>
-              <span className="sm:hidden">Buscar</span>
+            <Link href="/agente" className="search-affordance ml-auto lg:min-w-64 lg:flex-1">
+              <span className="text-seal" aria-hidden="true">⌁</span>
+              <span className="hidden sm:inline">Perguntar ao agente…</span>
+              <span className="sm:hidden">Agente IA</span>
             </Link>
 
             <Link href="/metodologia" className="status-line hidden xl:inline-flex">
