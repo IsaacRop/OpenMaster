@@ -896,5 +896,89 @@
     "source_url": "https://www.poder360.com.br/poder-justica/dino-critica-fachin-e-trava-julgamento-sobre-moraes-depois-de-bate-boca/",
     "source_name": "Poder360",
     "source_date": "2026-09-15"
+  },
+  {
+    "id": "luiz-roberto-paulo-sergio",
+    "from": "luiz-roberto-neves-souza",
+    "to": "paulo-sergio-neves-souza",
+    "rotulo": "irmão / coproprietário do sítio",
+    "peso": "normal",
+    "direcionada": false,
+    "confianca": "confirmado",
+    "source_url": "https://www.poder360.com.br/poder-justica/ex-diretor-do-bc-vendeu-sitio-a-empresa-ligada-a-cunhado-de-vorcaro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "anderson-wander-mourao",
+    "from": "anderson-wander-lima",
+    "to": "mourao",
+    "rotulo": "integrante de 'A Turma' (apuração)",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "apuracao",
+    "source_url": "https://www.poder360.com.br/poder-justica/stf-autorizou-interceptacao-de-whatsapp-de-policiais-ligados-a-vorcaro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "sebastiao-monteiro-mourao",
+    "from": "sebastiao-monteiro-junior",
+    "to": "mourao",
+    "rotulo": "integrante de 'A Turma' (apuração)",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "apuracao",
+    "source_url": "https://www.poder360.com.br/poder-justica/stf-autorizou-interceptacao-de-whatsapp-de-policiais-ligados-a-vorcaro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "manoel-mendes-mourao",
+    "from": "manoel-mendes-rodrigues",
+    "to": "mourao",
+    "rotulo": "integrante de 'A Turma' (apuração)",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "apuracao",
+    "source_url": "https://www.poder360.com.br/poder-justica/stf-autorizou-interceptacao-de-whatsapp-de-policiais-ligados-a-vorcaro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "fux-pet16662",
+    "from": "fux",
+    "to": "pet-16662",
+    "rotulo": "votou na questão de ordem (15/09)",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "confirmado",
+    "source_url": "https://www.poder360.com.br/poder-justica/supremo-salva-alexandre-de-moraes-por-ate-90-dias/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
+  },
+  {
+    "id": "toffoli-pet16662",
+    "from": "toffoli",
+    "to": "pet-16662",
+    "rotulo": "declarou-se suspeito, não votou",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "confirmado",
+    "source_url": "https://www.poder360.com.br/poder-justica/supremo-salva-alexandre-de-moraes-por-ate-90-dias/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
+  },
+  {
+    "id": "carmen-lucia-pet16662",
+    "from": "carmen-lucia",
+    "to": "pet-16662",
+    "rotulo": "votou na questão de ordem (15/09)",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "confirmado",
+    "source_url": "https://www.poder360.com.br/poder-justica/supremo-salva-alexandre-de-moraes-por-ate-90-dias/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
   }
 ]
