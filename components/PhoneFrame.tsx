@@ -16,9 +16,11 @@ export function PhoneFrame({
   children: ReactNode;
 }) {
   return (
-    <div className="mx-auto w-full max-w-[400px]">
+    <div className="mx-auto w-[360px] max-w-full">
       <div className="rounded-[2rem] border-[6px] border-paper-3 bg-paper-3 shadow-[0_0_0_1px_var(--color-rule-strong)]">
-        <div className="flex h-[min(720px,calc(100vh-260px))] min-h-[460px] flex-col overflow-hidden rounded-[1.5rem] bg-paper">
+        {/* aspect-ratio dá a proporção de tela de celular (~9:19.5); o teto em
+            vh evita que ela estoure a viewport em janelas baixas. */}
+        <div className="flex aspect-[9/19.5] max-h-[85vh] min-h-[520px] flex-col overflow-hidden rounded-[1.5rem] bg-paper">
           <div className="shrink-0 border-b border-rule bg-paper-2 px-4 py-3">{header}</div>
           <div className="flex-1 overflow-y-auto px-3 py-3">{children}</div>
           {footer && (

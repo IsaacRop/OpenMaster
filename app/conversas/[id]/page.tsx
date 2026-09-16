@@ -130,13 +130,13 @@ export default async function ConversaPage({
                 <Link
                   href={diaAnterior ? `/conversas/${id}?data=${diaAnterior}` : "#"}
                   aria-disabled={!diaAnterior}
-                  className={`flex-1 border px-2 py-1.5 text-center text-xs no-underline ${
+                  className={`flex-1 whitespace-nowrap border px-2 py-1.5 text-center text-xs no-underline ${
                     diaAnterior
                       ? "border-rule text-ink-2 hover:border-seal hover:text-seal"
                       : "cursor-not-allowed border-rule/40 text-ink-3/40"
                   }`}
                 >
-                  ← Dia anterior
+                  ← Anterior
                 </Link>
                 <div className="numero shrink-0 px-1 text-center text-[0.625rem] text-ink-3">
                   <p className="text-xs font-semibold text-ink">
@@ -149,13 +149,13 @@ export default async function ConversaPage({
                 <Link
                   href={diaProximo ? `/conversas/${id}?data=${diaProximo}` : "#"}
                   aria-disabled={!diaProximo}
-                  className={`flex-1 border px-2 py-1.5 text-center text-xs no-underline ${
+                  className={`flex-1 whitespace-nowrap border px-2 py-1.5 text-center text-xs no-underline ${
                     diaProximo
                       ? "border-rule text-ink-2 hover:border-seal hover:text-seal"
                       : "cursor-not-allowed border-rule/40 text-ink-3/40"
                   }`}
                 >
-                  Dia seguinte →
+                  Seguinte →
                 </Link>
               </div>
               <form
