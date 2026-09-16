@@ -3,11 +3,9 @@ import Link from "next/link";
 import AgentPanel from "@/components/AgentPanel";
 import HubGraph from "@/components/HubGraph";
 import { ConfiancaBadge, SourceTag } from "@/components/SourceTag";
-import { grau } from "@/lib/backlinks";
+import { dataBR, grau } from "@/lib/backlinks";
 import { dataCorte, documentos, pessoas, processos, stats, timeline, timelineDesc } from "@/lib/data";
 import { TIPO_LABEL } from "@/lib/schema";
-
-const dataBR = (iso: string) => iso.split("-").reverse().join("/");
 
 const ATALHOS = [
   { href: "/timeline", label: "Linha do tempo", valor: stats.marcos, apoio: "marcos" },

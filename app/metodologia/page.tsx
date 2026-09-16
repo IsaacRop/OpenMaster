@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
+import { dataBR } from "@/lib/backlinks";
 import { dataCorte, documentos, pessoas, processos, relacoes, timeline } from "@/lib/data";
-
-const dataBR = (iso: string) => iso.split("-").reverse().join("/");
 
 export const metadata: Metadata = {
   title: "Metodologia — OpenMaster",
