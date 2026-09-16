@@ -2,7 +2,7 @@ import MiniSearch from "minisearch";
 
 import { indiceBusca, type DocBusca } from "@/lib/busca";
 import { documentoPorId, eventoPorId, pessoaPorId, processoPorId, relacoes } from "@/lib/data";
-import { CONFIANCA_LABEL, STATUS_LABEL, TIPO_DOCUMENTO_LABEL, TIPO_LABEL, type Confianca } from "@/lib/schema";
+import { STATUS_LABEL, TIPO_DOCUMENTO_LABEL, TIPO_LABEL, type Confianca } from "@/lib/schema";
 
 /**
  * Recuperação server-side para o agente. Roda inteira em dados já validados
@@ -128,9 +128,4 @@ export function recuperar(pergunta: string): Cartao[] {
   return [...selecionados]
     .map(cartao)
     .filter((c): c is Cartao => c !== null);
-}
-
-/** Prefixo de hedge por cartão, para o modelo não precisar decidir sozinho. */
-export function hedge(confianca: Confianca): string | null {
-  return CONFIANCA_LABEL[confianca];
 }

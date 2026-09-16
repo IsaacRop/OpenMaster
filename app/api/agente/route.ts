@@ -32,6 +32,16 @@ export async function POST(req: NextRequest) {
   }
 
   const ipHash = hashIp(extrairIp(req.headers));
+
+  // Cache primeiro, rate limit depois: uma pergunta já cacheada não custa
+  // token nenhum, então não deve consumir a cota do IP — a cota existe para
+  // proteger o crédito da OpenAI, e uma resposta cacheada não o toca.
+  const doCache = lerCache(pergunta);
+  if (doCache) {
+    console.log(`[agente] cache hit — ip=${ipHash}`);
+    return NextResponse.json({ ...doCache, cache: true });
+  }
+
   const limite = checarLimite(ipHash);
   if (!limite.permitido) {
     console.log(`[agente] rate limit atingido — ip=${ipHash}`);
@@ -39,12 +49,6 @@ export async function POST(req: NextRequest) {
       { erro: "Muitas perguntas em pouco tempo. Tente novamente em alguns minutos." },
       { status: 429 },
     );
-  }
-
-  const doCache = lerCache(pergunta);
-  if (doCache) {
-    console.log(`[agente] cache hit — ip=${ipHash}`);
-    return NextResponse.json({ ...doCache, cache: true });
   }
 
   const cartoes = recuperar(pergunta);
