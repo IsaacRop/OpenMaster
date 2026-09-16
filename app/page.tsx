@@ -178,7 +178,10 @@ export default function Home() {
               <h2 id="mais-conectados" className="text-base font-semibold text-ink">Mais conectados</h2>
               <Link href="/pessoas" className="meta-link hover:text-seal">Ver fichas →</Link>
             </div>
-            <ol className="divide-y divide-rule">
+            <p className="mt-1 text-xs leading-relaxed text-ink-3">
+              Quem mais aparece citado em processos, eventos e relações registradas na base.
+            </p>
+            <ol className="mt-2 divide-y divide-rule">
               {conectados.map((pessoa) => (
                 <li key={pessoa.id}>
                   <Link href={`/pessoas/${pessoa.id}`} className="group flex items-center justify-between gap-3 py-3 no-underline">
@@ -186,7 +189,7 @@ export default function Home() {
                       <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${pessoa.confianca === "confirmado" ? "bg-ok" : pessoa.confianca === "apuracao" ? "bg-seal" : "bg-disputed"}`} />
                       <span className="truncate text-sm text-ink-2 group-hover:text-ink">{pessoa.nome}</span>
                     </span>
-                    <span className="numero shrink-0 text-xs text-ink-3">{grau(pessoa.id)} refs.</span>
+                    <span className="numero shrink-0 text-xs text-ink-3">{grau(pessoa.id)} referências</span>
                   </Link>
                 </li>
               ))}

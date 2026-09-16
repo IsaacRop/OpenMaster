@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 
 import Backlinks from "@/components/Backlinks";
 import { NivelBadge } from "@/components/NivelBadge";
-import { ConfiancaBadge, SourceTag } from "@/components/SourceTag";
+import { CONFIANCA_EXPLICACAO, ConfiancaBadge, SourceTag } from "@/components/SourceTag";
 import { backlinks } from "@/lib/backlinks";
 import { pessoaPorId, pessoas } from "@/lib/data";
+import { CONFIANCA_LABEL } from "@/lib/schema";
 
 export function generateStaticParams() {
   return pessoas.map((p) => ({ id: p.id }));
@@ -59,6 +60,8 @@ export default async function PessoaPage({ params }: { params: Promise<{ id: str
           Este resumo é redação editorial apoiada na fonte acima, não citação literal dela. O
           nível de presença — <strong>{p.nivel_presenca}</strong> — mede protagonismo nos fatos,
           não quantas vezes o nome aparece; a contagem de referências, abaixo, é que mede volume.
+          {" "}O selo <strong>{CONFIANCA_LABEL[p.confianca] ?? "Confirmado"}</strong> ao lado do
+          nome: {CONFIANCA_EXPLICACAO[p.confianca]}
         </p>
       </section>
 

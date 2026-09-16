@@ -23,7 +23,17 @@ export function SourceTag({ fonte }: { fonte: Fonte }) {
 /**
  * Hedging vindo do dado, não da redação: `apuracao` e `controverso` ganham
  * marca visível para que nada em apuração seja lido como fato assentado.
+ *
+ * Exportado (não só usado via `title`) porque `title` é tooltip de hover e
+ * não existe em toque — em qualquer tela pensada para celular, o texto
+ * precisa também aparecer escrito, não só ao passar o mouse.
  */
+export const CONFIANCA_EXPLICACAO: Record<Confianca, string> = {
+  confirmado: "Informação sustentada pela fonte indicada.",
+  apuracao: "A fonte trata como apuração em curso ou evento ainda por ocorrer.",
+  controverso: "Há disputa pública sobre este ponto.",
+};
+
 export function ConfiancaBadge({ confianca }: { confianca: Confianca }) {
   const label = CONFIANCA_LABEL[confianca] ?? "Confirmado";
   const estilo = {
@@ -32,16 +42,10 @@ export function ConfiancaBadge({ confianca }: { confianca: Confianca }) {
     controverso: "border-disputed/60 text-disputed",
   }[confianca];
 
-  const titulo = {
-    confirmado: "Informação sustentada pela fonte indicada.",
-    apuracao: "A fonte trata como apuração em curso ou evento ainda por ocorrer.",
-    controverso: "Há disputa pública sobre este ponto.",
-  }[confianca];
-
   return (
     <span
       className={`numero inline-flex items-center gap-1.5 border ${estilo} px-1.5 py-px text-[0.625rem] uppercase tracking-[0.12em]`}
-      title={titulo}
+      title={CONFIANCA_EXPLICACAO[confianca]}
     >
       <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
       {label}
