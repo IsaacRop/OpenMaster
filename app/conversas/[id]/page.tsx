@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { PhoneFrame } from "@/components/PhoneFrame";
 import { agruparPorData, obterConversa, MARTHA_ID, type ConversaMensagem } from "@/lib/conversas";
 
 export const revalidate = 3600;
@@ -25,7 +26,7 @@ function nomeExibicao(sender: string) {
 function ChatMensagem({ msg, souDV }: { msg: ConversaMensagem; souDV: boolean }) {
   if (msg.type === "system") {
     return (
-      <li className="mx-auto max-w-md py-1 text-center text-[0.6875rem] text-ink-3">
+      <li className="mx-auto max-w-[90%] py-1 text-center text-[0.6875rem] text-ink-3">
         {msg.content}
       </li>
     );
@@ -34,10 +35,8 @@ function ChatMensagem({ msg, souDV }: { msg: ConversaMensagem; souDV: boolean })
   return (
     <li className={`flex ${souDV ? "justify-end" : "justify-start"}`}>
       <div
-        className={`max-w-[80%] border px-3 py-2 text-sm leading-relaxed sm:max-w-[65%] ${
-          souDV
-            ? "border-seal/40 bg-seal/10 text-ink"
-            : "border-rule bg-paper-3 text-ink"
+        className={`max-w-[82%] border px-3 py-2 text-sm leading-relaxed ${
+          souDV ? "border-seal/40 bg-seal/10 text-ink" : "border-rule bg-paper-3 text-ink"
         }`}
       >
         {!souDV && (
@@ -94,60 +93,111 @@ export default async function ConversaPage({
     ? messages.filter((m) => m.date === diaAtivo)
     : messages;
 
+  const idxDia = paginarPorDia ? datas.findIndex((d) => d.date === diaAtivo) : -1;
+  const diaAnterior = idxDia > 0 ? datas[idxDia - 1].date : undefined;
+  const diaProximo = idxDia >= 0 && idxDia < datas.length - 1 ? datas[idxDia + 1].date : undefined;
+
   return (
-    <article className="space-y-6">
+    <article className="space-y-4">
       <div>
         <Link href="/conversas" className="kicker no-underline hover:text-seal">
           ← Voltar para conversas
         </Link>
       </div>
 
-      <header className="flex flex-wrap items-baseline justify-between gap-2 border-b border-rule pb-3">
-        <div>
-          <h2 className="headline text-3xl text-ink">{nomeExibicao(nome)}</h2>
-          <p className="numero mt-1 text-xs text-ink-3">
-            {meta.total_messages.toLocaleString("pt-BR")} mensagens · {meta.source}
-          </p>
-        </div>
-        {meta.note && (
-          <p className="max-w-sm text-xs leading-relaxed text-ink-3">{meta.note}</p>
-        )}
-      </header>
-
-      {paginarPorDia && (
-        <nav aria-label="Navegar por data" className="flex flex-wrap items-center gap-2">
-          <span className="kicker">Dia</span>
-          <form action={`/conversas/${id}`} method="get" className="flex items-center gap-2">
-            <select
-              defaultValue={diaAtivo}
-              name="data"
-              aria-label="Selecionar dia da conversa"
-              className="border border-rule bg-paper-2 px-2 py-1 text-xs text-ink"
+      <PhoneFrame
+        header={
+          <div className="flex items-center gap-2">
+            <Link
+              href="/conversas"
+              aria-label="Voltar para a lista de conversas"
+              className="shrink-0 px-1 text-lg text-ink-2 no-underline hover:text-seal"
             >
-              {datas.map((d) => (
-                <option key={d.date} value={d.date}>
-                  {d.date.split("-").reverse().join("/")} ({d.count})
-                </option>
-              ))}
-            </select>
-            <button
-              type="submit"
-              className="border border-rule px-2 py-1 text-xs text-ink-2 hover:border-seal hover:text-seal"
-            >
-              Ir
-            </button>
-          </form>
-          <DataNavLinks id={id} datas={datas.map((d) => d.date)} atual={diaAtivo!} />
-        </nav>
-      )}
+              ←
+            </Link>
+            <div className="min-w-0">
+              <p className="truncate text-sm font-semibold text-ink">{nomeExibicao(nome)}</p>
+              <p className="numero truncate text-[0.625rem] text-ink-3">
+                {meta.total_messages.toLocaleString("pt-BR")} mensagens · {meta.source}
+              </p>
+            </div>
+          </div>
+        }
+        footer={
+          paginarPorDia ? (
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between gap-2">
+                <Link
+                  href={diaAnterior ? `/conversas/${id}?data=${diaAnterior}` : "#"}
+                  aria-disabled={!diaAnterior}
+                  className={`flex-1 border px-2 py-1.5 text-center text-xs no-underline ${
+                    diaAnterior
+                      ? "border-rule text-ink-2 hover:border-seal hover:text-seal"
+                      : "cursor-not-allowed border-rule/40 text-ink-3/40"
+                  }`}
+                >
+                  ← Dia anterior
+                </Link>
+                <div className="numero shrink-0 px-1 text-center text-[0.625rem] text-ink-3">
+                  <p className="text-xs font-semibold text-ink">
+                    {diaAtivo?.split("-").reverse().join("/")}
+                  </p>
+                  <p>
+                    dia {idxDia + 1} de {datas.length}
+                  </p>
+                </div>
+                <Link
+                  href={diaProximo ? `/conversas/${id}?data=${diaProximo}` : "#"}
+                  aria-disabled={!diaProximo}
+                  className={`flex-1 border px-2 py-1.5 text-center text-xs no-underline ${
+                    diaProximo
+                      ? "border-rule text-ink-2 hover:border-seal hover:text-seal"
+                      : "cursor-not-allowed border-rule/40 text-ink-3/40"
+                  }`}
+                >
+                  Dia seguinte →
+                </Link>
+              </div>
+              <form
+                action={`/conversas/${id}`}
+                method="get"
+                className="flex items-center gap-1.5 text-[0.625rem] text-ink-3"
+              >
+                <span className="shrink-0">Ir direto para:</span>
+                <select
+                  key={diaAtivo}
+                  defaultValue={diaAtivo}
+                  name="data"
+                  aria-label="Pular para um dia específico da conversa"
+                  className="min-w-0 flex-1 border border-rule bg-paper-2 px-1.5 py-1 text-[0.625rem] text-ink"
+                >
+                  {datas.map((d) => (
+                    <option key={d.date} value={d.date}>
+                      {d.date.split("-").reverse().join("/")} ({d.count} msgs)
+                    </option>
+                  ))}
+                </select>
+                <button
+                  type="submit"
+                  className="shrink-0 border border-rule px-2 py-1 text-[0.625rem] text-ink-2 hover:border-seal hover:text-seal"
+                >
+                  Ir
+                </button>
+              </form>
+            </div>
+          ) : (
+            meta.note && <p className="text-center text-[0.625rem] text-ink-3">{meta.note}</p>
+          )
+        }
+      >
+        <ul className="space-y-2">
+          {mensagensExibidas.map((m) => (
+            <ChatMensagem key={m.id} msg={m} souDV={m.sender === "DV"} />
+          ))}
+        </ul>
+      </PhoneFrame>
 
-      <ul className="space-y-2">
-        {mensagensExibidas.map((m) => (
-          <ChatMensagem key={m.id} msg={m} souDV={m.sender === "DV"} />
-        ))}
-      </ul>
-
-      <p className="border-t border-rule pt-4 text-xs leading-relaxed text-ink-3">
+      <p className="mx-auto max-w-[400px] text-xs leading-relaxed text-ink-3">
         Conteúdo buscado ao vivo do projeto{" "}
         <a
           href="https://www.masterwhats.com.br/"
@@ -163,29 +213,5 @@ export default async function ConversaPage({
         aparecem como placeholder.
       </p>
     </article>
-  );
-}
-
-function DataNavLinks({ id, datas, atual }: { id: string; datas: string[]; atual: string }) {
-  const idx = datas.indexOf(atual);
-  const anterior = idx > 0 ? datas[idx - 1] : undefined;
-  const proximo = idx >= 0 && idx < datas.length - 1 ? datas[idx + 1] : undefined;
-  return (
-    <span className="flex items-center gap-2 text-xs">
-      {anterior ? (
-        <Link href={`/conversas/${id}?data=${anterior}`} className="underline hover:text-seal">
-          ← anterior
-        </Link>
-      ) : (
-        <span className="text-ink-3">← anterior</span>
-      )}
-      {proximo ? (
-        <Link href={`/conversas/${id}?data=${proximo}`} className="underline hover:text-seal">
-          próximo →
-        </Link>
-      ) : (
-        <span className="text-ink-3">próximo →</span>
-      )}
-    </span>
   );
 }
