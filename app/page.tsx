@@ -16,7 +16,7 @@ const ATALHOS = [
 
 export default function Home() {
   const recentes = timelineDesc.filter((e) => e.data <= dataCorte).slice(0, 5);
-  const emFoco = processos.find((p) => p.status === "pautado") ?? processos.find((p) => p.status === "em_aberto") ?? processos[0];
+  const emFoco = processos.find((p) => p.status === "pautado") ?? processos.find((p) => p.status === "em_aberto");
   const proximos = processos
     .filter((p) => p.proximo_evento && p.proximo_evento.data >= dataCorte)
     .sort((a, b) => a.proximo_evento!.data.localeCompare(b.proximo_evento!.data))
@@ -140,17 +140,25 @@ export default function Home() {
               <Link href="/processos" className="meta-link hover:text-seal">Todos os processos →</Link>
             </div>
             <article className="mt-4 border border-rule-strong bg-paper-3 p-4">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <Link href={`/processos/${emFoco.id}`} className="numero text-sm text-seal no-underline hover:text-seal-soft">{emFoco.numero}</Link>
-                <ConfiancaBadge confianca={emFoco.confianca} />
-              </div>
-              <h3 className="mt-3 text-lg font-semibold leading-snug text-white">{emFoco.apelido}</h3>
-              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-ink-2">{emFoco.objeto}</p>
-              <dl className="mt-4 grid gap-3 border-t border-rule pt-4 sm:grid-cols-3">
-                <div><dt className="kicker">Tribunal</dt><dd className="mt-1 text-sm text-ink-2">{emFoco.tribunal}</dd></div>
-                <div><dt className="kicker">Última movimentação</dt><dd className="numero mt-1 text-sm text-ink-2">{emFoco.ultima_movimentacao ? dataBR(emFoco.ultima_movimentacao.data) : "—"}</dd></div>
-                <div><dt className="kicker">Situação</dt><dd className="mt-1 text-sm text-ink-2">{emFoco.status === "pautado" ? "Pautado" : emFoco.status === "em_aberto" ? "Em aberto" : "Decidido"}</dd></div>
-              </dl>
+              {emFoco ? (
+                <>
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <Link href={`/processos/${emFoco.id}`} className="numero text-sm text-seal no-underline hover:text-seal-soft">{emFoco.numero}</Link>
+                    <ConfiancaBadge confianca={emFoco.confianca} />
+                  </div>
+                  <h3 className="mt-3 text-lg font-semibold leading-snug text-white">{emFoco.apelido}</h3>
+                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-ink-2">{emFoco.objeto}</p>
+                  <dl className="mt-4 grid gap-3 border-t border-rule pt-4 sm:grid-cols-3">
+                    <div><dt className="kicker">Tribunal</dt><dd className="mt-1 text-sm text-ink-2">{emFoco.tribunal}</dd></div>
+                    <div><dt className="kicker">Última movimentação</dt><dd className="numero mt-1 text-sm text-ink-2">{emFoco.ultima_movimentacao ? dataBR(emFoco.ultima_movimentacao.data) : "—"}</dd></div>
+                    <div><dt className="kicker">Situação</dt><dd className="mt-1 text-sm text-ink-2">{emFoco.status === "pautado" ? "Pautado" : "Em aberto"}</dd></div>
+                  </dl>
+                </>
+              ) : (
+                <p className="text-sm leading-relaxed text-ink-2">
+                  Nenhum processo pautado ou em aberto no momento — todo o cluster monitorado está decidido.
+                </p>
+              )}
             </article>
           </section>
         </div>
