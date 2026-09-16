@@ -261,7 +261,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/funcionario-do-bc-teria-recebido-ate-r-760-mil-mensais-diz-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 197,
+      "y": -132
+    }
   },
   {
     "id": "paulo-sergio-neves-souza",
@@ -275,7 +279,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/pf-funcionario-do-bc-preparava-vorcaro-para-reunioes-com-campos-neto/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 248,
+      "y": -14
+    }
   },
   {
     "id": "luiz-roberto-neves-souza",
@@ -289,7 +297,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/ex-diretor-do-bc-vendeu-sitio-a-empresa-ligada-a-cunhado-de-vorcaro/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 194,
+      "y": -16
+    }
   },
   {
     "id": "leonardo-palhares",
@@ -303,7 +315,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/funcionario-do-bc-teria-recebido-ate-r-760-mil-mensais-diz-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 221,
+      "y": 30
+    }
   },
   {
     "id": "mourao",
@@ -335,7 +351,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/grupo-de-vorcaro-acessou-processos-sigilosos-do-mpf-diz-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 124,
+      "y": 335
+    }
   },
   {
     "id": "anderson-wander-lima",
@@ -349,7 +369,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/stf-autorizou-interceptacao-de-whatsapp-de-policiais-ligados-a-vorcaro/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 126,
+      "y": 424
+    }
   },
   {
     "id": "sebastiao-monteiro-junior",
@@ -363,7 +387,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/stf-autorizou-interceptacao-de-whatsapp-de-policiais-ligados-a-vorcaro/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 121,
+      "y": 436
+    }
   },
   {
     "id": "manoel-mendes-rodrigues",
@@ -377,7 +405,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/stf-autorizou-interceptacao-de-whatsapp-de-policiais-ligados-a-vorcaro/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 89,
+      "y": 279
+    }
   },
   {
     "id": "woyceichoski",
@@ -391,7 +423,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/pf-diz-que-grupo-de-vorcaro-intimidou-ex-piloto-e-ex-chefe-de-cozinha/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 216,
+      "y": 449
+    }
   },
   {
     "id": "leandro-garcia-silva",
@@ -405,7 +441,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/pf-diz-que-grupo-de-vorcaro-intimidou-ex-piloto-e-ex-chefe-de-cozinha/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 171,
+      "y": 306
+    }
   },
   {
     "id": "claudio-castro",
@@ -437,7 +477,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/castro-mudou-gestores-do-rioprev-antes-de-aportes-no-master-diz-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-12"
+    "source_date": "2026-09-12",
+    "pos": {
+      "x": 139,
+      "y": 617
+    }
   },
   {
     "id": "eucherio-lerner-rodrigues",
@@ -451,7 +495,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/castro-mudou-gestores-do-rioprev-antes-de-aportes-no-master-diz-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-12"
+    "source_date": "2026-09-12",
+    "pos": {
+      "x": 198,
+      "y": 780
+    }
   },
   {
     "id": "pedro-pinheiro-leal",
@@ -465,7 +513,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/castro-mudou-gestores-do-rioprev-antes-de-aportes-no-master-diz-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-12"
+    "source_date": "2026-09-12",
+    "pos": {
+      "x": 263,
+      "y": 691
+    }
   },
   {
     "id": "flavio-bolsonaro",
@@ -497,7 +549,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/eduardo-orientou-gestao-de-recursos-de-dark-horse-nos-eua-diz-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 1132,
+      "y": 594
+    }
   },
   {
     "id": "mario-frias",
@@ -547,7 +603,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/pf-identificou-us-123-milhoes-enviados-a-fundo-ligado-a-dark-horse/",
     "source_name": "Poder360",
-    "source_date": "2026-09-12"
+    "source_date": "2026-09-12",
+    "pos": {
+      "x": 1101,
+      "y": 455
+    }
   },
   {
     "id": "michael-davis",
@@ -561,7 +621,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/produtor-de-dark-horse-diz-que-so-dara-dados-a-pf-por-ordem-dos-eua/",
     "source_name": "Poder360",
-    "source_date": "2026-09-12"
+    "source_date": "2026-09-12",
+    "pos": {
+      "x": 1125,
+      "y": 646
+    }
   },
   {
     "id": "karina-gama",
@@ -575,7 +639,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/mendonca-derruba-sigilo-de-processos-sobre-dark-horse-ciro-e-castro/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 1099,
+      "y": 506
+    }
   },
   {
     "id": "paulo-calixto",
@@ -589,7 +657,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/eduardo-orientou-gestao-de-recursos-de-dark-horse-nos-eua-diz-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 1017,
+      "y": 585
+    }
   },
   {
     "id": "altieres-santana",
@@ -603,7 +675,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/eduardo-orientou-gestao-de-recursos-de-dark-horse-nos-eua-diz-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 1015,
+      "y": 547
+    }
   },
   {
     "id": "ciro-nogueira",
@@ -617,7 +693,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/mendonca-derruba-sigilo-de-processos-sobre-dark-horse-ciro-e-castro/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 982,
+      "y": 227
+    }
   },
   {
     "id": "jaques-wagner",
@@ -631,7 +711,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/mendonca-derruba-sigilo-de-processos-sobre-dark-horse-ciro-e-castro/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 939,
+      "y": 480
+    }
   },
   {
     "id": "viviane-barci",
@@ -645,7 +729,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/leia-a-integra-do-contrato-da-mulher-de-moraes-com-o-master/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 584,
+      "y": -59
+    }
   },
   {
     "id": "galipolo",
@@ -659,7 +747,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/galipolo-enviou-a-andrei-suspeita-de-corrupcao-de-funcionarios-do-bc/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 322,
+      "y": -41
+    }
   },
   {
     "id": "gonet",
@@ -673,7 +765,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/pgr-pede-para-fachin-liberacao-de-todas-as-provas-do-banco-master/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 549,
+      "y": 2
+    }
   },
   {
     "id": "hindenburgo-chateaubriand",
@@ -687,7 +783,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/pgr-pede-para-fachin-liberacao-de-todas-as-provas-do-banco-master/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 585,
+      "y": 38
+    }
   },
   {
     "id": "brb",
@@ -701,7 +801,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/pf-ve-operacao-atipica-de-r-7-bi-entre-master-tirreno-e-brb/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 103,
+      "y": 3
+    }
   },
   {
     "id": "tirreno-cartos",
@@ -715,7 +819,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/pf-ve-operacao-atipica-de-r-7-bi-entre-master-tirreno-e-brb/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 53,
+      "y": 96
+    }
   },
   {
     "id": "rioprevidencia",
@@ -729,7 +837,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/castro-mudou-gestores-do-rioprev-antes-de-aportes-no-master-diz-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-12"
+    "source_date": "2026-09-12",
+    "pos": {
+      "x": 266,
+      "y": 728
+    }
   },
   {
     "id": "bcb",
@@ -743,7 +855,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/nenhum-credito-sequer-pode-ser-confirmado-diz-pf-sobre-master-e-brb/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 238,
+      "y": 3
+    }
   },
   {
     "id": "king-participacoes",
@@ -757,7 +873,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/grupo-de-vorcaro-acessou-processos-sigilosos-do-mpf-diz-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 146,
+      "y": 274
+    }
   },
   {
     "id": "varajo-consultores",
@@ -771,7 +891,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/funcionario-do-bc-teria-recebido-ate-r-760-mil-mensais-diz-pf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 278,
+      "y": -95
+    }
   },
   {
     "id": "entre-investimentos",
@@ -785,7 +909,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/relatorio-da-pf-sobre-dark-horse-contraria-versao-de-flavio/",
     "source_name": "Poder360",
-    "source_date": "2026-09-12"
+    "source_date": "2026-09-12",
+    "pos": {
+      "x": 1048,
+      "y": 611
+    }
   },
   {
     "id": "entrepay",
@@ -799,7 +927,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/pf-diz-que-mineiro-montou-estrutura-para-dinheiro-ilicito-do-master/",
     "source_name": "Poder360",
-    "source_date": "2026-09-12"
+    "source_date": "2026-09-12",
+    "pos": {
+      "x": 1061,
+      "y": 548
+    }
   },
   {
     "id": "havengate",
@@ -813,7 +945,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/relatorio-da-pf-sobre-dark-horse-contraria-versao-de-flavio/",
     "source_name": "Poder360",
-    "source_date": "2026-09-12"
+    "source_date": "2026-09-12",
+    "pos": {
+      "x": 1112,
+      "y": 494
+    }
   },
   {
     "id": "go-up-entertainment",
@@ -827,7 +963,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/produtora-de-dark-horse-pagou-faturas-do-cartao-de-mario-frias/",
     "source_name": "Poder360",
-    "source_date": "2026-09-12"
+    "source_date": "2026-09-12",
+    "pos": {
+      "x": 1092,
+      "y": 640
+    }
   },
   {
     "id": "icb",
@@ -841,7 +981,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/mendonca-derruba-sigilo-de-processos-sobre-dark-horse-ciro-e-castro/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 1020,
+      "y": 584
+    }
   },
   {
     "id": "barci-moraes-advogados",
@@ -855,7 +999,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/leia-a-integra-do-contrato-da-mulher-de-moraes-com-o-master/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 617,
+      "y": 85
+    }
   },
   {
     "id": "fux",
@@ -869,7 +1017,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/supremo-salva-alexandre-de-moraes-por-ate-90-dias/",
     "source_name": "Poder360",
-    "source_date": "2026-09-15"
+    "source_date": "2026-09-15",
+    "pos": {
+      "x": 938,
+      "y": 324
+    }
   },
   {
     "id": "toffoli",
@@ -883,7 +1035,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/supremo-salva-alexandre-de-moraes-por-ate-90-dias/",
     "source_name": "Poder360",
-    "source_date": "2026-09-15"
+    "source_date": "2026-09-15",
+    "pos": {
+      "x": 914,
+      "y": 219
+    }
   },
   {
     "id": "carmen-lucia",
@@ -897,7 +1053,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/carmen-lucia-se-diz-envergonhada-com-atual-situacao-do-stf/",
     "source_name": "Poder360",
-    "source_date": "2026-09-15"
+    "source_date": "2026-09-15",
+    "pos": {
+      "x": 909,
+      "y": 356
+    }
   },
   {
     "id": "kassio-nunes-marques",
@@ -911,7 +1071,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/mensagens-de-vorcaro-citam-pagamento-de-r-500-mil-a-filho-de-nunes/",
     "source_name": "Poder360",
-    "source_date": "2026-09-15"
+    "source_date": "2026-09-15",
+    "pos": {
+      "x": 853,
+      "y": 294
+    }
   },
   {
     "id": "kevin-marques",
@@ -925,7 +1089,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/mensagens-de-vorcaro-citam-pagamento-de-r-500-mil-a-filho-de-nunes/",
     "source_name": "Poder360",
-    "source_date": "2026-09-15"
+    "source_date": "2026-09-15",
+    "pos": {
+      "x": 557,
+      "y": 488
+    }
   },
   {
     "id": "luiz-renno",
@@ -939,7 +1107,11 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/mensagens-de-vorcaro-citam-pagamento-de-r-500-mil-a-filho-de-nunes/",
     "source_name": "Poder360",
-    "source_date": "2026-09-15"
+    "source_date": "2026-09-15",
+    "pos": {
+      "x": 431,
+      "y": 498
+    }
   },
   {
     "id": "ciro-soares",
@@ -953,7 +1125,11 @@
     "confianca": "confirmado",
     "source_url": "https://www.poder360.com.br/poder-justica/advogado-de-vorcaro-comemorou-habeas-corpus-de-claudio-castro/",
     "source_name": "Poder360",
-    "source_date": "2026-09-15"
+    "source_date": "2026-09-15",
+    "pos": {
+      "x": 436,
+      "y": 405
+    }
   },
   {
     "id": "consult-inteligencia-tributaria",
@@ -967,6 +1143,10 @@
     "confianca": "apuracao",
     "source_url": "https://www.poder360.com.br/poder-justica/mensagens-de-vorcaro-citam-pagamento-de-r-500-mil-a-filho-de-nunes/",
     "source_name": "Poder360",
-    "source_date": "2026-09-15"
+    "source_date": "2026-09-15",
+    "pos": {
+      "x": 496,
+      "y": 493
+    }
   }
 ]

@@ -270,7 +270,11 @@
     "updated_at": "2026-09-15",
     "source_url": "https://www.poder360.com.br/poder-justica/pgr-pede-para-fachin-liberacao-de-todas-as-provas-do-banco-master/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 215,
+      "y": 153
+    }
   },
   {
     "id": "inq-5035",
@@ -452,7 +456,11 @@
     "updated_at": "2026-09-15",
     "source_url": "https://www.poder360.com.br/poder-justica/pf-quer-apurar-atuacao-de-flavio-eduardo-e-mario-frias/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 1175,
+      "y": 503
+    }
   },
   {
     "id": "pet-15375",
@@ -466,7 +474,11 @@
     "updated_at": "2026-09-15",
     "source_url": "https://www.poder360.com.br/poder-justica/mendonca-derruba-sigilo-de-processos-sobre-dark-horse-ciro-e-castro/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 231,
+      "y": 728
+    }
   },
   {
     "id": "pet-15487",
@@ -550,7 +562,11 @@
     "updated_at": "2026-09-15",
     "source_url": "https://www.poder360.com.br/poder-justica/mendonca-derruba-sigilo-de-processos-sobre-dark-horse-ciro-e-castro/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 925,
+      "y": 469
+    }
   },
   {
     "id": "pet-15691",
@@ -564,7 +580,11 @@
     "updated_at": "2026-09-15",
     "source_url": "https://www.poder360.com.br/poder-justica/mendonca-derruba-sigilo-de-processos-sobre-dark-horse-ciro-e-castro/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-11",
+    "pos": {
+      "x": 977,
+      "y": 499
+    }
   },
   {
     "id": "pet-15711",
