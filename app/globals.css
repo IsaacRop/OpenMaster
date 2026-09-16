@@ -550,6 +550,8 @@ a {
 .mapa-no-aro { fill: none; stroke: #b4bbc3; stroke-width: 1.35; vector-effect: non-scaling-stroke; }
 .mapa-no-marca.tem-foto image { filter: saturate(.72) contrast(1.04); }
 .mapa-no-marca.tem-foto.is-selected image { filter: none; }
+.mapa-no-marca.tem-logo > rect:first-of-type { fill: #eef1f4; }
+.mapa-no-marca.tem-logo image { filter: saturate(.78) contrast(1.05); }
 .mapa-no-instituicao > rect { fill: #11151a; stroke: #818b97; }
 .mapa-no-processo > rect { fill: #151217; stroke: #a73c49; }
 .mapa-no-processo text { fill: #f1dfe2; font-family: var(--font-mono); font-size: 8px; letter-spacing: -.04em; }

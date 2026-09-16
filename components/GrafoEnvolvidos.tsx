@@ -96,6 +96,12 @@ function MarcaNo({ no, selecionado }: { no: NoGrafo; selecionado: boolean }) {
   const classe = `mapa-no-marca mapa-no-${no.tipo}${selecionado ? " is-selected" : ""}`;
   if (no.tipo === "processo") return <g className={classe}><rect x={-39} y={-23} width={78} height={46} rx={2} /><text y={4} textAnchor="middle">{no.rotulo.replace(/\s/g, "\u00a0")}</text></g>;
   if (no.tipo === "documento") return <g className={classe}><path d="M-18-24H10L19-15V24H-18Z" /><path className="mapa-no-dobra" d="M10-24V-15H19" /><line x1={-10} y1={-5} x2={10} y2={-5} /><line x1={-10} y1={3} x2={8} y2={3} /><line x1={-10} y1={11} x2={4} y2={11} /></g>;
+  if (no.tipo === "instituicao" && no.foto) return <g className={`${classe} tem-foto tem-logo`}>
+    <defs><clipPath id={`recorte-${no.id}`}><rect x={-20} y={-20} width={40} height={40} transform="rotate(45)" /></clipPath></defs>
+    <rect x={-21} y={-21} width={42} height={42} transform="rotate(45)" />
+    <image href={no.foto.url} x={-27} y={-27} width={54} height={54} clipPath={`url(#recorte-${no.id})`} preserveAspectRatio="xMidYMid meet" />
+    <rect className="mapa-no-aro" x={-21} y={-21} width={42} height={42} transform="rotate(45)" />
+  </g>;
   if (no.tipo === "instituicao") return <g className={classe}><rect x={-21} y={-21} width={42} height={42} transform="rotate(45)" /><text y={5} textAnchor="middle">{iniciais(no.rotulo)}</text></g>;
   if (no.foto) return <g className={`${classe} tem-foto`}>
     {/* `slice` recorta para preencher: retrato cortado e melhor que retrato deformado. */}
