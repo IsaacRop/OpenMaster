@@ -616,8 +616,54 @@ a {
   .mapa-instrucoes p:last-child { margin-top: .35rem; text-align: left; }
 }
 
+/* Fluidez — transições e entradas -------------------------------------- */
+
+/*
+ * Vocabulário curto de propósito: easeOutQuad para o que aparece,
+ * easeInOutQuad para mudança de estado, e nada acima de meio segundo. São as
+ * duas curvas e a faixa de duração medidas na referência — um repertório
+ * pequeno é o que faz movimentos diferentes parecerem do mesmo lugar.
+ */
+.mapa-no { transition: opacity .3s cubic-bezier(.25, .46, .45, .94); }
+.mapa-no-marca { transition: transform .22s cubic-bezier(.455, .03, .515, .955); }
+/* As marcas sao desenhadas centradas em 0,0, entao a escala ja gira em torno
+   do proprio no — sem precisar de transform-origin. */
+.mapa-no:hover .mapa-no-marca { transform: scale(1.07); }
+.mapa-no-marca.is-selected { transform: scale(1.1); }
+.mapa-no-nome, .mapa-no-papel { animation: mapa-surge .26s cubic-bezier(.25, .46, .45, .94) both; }
+
+.mapa-arestas > g { transition: opacity .3s cubic-bezier(.25, .46, .45, .94); }
+.mapa-aresta {
+  transition:
+    stroke .25s cubic-bezier(.455, .03, .515, .955),
+    stroke-width .25s cubic-bezier(.455, .03, .515, .955),
+    opacity .3s cubic-bezier(.25, .46, .45, .94);
+}
+
+@keyframes mapa-surge { from { opacity: 0; } to { opacity: 1; } }
+@keyframes mapa-sobe { from { opacity: 0; transform: translateY(.4rem); } to { opacity: 1; transform: none; } }
+@keyframes mapa-ficha-entra { from { opacity: 0; transform: translateX(1.6rem); } to { opacity: 1; transform: none; } }
+@keyframes mapa-popover-entra { from { opacity: 0; transform: translateY(-.5rem) scale(.985); } to { opacity: 1; transform: none; } }
+
+.mapa-ficha { animation: mapa-ficha-entra .34s cubic-bezier(.25, .46, .45, .94) both; }
+/* O conteudo entra logo atras do painel, escalonado: o olho pousa no nome
+   antes de a lista de relacoes chegar, em vez de receber tudo de uma vez. */
+.mapa-ficha > * { animation: mapa-sobe .3s cubic-bezier(.25, .46, .45, .94) both; }
+.mapa-ficha > *:nth-child(1) { animation-delay: .08s; }
+.mapa-ficha > *:nth-child(2) { animation-delay: .12s; }
+.mapa-ficha > *:nth-child(3) { animation-delay: .16s; }
+.mapa-ficha > *:nth-child(n + 4) { animation-delay: .2s; }
+
+.mapa-popover { animation: mapa-popover-entra .24s cubic-bezier(.25, .46, .45, .94) both; }
+
 @media (prefers-reduced-motion: reduce) {
-  .mapa-no, .mapa-aresta { transition: none; }
+  .mapa-no, .mapa-no-marca, .mapa-aresta, .mapa-arestas > g { transition: none; }
+  /*
+   * Zera a animacao, nao o transform: a escala do no selecionado e estado, nao
+   * movimento, e some-la tiraria um indicador de selecao de quem pediu menos
+   * animacao — nao menos informacao.
+   */
+  .mapa-ficha, .mapa-ficha > *, .mapa-popover, .mapa-no-nome, .mapa-no-papel { animation: none; }
 }
 
 @media print {
