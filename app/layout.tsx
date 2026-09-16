@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Archivo, IBM_Plex_Mono } from "next/font/google";
 
-import Disclaimer from "@/components/Disclaimer";
+import ConditionalDisclaimer from "@/components/ConditionalDisclaimer";
 import LogoMark from "@/components/LogoMark";
 import MainNav from "@/components/MainNav";
 import { dataCorte } from "@/lib/data";
@@ -66,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
 
-        <Disclaimer />
+        <ConditionalDisclaimer />
       </body>
     </html>
   );

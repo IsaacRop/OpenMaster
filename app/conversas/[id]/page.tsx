@@ -98,14 +98,9 @@ export default async function ConversaPage({
   const diaProximo = idxDia >= 0 && idxDia < datas.length - 1 ? datas[idxDia + 1].date : undefined;
 
   return (
-    <article className="space-y-4">
-      <div>
-        <Link href="/conversas" className="kicker no-underline hover:text-seal">
-          ← Voltar para conversas
-        </Link>
-      </div>
-
+    <article className="flex h-[calc(100dvh-150px)] min-h-[560px] flex-col items-center justify-center gap-2 overflow-hidden">
       <PhoneFrame
+        sizeClassName="h-[calc(100dvh-150px)] max-h-[780px] min-w-[320px] w-auto"
         header={
           <div className="flex items-center gap-2">
             <Link
@@ -130,32 +125,36 @@ export default async function ConversaPage({
                 <Link
                   href={diaAnterior ? `/conversas/${id}?data=${diaAnterior}` : "#"}
                   aria-disabled={!diaAnterior}
-                  className={`flex-1 whitespace-nowrap border px-2 py-1.5 text-center text-xs no-underline ${
+                  aria-label="Dia anterior"
+                  title="Dia anterior"
+                  className={`shrink-0 border px-3 py-1.5 text-center text-sm no-underline ${
                     diaAnterior
                       ? "border-rule text-ink-2 hover:border-seal hover:text-seal"
                       : "cursor-not-allowed border-rule/40 text-ink-3/40"
                   }`}
                 >
-                  ← Anterior
+                  ‹
                 </Link>
-                <div className="numero shrink-0 px-1 text-center text-[0.625rem] text-ink-3">
-                  <p className="text-xs font-semibold text-ink">
+                <div className="numero min-w-0 flex-1 px-1 text-center text-[0.625rem] text-ink-3">
+                  <p className="truncate text-xs font-semibold text-ink">
                     {diaAtivo?.split("-").reverse().join("/")}
                   </p>
-                  <p>
+                  <p className="truncate">
                     dia {idxDia + 1} de {datas.length}
                   </p>
                 </div>
                 <Link
                   href={diaProximo ? `/conversas/${id}?data=${diaProximo}` : "#"}
                   aria-disabled={!diaProximo}
-                  className={`flex-1 whitespace-nowrap border px-2 py-1.5 text-center text-xs no-underline ${
+                  aria-label="Dia seguinte"
+                  title="Dia seguinte"
+                  className={`shrink-0 border px-3 py-1.5 text-center text-sm no-underline ${
                     diaProximo
                       ? "border-rule text-ink-2 hover:border-seal hover:text-seal"
                       : "cursor-not-allowed border-rule/40 text-ink-3/40"
                   }`}
                 >
-                  Seguinte →
+                  ›
                 </Link>
               </div>
               <form
@@ -197,8 +196,12 @@ export default async function ConversaPage({
         </ul>
       </PhoneFrame>
 
-      <p className="mx-auto max-w-[400px] text-xs leading-relaxed text-ink-3">
-        Conteúdo buscado ao vivo do projeto{" "}
+      <p className="shrink-0 text-center text-[0.6875rem] leading-none text-ink-3">
+        <Link href="/conversas" className="underline hover:text-seal">
+          ← todas as conversas
+        </Link>
+        {" · "}
+        Buscado ao vivo do{" "}
         <a
           href="https://www.masterwhats.com.br/"
           target="_blank"
@@ -207,10 +210,7 @@ export default async function ConversaPage({
         >
           MasterWhats
         </a>
-        , de Rafael Bressan. Este painel não verifica de forma independente cada mensagem — a
-        proveniência (página e figura do laudo, quando aplicável) é a mesma indicada pela fonte
-        original. Mensagens de mídia (áudio, imagem, vídeo) não fazem parte do vazamento e
-        aparecem como placeholder.
+        , não verificado de forma independente.
       </p>
     </article>
   );
