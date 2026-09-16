@@ -109,6 +109,7 @@ const nosCurados: NoGrafo[] = [
         source_url: p.source_url,
         source_name: p.source_name,
         source_date: p.source_date,
+        foto: p.foto,
         // Sem `revisado_em`: `Pessoa` não tem carimbo de revisão no schema, e
         // `source_date` é a data de publicação da fonte. Rotular uma como a
         // outra afirmaria ao leitor que a ficha foi conferida numa data em que

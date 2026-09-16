@@ -9,6 +9,15 @@ import type { Confianca, NivelPresenca, Pessoa } from "@/lib/schema";
 import { CONFIANCA_LABEL } from "@/lib/schema";
 
 export type TipoNo = "pessoa" | "instituicao" | "processo" | "documento";
+/** Espelha `Foto` em lib/schema. Ausente = o nó desenha o monograma. */
+export type FotoNo = {
+  url: string;
+  credito: string;
+  licenca: string;
+  source_url: string;
+  source_name: string;
+  source_date?: string;
+};
 export type EventoNo = { id: string; data: string; titulo: string; confianca: Confianca };
 
 export type NoGrafo = {
@@ -27,6 +36,7 @@ export type NoGrafo = {
   source_name: string;
   source_date?: string;
   revisado_em?: string;
+  foto?: FotoNo;
   eventos: EventoNo[];
 };
 
@@ -87,6 +97,13 @@ function MarcaNo({ no, selecionado }: { no: NoGrafo; selecionado: boolean }) {
   if (no.tipo === "processo") return <g className={classe}><rect x={-39} y={-23} width={78} height={46} rx={2} /><text y={4} textAnchor="middle">{no.rotulo.replace(/\s/g, "\u00a0")}</text></g>;
   if (no.tipo === "documento") return <g className={classe}><path d="M-18-24H10L19-15V24H-18Z" /><path className="mapa-no-dobra" d="M10-24V-15H19" /><line x1={-10} y1={-5} x2={10} y2={-5} /><line x1={-10} y1={3} x2={8} y2={3} /><line x1={-10} y1={11} x2={4} y2={11} /></g>;
   if (no.tipo === "instituicao") return <g className={classe}><rect x={-21} y={-21} width={42} height={42} transform="rotate(45)" /><text y={5} textAnchor="middle">{iniciais(no.rotulo)}</text></g>;
+  if (no.foto) return <g className={`${classe} tem-foto`}>
+    {/* `slice` recorta para preencher: retrato cortado e melhor que retrato deformado. */}
+    <defs><clipPath id={`recorte-${no.id}`}><circle r={22} /></clipPath></defs>
+    <circle r={24} />
+    <image href={no.foto.url} x={-22} y={-22} width={44} height={44} clipPath={`url(#recorte-${no.id})`} preserveAspectRatio="xMidYMid slice" />
+    <circle className="mapa-no-aro" r={23} />
+  </g>;
   return <g className={classe}><circle r={24} /><circle className="mapa-no-anel" r={19} /><text y={5} textAnchor="middle">{iniciais(no.rotulo)}</text></g>;
 }
 
@@ -415,7 +432,7 @@ export default function GrafoEnvolvidos({ nos, arestas }: { nos: NoGrafo[]; ares
             <div className="mapa-ficha-tipo"><span className={`mapa-legenda-sinal mapa-mini-${selecionado.tipo}`} />{TIPO_SINGULAR[selecionado.tipo]}</div><h3>{selecionado.rotulo}</h3><p className="mapa-ficha-papel">{selecionado.papel}</p><Status confianca={selecionado.confianca} /><p className="mapa-ficha-resumo">{selecionado.resumo}</p>
             {!!conexoes.length && <section><h4>Todas as relações <span>{conexoes.length}</span></h4>{conexoes.length > conexoesVisuais.length && <p className="mapa-ficha-nota">O mapa mostra as {conexoesVisuais.length} conexões mais relevantes para preservar a leitura.</p>}<ul className="mapa-ficha-relacoes">{conexoes.map((aresta) => { const outro = porId.get(aresta.from === selecionado.id ? aresta.to : aresta.from); if (!outro) return null; return <li key={aresta.id}><button type="button" onClick={() => selecionarRelacao(aresta)}><span>{aresta.from === selecionado.id ? "→" : "←"}</span><span><strong>{aresta.rotulo}</strong><small>{outro.rotulo}</small></span></button></li>; })}</ul></section>}
             {!!selecionado.eventos.length && <section><h4>Acontecimentos relacionados <span>{selecionado.eventos.length}</span></h4><ul className="mapa-ficha-eventos">{selecionado.eventos.slice(-4).reverse().map((evento) => <li key={evento.id}><time>{dataBR(evento.data)}</time><Link href={`/eventos/${evento.id}`}>{evento.titulo}</Link></li>)}</ul></section>}
-            <div className="mapa-ficha-fontes">{selecionado.revisado_em && <small>Revisado em {dataBR(selecionado.revisado_em)}</small>}<a href={selecionado.source_url} target="_blank" rel="noopener noreferrer">Abrir fonte <span aria-hidden="true">↗</span><small>{selecionado.source_name}{selecionado.source_date ? ` · ${dataBR(selecionado.source_date)}` : ""}</small></a></div>
+            <div className="mapa-ficha-fontes">{selecionado.revisado_em && <small>Revisado em {dataBR(selecionado.revisado_em)}</small>}<a href={selecionado.source_url} target="_blank" rel="noopener noreferrer">Abrir fonte <span aria-hidden="true">↗</span><small>{selecionado.source_name}{selecionado.source_date ? ` · ${dataBR(selecionado.source_date)}` : ""}</small></a>{selecionado.foto && <small className="mapa-ficha-credito">Retrato: {selecionado.foto.credito} · <a href={selecionado.foto.source_url} target="_blank" rel="noopener noreferrer">{selecionado.foto.licenca}</a></small>}</div>
             <Link className="mapa-ficha-pagina" href={selecionado.href}>Ver página completa <span aria-hidden="true">→</span></Link>
           </>}
           {relacaoSelecionada && origemRelacao && destinoRelacao && <>

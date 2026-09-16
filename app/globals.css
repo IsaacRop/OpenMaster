@@ -540,6 +540,16 @@ a {
 .mapa-no-marca > circle:first-child, .mapa-no-marca > rect:first-child, .mapa-no-marca > path:first-child { fill: #12161c; stroke: #b4bbc3; stroke-width: 1.35; vector-effect: non-scaling-stroke; }
 .mapa-no-marca text { fill: #e9ebee; font-family: var(--font-sans); font-size: 10px; font-weight: 600; letter-spacing: .08em; }
 .mapa-no-anel { fill: none; stroke: #353c45; stroke-width: .7; }
+/*
+ * Retrato. O aro sobrepoe a borda do recorte, que sai serrilhada no SVG, e
+ * devolve ao no com foto o mesmo contorno que o monograma tem — para os dois
+ * estados parecerem o mesmo componente em variantes, e nao um completo e um
+ * quebrado. Fotos so entram com credito e licenca; ver `Foto` em lib/schema.
+ */
+.mapa-no-marca.tem-foto > circle:first-child { fill: #0d1116; }
+.mapa-no-aro { fill: none; stroke: #b4bbc3; stroke-width: 1.35; vector-effect: non-scaling-stroke; }
+.mapa-no-marca.tem-foto image { filter: saturate(.72) contrast(1.04); }
+.mapa-no-marca.tem-foto.is-selected image { filter: none; }
 .mapa-no-instituicao > rect { fill: #11151a; stroke: #818b97; }
 .mapa-no-processo > rect { fill: #151217; stroke: #a73c49; }
 .mapa-no-processo text { fill: #f1dfe2; font-family: var(--font-mono); font-size: 8px; letter-spacing: -.04em; }
@@ -589,6 +599,9 @@ a {
 .mapa-ficha-eventos a:hover { color: #d15462; }
 .mapa-ficha-fontes { display: grid; gap: .45rem; margin-top: 1.5rem; padding: .9rem; border: 1px solid #2b3038; background: #0d1015; }
 .mapa-ficha-fontes > small { color: #747d88; font-size: .65rem; }
+/* O no nao tem onde creditar um retrato de 44px; a ficha tem. */
+.mapa-ficha-credito { color: #747d88; font-size: .62rem; line-height: 1.45; }
+.mapa-ficha-credito a { color: #9aa2ac; text-decoration: underline; text-underline-offset: 2px; }
 .mapa-ficha-fontes a { display: grid; grid-template-columns: 1fr auto; gap: .2rem .5rem; color: #d7dbe0; font-size: .78rem; text-decoration: none; }
 .mapa-ficha-fontes a small { grid-column: 1 / -1; color: #747d88; font-size: .65rem; }
 .mapa-ficha-fontes a:hover { color: #d15462; }
