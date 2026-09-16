@@ -152,8 +152,15 @@ export type EventoTimeline = z.infer<typeof EventoTimeline>;
  * esquecimento, que é o erro que este schema existe para tornar impossível.
  */
 export const Foto = Fonte.extend({
-  /** URL da imagem em si, não da página que a contém. */
-  url: z.string().url(),
+  /**
+   * URL da imagem em si, não da página que a contém. Aceita também um caminho
+   * público local: as imagens editoriais são baixadas para o próprio projeto
+   * para o grafo não depender da latência nem da disponibilidade de terceiros.
+   */
+  url: z.union([
+    z.string().url(),
+    z.string().regex(/^\/(?!\/)[^\s]+$/, "use uma URL absoluta ou um caminho público iniciado por /")
+  ]),
   /** Quem fotografou, como a licença exige que seja creditado. */
   credito: z.string().min(2),
   /** Identificador da licença, ex.: "CC BY 3.0 BR", "CC BY-SA 4.0". */
