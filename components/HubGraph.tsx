@@ -6,10 +6,11 @@ const COR_GRUPO = {
   instituicao: "var(--color-ink-3)",
   outros: "var(--color-disputed)",
   processo: "var(--color-ink-2)",
+  documento: "var(--color-ink-3)",
 } as const;
 
 export default function HubGraph() {
-  const nos = [...nosGrafo].sort((a, b) => b.grau - a.grau).slice(0, 9);
+  const nos = nosGrafo.filter((no) => no.tipo !== "documento").sort((a, b) => b.grau - a.grau).slice(0, 9);
   const ids = new Set(nos.map((n) => n.id));
   const arestas = arestasGrafo.filter((a) => ids.has(a.from) && ids.has(a.to));
   const porId = new Map(nos.map((n) => [n.id, n]));

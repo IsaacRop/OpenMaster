@@ -41,7 +41,8 @@ export type ArestaGrafo = {
   source_url: string;
   source_name: string;
   source_date?: string;
-  contexto: string;
+  /** Prosa que acrescenta algo ao `rotulo`. Ausente quando não haveria. */
+  contexto?: string;
 };
 
 type Vista = { k: number; x: number; y: number };
@@ -408,7 +409,7 @@ export default function GrafoEnvolvidos({ nos, arestas }: { nos: NoGrafo[]; ares
           {relacaoSelecionada && origemRelacao && destinoRelacao && <>
             <div className="mapa-ficha-tipo"><span className="mapa-linha-amostra" />Relação documentada</div><h3>{relacaoSelecionada.rotulo}</h3><Status confianca={relacaoSelecionada.confianca} />
             <div className="mapa-relacao-pontas"><button type="button" onClick={() => selecionarNo(origemRelacao)}><small>Origem</small><strong>{origemRelacao.rotulo}</strong></button><span aria-label={relacaoSelecionada.direcionada ? "Relação direcionada" : "Relação sem direção"}>{relacaoSelecionada.direcionada ? "→" : "—"}</span><button type="button" onClick={() => selecionarNo(destinoRelacao)}><small>Destino</small><strong>{destinoRelacao.rotulo}</strong></button></div>
-            <section><h4>Contexto</h4><p className="mapa-ficha-resumo">{relacaoSelecionada.contexto}</p></section><div className="mapa-ficha-fontes"><a href={relacaoSelecionada.source_url} target="_blank" rel="noopener noreferrer">Abrir fonte da relação <span aria-hidden="true">↗</span><small>{relacaoSelecionada.source_name}{relacaoSelecionada.source_date ? ` · ${dataBR(relacaoSelecionada.source_date)}` : ""}</small></a></div>
+            {relacaoSelecionada.contexto && <section><h4>Contexto</h4><p className="mapa-ficha-resumo">{relacaoSelecionada.contexto}</p></section>}<div className="mapa-ficha-fontes"><a href={relacaoSelecionada.source_url} target="_blank" rel="noopener noreferrer">Abrir fonte da relação <span aria-hidden="true">↗</span><small>{relacaoSelecionada.source_name}{relacaoSelecionada.source_date ? ` · ${dataBR(relacaoSelecionada.source_date)}` : ""}</small></a></div>
           </>}
         </aside>}
       </div>
