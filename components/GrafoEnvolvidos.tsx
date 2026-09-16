@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import { MUNDO, meiaExtensao } from "@/lib/mapa-mundo";
 import type { Confianca, NivelPresenca, Pessoa } from "@/lib/schema";
 import { CONFIANCA_LABEL } from "@/lib/schema";
 
@@ -47,7 +48,6 @@ export type ArestaGrafo = {
 
 type Vista = { k: number; x: number; y: number };
 type ModoMapa = "essencial" | "completo";
-const MUNDO = { largura: 1260, altura: 800 };
 const K_MIN = 0.48;
 const K_MAX = 3.2;
 const TODOS_TIPOS: TipoNo[] = ["pessoa", "instituicao", "processo", "documento"];
@@ -56,14 +56,26 @@ const TIPO_SINGULAR: Record<TipoNo, string> = { pessoa: "Pessoa", instituicao: "
 const limitar = (valor: number, min: number, max: number) => Math.min(max, Math.max(min, valor));
 const dataBR = (data?: string) => (data ? data.split("-").reverse().join("/") : null);
 const iniciais = (texto: string) => texto.replace(/^(Min\.?|Banco|Polícia|Pet|Rcl|Inq)\s+/i, "").split(/\s+/).filter(Boolean).slice(0, 2).map((parte) => parte[0]).join("").toUpperCase();
-const raioNo = (no: NoGrafo) => no.tipo === "processo" ? 31 : no.tipo === "instituicao" ? 28 : 24;
-
+/**
+ * Onde a aresta encosta no nó. Sai pela borda da *caixa* da marca, não por um
+ * raio circular: a marca de processo tem 78 de largura contra 46 de altura, e
+ * um raio único fazia a linha nascer dentro do retângulo nas laterais e longe
+ * dele em cima e embaixo.
+ */
 function pontoAresta(no: NoGrafo, outro: NoGrafo, margem = 5) {
   const dx = outro.pos.x - no.pos.x;
   const dy = outro.pos.y - no.pos.y;
   const d = Math.hypot(dx, dy) || 1;
-  const r = raioNo(no) + margem;
-  return { x: no.pos.x + (dx / d) * r, y: no.pos.y + (dy / d) * r };
+  const ux = dx / d;
+  const uy = dy / d;
+  const meia = meiaExtensao(no.tipo);
+  // Quanto andar na direção do vizinho até cruzar a borda da caixa.
+  const ate = Math.min(
+    Math.abs(ux) < 1e-6 ? Infinity : meia.x / Math.abs(ux),
+    Math.abs(uy) < 1e-6 ? Infinity : meia.y / Math.abs(uy),
+  );
+  const alcance = (Number.isFinite(ate) ? ate : Math.max(meia.x, meia.y)) + margem;
+  return { x: no.pos.x + ux * alcance, y: no.pos.y + uy * alcance };
 }
 
 function Status({ confianca }: { confianca: Confianca }) {

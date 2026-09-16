@@ -1,5 +1,6 @@
 import { grau } from "./backlinks";
 import { arestasDoMapa, documentos, pessoas, processos, timeline } from "./data";
+import { CURADO, MUNDO, meiaExtensao } from "./mapa-mundo";
 import type { ArestaGrafo, NoGrafo } from "@/components/GrafoEnvolvidos";
 
 /**
@@ -11,7 +12,85 @@ import type { ArestaGrafo, NoGrafo } from "@/components/GrafoEnvolvidos";
  * backlinks mostra na página da entidade — uma conta só, dois usos.
  */
 
-export const nosGrafo: NoGrafo[] = [
+/**
+ * Respiro além da marca. É o que transforma "encostado" em "constelação": sem
+ * ele a relaxação para no instante em que as caixas deixam de se cruzar, e o
+ * desenho fica tecnicamente correto e visualmente colado.
+ */
+const MARGEM = { x: 18, y: 24 };
+/** Distância mínima da borda do mundo, para o rótulo não sair cortado. */
+const BORDA = 48;
+const ITERACOES = 400;
+const FORCA_ANCORA = 0.014;
+
+/**
+ * Redistribui os nós até nenhum se sobrepor, partindo do desenho curado.
+ *
+ * As posições em `pos` foram feitas à mão num mundo de 1260×800 e, com a
+ * entrada de documentos e instituições, passaram a se cruzar em 74 pares — sem
+ * que faltasse espaço: as marcas ocupavam só 20% da área. O problema era
+ * distribuição, não densidade.
+ *
+ * É determinístico de ponta a ponta — ordem de iteração fixa, nenhum sorteio —
+ * porque roda no servidor e o resultado vai no payload: qualquer variação entre
+ * execuções viraria divergência de hidratação.
+ */
+function distribuir(nos: NoGrafo[]): NoGrafo[] {
+  const escalaX = MUNDO.largura / CURADO.largura;
+  const escalaY = MUNDO.altura / CURADO.altura;
+  const pontos = nos.map((no) => ({ x: no.pos.x * escalaX, y: no.pos.y * escalaY }));
+  const ancoras = pontos.map((ponto) => ({ ...ponto }));
+  const meias = nos.map((no) => {
+    const meia = meiaExtensao(no.tipo);
+    return { x: meia.x + MARGEM.x, y: meia.y + MARGEM.y };
+  });
+
+  for (let passo = 0; passo < ITERACOES; passo++) {
+    // A âncora segura a composição curada no começo e é solta no fim. Se
+    // valesse até o último passo, empataria com a separação e sobrariam
+    // sobreposições exatamente onde o desenho original era mais apertado.
+    const forca = passo < ITERACOES * 0.6 ? FORCA_ANCORA : 0;
+
+    for (let i = 0; i < nos.length; i++) {
+      for (let j = i + 1; j < nos.length; j++) {
+        const dx = pontos[j].x - pontos[i].x;
+        const dy = pontos[j].y - pontos[i].y;
+        const invasaoX = meias[i].x + meias[j].x - Math.abs(dx);
+        const invasaoY = meias[i].y + meias[j].y - Math.abs(dy);
+        // Caixas só se cruzam quando há invasão nos dois eixos.
+        if (invasaoX <= 0 || invasaoY <= 0) continue;
+
+        // Separa pelo eixo de menor penetração: é o empurrão mais curto que
+        // desfaz o cruzamento, então desloca menos o desenho original.
+        if (invasaoX < invasaoY) {
+          const metade = (invasaoX / 2) * (dx < 0 ? -1 : 1);
+          pontos[i].x -= metade;
+          pontos[j].x += metade;
+        } else {
+          const metade = (invasaoY / 2) * (dy < 0 ? -1 : 1);
+          pontos[i].y -= metade;
+          pontos[j].y += metade;
+        }
+      }
+    }
+
+    for (let i = 0; i < nos.length; i++) {
+      if (forca) {
+        pontos[i].x += (ancoras[i].x - pontos[i].x) * forca;
+        pontos[i].y += (ancoras[i].y - pontos[i].y) * forca;
+      }
+      pontos[i].x = Math.min(MUNDO.largura - BORDA, Math.max(BORDA, pontos[i].x));
+      pontos[i].y = Math.min(MUNDO.altura - BORDA, Math.max(BORDA, pontos[i].y));
+    }
+  }
+
+  return nos.map((no, i) => ({
+    ...no,
+    pos: { x: Math.round(pontos[i].x * 10) / 10, y: Math.round(pontos[i].y * 10) / 10 },
+  }));
+}
+
+const nosCurados: NoGrafo[] = [
   ...pessoas
     .filter((p) => p.pos)
     .map(
@@ -97,6 +176,8 @@ export const nosGrafo: NoGrafo[] = [
       };
     }),
 ];
+
+export const nosGrafo: NoGrafo[] = distribuir(nosCurados);
 
 const relacoesDocumentais: ArestaGrafo[] = documentos
   .filter((d) => nosGrafo.some((n) => n.id === d.id))
