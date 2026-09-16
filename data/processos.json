@@ -27,25 +27,22 @@
       }
     ],
     "ultima_movimentacao": {
-      "data": "2026-09-12",
-      "descricao": "Relatoria substituída para a Presidência (RISTF art. 13, XV), após remessa determinada pelo próprio Min. Mendonça (RISTF art. 5º, I).",
+      "data": "2026-09-15",
+      "descricao": "Sessão de plenário sobre abrir investigação contra Moraes termina com pedido de vista de Flávio Dino, que pode adiar a decisão por até 90 dias.",
       "origem": "manual"
     },
     "movimentacoes": [],
-    "proximo_evento": {
-      "data": "2026-09-15",
-      "descricao": "Sessão extraordinária do Plenário, 10h."
-    },
+    "proximo_evento": null,
     "sync": "sem_numero_cnj",
     "sync_checked_at": null,
     "pos": {
       "x": 540,
       "y": 400
     },
-    "updated_at": "2026-09-14",
-    "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
-    "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "updated_at": "2026-09-16",
+    "source_url": "https://www.poder360.com.br/poder-justica/supremo-salva-alexandre-de-moraes-por-ate-90-dias/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
   },
   {
     "id": "pet-16704",

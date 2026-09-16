@@ -284,3 +284,45 @@
 #### Barci de Moraes Sociedade de Advogados
 - **Papel:** Escritório de advocacia sediado em São Paulo.
 - **Fatos Confirmados:** [confirmado] Contratado formalmente pelo Banco Master mediante instrumento firmado com Daniel Vorcaro prevendo honorários de 36 parcelas de R$ 3 milhões líquidos ([Fonte](https://www.poder360.com.br/poder-justica/leia-a-integra-do-contrato-da-mulher-de-moraes-com-o-master/)).
+
+---
+
+## 3. Entidades Adicionadas em 15 de Setembro de 2026 — Sessão do Plenário sobre Moraes
+
+### 3.1. Ministros do STF (não citados nas levas de 10-13/09)
+
+#### Luiz Fux
+- **Qualificação:** Ministro do Supremo Tribunal Federal.
+- **Status Jurídico:** [confirmado] Votou contra a questão de ordem de Gilmar Mendes (mantendo Pet 16.662 e Pet 16.704 separadas) ([Fonte](https://www.poder360.com.br/poder-justica/supremo-salva-alexandre-de-moraes-por-ate-90-dias/)).
+- **Fatos Confirmados:** [confirmado] Negou publicamente, em sessão, ter trocado mensagens com Daniel Vorcaro ("Nunca vi esse cidadão na minha vida") ([Fonte](https://www.poder360.com.br/poder-justica/dino-cita-fux-kassio-e-mendonca-sobre-vorcaro-vamos-parar-onde/)).
+
+#### Dias Toffoli
+- **Qualificação:** Ministro do Supremo Tribunal Federal.
+- **Status Jurídico:** [confirmado] Declarou-se suspeito por foro íntimo na sessão de 15/09 e não votou na questão de ordem ([Fonte](https://www.poder360.com.br/poder-justica/supremo-salva-alexandre-de-moraes-por-ate-90-dias/)).
+
+#### Cármen Lúcia
+- **Qualificação:** Ministra do Supremo Tribunal Federal.
+- **Status Jurídico:** [confirmado] Votou contra a questão de ordem de Gilmar Mendes; declarou-se publicamente "envergonhada" com a situação institucional da Corte às vésperas das eleições ([Fonte](https://www.poder360.com.br/poder-justica/carmen-lucia-se-diz-envergonhada-com-atual-situacao-do-stf/)).
+
+#### Kassio Nunes Marques
+- **Qualificação:** Ministro do Supremo Tribunal Federal e presidente do TSE.
+- **Status Jurídico:** [confirmado] Declarou-se impedido de votar na sessão de 15/09 por presidir o TSE, a 19 dias das eleições ([Fonte](https://www.poder360.com.br/poder-justica/kassio-nega-relacao-com-master-e-diz-ter-absoluta-isencao/)).
+- **Alegações em Apuração:** [apuração] Mensagens do celular de Vorcaro, reveladas por Folha/Metrópoles, mencionam pagamento de R$ 500 mil mensais ao seu filho Kevin Marques via a empresa Consult Inteligência Tributária; o ministro nega qualquer relação, do filho ou própria, com o Master ([Fonte](https://www.poder360.com.br/poder-justica/mensagens-de-vorcaro-citam-pagamento-de-r-500-mil-a-filho-de-nunes/)).
+
+### 3.2. Núcleo de Novas Alegações
+
+#### Kevin Marques
+- **Qualificação:** Advogado, filho do ministro Kassio Nunes Marques.
+- **Status Jurídico:** [apuração] Citado em mensagens do celular de Vorcaro como possível destinatário de R$ 500 mil mensais via Consult Inteligência Tributária; negado pelo pai em plenário ([Fonte](https://www.poder360.com.br/poder-justica/mensagens-de-vorcaro-citam-pagamento-de-r-500-mil-a-filho-de-nunes/)).
+
+#### Luiz Rennó
+- **Qualificação:** Ex-diretor jurídico do Banco Master.
+- **Status Jurídico:** [apuração] Autor das mensagens a Vorcaro que mencionam o pagamento a Kevin Marques ([Fonte](https://www.poder360.com.br/poder-justica/mensagens-de-vorcaro-citam-pagamento-de-r-500-mil-a-filho-de-nunes/)).
+
+#### Ciro Soares
+- **Qualificação:** Advogado, intermediário entre Daniel Vorcaro e André Mendonça.
+- **Status Jurídico:** [confirmado] Comemorou por mensagem com Vorcaro, em 10/10/2024, o habeas corpus concedido por Mendonça a Cláudio Castro ("Deu certo. Eu lhe disse. Ganhamos"); nega ser advogado de Castro e diz apenas torcer por um amigo ([Fonte](https://www.poder360.com.br/poder-justica/advogado-de-vorcaro-comemorou-habeas-corpus-de-claudio-castro/)).
+
+#### Consult Inteligência Tributária
+- **Papel:** Empresa sediada no Piauí, de Francisco Craveiro de Carvalho Junior; apontada como canal dos pagamentos a Kevin Marques.
+- **Alegações em Apuração:** [apuração] Recebeu R$ 6,6 milhões do Banco Master entre 2024 e 2025, em transações que o Coaf considera incompatíveis com seu porte ([Fonte](https://www.poder360.com.br/poder-justica/mensagens-de-vorcaro-citam-pagamento-de-r-500-mil-a-filho-de-nunes/)).

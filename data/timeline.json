@@ -297,25 +297,34 @@
   {
     "id": "2026-09-15-sessao-plenario-pet-16662",
     "data": "2026-09-15",
-    "titulo": "Sessão de Plenário — Pet 16.662",
-    "descricao": "Julga a decisão de 08/09 do Min. Mendonça (afastamento e suspensão de relatórios de inteligência); PGR pede nulidade do relatório policial que originou o procedimento.",
+    "titulo": "Pedido de vista trava julgamento sobre investigar Moraes",
+    "descricao": "Pela 1ª vez na história do STF, o plenário julga se abre investigação contra um ministro em exercício (Alexandre de Moraes). Gilmar Mendes propõe questão de ordem para reunir Pet 16.662 e Pet 16.704; após bate-boca entre Gilmar e Mendonça envolvendo o PGR Paulo Gonet, Flávio Dino pede vista, suspendendo o julgamento por até 90 dias (possivelmente para depois das eleições de outubro). Placar no momento do pedido de vista: 4 (Fachin, Mendonça, Fux, Cármen Lúcia) a 3 (Moraes, Zanin, Gilmar) pela manutenção dos processos separados. Toffoli (suspeição) e Nunes Marques (impedimento, por presidir o TSE) não votaram.",
     "milestone": true,
     "tipo": "decisao",
-    "confianca": "apuracao",
+    "confianca": "confirmado",
     "processos": [
-      "pet-16662"
+      "pet-16662",
+      "pet-16704"
     ],
     "pessoas": [
       "fachin",
       "mendonca",
+      "moraes",
+      "dino",
+      "gilmar",
+      "zanin",
+      "fux",
+      "carmen-lucia",
+      "toffoli",
+      "kassio-nunes-marques",
       "pgr"
     ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
-    "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
-    "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "source_url": "https://www.poder360.com.br/poder-justica/supremo-salva-alexandre-de-moraes-por-ate-90-dias/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
   },
   {
     "id": "2026-09-23-sessao-pauta-pet-16704",
@@ -1240,5 +1249,138 @@
     "source_url": "https://www.poder360.com.br/poder-justica/pf-marca-para-15-de-setembro-depoimento-de-vorcaro/",
     "source_name": "Poder360",
     "source_date": "2026-09-11"
+  },
+  {
+    "id": "2024-10-10-mendonca-concede-hc-castro",
+    "data": "2024-10-10",
+    "titulo": "Mendonça concede HC a Cláudio Castro",
+    "descricao": "André Mendonça concede habeas corpus ao então governador do Rio de Janeiro, Cláudio Castro. No mesmo dia, o advogado Ciro Soares — intermediário entre Vorcaro e Mendonça — comemora o resultado com Vorcaro por mensagem: 'Deu certo. Eu lhe disse. Ganhamos'.",
+    "milestone": false,
+    "tipo": "decisao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "mendonca",
+      "claudio-castro",
+      "ciro-soares",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/advogado-de-vorcaro-comemorou-habeas-corpus-de-claudio-castro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
+  },
+  {
+    "id": "2025-07-04-mensagens-renno-kevin-marques",
+    "data": "2025-07-04",
+    "titulo": "Mensagens citam pagamento a filho de Nunes Marques",
+    "descricao": "Luiz Rennó, então diretor jurídico do Master, envia a Vorcaro o contato do advogado Kevin Marques (filho do ministro Kassio Nunes Marques), mencionando pagamento de R$ 500 mil mensais via a empresa Consult Inteligência Tributária.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "luiz-renno",
+      "vorcaro",
+      "kevin-marques",
+      "kassio-nunes-marques",
+      "consult-inteligencia-tributaria"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/mensagens-de-vorcaro-citam-pagamento-de-r-500-mil-a-filho-de-nunes/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
+  },
+  {
+    "id": "2026-09-15-kassio-impedimento-e-alegacao-filho",
+    "data": "2026-09-15",
+    "titulo": "Kassio se declara impedido; nega relação do filho com o Master",
+    "descricao": "Kassio Nunes Marques se declara impedido de votar por presidir o TSE, a 19 dias das eleições, e nega em plenário que ele ou seu filho Kevin Marques tenham qualquer relação com o Banco Master, no mesmo dia em que vêm a público mensagens do celular de Vorcaro citando pagamentos a Kevin.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "apuracao",
+    "processos": [
+      "pet-16662"
+    ],
+    "pessoas": [
+      "kassio-nunes-marques",
+      "kevin-marques",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/kassio-nega-relacao-com-master-e-diz-ter-absoluta-isencao/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
+  },
+  {
+    "id": "2026-09-15-gonet-manifestacao-plenario",
+    "data": "2026-09-15",
+    "titulo": "Gonet nega proximidade com Vorcaro em plenário",
+    "descricao": "O procurador-geral Paulo Gonet se manifesta no plenário do STF negando proximidade com Vorcaro e admitindo um único encontro em abril de 2024, em evento em Londres custeado pelo Master.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-16662"
+    ],
+    "pessoas": [
+      "gonet",
+      "vorcaro",
+      "moraes",
+      "mendonca"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/gonet-diz-nao-ter-proximidade-com-vorcaro-e-cita-encontro-em-2024/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
+  },
+  {
+    "id": "2026-09-15-fachin-avalia-adiar-pet16704",
+    "data": "2026-09-15",
+    "titulo": "Fachin avalia adiar sessão de 23/09 sobre Mendonça",
+    "descricao": "Após o pedido de vista de Dino deixar indefinida a relação entre os dois julgamentos, o presidente do STF, Edson Fachin, passa a avaliar se adia a sessão de 23/09 marcada para a Pet 16.704 (representação por abuso de autoridade contra Mendonça).",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "apuracao",
+    "processos": [
+      "pet-16704"
+    ],
+    "pessoas": [
+      "fachin",
+      "mendonca"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/fachin-avalia-se-adia-julgamento-contra-mendonca-no-dia-23/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
+  },
+  {
+    "id": "2026-09-25-conselho-mpf-julga-gonet",
+    "data": "2026-09-25",
+    "titulo": "Conselho do MPF julga permanência de Gonet no caso",
+    "descricao": "O Conselho Superior do Ministério Público Federal analisa procedimento interno sobre se Paulo Gonet se mantém à frente das apurações do caso Banco Master, após ele ser citado em relatório da PF ao lado de Moraes e Andrei Rodrigues.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "gonet"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/conselho-do-mpf-julgara-mencao-a-gonet-por-vorcaro-em-25-de-setembro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
   }
 ]
