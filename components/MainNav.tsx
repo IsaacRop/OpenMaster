@@ -9,6 +9,7 @@ const NAV = [
   { href: "/timeline", label: "Linha do tempo" },
   { href: "/processos", label: "Processos" },
   { href: "/pessoas", label: "Pessoas e instituições" },
+  { href: "/mapa", label: "Mapa" },
   { href: "/documentos", label: "Documentos" },
   { href: "/busca", label: "Busca literal" },
 ];
