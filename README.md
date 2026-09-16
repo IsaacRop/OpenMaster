@@ -70,7 +70,7 @@ Outros comandos:
 app/                      rotas: capa, /busca, /processos[/id], /timeline, /eventos/[id],
                           /pessoas[/id], /documentos[/id], /metodologia
 components/               Timeline, ProcessCard, NetworkMap, GrafoEnvolvidos, Backlinks,
-                          BuscaCliente, ListaFiltravel, Entidade, NivelBadge, StatBar,
+                          BuscaCliente, ListaFiltravel, Entidade, NivelBadge,
                           SourceTag, Disclaimer
 data/
   processos.json          o cluster
