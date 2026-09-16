@@ -136,6 +136,38 @@ export type EventoTimeline = z.infer<typeof EventoTimeline>;
 // 3. Pessoa / instituição (nó do mapa)
 // ---------------------------------------------------------------------------
 
+/**
+ * Retrato de uma Pessoa.
+ *
+ * Estende `Fonte` como todo o resto do painel, mas acrescenta `licenca` e
+ * `credito` — e os dois são obrigatórios. Uma foto tem duas procedências que
+ * não se confundem: de onde ela veio (`source_url`, a página que a publica) e
+ * sob que termos pode ser reusada, que pertence a quem fotografou. O portal
+ * que estampa um retrato numa matéria tem licença da agência; republicá-lo daí
+ * não herda licença nenhuma.
+ *
+ * Campo opcional com atribuição obrigatória: uma pessoa pode não ter foto, mas
+ * nenhuma foto pode entrar sem dizer de quem é e sob que licença. A alternativa
+ * — crédito opcional — publicaria imagem sem atribuição no primeiro
+ * esquecimento, que é o erro que este schema existe para tornar impossível.
+ */
+export const Foto = Fonte.extend({
+  /**
+   * URL da imagem em si, não da página que a contém. Aceita também um caminho
+   * público local: as imagens editoriais são baixadas para o próprio projeto
+   * para o grafo não depender da latência nem da disponibilidade de terceiros.
+   */
+  url: z.union([
+    z.string().url(),
+    z.string().regex(/^\/(?!\/)[^\s]+$/, "use uma URL absoluta ou um caminho público iniciado por /")
+  ]),
+  /** Quem fotografou, como a licença exige que seja creditado. */
+  credito: z.string().min(2),
+  /** Identificador da licença, ex.: "CC BY 3.0 BR", "CC BY-SA 4.0". */
+  licenca: z.string().min(2),
+});
+export type Foto = z.infer<typeof Foto>;
+
 export const Pessoa = Fonte.extend({
   id: Id,
   nome: z.string().min(2),
@@ -154,6 +186,8 @@ export const Pessoa = Fonte.extend({
   resumo_participacao: z.string().min(40).max(1200),
   confianca: Confianca.default("confirmado"),
   pos: Pos.optional(),
+  /** Ausente = o mapa desenha o monograma. Ver `Foto`. */
+  foto: Foto.optional(),
 });
 export type Pessoa = z.infer<typeof Pessoa>;
 

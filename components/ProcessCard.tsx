@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { dataBR } from "@/lib/backlinks";
 import { SIGILO_LABEL, STATUS_LABEL, type Processo } from "@/lib/schema";
 import { SourceTag } from "./SourceTag";
 
@@ -17,7 +18,7 @@ const SYNC_NOTA: Record<Processo["sync"], string | null> = {
 };
 
 export function DataBR({ iso }: { iso: string }) {
-  return <span className="numero">{iso.split("-").reverse().join("/")}</span>;
+  return <span className="numero">{dataBR(iso)}</span>;
 }
 
 export default function ProcessCard({ processo: p }: { processo: Processo }) {

@@ -15,7 +15,14 @@
     },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "source_date": "2026-09-13",
+    "foto": {
+      "url": "/media/nodes/vorcaro.jpg",
+      "credito": "Márcio Gustavo Vasconcelos",
+      "licenca": "CC0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Daniel_Vorcaro_-_2024_(cropped).jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "master",
@@ -33,7 +40,14 @@
     },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "source_date": "2026-09-13",
+    "foto": {
+      "url": "/media/nodes/master.png",
+      "credito": "Banco Master",
+      "licenca": "Public domain",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Banco_Master_logo.png",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "faria",
@@ -50,7 +64,14 @@
       "y": 500
     },
     "source_url": "https://www.cnnbrasil.com.br/politica/entenda-o-que-o-stf-vai-discutir-no-plenario-em-15-de-setembro/",
-    "source_name": "CNN Brasil"
+    "source_name": "CNN Brasil",
+    "foto": {
+      "url": "/media/nodes/faria.jpg",
+      "credito": "Billy Boss",
+      "licenca": "CC BY 3.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:F%C3%A1bio_Faria_em_abril_de_2017.jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "moraes",
@@ -68,7 +89,14 @@
     },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "source_date": "2026-09-13",
+    "foto": {
+      "url": "/media/nodes/moraes.jpg",
+      "credito": "Isac Nóbrega",
+      "licenca": "CC BY 2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ministro_Alexandre_de_Moraes_como_presidente_do_TSE.jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "mendonca",
@@ -86,7 +114,14 @@
     },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "source_date": "2026-09-13",
+    "foto": {
+      "url": "/media/nodes/mendonca.jpg",
+      "credito": "Rosinei Coutinho/STF",
+      "licenca": "Attribution",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ministro_Andr%C3%A9_Mendon%C3%A7a_em_outubro_de_2025_(3x4).jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "fachin",
@@ -104,7 +139,14 @@
     },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "source_date": "2026-09-13",
+    "foto": {
+      "url": "/media/nodes/fachin.jpg",
+      "credito": "Antonio Cruz/Agência Brasil",
+      "licenca": "CC BY 3.0 br",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Edson_Fachin_(cropped).jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "gilmar",
@@ -122,7 +164,14 @@
     },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "source_date": "2026-09-13",
+    "foto": {
+      "url": "/media/nodes/gilmar.jpg",
+      "credito": "Senado Federal",
+      "licenca": "CC BY 2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Gilmar_Mendes_2016.jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "zanin",
@@ -140,7 +189,14 @@
     },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "source_date": "2026-09-13",
+    "foto": {
+      "url": "/media/nodes/zanin.jpg",
+      "credito": "Vice-Presidência da República",
+      "licenca": "CC BY 2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Cristiano_Zanin_(cropped).jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "dino",
@@ -158,7 +214,14 @@
     },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "source_date": "2026-09-13",
+    "foto": {
+      "url": "/media/nodes/dino.jpg",
+      "credito": "Gustavo Moreno/STF",
+      "licenca": "Attribution",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Fl%C3%A1vio_Dino_no_voto_da_A%C3%A7%C3%A3o_Penal_(AP)_2668_(cropped).jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "rodrigues",
@@ -211,7 +274,14 @@
     },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "source_date": "2026-09-13",
+    "foto": {
+      "url": "/media/nodes/pf.png",
+      "credito": "Ribeiro.caop",
+      "licenca": "CC BY-SA 4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Policia-federal-logo.png",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "pgr",
@@ -229,7 +299,14 @@
     },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "source_date": "2026-09-13",
+    "foto": {
+      "url": "/media/nodes/pgr.jpg",
+      "credito": "Luis Dantas",
+      "licenca": "Public domain",
+      "source_url": "https://commons.wikimedia.org/wiki/File:PGR_Brasilia_01.jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "zettel",
@@ -463,6 +540,13 @@
     "pos": {
       "x": 320,
       "y": 680
+    },
+    "foto": {
+      "url": "/media/nodes/claudio-castro.jpg",
+      "credito": "Governo do Estado do Rio de Janeiro",
+      "licenca": "CC BY 2.0 br",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Claudio_Castro_como_Vice_Governador_do_Rio_de_Janeiro.jpg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -535,6 +619,13 @@
     "pos": {
       "x": 1100,
       "y": 720
+    },
+    "foto": {
+      "url": "/media/nodes/flavio-bolsonaro.jpg",
+      "credito": "Agência Senado",
+      "licenca": "Attribution",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Foto_oficial_do_senador_Fl%C3%A1vio_Bolsonaro_(v._AgSen)_(3x4).jpg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -553,6 +644,13 @@
     "pos": {
       "x": 1132,
       "y": 594
+    },
+    "foto": {
+      "url": "/media/nodes/eduardo-bolsonaro.jpg",
+      "credito": "Gage Skidmore",
+      "licenca": "CC BY-SA 3.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Eduardo_Bolsonaro_by_Gage_Skidmore.jpg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -571,6 +669,13 @@
     "pos": {
       "x": 1200,
       "y": 570
+    },
+    "foto": {
+      "url": "/media/nodes/mario-frias.jpg",
+      "credito": "Isac Nóbrega/ PR",
+      "licenca": "CC BY 2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:M%C3%A1rio_Frias_em_2020.jpg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -697,6 +802,13 @@
     "pos": {
       "x": 982,
       "y": 409
+    },
+    "foto": {
+      "url": "/media/nodes/ciro-nogueira.jpg",
+      "credito": "VitaoGamer4567",
+      "licenca": "CC BY-SA 4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Senador739.jpg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -715,6 +827,13 @@
     "pos": {
       "x": 939,
       "y": 480
+    },
+    "foto": {
+      "url": "/media/nodes/jaques-wagner.jpg",
+      "credito": "Agência Senado",
+      "licenca": "Attribution",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Foto_oficial_de_Jaques_Wagner.jpg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -751,6 +870,13 @@
     "pos": {
       "x": 322,
       "y": 30
+    },
+    "foto": {
+      "url": "/media/nodes/galipolo.jpg",
+      "credito": "Agência Senado",
+      "licenca": "CC BY 2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Gabriel_Gal%C3%ADpolo_in_2023.jpg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -769,6 +895,13 @@
     "pos": {
       "x": 549,
       "y": 30
+    },
+    "foto": {
+      "url": "/media/nodes/gonet.jpg",
+      "credito": "TSE - Tribunal Superior Eleitoral",
+      "licenca": "Public domain",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Paulo_Gonet_em_sess%C3%A3o_do_TSE_no_dia_14.02.2023.jpg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -805,6 +938,13 @@
     "pos": {
       "x": 103,
       "y": 30
+    },
+    "foto": {
+      "url": "/media/nodes/brb.png",
+      "credito": "Banco de Brasília",
+      "licenca": "Public domain",
+      "source_url": "https://commons.wikimedia.org/wiki/File:BRB_Logo.png",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -841,6 +981,13 @@
     "pos": {
       "x": 266,
       "y": 728
+    },
+    "foto": {
+      "url": "/media/nodes/rioprevidencia.png",
+      "credito": "Abstratorama",
+      "licenca": "Public domain",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Rioprevidencia_logo.png",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -859,6 +1006,13 @@
     "pos": {
       "x": 238,
       "y": 30
+    },
+    "foto": {
+      "url": "/media/nodes/bcb.png",
+      "credito": "Banco Central do Brasil",
+      "licenca": "Public domain",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Logotipo_do_Banco_Central_do_Brasil.svg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -1021,6 +1175,13 @@
     "pos": {
       "x": 938,
       "y": 324
+    },
+    "foto": {
+      "url": "/media/nodes/fux.jpg",
+      "credito": "Superior Tribunal de Justiça STJ",
+      "licenca": "CC BY 2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:I_Jornada_de_Direito_Processual_Civil_(cropped).jpg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -1039,6 +1200,13 @@
     "pos": {
       "x": 914,
       "y": 401
+    },
+    "foto": {
+      "url": "/media/nodes/toffoli.jpg",
+      "credito": "Nelson Jr.",
+      "licenca": "Attribution",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Dias_Toffoli_em_outubro_de_2019.jpg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -1057,6 +1225,13 @@
     "pos": {
       "x": 909,
       "y": 356
+    },
+    "foto": {
+      "url": "/media/nodes/carmen-lucia.jpg",
+      "credito": "Presidência da República",
+      "licenca": "CC BY 2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:C%C3%A1rmen_L%C3%BAcia_na_Presid%C3%AAncia.jpg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -1075,6 +1250,13 @@
     "pos": {
       "x": 853,
       "y": 336
+    },
+    "foto": {
+      "url": "/media/nodes/kassio-nunes-marques.jpg",
+      "credito": "TSE - Tribunal Superior Eleitoral",
+      "licenca": "Public domain",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Nunes_Marques%2C_February_2025_(cropped).jpg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
