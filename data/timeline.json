@@ -297,25 +297,34 @@
   {
     "id": "2026-09-15-sessao-plenario-pet-16662",
     "data": "2026-09-15",
-    "titulo": "Sessão de Plenário — Pet 16.662",
-    "descricao": "Julga a decisão de 08/09 do Min. Mendonça (afastamento e suspensão de relatórios de inteligência); PGR pede nulidade do relatório policial que originou o procedimento.",
+    "titulo": "Pedido de vista trava julgamento sobre investigar Moraes",
+    "descricao": "Pela 1ª vez na história do STF, o plenário julga se abre investigação contra um ministro em exercício (Alexandre de Moraes). Gilmar Mendes propõe questão de ordem para reunir Pet 16.662 e Pet 16.704; após bate-boca entre Gilmar e Mendonça envolvendo o PGR Paulo Gonet, Flávio Dino pede vista, suspendendo o julgamento por até 90 dias (possivelmente para depois das eleições de outubro). Placar no momento do pedido de vista: 4 (Fachin, Mendonça, Fux, Cármen Lúcia) a 3 (Moraes, Zanin, Gilmar) pela manutenção dos processos separados. Toffoli (suspeição) e Nunes Marques (impedimento, por presidir o TSE) não votaram.",
     "milestone": true,
     "tipo": "decisao",
-    "confianca": "apuracao",
+    "confianca": "confirmado",
     "processos": [
-      "pet-16662"
+      "pet-16662",
+      "pet-16704"
     ],
     "pessoas": [
       "fachin",
       "mendonca",
+      "moraes",
+      "dino",
+      "gilmar",
+      "zanin",
+      "fux",
+      "carmen-lucia",
+      "toffoli",
+      "kassio-nunes-marques",
       "pgr"
     ],
     "sigilo_ack": false,
     "tweet": false,
     "tweeted_at": null,
-    "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
-    "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "source_url": "https://www.poder360.com.br/poder-justica/supremo-salva-alexandre-de-moraes-por-ate-90-dias/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
   },
   {
     "id": "2026-09-23-sessao-pauta-pet-16704",
@@ -337,5 +346,1041 @@
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
     "source_date": "2026-09-13"
+  },
+  {
+    "id": "2016-03-18-cadastro-sitio-muzambinho",
+    "data": "2016-03-18",
+    "titulo": "Cadastro do sítio em Muzambinho",
+    "descricao": "Imóvel rural em Muzambinho (MG) é cadastrado no Sicar em copropriedade de Paulo Sérgio Neves de Souza (então servidor do BC) e do irmão Luiz Roberto Neves de Souza — origem do imóvel vendido em 2020 a empresa ligada a Fabiano Zettel.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "paulo-sergio-neves-souza",
+      "luiz-roberto-neves-souza"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/ex-diretor-do-bc-vendeu-sitio-a-empresa-ligada-a-cunhado-de-vorcaro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2019-01-24-marco-rif-coaf",
+    "data": "2019-01-24",
+    "titulo": "Marco inicial do RIF 144413 do Coaf",
+    "descricao": "Início do intervalo de operações financeiras atípicas analisadas no Relatório de Inteligência Financeira 144413 do Coaf, envolvendo empresas de Antônio Carlos Freixo Júnior ('Mineiro') e Daniel Vorcaro.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "freixo-mineiro",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/pf-diz-que-mineiro-montou-estrutura-para-dinheiro-ilicito-do-master/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-12"
+  },
+  {
+    "id": "2020-01-15-minuta-compra-sitio",
+    "data": "2020-01-15",
+    "titulo": "Minuta de compra do sítio de Muzambinho",
+    "descricao": "Fabiano Zettel encaminha a Daniel Vorcaro minuta de contrato para aquisição, por empresa sob seu controle, do imóvel rural do diretor do BC Paulo Sérgio Neves de Souza por R$ 4,8 milhões.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "zettel",
+      "vorcaro",
+      "paulo-sergio-neves-souza"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/ex-diretor-do-bc-vendeu-sitio-a-empresa-ligada-a-cunhado-de-vorcaro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2023-10-04-master-pede-credenciamento-rioprev",
+    "data": "2023-10-04",
+    "titulo": "Master pede credenciamento no Rioprevidência",
+    "descricao": "No mesmo dia em que Euchério Lerner Rodrigues é nomeado diretor de Investimentos, o Banco Master solicita formalmente credenciamento no Rioprevidência; o expediente é autuado de imediato por Pedro Pinheiro Guerra Leal.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "eucherio-lerner-rodrigues",
+      "pedro-pinheiro-leal",
+      "claudio-castro",
+      "master",
+      "rioprevidencia"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/castro-mudou-gestores-do-rioprev-antes-de-aportes-no-master-diz-pf/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-12"
+  },
+  {
+    "id": "2023-10-16-parecer-credenciamento-master",
+    "data": "2023-10-16",
+    "titulo": "Parecer aprova credenciamento do Master",
+    "descricao": "Doze dias após o pedido, Pedro Pinheiro Guerra Leal subscreve parecer atestando que o Banco Master preenchia os requisitos para credenciamento no Rioprevidência.",
+    "milestone": false,
+    "tipo": "decisao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "pedro-pinheiro-leal",
+      "master",
+      "rioprevidencia"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/castro-mudou-gestores-do-rioprev-antes-de-aportes-no-master-diz-pf/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-12"
+  },
+  {
+    "id": "2023-10-31-festa-halloween-vorcaro",
+    "data": "2023-10-31",
+    "titulo": "Festa de Halloween de Vorcaro",
+    "descricao": "Daniel Vorcaro promove festa particular no Madame Underground Club, em São Paulo. Checagem de agendas oficiais mostrou que autoridades e celebridades citadas em mensagens prévias com o promoter Tiago Polo e com Fábio Faria não compareceram ao evento.",
+    "milestone": false,
+    "tipo": "imprensa",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "vorcaro",
+      "faria"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/halloween-de-vorcaro-nao-tem-registro-real-de-convidados-famosos/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2025-02-13-primeira-remessa-havengate",
+    "data": "2025-02-13",
+    "titulo": "Primeira remessa à Havengate",
+    "descricao": "A Entre Investimentos, de Antônio Carlos Freixo Júnior ('Mineiro'), realiza a primeira remessa de US$ 2 milhões ao fundo Havengate Development Fund nos EUA, inaugurando o fluxo que financiou o filme 'Dark Horse'.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "entre-investimentos",
+      "havengate",
+      "freixo-mineiro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/relatorio-da-pf-sobre-dark-horse-contraria-versao-de-flavio/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-12"
+  },
+  {
+    "id": "2025-03-21-eduardo-orienta-recursos-eua",
+    "data": "2025-03-21",
+    "titulo": "Orientação sobre recursos nos EUA",
+    "descricao": "Thiago Miranda remete a Vorcaro orientações financeiras atribuídas a Eduardo Bolsonaro sobre como alocar e gerir nos EUA, junto a Altieres Santana e Paulo Calixto, os valores destinados ao filme 'Dark Horse'.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "thiago-miranda",
+      "eduardo-bolsonaro",
+      "vorcaro",
+      "paulo-calixto",
+      "altieres-santana"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/eduardo-orientou-gestao-de-recursos-de-dark-horse-nos-eua-diz-pf/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2025-05-31-brb-compra-carteiras-master",
+    "data": "2025-05-31",
+    "titulo": "BRB compra R$ 12,2 bi em carteiras do Master",
+    "descricao": "Entre dezembro de 2024 e maio de 2025 (data de referência: fechamento do período), o BRB transferiu cerca de R$ 12,2 bilhões ao Banco Master na compra de CCBs sem lastro econômico comprovável; R$ 4,05 bilhões foram contratados após alertas expressos do BC.",
+    "milestone": true,
+    "tipo": "movimentacao",
+    "confianca": "apuracao",
+    "processos": [
+      "inq-5026"
+    ],
+    "pessoas": [
+      "master",
+      "brb"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/brb-comprou-r-122-bi-do-master-mesmo-apos-alerta-do-bc-diz-pf/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2025-09-08-flavio-cobra-vorcaro-audio",
+    "data": "2025-09-08",
+    "titulo": "Flávio cobra Vorcaro por áudio",
+    "descricao": "Flávio Bolsonaro cobra Vorcaro por mensagem de áudio sobre atrasos nas parcelas do filme 'Dark Horse', citando compromissos com o ator Jim Caviezel e o diretor Cyrus Nowrasteh.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "flavio-bolsonaro",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/pf-quer-apurar-atuacao-de-flavio-eduardo-e-mario-frias/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2025-10-17-reuniao-pf-bc",
+    "data": "2025-10-17",
+    "titulo": "Reunião de alinhamento PF–Banco Central",
+    "descricao": "Integrantes da cúpula da Polícia Federal se reúnem com a diretoria do Banco Central para alinhamento sobre as fraudes financeiras do Banco Master.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "pf",
+      "bcb"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/vorcaro-tinha-nomes-de-agentes-de-reuniao-da-pf-com-o-bc/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2025-10-21-vorcaro-anota-nomes-agentes",
+    "data": "2025-10-21",
+    "titulo": "Vorcaro registra nomes de agentes",
+    "descricao": "Vorcaro anota no celular a relação nominal dos policiais federais presentes na reunião de alinhamento com o Banco Central, quatro dias após sua realização.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "vorcaro",
+      "pf"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/vorcaro-tinha-nomes-de-agentes-de-reuniao-da-pf-com-o-bc/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2025-10-22-flavio-jantar-vou-ate-o-fim",
+    "data": "2025-10-22",
+    "titulo": "Jantar combinado e 'vou até o fim com isso'",
+    "descricao": "Flávio Bolsonaro informa a Vorcaro que as gravações de 'Dark Horse' estão no orçamento-limite e combina jantar com Jim Caviezel e Cyrus Nowrasteh na mansão do banqueiro; no mesmo dia, Vorcaro assegura a Thiago Miranda que manterá o financiamento do filme apesar da instabilidade.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "flavio-bolsonaro",
+      "vorcaro",
+      "thiago-miranda"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/vorcaro-ofereceu-casa-para-jantar-com-ator-e-diretor-do-filme/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-12"
+  },
+  {
+    "id": "2025-10-30-vorcaro-pede-ajuda-andrei-gonet",
+    "data": "2025-10-30",
+    "titulo": "Vorcaro pede ajuda a Andrei e Gonet",
+    "descricao": "Vorcaro anota ter sido avisado por 'amigos dentro do Bacen' sobre medidas iminentes e pede a um interlocutor que procure o diretor-geral da PF, Andrei Rodrigues, e o PGR Paulo Gonet para blindá-lo de ações da base da corporação.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "vorcaro",
+      "rodrigues",
+      "gonet"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/vorcaro-pediu-ajuda-com-andrei-e-gonet-para-evitar-sacanagem-diz-pf/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2025-11-16-flavio-mensagem-vespera-prisao",
+    "data": "2025-11-16",
+    "titulo": "Mensagem de Flávio na véspera da prisão",
+    "descricao": "Flávio Bolsonaro envia mensagem a Vorcaro na véspera de sua prisão: 'estou e estarei contigo sempre [...] só preciso que me dê uma luz'.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "flavio-bolsonaro",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/flavio-pediu-ajuda-a-vorcaro-na-vespera-de-prisao/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2025-11-17-1a-fase-compliance-zero-prisao-vorcaro",
+    "data": "2025-11-17",
+    "titulo": "1ª fase da Compliance Zero e prisão de Vorcaro",
+    "descricao": "A PF deflagra a 1ª fase da Operação Compliance Zero e prende preventivamente Daniel Vorcaro quando tentava embarcar em voo internacional; seu iPhone 17 Pro é apreendido.",
+    "milestone": true,
+    "tipo": "operacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "pf",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/pf-diz-que-vorcaro-soube-de-operacao-antes-de-prisao/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2025-11-25-go-up-paga-faturas-frias",
+    "data": "2025-11-25",
+    "titulo": "Go Up paga faturas do cartão de Mario Frias",
+    "descricao": "Entre 22 de agosto e 25 de novembro de 2025, a Go Up Entertainment quita ao menos 4 faturas do cartão de crédito pessoal do deputado Mario Frias, somando R$ 136.868.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "go-up-entertainment",
+      "mario-frias"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/produtora-de-dark-horse-pagou-faturas-do-cartao-de-mario-frias/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-12"
+  },
+  {
+    "id": "2026-01-09-oficio-galipolo-935",
+    "data": "2026-01-09",
+    "titulo": "Ofício 935/2026-BCB/Secre",
+    "descricao": "O presidente do BC, Gabriel Galípolo, encaminha à PF o Ofício 935/2026-BCB/Secre noticiando suspeita de corrupção passiva de servidores da supervisão bancária cooptados pelo Master.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-15556"
+    ],
+    "pessoas": [
+      "galipolo",
+      "rodrigues",
+      "bcb"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/galipolo-enviou-a-andrei-suspeita-de-corrupcao-de-funcionarios-do-bc/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-01-28-instauracao-inq-5035",
+    "data": "2026-01-28",
+    "titulo": "Instauração do Inq 5.035",
+    "descricao": "A PF instaura formalmente o Inq 5.035 para apurar o 'Projeto DV' e a ofensiva de desinformação digital do grupo de Vorcaro contra o Banco Central.",
+    "milestone": false,
+    "tipo": "operacao",
+    "confianca": "confirmado",
+    "processos": [
+      "inq-5035"
+    ],
+    "pessoas": [
+      "pf"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/mendonca-restringiu-acesso-na-pf-e-exigiu-sigilo-aos-superiores/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-02-19-sigilo-nivel-3-pet-15198",
+    "data": "2026-02-19",
+    "titulo": "Sigilo nível 3 na PF",
+    "descricao": "André Mendonça decide, na Pet 15.198 (com reflexos no Inq 5.035), sigilo de nível 3 e proíbe delegados de repassarem relatórios a superiores hierárquicos na PF.",
+    "milestone": false,
+    "tipo": "decisao",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-15198",
+      "inq-5035"
+    ],
+    "pessoas": [
+      "mendonca"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/mendonca-restringiu-acesso-na-pf-e-exigiu-sigilo-aos-superiores/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-03-08-hd-lacrado-gabinete-mendonca",
+    "data": "2026-03-08",
+    "titulo": "HD lacrado do celular de Vorcaro vai ao gabinete de Mendonça",
+    "descricao": "A autoridade policial encaminha voluntariamente ao gabinete de André Mendonça um HD encriptado e lacrado com a cópia forense do iPhone 17 Pro de Vorcaro, mantendo o aparelho original sob custódia da PF.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "pf",
+      "mendonca",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/mendonca-diz-que-celular-de-vorcaro-esta-com-a-pf/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-05-11-interceptacao-whatsapp-a-turma",
+    "data": "2026-05-11",
+    "titulo": "Interceptação de WhatsApp ligada a 'A Turma'",
+    "descricao": "André Mendonça defere quebra de sigilo telemático e interceptação telefônica de terminais e WhatsApp de policiais federais integrantes do núcleo 'A Turma'.",
+    "milestone": false,
+    "tipo": "decisao",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-15556"
+    ],
+    "pessoas": [
+      "mendonca",
+      "marilson-roseno",
+      "anderson-wander-lima",
+      "sebastiao-monteiro-junior",
+      "manoel-mendes-rodrigues"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/stf-autorizou-interceptacao-de-whatsapp-de-policiais-ligados-a-vorcaro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-05-24-fechamento-rif-168-operacoes",
+    "data": "2026-05-24",
+    "titulo": "Fechamento da amostragem do RIF 144413",
+    "descricao": "Data de encerramento da amostragem das 168 operações suspeitas consolidadas pelo Coaf no RIF 144413, ligado às empresas de 'Mineiro'.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "freixo-mineiro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/pf-diz-que-mineiro-montou-estrutura-para-dinheiro-ilicito-do-master/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-12"
+  },
+  {
+    "id": "2026-07-29-defesa-flavio-4-peticoes",
+    "data": "2026-07-29",
+    "titulo": "Defesa de Flávio pede 4 vezes relatoria a Mendonça",
+    "descricao": "Entre 13 e 29 de julho de 2026, a defesa de Flávio Bolsonaro formaliza 4 petições no STF pedindo concentrar a relatoria do caso 'Dark Horse' com André Mendonça, retirando-a de Flávio Dino.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "flavio-bolsonaro",
+      "mendonca",
+      "dino"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/defesa-de-flavio-pediu-4-vezes-para-mendonca-relatar-caso-dark-horse/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-12"
+  },
+  {
+    "id": "2026-08-27-relatorio-pf-pet-15504",
+    "data": "2026-08-27",
+    "titulo": "Relatório da PF na Pet 15.504",
+    "descricao": "A PF formaliza relatório na Pet 15.504 sobre a atuação de Paulo Sérgio Neves de Souza como consultor informal de Vorcaro perante o então presidente do BC, Roberto Campos Neto.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-15504"
+    ],
+    "pessoas": [
+      "paulo-sergio-neves-souza",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/pf-funcionario-do-bc-preparava-vorcaro-para-reunioes-com-campos-neto/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-09-01-gonet-pede-anulacao-relatorio",
+    "data": "2026-09-01",
+    "titulo": "Gonet pede anulação de relatório da PF",
+    "descricao": "O PGR Paulo Gonet manifesta-se pela anulação do relatório da PF sobre mensagens entre Vorcaro e Alexandre de Moraes, apontando indícios de abuso de autoridade por André Mendonça.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-16662"
+    ],
+    "pessoas": [
+      "gonet",
+      "mendonca",
+      "moraes"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/pgr-pede-para-fachin-liberacao-de-todas-as-provas-do-banco-master/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-09-01-contrato-viviane-barci-publico",
+    "data": "2026-09-01",
+    "titulo": "Contrato de Viviane Barci torna-se público",
+    "descricao": "Torna-se público o contrato de honorários advocatícios entre o Banco Master e o escritório de Viviane Barci de Moraes, no valor de 36 parcelas líquidas de R$ 3 milhões.",
+    "milestone": false,
+    "tipo": "imprensa",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "viviane-barci",
+      "moraes",
+      "master",
+      "barci-moraes-advogados"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/leia-a-integra-do-contrato-da-mulher-de-moraes-com-o-master/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-09-02-michael-davis-recusa-dados",
+    "data": "2026-09-02",
+    "titulo": "Michael Davis recusa fornecer dados à PF",
+    "descricao": "Michael Davis, sócio da Go Up Entertainment, declara por escrito que só fornecerá arquivos contábeis à PF brasileira mediante determinação da Justiça norte-americana.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "michael-davis",
+      "pf",
+      "go-up-entertainment"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/produtor-de-dark-horse-diz-que-so-dara-dados-a-pf-por-ordem-dos-eua/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-12"
+  },
+  {
+    "id": "2026-09-06-pet-16662-liberada-pauta",
+    "data": "2026-09-06",
+    "titulo": "Pet 16.662 liberada para pauta",
+    "descricao": "O processo da Pet 16.662 é formalmente liberado para inclusão na pauta de julgamento do plenário do STF.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-16662"
+    ],
+    "pessoas": [
+      "fachin"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/fachin-nega-julgar-moraes-e-mendonca-juntos-marca-outra-sessao-para-dia-23/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-12"
+  },
+  {
+    "id": "2026-09-08-agu-pede-suspensao-afastamento",
+    "data": "2026-09-08",
+    "titulo": "AGU pede suspensão do afastamento de Andrei",
+    "descricao": "No mesmo dia da decisão de Mendonça, a AGU protocola pedido de suspensão do afastamento cautelar de Andrei Rodrigues perante o presidente Edson Fachin.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-16662"
+    ],
+    "pessoas": [
+      "rodrigues",
+      "fachin"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/agu-pede-novamente-a-fachin-que-mantenha-andrei-no-comando-da-pf/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-09-09-homologacao-delacao-mineiro",
+    "data": "2026-09-09",
+    "titulo": "Homologação da delação de 'Mineiro'",
+    "descricao": "André Mendonça homologa judicialmente o acordo de colaboração premiada de Antônio Carlos Freixo Júnior ('Mineiro') no bojo do Inq 5.070.",
+    "milestone": false,
+    "tipo": "decisao",
+    "confianca": "confirmado",
+    "processos": [
+      "inq-5070"
+    ],
+    "pessoas": [
+      "mendonca",
+      "freixo-mineiro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/pf-diz-que-mineiro-montou-estrutura-para-dinheiro-ilicito-do-master/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-12"
+  },
+  {
+    "id": "2026-09-10-1a-leva-sigilo-15-processos",
+    "data": "2026-09-10",
+    "titulo": "1ª leva: sigilo de 15 processos é levantado",
+    "descricao": "André Mendonça retira o segredo de justiça de 15 procedimentos do caso Master, liberando 25,3 GB de arquivos.",
+    "milestone": true,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [
+      "inq-5026",
+      "inq-5035",
+      "pet-15198",
+      "pet-15478",
+      "pet-15504",
+      "pet-15562",
+      "pet-15563",
+      "pet-15693",
+      "pet-15976",
+      "pet-15977",
+      "pet-15978",
+      "pet-16019",
+      "pet-16662",
+      "rcl-88121",
+      "pet-15556"
+    ],
+    "pessoas": [
+      "mendonca"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/ao-todo-mendonca-libera-acesso-a-53-processos-do-caso-master-veja-lista/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-13"
+  },
+  {
+    "id": "2026-09-10-operacao-makeup",
+    "data": "2026-09-10",
+    "titulo": "Deflagração da Operação Make Up",
+    "descricao": "Flávio Dino autoriza a deflagração da Operação Make Up pela PF contra 29 investigados por desvio de emendas parlamentares em benefício da Go Up Entertainment.",
+    "milestone": true,
+    "tipo": "operacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "dino",
+      "mario-frias",
+      "go-up-entertainment"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/defesa-de-flavio-pediu-4-vezes-para-mendonca-relatar-caso-dark-horse/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-12"
+  },
+  {
+    "id": "2026-09-11-2a-leva-sigilo-38-processos",
+    "data": "2026-09-11",
+    "titulo": "2ª leva: sigilo de 38 processos é levantado",
+    "descricao": "André Mendonça derruba o sigilo de mais 38 processos, elevando a 53 o total de feitos públicos do caso Master — abrangendo 'Dark Horse', Rioprevidência, Ciro Nogueira e Jaques Wagner.",
+    "milestone": true,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [
+      "inq-5050",
+      "inq-5070",
+      "pet-15375",
+      "pet-15487",
+      "pet-15497",
+      "pet-15499",
+      "pet-15599",
+      "pet-15622",
+      "pet-15625",
+      "pet-15626",
+      "pet-15640",
+      "pet-15647",
+      "pet-15674",
+      "pet-15676",
+      "pet-15686",
+      "pet-15691",
+      "pet-15711",
+      "pet-15720",
+      "pet-15734",
+      "pet-15771",
+      "pet-15772",
+      "pet-15773",
+      "pet-15855",
+      "pet-15873",
+      "pet-15877",
+      "pet-15884",
+      "pet-15915",
+      "pet-16201",
+      "pet-16210",
+      "pet-16229",
+      "pet-16230",
+      "pet-16286",
+      "pet-16292",
+      "pet-16319",
+      "pet-16344",
+      "pet-16345",
+      "pet-16346",
+      "pet-16369"
+    ],
+    "pessoas": [
+      "mendonca"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/mendonca-derruba-sigilo-de-processos-sobre-dark-horse-ciro-e-castro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-09-11-moraes-oficio-180-pecas",
+    "data": "2026-09-11",
+    "titulo": "Moraes acusa ocultação de 180 peças",
+    "descricao": "Alexandre de Moraes protocola ofício a Fachin alegando que Mendonça ocultou 180 documentos processuais do caso Master e pedindo levantamento irrestrito do acervo.",
+    "milestone": true,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-15978"
+    ],
+    "pessoas": [
+      "moraes",
+      "fachin",
+      "mendonca"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/moraes-diz-que-mendonca-nao-liberou-todo-o-sigilo-sobre-banco-master/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-09-11-vice-pgr-omissao-ipl5026",
+    "data": "2026-09-11",
+    "titulo": "Vice-PGR aponta omissão do IPL 5026",
+    "descricao": "O vice-PGR Hindenburgo Chateaubriand protocola manifestação sustentando que a 1ª leva de desclassificação omitiu processos centrais da Operação Compliance Zero (IPL 5026).",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [
+      "inq-5026"
+    ],
+    "pessoas": [
+      "hindenburgo-chateaubriand",
+      "fachin"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/pgr-pede-para-fachin-liberacao-de-todas-as-provas-do-banco-master/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-09-11-fachin-prazo-24h",
+    "data": "2026-09-11",
+    "titulo": "Fachin dá prazo de 24h a Mendonça",
+    "descricao": "O presidente Edson Fachin determina prazo peremptório de 24 horas para que André Mendonça entregue a íntegra dos autos da Compliance Zero e da Pet 15.556 a todos os ministros do STF.",
+    "milestone": true,
+    "tipo": "decisao",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-15556"
+    ],
+    "pessoas": [
+      "fachin",
+      "mendonca"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/fachin-da-24h-para-mendonca-liberar-todas-as-provas-do-master/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-09-11-andrei-peticao-nega-espionagem",
+    "data": "2026-09-11",
+    "titulo": "Andrei nega espionagem em petição de 17 páginas",
+    "descricao": "Andrei Rodrigues protocola petição de 17 páginas ao STF negando espionagem ilícita, afirmando que os relatórios de inteligência cumpriram ordens judiciais de Alexandre de Moraes.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-16662"
+    ],
+    "pessoas": [
+      "rodrigues",
+      "moraes",
+      "mendonca"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/andrei-nega-espionagem-e-diz-que-mandou-relatorio-a-mando-de-moraes/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-09-11-mendonca-esclarece-celular-vorcaro",
+    "data": "2026-09-11",
+    "titulo": "Mendonça esclarece custódia do celular de Vorcaro",
+    "descricao": "André Mendonça esclarece em despacho que o iPhone 17 Pro original de Vorcaro segue sob custódia material da PF, restando em seu gabinete apenas a cópia forense em HD lacrado.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "mendonca",
+      "pf",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/mendonca-diz-que-celular-de-vorcaro-esta-com-a-pf/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2026-09-11-pf-intima-vorcaro-depoimento",
+    "data": "2026-09-11",
+    "titulo": "PF intima Vorcaro para depoimento em 15/09",
+    "descricao": "A Polícia Federal intima Daniel Vorcaro para prestar novo depoimento presencial em 15 de setembro de 2026.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "pf",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/pf-marca-para-15-de-setembro-depoimento-de-vorcaro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2024-10-10-mendonca-concede-hc-castro",
+    "data": "2024-10-10",
+    "titulo": "Mendonça concede HC a Cláudio Castro",
+    "descricao": "André Mendonça concede habeas corpus ao então governador do Rio de Janeiro, Cláudio Castro. No mesmo dia, o advogado Ciro Soares — intermediário entre Vorcaro e Mendonça — comemora o resultado com Vorcaro por mensagem: 'Deu certo. Eu lhe disse. Ganhamos'.",
+    "milestone": false,
+    "tipo": "decisao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "mendonca",
+      "claudio-castro",
+      "ciro-soares",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/advogado-de-vorcaro-comemorou-habeas-corpus-de-claudio-castro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
+  },
+  {
+    "id": "2025-07-04-mensagens-renno-kevin-marques",
+    "data": "2025-07-04",
+    "titulo": "Mensagens citam pagamento a filho de Nunes Marques",
+    "descricao": "Luiz Rennó, então diretor jurídico do Master, envia a Vorcaro o contato do advogado Kevin Marques (filho do ministro Kassio Nunes Marques), mencionando pagamento de R$ 500 mil mensais via a empresa Consult Inteligência Tributária.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "luiz-renno",
+      "vorcaro",
+      "kevin-marques",
+      "kassio-nunes-marques",
+      "consult-inteligencia-tributaria"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/mensagens-de-vorcaro-citam-pagamento-de-r-500-mil-a-filho-de-nunes/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
+  },
+  {
+    "id": "2026-09-15-kassio-impedimento-e-alegacao-filho",
+    "data": "2026-09-15",
+    "titulo": "Kassio se declara impedido; nega relação do filho com o Master",
+    "descricao": "Kassio Nunes Marques se declara impedido de votar por presidir o TSE, a 19 dias das eleições, e nega em plenário que ele ou seu filho Kevin Marques tenham qualquer relação com o Banco Master, no mesmo dia em que vêm a público mensagens do celular de Vorcaro citando pagamentos a Kevin.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "apuracao",
+    "processos": [
+      "pet-16662"
+    ],
+    "pessoas": [
+      "kassio-nunes-marques",
+      "kevin-marques",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/kassio-nega-relacao-com-master-e-diz-ter-absoluta-isencao/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
+  },
+  {
+    "id": "2026-09-15-gonet-manifestacao-plenario",
+    "data": "2026-09-15",
+    "titulo": "Gonet nega proximidade com Vorcaro em plenário",
+    "descricao": "O procurador-geral Paulo Gonet se manifesta no plenário do STF negando proximidade com Vorcaro e admitindo um único encontro em abril de 2024, em evento em Londres custeado pelo Master.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-16662"
+    ],
+    "pessoas": [
+      "gonet",
+      "vorcaro",
+      "moraes",
+      "mendonca"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/gonet-diz-nao-ter-proximidade-com-vorcaro-e-cita-encontro-em-2024/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
+  },
+  {
+    "id": "2026-09-15-fachin-avalia-adiar-pet16704",
+    "data": "2026-09-15",
+    "titulo": "Fachin avalia adiar sessão de 23/09 sobre Mendonça",
+    "descricao": "Após o pedido de vista de Dino deixar indefinida a relação entre os dois julgamentos, o presidente do STF, Edson Fachin, passa a avaliar se adia a sessão de 23/09 marcada para a Pet 16.704 (representação por abuso de autoridade contra Mendonça).",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "apuracao",
+    "processos": [
+      "pet-16704"
+    ],
+    "pessoas": [
+      "fachin",
+      "mendonca"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/fachin-avalia-se-adia-julgamento-contra-mendonca-no-dia-23/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
+  },
+  {
+    "id": "2026-09-25-conselho-mpf-julga-gonet",
+    "data": "2026-09-25",
+    "titulo": "Conselho do MPF julga permanência de Gonet no caso",
+    "descricao": "O Conselho Superior do Ministério Público Federal analisa procedimento interno sobre se Paulo Gonet se mantém à frente das apurações do caso Banco Master, após ele ser citado em relatório da PF ao lado de Moraes e Andrei Rodrigues.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "gonet"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/conselho-do-mpf-julgara-mencao-a-gonet-por-vorcaro-em-25-de-setembro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-15"
   }
 ]
