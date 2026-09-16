@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 
-import { documentos, pessoas, processos, relacoes, timeline } from "@/lib/data";
+import { dataCorte, documentos, pessoas, processos, relacoes, timeline } from "@/lib/data";
+
+const dataBR = (iso: string) => iso.split("-").reverse().join("/");
 
 export const metadata: Metadata = {
   title: "Metodologia — OpenMaster",
@@ -42,9 +44,9 @@ export default function MetodologiaPage() {
       <div className="border-l-4 border-seal bg-paper-2/60 px-5 py-4">
         <p className="kicker text-seal">Corte temporal desta edição</p>
         <p className="mt-2 max-w-3xl text-base leading-relaxed text-ink">
-          Os dados desta sessão têm corte em 14/09/2026 e a sessão de 15/09 ainda não havia
-          ocorrido. Verifique a matéria fonte antes de tratar qualquer item futuro como
-          resultado.
+          Base verificada até {dataBR(dataCorte)} — a data mais recente entre as movimentações
+          registradas nos processos. Verifique a matéria fonte antes de tratar qualquer item
+          futuro como resultado.
         </p>
       </div>
 
