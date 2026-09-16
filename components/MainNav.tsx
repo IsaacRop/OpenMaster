@@ -10,6 +10,7 @@ const NAV = [
   { href: "/processos", label: "Processos" },
   { href: "/pessoas", label: "Pessoas e instituições" },
   { href: "/mapa", label: "Mapa" },
+  { href: "/conversas", label: "Conversas" },
   { href: "/documentos", label: "Documentos" },
   { href: "/busca", label: "Busca literal" },
 ];
