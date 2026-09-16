@@ -305,6 +305,18 @@ for (const n of [...pessoas, ...processos]) {
   }
 }
 
+// `status` é editorial e não se atualiza sozinho quando `ultima_movimentacao`
+// muda. Se a movimentação é mais recente que `updated_at`, o status pode ter
+// ficado para trás — não bloqueia o build, mas pede uma segunda olhada.
+for (const p of processos) {
+  if (p.ultima_movimentacao && p.ultima_movimentacao.data > p.updated_at) {
+    avisos.push(
+      `data/processos.json [${p.id}]: ultima_movimentacao (${p.ultima_movimentacao.data}) é mais ` +
+        `recente que updated_at (${p.updated_at}) — confira se "status" ainda reflete o processo.`,
+    );
+  }
+}
+
 // CODEOWNERS com usuário inexistente falha em silêncio no GitHub: a regra
 // simplesmente deixa de valer, sem erro. Como é uma trava de segurança do
 // repositório, avisa alto enquanto o placeholder estiver lá.
