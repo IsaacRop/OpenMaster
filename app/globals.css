@@ -418,7 +418,19 @@ a {
   background-size: 260px 220px, 6px 6px;
   mask-image: linear-gradient(#000, transparent 135%);
 }
-.mapa-canvas { z-index: 1; cursor: grab; touch-action: none; }
+/*
+ * `touch-action` sozinho resolvia o toque e deixava o mouse de fora: arrastar
+ * o fundo pintava de azul os rótulos dos nós, como se fosse texto de página.
+ * Um mapa não tem texto para selecionar — os nomes sao etiquetas, e o gesto
+ * ali significa mover, nunca marcar.
+ */
+.mapa-canvas {
+  z-index: 1;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
 .mapa-canvas:active { cursor: grabbing; }
 .mapa-topbar {
   position: absolute;
