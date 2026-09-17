@@ -36,7 +36,7 @@ export default function DocumentosPage() {
           const processo = ref(d.processo_id);
           const autor = ref(d.autor_id);
           return (
-            <li key={d.id} className="grid gap-x-5 gap-y-2 py-4 sm:grid-cols-[6rem_1fr]">
+            <li key={d.id} className="render-deferred-item grid gap-x-5 gap-y-2 py-4 sm:grid-cols-[6rem_1fr]">
               <div className="numero text-sm text-ink-3">
                 <div className="text-lg text-ink">{dataBR(d.data)}</div>
                 <div className="kicker mt-0.5">{TIPO_DOCUMENTO_LABEL[d.tipo]}</div>

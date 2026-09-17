@@ -31,7 +31,7 @@ export function EventoItem({
   compacta?: boolean;
 }) {
   return (
-    <li id={e.id} className="grid grid-cols-[3.25rem_1px_1fr] gap-x-4 scroll-mt-40">
+    <li id={e.id} className="render-deferred-item grid grid-cols-[3.25rem_1px_1fr] gap-x-4 scroll-mt-40">
       <div className="pt-5">
         <DataColuna iso={e.data} />
       </div>

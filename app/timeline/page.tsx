@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
-
 import ListaFiltravel from "@/components/ListaFiltravel";
 import { EventoItem } from "@/components/Timeline";
 import { timelineDesc } from "@/lib/data";
@@ -35,15 +33,13 @@ export default function TimelinePage() {
         </p>
       </header>
 
-      <Suspense fallback={<div className="h-24" />}>
-        <ListaFiltravel
-          itens={itens}
-          cartoes={cartoes}
-          opcoes={OPCOES}
-          layout="linha"
-          rotuloVazio="Nenhum acontecimento registrado corresponde a esses filtros. A ausência aqui vale apenas para o que já foi mapeado."
-        />
-      </Suspense>
+      <ListaFiltravel
+        itens={itens}
+        cartoes={cartoes}
+        opcoes={OPCOES}
+        layout="linha"
+        rotuloVazio="Nenhum acontecimento registrado corresponde a esses filtros. A ausência aqui vale apenas para o que já foi mapeado."
+      />
     </div>
   );
 }

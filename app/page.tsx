@@ -60,7 +60,7 @@ export default function Home() {
         ))}
       </section>
 
-      <div className="grid gap-px bg-rule lg:grid-cols-[210px_minmax(0,1.5fr)_minmax(320px,0.9fr)]">
+      <div className="render-deferred-section grid gap-px bg-rule lg:grid-cols-[210px_minmax(0,1.5fr)_minmax(320px,0.9fr)]">
         <aside className="bg-paper-2 p-4" aria-label="Orientação e filtros do painel">
           <section>
             <p className="kicker">Explorar</p>
