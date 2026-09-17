@@ -1,3 +1,5 @@
+import { z } from "zod";
+
 /**
  * Client mínimo da API da OpenAI via fetch — sem SDK, é uma única chamada.
  * A chave nunca sai deste arquivo: só é lida de `process.env` e só roda
@@ -5,6 +7,8 @@
  */
 
 const MODELO_PADRAO = "gpt-5-nano";
+const TIMEOUT_MS_PADRAO = 20_000;
+const MAX_OUTPUT_TOKENS_PADRAO = 800;
 
 export type MensagemChat = { role: "system" | "user"; content: string };
 
@@ -13,44 +17,118 @@ export type RespostaOpenAI = {
   tokens: { entrada: number; saida: number; total: number };
 };
 
+export type TipoErroOpenAI = "timeout" | "rate_limit" | "erro";
+
+/** Diferencia timeout / rate limit do provedor / erro genérico sem carregar detalhe interno na mensagem pública. */
+export class OpenAIError extends Error {
+  readonly tipo: TipoErroOpenAI;
+  readonly status: number;
+  readonly retryAfterSegundos?: number;
+
+  constructor(message: string, tipo: TipoErroOpenAI, status: number, retryAfterSegundos?: number) {
+    super(message);
+    this.name = "OpenAIError";
+    this.tipo = tipo;
+    this.status = status;
+    this.retryAfterSegundos = retryAfterSegundos;
+  }
+}
+
+/** Só valida a forma que este client realmente lê — o resto da resposta da OpenAI é ignorado. */
+const RespostaOpenAISchema = z.object({
+  choices: z
+    .array(
+      z.object({
+        message: z.object({
+          content: z.string().nullable().optional(),
+        }),
+      }),
+    )
+    .min(1, "resposta sem choices"),
+  usage: z
+    .object({
+      prompt_tokens: z.number().optional(),
+      completion_tokens: z.number().optional(),
+      total_tokens: z.number().optional(),
+    })
+    .optional(),
+});
+
 export async function chamarOpenAI(mensagens: MensagemChat[]): Promise<RespostaOpenAI> {
   const chave = process.env.OPENAI_API_KEY;
   if (!chave) {
-    throw new Error("OPENAI_API_KEY não configurada no ambiente do servidor.");
+    throw new OpenAIError("OPENAI_API_KEY não configurada no ambiente do servidor.", "erro", 500);
   }
 
   const modelo = process.env.AGENTE_MODEL || MODELO_PADRAO;
+  const timeoutMs = Number(process.env.AGENTE_TIMEOUT_MS) || TIMEOUT_MS_PADRAO;
+  const maxOutputTokens = Number(process.env.AGENTE_MAX_OUTPUT_TOKENS) || MAX_OUTPUT_TOKENS_PADRAO;
 
-  const resposta = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${chave}`,
-    },
-    body: JSON.stringify({
-      model: modelo,
-      messages: mensagens,
-    }),
-  });
+  const ctrl = new AbortController();
+  const timeout = setTimeout(() => ctrl.abort(), timeoutMs);
+
+  let resposta: Response;
+  try {
+    resposta = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${chave}`,
+      },
+      body: JSON.stringify({
+        model: modelo,
+        messages: mensagens,
+        max_completion_tokens: maxOutputTokens,
+      }),
+      signal: ctrl.signal,
+    });
+  } catch (e) {
+    if ((e as Error).name === "AbortError") {
+      throw new OpenAIError("Tempo esgotado ao consultar o modelo.", "timeout", 504);
+    }
+    console.error("[agente] falha de rede ao consultar a OpenAI:", e);
+    throw new OpenAIError("Falha de rede ao consultar o modelo.", "erro", 502);
+  } finally {
+    clearTimeout(timeout);
+  }
 
   if (!resposta.ok) {
     // Nunca repassar o corpo do erro da OpenAI ao cliente: pode ecoar detalhe
     // de configuração da conta. Detalhe completo só no log do servidor.
-    const corpo = await resposta.text();
+    const corpo = await resposta.text().catch(() => "");
     console.error(`OpenAI respondeu ${resposta.status}: ${corpo}`);
-    throw new Error("Falha ao consultar o modelo.");
+
+    if (resposta.status === 429) {
+      const retryHeader = Number(resposta.headers.get("retry-after"));
+      const retryAfterSegundos = Number.isFinite(retryHeader) && retryHeader > 0 ? retryHeader : 30;
+      throw new OpenAIError("Limite do provedor atingido.", "rate_limit", 429, retryAfterSegundos);
+    }
+    throw new OpenAIError("Falha ao consultar o modelo.", "erro", 502);
   }
 
-  const dados = await resposta.json();
-  const texto = dados.choices?.[0]?.message?.content ?? "";
-  const uso = dados.usage ?? {};
+  let dadosBrutos: unknown;
+  try {
+    dadosBrutos = await resposta.json();
+  } catch (e) {
+    console.error("[agente] resposta da OpenAI não é JSON válido:", e);
+    throw new OpenAIError("Resposta inválida do modelo.", "erro", 502);
+  }
+
+  const parsed = RespostaOpenAISchema.safeParse(dadosBrutos);
+  if (!parsed.success) {
+    console.error("[agente] resposta da OpenAI em formato inesperado:", parsed.error.message);
+    throw new OpenAIError("Resposta inválida do modelo.", "erro", 502);
+  }
+
+  const texto = parsed.data.choices[0]?.message.content ?? "";
+  const uso = parsed.data.usage;
 
   return {
     texto,
     tokens: {
-      entrada: uso.prompt_tokens ?? 0,
-      saida: uso.completion_tokens ?? 0,
-      total: uso.total_tokens ?? 0,
+      entrada: uso?.prompt_tokens ?? 0,
+      saida: uso?.completion_tokens ?? 0,
+      total: uso?.total_tokens ?? 0,
     },
   };
 }

@@ -236,6 +236,26 @@ Teste sempre antes: `npm run tweet -- --dry-run`.
 
 ---
 
+## Configurando o Agente IA (`/api/agente`)
+
+A rota é a única exceção ao "tudo estático": chama a OpenAI em runtime. `.env.example` documenta cada variável; os pontos que valem explicar:
+
+- **`OPENAI_API_KEY`** — obrigatória; sem ela a rota responde 500. Nunca sai de `lib/agente/openai.ts`.
+- **Rate limit distribuído** — `UPSTASH_REDIS_REST_URL`/`UPSTASH_REDIS_REST_TOKEN` (as mesmas duas variáveis da integração Vercel KV / Upstash Redis) fazem o limite ser contado num Redis compartilhado entre instâncias, via REST puro (sem SDK). Sem elas, cai num fallback em memória do processo — correto para `npm run dev`; em produção sem Redis, cada instância fria da Vercel conta separado, que é a mesma limitação documentada há tempo no cache de perguntas.
+- **IP do requisitante** — `lib/agente/rate-limit.ts` não confia cegamente em `x-forwarded-for`/`x-real-ip`. Na Vercel isso é automático. Fora dela, só é confiável com `TRUST_PROXY_HEADERS=true` e um proxy reverso próprio que de fato sobrescreva esses cabeçalhos — sem isso, todo mundo cai no mesmo balde de rate limit (pior granularidade, mas não abre brecha de spoofing).
+- **Dois limites** — por IP (`AGENTE_RATE_LIMIT_MAX`) e global (`AGENTE_RATE_LIMIT_GLOBAL_MAX`, todos os IPs somados por janela). O global existe porque um ataque distribuído por muitos IPs diferentes passa ileso por um limite só-por-IP.
+- **Log de IP** — nunca em texto puro. `LOG_IP_HMAC_SECRET` troca o hash simples por HMAC (sem o segredo, o hash de um IPv4 é reversível por força bruta em segundos); `LOG_IP_HASH_SALT_DIAS=true` (padrão) faz o hash rotacionar por dia UTC, para não virar um identificador estável de longo prazo.
+
+## Conversas (`/conversas`) — ingestão externa
+
+`lib/conversas.ts` busca os JSONs do [MasterWhats](https://github.com/rafaelbressan/masterzap) em runtime, não os vendoriza. Isso é buscar dado de um repositório de terceiros, então é tratado como entrada não confiável: timeout e teto de download reais (não só `Content-Length`), todo JSON validado por Zod antes de qualquer uso, host e caminho em allowlist (só `raw.githubusercontent.com/rafaelbressan/masterzap/...`, nunca qualquer URL). `MASTERZAP_REF` fixa um commit (40 hex) em vez de rastrear a branch `main`, que muda sem aviso; o padrão em `.env.example` é o commit vigente no dia deste endurecimento. Quando a busca falha (rede, timeout, schema), a seção mantém a última versão que validou com sucesso nesta instância, em vez de cair para "fora do ar" — degrada, não quebra.
+
+## Cabeçalhos de segurança
+
+`next.config.ts` define, para todas as rotas: `Content-Security-Policy` (sem `unsafe-eval` em produção; `unsafe-inline` em `script-src`/`style-src` fica porque o App Router injeta um script inline de hidratação e não há middleware de nonce por requisição), `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy` e `frame-ancestors 'none'` (mais `X-Frame-Options: DENY` como redundância). Ajuste a CSP em `next.config.ts` se algum domínio externo novo entrar (fonte, script, imagem) — hoje tudo é `'self'`, porque fontes (`next/font/google`) são self-hosted no build e as fotos do mapa são baixadas para `public/media/nodes` em vez de referenciadas por URL externa.
+
+---
+
 ## Automação
 
 | workflow | quando | o que faz |

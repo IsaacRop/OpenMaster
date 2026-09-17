@@ -278,11 +278,13 @@ for (const arquivo of ARQUIVOS) {
   }
 }
 
-// Fonte: o Zod já exige source_url; aqui só recusamos esquemas não-http(s).
+// Fonte: o Zod (lib/schema.ts, UrlHttps) já exige https; esta é a rede de
+// segurança redundante sobre o JSON bruto, caso o schema mude e alguém
+// esqueça de atualizar aqui também.
 for (const [arquivo, itens] of [...porColecao, ["relacoes.json", relacoes]] as const) {
   for (const it of itens) {
-    if (!/^https?:\/\//.test(it.source_url)) {
-      erros.push(`data/${arquivo} [${it.id}]: source_url deve ser http(s)`);
+    if (!/^https:\/\//.test(it.source_url)) {
+      erros.push(`data/${arquivo} [${it.id}]: source_url deve ser https`);
     }
   }
 }

@@ -8,8 +8,28 @@ import { z } from "zod";
  * validação — e, como `lib/data.ts` valida em build time, não vai ao ar.
  */
 
+/**
+ * Schema de URL reutilizado por toda referência editorial do painel (fonte,
+ * pdf, histórico de relatoria, foto). https apenas — nunca http, nunca outro
+ * esquema (`z.string().url()` sozinho aceita qualquer esquema parseável pela
+ * URL do runtime, incluindo `javascript:`/`data:`; o refine é o que restringe
+ * a https de fato).
+ */
+export const UrlHttps = z
+  .string()
+  .url()
+  .refine((v) => v.startsWith("https://"), { message: "URL deve usar https://" });
+export type UrlHttps = z.infer<typeof UrlHttps>;
+
+/** UrlHttps OU um caminho público local iniciado por uma única `/` (imagens editoriais baixadas para o próprio projeto). */
+export const UrlHttpsOuLocal = z.union([
+  UrlHttps,
+  z.string().regex(/^\/(?!\/)[^\s]+$/, "use uma URL https:// ou um caminho público iniciado por /"),
+]);
+export type UrlHttpsOuLocal = z.infer<typeof UrlHttpsOuLocal>;
+
 export const Fonte = z.object({
-  source_url: z.string().url(),
+  source_url: UrlHttps,
   source_name: z.string().min(2),
   source_date: z.string().date().optional(),
 });
@@ -83,7 +103,7 @@ export const Processo = Fonte.extend({
         de: z.string().date().nullable(),
         ate: z.string().date().nullable(),
         motivo: z.string().optional(),
-        source_url: z.string().url(),
+        source_url: UrlHttps,
       }),
     )
     .default([]),
@@ -157,10 +177,7 @@ export const Foto = Fonte.extend({
    * público local: as imagens editoriais são baixadas para o próprio projeto
    * para o grafo não depender da latência nem da disponibilidade de terceiros.
    */
-  url: z.union([
-    z.string().url(),
-    z.string().regex(/^\/(?!\/)[^\s]+$/, "use uma URL absoluta ou um caminho público iniciado por /")
-  ]),
+  url: UrlHttpsOuLocal,
   /** Quem fotografou, como a licença exige que seja creditado. */
   credito: z.string().min(2),
   /** Identificador da licença, ex.: "CC BY 3.0 BR", "CC BY-SA 4.0". */
@@ -221,7 +238,7 @@ export const Documento = Fonte.extend({
    * Só quando existe link público e real para o inteiro teor. Ausente é o
    * estado normal e correto: link quebrado é pior que link nenhum.
    */
-  pdf_url: z.string().url().optional(),
+  pdf_url: UrlHttps.optional(),
   confianca: Confianca.default("confirmado"),
   /** Mesmo guardrail de EventoTimeline — ver scripts/validate.ts. */
   sigilo_ack: z.boolean().default(false),
