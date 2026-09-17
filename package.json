@@ -17,7 +17,9 @@
     "format:data": "tsx scripts/format-data.ts",
     "pos-sessao": "tsx scripts/post-sessao.ts",
     "sync": "tsx scripts/sync-datajud.ts",
-    "tweet": "tsx scripts/post-twitter.ts"
+    "tweet": "tsx scripts/post-twitter.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "minisearch": "^7.2.0",
@@ -33,6 +35,7 @@
     "@types/react-dom": "^19.1.7",
     "tailwindcss": "^4.1.13",
     "tsx": "^4.20.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^5.0.1"
   }
 }

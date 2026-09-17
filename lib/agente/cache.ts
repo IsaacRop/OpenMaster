@@ -9,9 +9,16 @@
  * depois de um link compartilhado, por exemplo). Se o volume justificar um
  * cache de verdade compartilhado, trocar por Vercel KV aqui — a interface
  * (get/set) já é a mesma que um client de KV expõe.
+ *
+ * `MAX_ENTRADAS` existe porque, sem teto, um atacante mandando perguntas
+ * distintas em loop cresce este Map sem limite até a instância ficar sem
+ * memória — cada pergunta nova era uma chave nova que nunca era removida
+ * antes de expirar sozinha em 24h. Ao estourar o teto, remove a entrada mais
+ * antiga (ordem de inserção do Map) antes de gravar a nova.
  */
 
 const TTL_MS = 24 * 60 * 60 * 1000;
+const MAX_ENTRADAS = 500;
 
 export type RespostaCache = {
   resposta: string;
@@ -34,6 +41,13 @@ export function normalizarPergunta(pergunta: string): string {
     .replace(/\s+/g, " ");
 }
 
+/** Remove entradas expiradas — chamado antes de cada escrita para que o cache não cresça só com lixo vencido. */
+function limparExpiradas(agora: number): void {
+  for (const [chave, entrada] of cache) {
+    if (agora > entrada.expiraEm) cache.delete(chave);
+  }
+}
+
 export function lerCache(pergunta: string): RespostaCache | null {
   const chave = normalizarPergunta(pergunta);
   const entrada = cache.get(chave);
@@ -46,6 +60,18 @@ export function lerCache(pergunta: string): RespostaCache | null {
 }
 
 export function gravarCache(pergunta: string, valor: RespostaCache): void {
+  const agora = Date.now();
+  limparExpiradas(agora);
+
   const chave = normalizarPergunta(pergunta);
-  cache.set(chave, { valor, expiraEm: Date.now() + TTL_MS });
+  if (!cache.has(chave) && cache.size >= MAX_ENTRADAS) {
+    const maisAntiga = cache.keys().next().value;
+    if (maisAntiga !== undefined) cache.delete(maisAntiga);
+  }
+  cache.set(chave, { valor, expiraEm: agora + TTL_MS });
+}
+
+/** Exposto só para testes: limpa o cache entre casos. */
+export function __resetCacheParaTestes(): void {
+  cache.clear();
 }
