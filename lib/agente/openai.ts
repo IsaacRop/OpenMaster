@@ -8,7 +8,14 @@ import { z } from "zod";
 
 const MODELO_PADRAO = "gpt-5-nano";
 const TIMEOUT_MS_PADRAO = 20_000;
-const MAX_OUTPUT_TOKENS_PADRAO = 800;
+// gpt-5-nano é um modelo de raciocínio: os tokens de reasoning saem do mesmo
+// orçamento de max_completion_tokens, antes de qualquer token de resposta
+// visível. Com esforço padrão (medium), o modelo pode gastar o orçamento
+// inteiro raciocinando e devolver conteúdo vazio (finish_reason "length").
+// REASONING_EFFORT_PADRAO em "low" mantém síntese razoável sem consumir o
+// orçamento inteiro; o teto foi alargado para sobrar espaço de resposta real.
+const MAX_OUTPUT_TOKENS_PADRAO = 1600;
+const REASONING_EFFORT_PADRAO = "low";
 
 export type MensagemChat = { role: "system" | "user"; content: string };
 
@@ -63,6 +70,7 @@ export async function chamarOpenAI(mensagens: MensagemChat[]): Promise<RespostaO
   const modelo = process.env.AGENTE_MODEL || MODELO_PADRAO;
   const timeoutMs = Number(process.env.AGENTE_TIMEOUT_MS) || TIMEOUT_MS_PADRAO;
   const maxOutputTokens = Number(process.env.AGENTE_MAX_OUTPUT_TOKENS) || MAX_OUTPUT_TOKENS_PADRAO;
+  const reasoningEffort = process.env.AGENTE_REASONING_EFFORT || REASONING_EFFORT_PADRAO;
 
   const ctrl = new AbortController();
   const timeout = setTimeout(() => ctrl.abort(), timeoutMs);
@@ -79,6 +87,7 @@ export async function chamarOpenAI(mensagens: MensagemChat[]): Promise<RespostaO
         model: modelo,
         messages: mensagens,
         max_completion_tokens: maxOutputTokens,
+        reasoning_effort: reasoningEffort,
       }),
       signal: ctrl.signal,
     });
@@ -122,6 +131,15 @@ export async function chamarOpenAI(mensagens: MensagemChat[]): Promise<RespostaO
 
   const texto = parsed.data.choices[0]?.message.content ?? "";
   const uso = parsed.data.usage;
+
+  if (!texto.trim()) {
+    // Modelo de raciocínio pode consumir o orçamento inteiro de
+    // max_completion_tokens em tokens de reasoning e devolver conteúdo vazio
+    // (finish_reason "length"). Isso não é uma resposta válida — melhor
+    // sinalizar erro do que devolver uma caixa de resposta em branco.
+    console.error(`[agente] resposta vazia da OpenAI — tokens_saida=${uso?.completion_tokens ?? "?"}`);
+    throw new OpenAIError("O modelo não gerou uma resposta. Tente novamente.", "erro", 502);
+  }
 
   return {
     texto,

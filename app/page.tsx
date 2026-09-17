@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import AgentPanel from "@/components/AgentPanel";
 import HubGraph from "@/components/HubGraph";
 import { ConfiancaBadge, SourceTag } from "@/components/SourceTag";
 import { dataBR, grau } from "@/lib/backlinks";
@@ -35,15 +34,17 @@ export default function Home() {
           <h1 className="mt-1 text-xl font-semibold tracking-[-0.02em] text-ink sm:text-2xl">Painel de consulta</h1>
           <p className="mt-1 text-sm text-ink-3">Pergunte ao agente ou examine diretamente as evidências da base.</p>
         </div>
-        <div className="flex items-center gap-2 font-mono text-xs text-ink-3">
-          <span className="h-1.5 w-1.5 rounded-full bg-ok" aria-hidden="true" />
-          Base verificada até {dataBR(dataCorte)}
+        <div className="flex flex-wrap items-center gap-3">
+          <Link href="/agente" className="agent-submit inline-flex items-center gap-1.5 no-underline">
+            <span className="agent-symbol" aria-hidden="true"><span /></span>
+            Consultar o agente <span aria-hidden="true">↗</span>
+          </Link>
+          <div className="flex items-center gap-2 font-mono text-xs text-ink-3">
+            <span className="h-1.5 w-1.5 rounded-full bg-ok" aria-hidden="true" />
+            Base verificada até {dataBR(dataCorte)}
+          </div>
         </div>
       </header>
-
-      <div className="mb-px">
-        <AgentPanel />
-      </div>
 
       <section aria-label="Resumo da base" className="mb-px grid grid-cols-2 gap-px bg-rule md:grid-cols-4">
         {[
