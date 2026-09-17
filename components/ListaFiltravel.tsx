@@ -1,7 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { useMemo, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 
 /**
  * Filtros cruzados, com o estado inteiro na query string.
@@ -39,6 +38,22 @@ export type Opcoes = {
 
 const CHAVES = ["pessoa", "tipo", "confianca", "sigilo", "de", "ate"] as const;
 type Chave = (typeof CHAVES)[number];
+type Valores = Record<Chave, string>;
+
+const SEM_FILTROS: Valores = {
+  pessoa: "",
+  tipo: "",
+  confianca: "",
+  sigilo: "",
+  de: "",
+  ate: "",
+};
+
+function valoresDaUrl(): Valores {
+  if (typeof window === "undefined") return SEM_FILTROS;
+  const params = new URLSearchParams(window.location.search);
+  return Object.fromEntries(CHAVES.map((chave) => [chave, params.get(chave) ?? ""])) as Valores;
+}
 
 const ROTULO_CHAVE: Record<Chave, string> = {
   pessoa: "Envolvido",
@@ -115,21 +130,34 @@ export default function ListaFiltravel({
   layout: "grade" | "linha";
   rotuloVazio: string;
 }) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const params = useSearchParams();
+  // Comecar sem filtros permite que o servidor entregue a lista completa no
+  // primeiro HTML. `useSearchParams` suspendia toda a lista ate a hidratacao,
+  // causando um grande salto de layout; a URL continua sendo a fonte citavel.
+  const [atual, setAtual] = useState<Valores>(SEM_FILTROS);
 
-  const atual = Object.fromEntries(CHAVES.map((k) => [k, params.get(k) ?? ""])) as Record<
-    Chave,
-    string
-  >;
+  useEffect(() => {
+    const sincronizar = () => setAtual(valoresDaUrl());
+    sincronizar();
+    window.addEventListener("popstate", sincronizar);
+    return () => window.removeEventListener("popstate", sincronizar);
+  }, []);
 
   function aplicar(chave: Chave, valor: string) {
-    const novo = new URLSearchParams(params.toString());
+    const novo = new URLSearchParams(window.location.search);
     if (valor) novo.set(chave, valor);
     else novo.delete(chave);
-    // `scroll: false` porque quem filtra já está olhando para a lista.
-    router.replace(novo.toString() ? `${pathname}?${novo}` : pathname, { scroll: false });
+    const query = novo.toString();
+    window.history.replaceState(
+      null,
+      "",
+      query ? `${window.location.pathname}?${query}` : window.location.pathname,
+    );
+    setAtual(valoresDaUrl());
+  }
+
+  function limpar() {
+    window.history.replaceState(null, "", window.location.pathname);
+    setAtual(SEM_FILTROS);
   }
 
   const visiveis = useMemo(
@@ -166,7 +194,7 @@ export default function ListaFiltravel({
         {ativos.length > 0 && (
           <button
             type="button"
-            onClick={() => router.replace(pathname, { scroll: false })}
+            onClick={limpar}
             className="kicker border border-rule px-2 py-1.5 hover:border-seal hover:text-seal"
           >
             Limpar {ativos.length}
@@ -184,7 +212,7 @@ export default function ListaFiltravel({
       ) : layout === "grade" ? (
         <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {visiveis.map((i) => (
-            <div key={i.id}>{cartoes[i.id]}</div>
+            <div key={i.id} className="render-deferred-item">{cartoes[i.id]}</div>
           ))}
         </div>
       ) : (

@@ -14,11 +14,27 @@
   --color-seal-soft: #f5ce86;
   --color-gold: #e9b44c;
   --color-ok: #4fa98a;
-  --color-disputed: #c2566b;
+  /* Mantem contraste AA inclusive nos selos pequenos sobre --color-paper-3. */
+  --color-disputed: #ca6075;
 
   --font-serif: var(--font-sans-stack);
   --font-mono: var(--font-mono-stack);
   --font-sans: var(--font-sans-stack);
+}
+
+/*
+ * Listas editoriais longas continuam presentes no HTML (SEO, busca e leitor
+ * de tela), mas o navegador pode adiar layout e pintura do que esta longe da
+ * viewport. O tamanho intrinseco evita saltos grandes na barra de rolagem.
+ */
+.render-deferred-item {
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 240px;
+}
+
+.render-deferred-section {
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 1200px;
 }
 
 :root {

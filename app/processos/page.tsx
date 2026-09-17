@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
-
 import ListaFiltravel from "@/components/ListaFiltravel";
 import ProcessCard from "@/components/ProcessCard";
 import { processos } from "@/lib/data";
@@ -34,15 +32,13 @@ export default function ProcessosPage() {
         </p>
       </header>
 
-      <Suspense fallback={<div className="h-24" />}>
-        <ListaFiltravel
-          itens={metaProcessos}
-          cartoes={cartoes}
-          opcoes={OPCOES}
-          layout="grade"
-          rotuloVazio="Nenhum dos processos acompanhados corresponde a esses filtros. Isso não representa todo o acervo do tribunal."
-        />
-      </Suspense>
+      <ListaFiltravel
+        itens={metaProcessos}
+        cartoes={cartoes}
+        opcoes={OPCOES}
+        layout="grade"
+        rotuloVazio="Nenhum dos processos acompanhados corresponde a esses filtros. Isso não representa todo o acervo do tribunal."
+      />
     </div>
   );
 }
