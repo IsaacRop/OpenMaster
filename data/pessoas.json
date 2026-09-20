@@ -156,15 +156,15 @@
     "grupo": "stf",
     "descricao": "",
     "nivel_presenca": "recorrente",
-    "resumo_participacao": "Decano do STF; contestou formalmente, via Ofício 003/MGM, a própria natureza processual da Pet 16.662 e pediu sua avocação pela Presidência, citando também a nulidade do relatório policial arguida pela PGR.",
+    "resumo_participacao": "Decano do STF; contestou formalmente, via Ofício 003/MGM, a natureza processual da Pet 16.662 e pediu sua avocação pela Presidência. Em nota de 18/09/2026, confirmou ter recebido Daniel Vorcaro e advogados do Banco Master em audiência institucional em 11/04/2024 para tratar de causa do setor sucroalcooleiro e afirmou ter votado contra o interesse associado ao banco.",
     "confianca": "confirmado",
     "pos": {
       "x": 1120,
       "y": 120
     },
-    "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
-    "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13",
+    "source_url": "https://www.poder360.com.br/poder-justica/gilmar-se-reuniu-com-vorcaro-e-votou-contra-interesse-do-master/",
+    "source_name": "Poder360 — nota do gabinete de Gilmar Mendes",
+    "source_date": "2026-09-18",
     "foto": {
       "url": "/media/nodes/gilmar.jpg",
       "credito": "Senado Federal",
