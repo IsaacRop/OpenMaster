@@ -980,5 +980,17 @@
     "source_url": "https://www.poder360.com.br/poder-justica/supremo-salva-alexandre-de-moraes-por-ate-90-dias/",
     "source_name": "Poder360",
     "source_date": "2026-09-15"
+  },
+  {
+    "id": "gilmar-vorcaro-audiencia",
+    "from": "gilmar",
+    "to": "vorcaro",
+    "rotulo": "recebeu em audiência institucional (11/04/2024)",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "confirmado",
+    "source_url": "https://www.poder360.com.br/poder-justica/gilmar-se-reuniu-com-vorcaro-e-votou-contra-interesse-do-master/",
+    "source_name": "Poder360 — nota do gabinete de Gilmar Mendes",
+    "source_date": "2026-09-18"
   }
 ]

@@ -180,5 +180,19 @@
     "source_url": "https://www.poder360.com.br/poder-justica/moraes-diz-que-mendonca-nao-liberou-todo-o-sigilo-sobre-banco-master/",
     "source_name": "Poder360",
     "source_date": "2026-09-11"
+  },
+  {
+    "id": "despacho-pet-16704-2026-09-17-redesignacao",
+    "processo_id": "pet-16704",
+    "tipo": "despacho",
+    "data": "2026-09-17",
+    "autor_id": "fachin",
+    "numero_referencia": "Despacho Pet 16.704, 17/09/2026",
+    "resumo": "Retira a Pet 16.704 da pauta de 23/09 porque a questão de ordem pendente na Pet 16.662 alcança a regularidade da própria relatoria; determina que a inclusão em pauta seja redesignada oportunamente.",
+    "confianca": "confirmado",
+    "sigilo_ack": false,
+    "source_url": "https://portal.stf.jus.br/processos/abaAndamentos.asp?incidente=7687920",
+    "source_name": "STF — andamento processual da Pet 16.704",
+    "source_date": "2026-09-17"
   }
 ]

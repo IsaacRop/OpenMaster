@@ -327,27 +327,6 @@
     "source_date": "2026-09-15"
   },
   {
-    "id": "2026-09-23-sessao-pauta-pet-16704",
-    "data": "2026-09-23",
-    "titulo": "Sessão de pauta — Pet 16.704",
-    "descricao": "Inclusão condicionada à conclusão da instrução.",
-    "milestone": false,
-    "tipo": "movimentacao",
-    "confianca": "apuracao",
-    "processos": [
-      "pet-16704"
-    ],
-    "pessoas": [
-      "fachin"
-    ],
-    "sigilo_ack": false,
-    "tweet": false,
-    "tweeted_at": null,
-    "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
-    "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
-  },
-  {
     "id": "2016-03-18-cadastro-sitio-muzambinho",
     "data": "2016-03-18",
     "titulo": "Cadastro do sítio em Muzambinho",
@@ -1382,5 +1361,70 @@
     "source_url": "https://www.poder360.com.br/poder-justica/conselho-do-mpf-julgara-mencao-a-gonet-por-vorcaro-em-25-de-setembro/",
     "source_name": "Poder360",
     "source_date": "2026-09-15"
+  },
+  {
+    "id": "2026-09-17-fachin-retira-pet16704-pauta",
+    "data": "2026-09-17",
+    "titulo": "Fachin retira Pet 16.704 da pauta de 23/09",
+    "descricao": "A Presidência do STF desfaz a designação da sessão de 23/09. Fachin registra que a questão de ordem pendente na Pet 16.662 tem relação direta com a Pet 16.704 e questiona a regularidade da própria relatoria; uma nova data será designada oportunamente.",
+    "milestone": true,
+    "tipo": "decisao",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-16704",
+      "pet-16662"
+    ],
+    "pessoas": [
+      "fachin",
+      "dino"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://portal.stf.jus.br/processos/abaAndamentos.asp?incidente=7687920",
+    "source_name": "STF — andamento processual da Pet 16.704",
+    "source_date": "2026-09-17"
+  },
+  {
+    "id": "2026-09-18-defesa-vorcaro-pede-revogacao-prisao",
+    "data": "2026-09-18",
+    "titulo": "Defesa de Vorcaro pede revogação da prisão",
+    "descricao": "A defesa de Daniel Vorcaro pede à Presidência do STF a revogação da prisão preventiva ou sua substituição por medidas cautelares. A petição afirma que o segundo ciclo de 90 dias para reavaliação da medida terminou em 31/08 e cita a indefinição sobre a condução dos feitos da Operação Compliance Zero.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-15556"
+    ],
+    "pessoas": [
+      "vorcaro",
+      "fachin"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://static.poder360.com.br/uploads/2026/09/pedido-defesa-vorcaro-18set26.pdf",
+    "source_name": "Petição da defesa de Daniel Vorcaro — Pet 15.556/DF",
+    "source_date": "2026-09-18"
+  },
+  {
+    "id": "2024-04-11-gilmar-recebe-vorcaro-audiencia",
+    "data": "2024-04-11",
+    "titulo": "Gilmar recebe Vorcaro em audiência no STF",
+    "descricao": "Gilmar Mendes recebe Daniel Vorcaro e advogados do Banco Master em audiência institucional para tratar do ARE 1.327.995, ligado a precatórios do setor sucroalcooleiro. Em nota divulgada em 18/09/2026, o gabinete afirma que o ministro votou contra o interesse associado ao banco nesse processo.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "gilmar",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/gilmar-se-reuniu-com-vorcaro-e-votou-contra-interesse-do-master/",
+    "source_name": "Poder360 — nota do gabinete de Gilmar Mendes",
+    "source_date": "2026-09-18"
   }
 ]
