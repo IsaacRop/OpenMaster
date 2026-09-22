@@ -6,7 +6,7 @@
 export type Tema = "light" | "dark";
 
 export const CHAVE_TEMA = "om-tema";
-export const COR_TEMA: Record<Tema, string> = { light: "#F6F5F1", dark: "#0E0F12" };
+export const COR_TEMA: Record<Tema, string> = { light: "#F7F8FA", dark: "#111318" };
 
 /**
  * Roda no `<head>`, antes da primeira pintura: sem isso quem escolheu o tema

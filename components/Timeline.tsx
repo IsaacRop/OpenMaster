@@ -8,8 +8,8 @@ function DataColuna({ iso }: { iso: string }) {
   const [ano, mes, dia] = iso.split("-");
   return (
     <time dateTime={iso} className="numero block shrink-0 text-right leading-none">
-      <div className="text-2xl font-medium text-ink">{dia}</div>
-      <div className="text-[0.625rem] uppercase tracking-[0.14em] text-ink-3">
+      <div className="font-display text-2xl font-bold text-ink">{dia}</div>
+      <div className="mt-0.5 text-[0.7rem] text-ink-3">
         {mes}/{ano}
       </div>
     </time>
@@ -42,8 +42,8 @@ export function EventoItem({
       {/* Fio da linha do tempo, com o nó do marco em vermelho de selo. */}
       <div className="relative bg-rule">
         <span
-          className={`absolute left-1/2 top-6 h-2.5 w-2.5 -translate-x-1/2 rotate-45 ${
-            e.milestone ? "bg-accent" : "bg-bg border border-ink-3"
+          className={`absolute left-1/2 top-6 h-3 w-3 -translate-x-1/2 rounded-full ${
+            e.milestone ? "bg-accent ring-4 ring-accent-soft" : "bg-bg border-2 border-rule-strong"
           }`}
         />
       </div>
@@ -71,7 +71,7 @@ export function EventoItem({
                 <li key={id}>
                   <Link
                     href={`/processos/${id}`}
-                    className="numero border border-rule px-1.5 py-0.5 text-[0.6875rem] text-ink-2 no-underline hover:border-accent hover:text-accent"
+                    className="numero rounded-full bg-surface-2 px-2.5 py-1 text-[0.72rem] font-medium text-ink-2 no-underline hover:bg-accent-soft hover:text-accent"
                   >
                     {p.numero.replace("/DF", "")}
                   </Link>

@@ -35,9 +35,7 @@ function ChatMensagem({ msg, souDV }: { msg: ConversaMensagem; souDV: boolean })
   return (
     <li className={`flex ${souDV ? "justify-end" : "justify-start"}`}>
       <div
-        className={`max-w-[82%] border px-3 py-2 text-sm leading-relaxed ${
-          souDV ? "border-accent/40 bg-accent/10 text-ink" : "border-rule bg-surface text-ink"
-        }`}
+        className={`balao max-w-[82%] text-sm leading-relaxed text-ink ${souDV ? "balao-eu" : "balao-outro"}`}
       >
         {!souDV && (
           <p className="numero mb-0.5 text-[0.6875rem] font-semibold text-accent">
@@ -106,7 +104,7 @@ export default async function ConversaPage({
             <Link
               href="/conversas"
               aria-label="Voltar para a lista de conversas"
-              className="-ml-2 grid h-11 w-11 shrink-0 place-items-center text-lg text-ink-2 no-underline hover:text-accent"
+              className="-ml-2 grid h-11 w-11 shrink-0 place-items-center rounded-full text-lg text-ink-2 no-underline hover:bg-surface-2 hover:text-accent"
             >
               ←
             </Link>
@@ -127,7 +125,7 @@ export default async function ConversaPage({
                   aria-disabled={!diaAnterior}
                   aria-label="Dia anterior"
                   title="Dia anterior"
-                  className={`grid h-11 w-11 shrink-0 place-items-center border text-center text-base no-underline sm:h-auto sm:w-auto sm:px-3 sm:py-1.5 sm:text-sm ${
+                  className={`grid h-11 w-11 shrink-0 place-items-center rounded-full border text-center text-base no-underline sm:h-auto sm:w-auto sm:px-3 sm:py-1.5 sm:text-sm ${
                     diaAnterior
                       ? "border-rule text-ink-2 hover:border-accent hover:text-accent"
                       : "cursor-not-allowed border-rule/40 text-ink-3/40"
@@ -148,7 +146,7 @@ export default async function ConversaPage({
                   aria-disabled={!diaProximo}
                   aria-label="Dia seguinte"
                   title="Dia seguinte"
-                  className={`grid h-11 w-11 shrink-0 place-items-center border text-center text-base no-underline sm:h-auto sm:w-auto sm:px-3 sm:py-1.5 sm:text-sm ${
+                  className={`grid h-11 w-11 shrink-0 place-items-center rounded-full border text-center text-base no-underline sm:h-auto sm:w-auto sm:px-3 sm:py-1.5 sm:text-sm ${
                     diaProximo
                       ? "border-rule text-ink-2 hover:border-accent hover:text-accent"
                       : "cursor-not-allowed border-rule/40 text-ink-3/40"
@@ -168,7 +166,7 @@ export default async function ConversaPage({
                   defaultValue={diaAtivo}
                   name="data"
                   aria-label="Pular para um dia específico da conversa"
-                  className="min-h-11 min-w-0 flex-1 border border-rule bg-surface-2 px-1.5 text-base text-ink sm:min-h-0 sm:py-1 sm:text-[0.625rem]"
+                  className="min-h-11 min-w-0 flex-1 rounded-lg border border-rule bg-surface-2 px-1.5 text-base text-ink sm:min-h-0 sm:py-1 sm:text-[0.625rem]"
                 >
                   {datas.map((d) => (
                     <option key={d.date} value={d.date}>
@@ -178,7 +176,7 @@ export default async function ConversaPage({
                 </select>
                 <button
                   type="submit"
-                  className="min-h-11 shrink-0 border border-rule px-3 text-sm text-ink-2 hover:border-accent hover:text-accent sm:min-h-0 sm:px-2 sm:py-1 sm:text-[0.625rem]"
+                  className="min-h-11 shrink-0 rounded-full border border-rule px-3 text-sm text-ink-2 hover:border-accent hover:text-accent sm:min-h-0 sm:px-2 sm:py-1 sm:text-[0.625rem]"
                 >
                   Ir
                 </button>

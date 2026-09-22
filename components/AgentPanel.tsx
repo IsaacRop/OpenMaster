@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 
+import Icone from "./Icone";
+
 const EXEMPLOS = [
   "O que aconteceu por último?",
   "Quem são os envolvidos centrais?",
@@ -95,8 +97,8 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
     <section className={`agent-panel ${amplo ? "min-h-[520px]" : ""}`} aria-labelledby="agente-titulo">
       <div className="flex flex-wrap items-start justify-between gap-3 border-b border-rule px-4 py-3 sm:px-5">
         <div className="flex items-center gap-3">
-          <span className="agent-symbol" aria-hidden="true">
-            <span />
+          <span className="icone-chip" aria-hidden="true">
+            <Icone nome="faisca" />
           </span>
           <div>
             <p className="kicker text-accent">OpenMaster IA</p>
@@ -132,7 +134,7 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
                 {carregando ? "Consultando a base…" : "Respostas com fonte citada"}
               </p>
               <button type="submit" disabled={carregando || !pergunta.trim()} className="agent-submit">
-                Perguntar <span aria-hidden="true">↗</span>
+                Perguntar <Icone nome="direita" tamanho={16} />
               </button>
             </div>
           </form>
@@ -147,7 +149,7 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
                   perguntar(exemplo);
                 }}
                 disabled={carregando}
-                className="border border-rule px-2.5 py-1.5 text-xs text-ink-3 hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-60"
+                className="rounded-full border border-rule bg-surface px-3 py-1.5 text-xs text-ink-2 hover:border-accent hover:bg-accent-soft hover:text-accent disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {exemplo}
               </button>
@@ -156,13 +158,13 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
 
           <div className="mt-4" aria-live="polite">
             {estado.tipo === "limite" && (
-              <p className="border border-rule-strong bg-surface-2 px-3 py-2 text-sm text-ink">{estado.mensagem}</p>
+              <p className="rounded-xl bg-surface-2 px-4 py-3 text-sm text-ink">{estado.mensagem}</p>
             )}
             {estado.tipo === "erro" && (
-              <p className="border border-l-2 border-rule-strong border-l-ink bg-surface-2 px-3 py-2 text-sm text-ink">{estado.mensagem}</p>
+              <p className="rounded-xl bg-surface-2 px-4 py-3 text-sm text-ink">{estado.mensagem}</p>
             )}
             {estado.tipo === "ok" && (
-              <div className="border border-rule-strong bg-surface-2 p-4">
+              <div className="rounded-2xl bg-surface-2 p-4 sm:p-5">
                 <p className="max-w-[70ch] whitespace-pre-line text-base leading-relaxed text-ink">{estado.dados.resposta}</p>
                 {estado.dados.fontes.length > 0 && (
                   <div className="mt-3 border-t border-rule pt-3">
@@ -176,7 +178,7 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
                             rel="noopener noreferrer"
                             className="group grid min-h-11 grid-cols-[auto_1fr] items-baseline gap-x-2 py-2 no-underline"
                           >
-                            <span className="text-accent" aria-hidden="true">↗</span>
+                            <Icone nome="externo" tamanho={14} className="translate-y-0.5 text-accent" />
                             <span className="text-sm text-ink group-hover:text-accent group-hover:underline">{f.titulo}</span>
                             <span className="numero col-start-2 text-xs text-ink-3">{f.source_name}</span>
                           </a>
@@ -198,7 +200,7 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
               <li><strong className="block font-medium text-ink">Separar fato de apuração</strong>Preserva os estados editoriais da base.</li>
               <li><strong className="block font-medium text-ink">Nunca julgar</strong>Reporta o que as fontes registram, sem juízo de culpa.</li>
             </ul>
-            <Link href="/busca" className="meta-link mt-6 text-accent hover:text-accent-hover">Usar busca literal →</Link>
+            <Link href="/busca" className="meta-link mt-6">Usar busca literal <Icone nome="direita" tamanho={16} /></Link>
           </aside>
         )}
       </div>

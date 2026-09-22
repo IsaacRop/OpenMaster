@@ -1,3 +1,4 @@
+import Icone from "./Icone";
 import { CONFIANCA_LABEL, type Confianca, type Fonte } from "@/lib/schema";
 
 /**
@@ -11,9 +12,9 @@ export function SourceTag({ fonte }: { fonte: Fonte }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Abrir fonte: ${fonte.source_name}`}
-      className="numero inline-flex min-h-7 items-center gap-1.5 text-xs text-ink-3 underline decoration-rule underline-offset-2 hover:text-accent hover:decoration-accent"
+      className="numero inline-flex min-h-7 items-center gap-1.5 text-xs text-ink-3 no-underline hover:text-accent hover:underline"
     >
-      <span className="text-accent" aria-hidden="true">↗</span>
+      <Icone nome="externo" tamanho={13} className="text-accent" />
       Fonte: {fonte.source_name}
       {fonte.source_date ? ` (${fonte.source_date.split("-").reverse().join("/")})` : ""}
     </a>
@@ -37,14 +38,14 @@ export const CONFIANCA_EXPLICACAO: Record<Confianca, string> = {
 export function ConfiancaBadge({ confianca }: { confianca: Confianca }) {
   const label = CONFIANCA_LABEL[confianca] ?? "Confirmado";
   const estilo = {
-    confirmado: "border-confirmado/60 text-confirmado",
-    apuracao: "border-apuracao/60 text-apuracao",
-    controverso: "border-controverso/60 text-controverso",
+    confirmado: "bg-confirmado/10 text-confirmado",
+    apuracao: "bg-apuracao/10 text-apuracao",
+    controverso: "bg-controverso/10 text-controverso",
   }[confianca];
 
   return (
     <span
-      className={`numero inline-flex items-center gap-1.5 border ${estilo} px-1.5 py-px text-[0.625rem] uppercase tracking-[0.12em]`}
+      className={`inline-flex items-center gap-1.5 rounded-full ${estilo} px-2 py-0.5 text-[0.72rem] font-medium`}
       title={CONFIANCA_EXPLICACAO[confianca]}
     >
       <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />

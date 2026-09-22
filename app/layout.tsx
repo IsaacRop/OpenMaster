@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
-import { IBM_Plex_Mono, Inter, Newsreader } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 
 import ConditionalDisclaimer from "@/components/ConditionalDisclaimer";
 import SiteHeader from "@/components/SiteHeader";
@@ -10,28 +10,20 @@ import { dataCorte } from "@/lib/data";
 import "./globals.css";
 
 /*
- * Três vozes: Newsreader para o que é manchete (tem eixo de tamanho óptico,
- * então o mesmo arquivo serve ao título de 52px e ao de 17px), Inter para a
- * interface e o corpo, IBM Plex Mono para datas, números e metadados.
+ * Duas vozes, ambas sem serifa: Plus Jakarta Sans nos títulos (formas
+ * abertas e amigáveis) e Inter na interface, no corpo e nos números (os
+ * algarismos tabulares dela dispensam uma fonte mono).
  */
-const serif = Newsreader({
+const display = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: "variable",
-  axes: ["opsz"],
-  variable: "--font-newsreader",
+  variable: "--font-jakarta",
   display: "swap",
 });
 
 const sans = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-plex-mono",
   display: "swap",
 });
 
@@ -55,7 +47,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     // `data-theme` é escrito pelo script abaixo antes da hidratação.
-    <html lang="pt-BR" className={`${serif.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang="pt-BR" className={`${display.variable} ${sans.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: SCRIPT_TEMA }} />
       </head>

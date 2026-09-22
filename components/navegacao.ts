@@ -4,24 +4,26 @@
  * apareça num menu e falte no outro.
  */
 
-export type ItemNav = { href: string; label: string; curto?: string; descricao?: string };
+import type { NomeIcone } from "./Icone";
+
+export type ItemNav = { href: string; label: string; icone: NomeIcone; curto?: string; descricao?: string };
 
 /** O que o leitor procura primeiro: ficam sempre à vista. */
 export const PRIMARIOS: ItemNav[] = [
-  { href: "/", label: "Início" },
-  { href: "/mapa", label: "Mapa" },
-  { href: "/conversas", label: "Conversas" },
-  { href: "/agente", label: "Agente IA", curto: "Agente" },
+  { href: "/", label: "Início", icone: "inicio" },
+  { href: "/mapa", label: "Mapa", icone: "mapa" },
+  { href: "/conversas", label: "Conversas", icone: "conversas" },
+  { href: "/agente", label: "Agente IA", icone: "faisca", curto: "Agente" },
 ];
 
 /** A base de consulta: agrupada em "Explorar". */
 export const SECUNDARIOS: ItemNav[] = [
-  { href: "/timeline", label: "Linha do tempo", descricao: "Os acontecimentos em ordem, com fonte" },
-  { href: "/processos", label: "Processos", descricao: "As frentes do caso e seu estado" },
-  { href: "/pessoas", label: "Pessoas e instituições", descricao: "Quem é quem e qual o papel de cada um" },
-  { href: "/documentos", label: "Documentos", descricao: "Decisões, liminares e ofícios citados" },
-  { href: "/busca", label: "Busca", descricao: "Texto completo, no seu navegador" },
-  { href: "/metodologia", label: "Metodologia", descricao: "De onde vêm os dados e como corrigir" },
+  { href: "/timeline", icone: "relogio", label: "Linha do tempo", descricao: "Os acontecimentos em ordem, com fonte" },
+  { href: "/processos", icone: "balanca", label: "Processos", descricao: "As frentes do caso e seu estado" },
+  { href: "/pessoas", icone: "pessoas", label: "Pessoas e instituições", descricao: "Quem é quem e qual o papel de cada um" },
+  { href: "/documentos", icone: "documento", label: "Documentos", descricao: "Decisões, liminares e ofícios citados" },
+  { href: "/busca", icone: "busca", label: "Busca", descricao: "Texto completo, no seu navegador" },
+  { href: "/metodologia", icone: "livro", label: "Metodologia", descricao: "De onde vêm os dados e como corrigir" },
 ];
 
 export function ativo(href: string, pathname: string) {

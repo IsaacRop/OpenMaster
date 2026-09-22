@@ -9,7 +9,7 @@ import Icone from "./Icone";
 import LogoMark from "./LogoMark";
 import ThemeToggle from "./ThemeToggle";
 import { useDialogo } from "./useDialogo";
-import { PRIMARIOS, SECUNDARIOS, ativo, explorarAtivo } from "./navegacao";
+import { PRIMARIOS, SECUNDARIOS, ativo, explorarAtivo, type ItemNav } from "./navegacao";
 
 /** A barra de abas pede a gaveta por evento: os dois ficam em pontas opostas do `<body>`. */
 export const EVENTO_ABRIR_MENU = "om:abrir-menu";
@@ -85,6 +85,9 @@ function MenuExplorar() {
                 aria-current={ativo(item.href, pathname) ? "page" : undefined}
                 onClick={() => setAberto(false)}
               >
+                <span className="icone-chip">
+                  <Icone nome={item.icone} tamanho={18} />
+                </span>
                 <strong>{item.label}</strong>
                 <span>{item.descricao}</span>
               </Link>
@@ -108,10 +111,17 @@ function Gaveta({ aberta, fechar, dataCorteBR }: { aberta: boolean; fechar: () =
 
   if (!aberta) return null;
 
-  const link = (href: string, label: string) => (
-    <li key={href}>
-      <Link href={href} aria-current={ativo(href, pathname) ? "page" : undefined} onClick={fechar}>
-        {label}
+  const link = (item: ItemNav, chip = false) => (
+    <li key={item.href}>
+      <Link href={item.href} aria-current={ativo(item.href, pathname) ? "page" : undefined} onClick={fechar}>
+        {chip ? (
+          <span className="icone-chip">
+            <Icone nome={item.icone} tamanho={18} />
+          </span>
+        ) : (
+          <Icone nome={item.icone} />
+        )}
+        {item.label}
       </Link>
     </li>
   );
@@ -121,21 +131,23 @@ function Gaveta({ aberta, fechar, dataCorteBR }: { aberta: boolean; fechar: () =
   return createPortal(
     <div className="gaveta" ref={painel}>
       <div className="gaveta-fundo" onClick={fechar} aria-hidden="true" />
-      <div role="dialog" aria-modal="true" aria-labelledby="gaveta-titulo" className="gaveta-painel">
+      <div role="dialog" aria-modal="true" aria-label="Menu de navegação" className="gaveta-painel">
         <div className="gaveta-topo">
-          <p id="gaveta-titulo" className="kicker">Navegação</p>
+          <p className="wordmark" aria-hidden="true">
+            Open<b>Master</b>
+          </p>
           <button type="button" className="icone-botao" onClick={fechar} aria-label="Fechar menu" data-foco-inicial>
             <Icone nome="fechar" />
           </button>
         </div>
         <nav aria-label="Principal">
-          <ul className="gaveta-primarios">{PRIMARIOS.map((i) => link(i.href, i.label))}</ul>
+          <ul className="gaveta-primarios">{PRIMARIOS.map((i) => link(i))}</ul>
         </nav>
         <nav aria-label="Explorar a base">
-          <p className="kicker mt-6">Explorar</p>
-          <ul className="gaveta-secundarios">{SECUNDARIOS.map((i) => link(i.href, i.label))}</ul>
+          <p className="gaveta-rotulo">Explorar a base</p>
+          <ul className="gaveta-secundarios">{SECUNDARIOS.map((i) => link(i, true))}</ul>
         </nav>
-        <div className="mt-auto pt-6">
+        <div className="mt-auto px-2 pt-6">
           <SeloDados dataCorteBR={dataCorteBR} />
         </div>
       </div>
@@ -160,7 +172,7 @@ export default function SiteHeader({ dataCorteBR }: { dataCorteBR: string }) {
     <header className="site-header">
       <div className="site-header-linha">
         <Link href="/" className="inline-flex shrink-0 items-center gap-2 no-underline" aria-label="OpenMaster — início">
-          <LogoMark size={28} />
+          <LogoMark size={30} />
           <span className="wordmark">
             Open<b>Master</b>
           </span>

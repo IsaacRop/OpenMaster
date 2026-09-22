@@ -3,16 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import Icone, { type NomeIcone } from "./Icone";
+import Icone from "./Icone";
 import { EVENTO_ABRIR_MENU } from "./SiteHeader";
 import { PRIMARIOS, ativo, explorarAtivo } from "./navegacao";
-
-const ICONE: Record<string, NomeIcone> = {
-  "/": "inicio",
-  "/mapa": "mapa",
-  "/conversas": "conversas",
-  "/agente": "agente",
-};
 
 /**
  * Abas fixas do celular. Some na tela de uma conversa, que quer a altura
@@ -31,7 +24,7 @@ export default function TabBar() {
           return (
             <li key={item.href}>
               <Link href={item.href} aria-current={atual ? "page" : undefined}>
-                <Icone nome={ICONE[item.href]} />
+                <Icone nome={item.icone} />
                 <span>{item.curto ?? item.label}</span>
               </Link>
             </li>

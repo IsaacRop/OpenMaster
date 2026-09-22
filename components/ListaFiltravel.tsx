@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 
+import Icone from "./Icone";
 import { useDialogo } from "./useDialogo";
 
 /**
@@ -193,7 +194,13 @@ export default function ListaFiltravel({
     <div>
       <div className="filtros-barra md:hidden">
         <button type="button" className="filtros-gatilho" onClick={() => setFolha(true)} aria-haspopup="dialog">
-          Filtrar{ativos.length > 0 && <span className="numero"> · {ativos.length}</span>}
+          <Icone nome="filtro" tamanho={18} />
+          Filtrar
+          {ativos.length > 0 && (
+            <span className="numero grid h-5 min-w-5 place-items-center rounded-full bg-accent px-1 text-xs text-on-accent">
+              {ativos.length}
+            </span>
+          )}
         </button>
         {ativos.length > 0 && (
           <button type="button" onClick={limpar} className="meta-link hover:text-accent">
@@ -214,7 +221,7 @@ export default function ListaFiltravel({
         <div className="filtros-topo md:hidden">
           <p id="filtros-titulo" className="headline text-xl">Filtrar</p>
           <button type="button" className="icone-botao" onClick={fecharFolha} aria-label="Fechar filtros" data-foco-inicial>
-            <span aria-hidden="true" className="text-xl">×</span>
+            <Icone nome="fechar" />
           </button>
         </div>
         <Campo chave="pessoa" valor={atual.pessoa} opcoes={opcoes.pessoas} aoMudar={aplicar} />
@@ -233,7 +240,7 @@ export default function ListaFiltravel({
           <button
             type="button"
             onClick={limpar}
-            className="kicker hidden border border-rule px-2 py-1.5 hover:border-accent hover:text-accent md:inline-block"
+            className="hidden min-h-9 rounded-full border border-rule-strong px-3 text-sm text-ink-2 hover:border-accent hover:text-accent md:inline-block"
           >
             Limpar {ativos.length}
           </button>
@@ -249,7 +256,7 @@ export default function ListaFiltravel({
         </div>
       </div>
 
-      <p className="kicker mt-2 normal-case tracking-normal">
+      <p className="kicker mt-2">
         {visiveis.length} de {itens.length} · os filtros ficam na barra de endereços, então este
         recorte pode ser copiado e citado como link.
       </p>

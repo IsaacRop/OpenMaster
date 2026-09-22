@@ -44,7 +44,7 @@ function Grupo({ titulo, itens }: { titulo: string; itens: Backlink[] }) {
 export default function Backlinks({ backlinks, lateral = false }: { backlinks: TBacklinks; lateral?: boolean }) {
   return (
     <section>
-      <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-ink pb-1.5">
+      <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-rule pb-2">
         <div>
           <p className="kicker">Referências</p>
           <h2 className="headline text-2xl text-ink">O que aponta para aqui</h2>
