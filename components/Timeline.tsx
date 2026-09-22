@@ -30,6 +30,9 @@ export function EventoItem({
   evento: EventoTimeline;
   compacta?: boolean;
 }) {
+  // Na linha do tempo o evento é o nível logo abaixo do título da página; na
+  // versão compacta ele mora dentro de uma seção de outra página.
+  const Titulo = compacta ? "h3" : "h2";
   return (
     <li id={e.id} className="render-deferred-item grid grid-cols-[3.25rem_1px_1fr] gap-x-4 scroll-mt-40">
       <div className="pt-5">
@@ -52,11 +55,11 @@ export function EventoItem({
           <ConfiancaBadge confianca={e.confianca} />
         </div>
 
-        <h3 className="mt-1.5 text-lg font-semibold text-ink sm:text-xl">
+        <Titulo className="mt-1.5 text-lg font-semibold text-ink sm:text-xl">
           <Link href={`/eventos/${e.id}`} className="text-ink no-underline hover:text-accent">
             {e.titulo}
           </Link>
-        </h3>
+        </Titulo>
         <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-ink-2">{e.descricao}</p>
 
         {!compacta && e.processos.length > 0 && (

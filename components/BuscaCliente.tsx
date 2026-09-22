@@ -170,9 +170,9 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
                 if (doTipo.length === 0) return null;
                 return (
                   <section key={tipo}>
-                    <h3 className="kicker border-b border-ink pb-1">
+                    <h2 className="kicker border-b border-ink pb-1">
                       {TITULO_GRUPO[tipo]} · {doTipo.length}
-                    </h3>
+                    </h2>
                     <ul className="divide-y divide-rule">
                       {doTipo.map((r) => (
                         <li key={r.id} className="py-3">

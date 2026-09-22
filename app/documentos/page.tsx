@@ -46,9 +46,9 @@ export default function DocumentosPage() {
                 <div className="flex flex-wrap items-baseline gap-2">
                   <TipoBadge tipo="documento" />
                   <Link href={`/documentos/${d.id}`} className="no-underline">
-                    <h3 className="numero text-lg text-ink hover:text-accent">
+                    <h2 className="numero text-lg text-ink hover:text-accent">
                       {d.numero_referencia}
-                    </h3>
+                    </h2>
                   </Link>
                   <ConfiancaBadge confianca={d.confianca} />
                 </div>

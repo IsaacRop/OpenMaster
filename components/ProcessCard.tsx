@@ -27,8 +27,8 @@ export default function ProcessCard({ processo: p }: { processo: Processo }) {
   return (
     <article className="panel group flex h-full flex-col p-4 transition-colors hover:border-accent/60">
       <header className="flex items-start justify-between gap-3">
-        <Link href={`/processos/${p.id}`} className="no-underline">
-          <h3 className="numero text-lg font-medium text-ink hover:text-accent">{p.numero}</h3>
+        <Link href={`/processos/${p.id}`} className="-my-2 inline-flex min-h-11 items-center no-underline">
+          <h2 className="numero text-lg font-medium text-ink hover:text-accent">{p.numero}</h2>
         </Link>
         <span
           className={`numero shrink-0 px-2 py-0.5 text-[0.625rem] uppercase tracking-[0.12em] ${STATUS_ESTILO[p.status]}`}

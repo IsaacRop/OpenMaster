@@ -46,7 +46,7 @@ export default function PessoasPage() {
           <section key={nivel}>
             <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-ink pb-1.5">
               <div className="flex flex-wrap items-baseline gap-3">
-                <h3 className="headline text-2xl text-ink">{NIVEL_PRESENCA_LABEL[nivel]}</h3>
+                <h2 className="headline text-2xl text-ink">{NIVEL_PRESENCA_LABEL[nivel]}</h2>
                 <span className="kicker normal-case tracking-normal">{NOTA[nivel]}</span>
               </div>
               <span className="numero text-sm text-ink-3">{grupo.length}</span>
@@ -57,7 +57,7 @@ export default function PessoasPage() {
                 <li key={p.id} className="render-deferred-item panel flex h-full flex-col p-4 transition-colors hover:border-accent/60">
                   <div className="flex flex-wrap items-baseline gap-2">
                     <Link href={`/pessoas/${p.id}`} className="no-underline">
-                      <h4 className="headline text-xl text-ink hover:text-accent">{p.nome}</h4>
+                      <h3 className="headline text-xl text-ink hover:text-accent">{p.nome}</h3>
                     </Link>
                     <NivelBadge nivel={p.nivel_presenca} />
                     <ConfiancaBadge confianca={p.confianca} />
