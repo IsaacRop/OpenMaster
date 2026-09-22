@@ -873,30 +873,30 @@
   {
     "id": "pet-16229",
     "numero": "Pet 16.229/DF",
-    "apelido": "'Dark Horse' — cautelar conexa (2ª leva, frente inferida)",
-    "objeto": "Cautelar conexa de quebra de sigilo telemático de intermediários (citados nas reportagens: Thiago Miranda, Paulo Calixto, Altieres Santana, Karina Gama) ou de empresas da cadeia de financiamento do filme 'Dark Horse', da 2ª leva do caso Master. A vinculação a esta frente é inferência editorial por agrupamento temático (a matéria-índice do Poder360 lista este número sem descrição individual) — não confirmada processo a processo pela fonte.",
+    "apelido": "9ª fase da Compliance Zero — medidas cautelares, eixo Jaques Wagner",
+    "objeto": "Representação da PF por medidas cautelares na investigação da possível relação entre Jaques Wagner, Augusto Ferreira Lima e Daniel Vorcaro. A decisão de 17/06/2026 analisa suspeitas de vantagens econômicas e atuação parlamentar em temas de interesse do Banco Master; trata-se de apuração, sem juízo definitivo de culpa.",
     "status": "em_aberto",
     "sigilo": "parcial",
     "confianca": "apuracao",
     "relator_atual": "Min. André Mendonça",
-    "updated_at": "2026-09-15",
-    "source_url": "https://www.poder360.com.br/poder-justica/mendonca-derruba-sigilo-de-processos-sobre-dark-horse-ciro-e-castro/",
-    "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "updated_at": "2026-09-22",
+    "source_url": "https://static.congressoemfoco.com.br/2026/06/18/attachment/2026/06/18/155f34_jaques_wagner.pdf",
+    "source_name": "STF — decisão na Pet 16.229/DF",
+    "source_date": "2026-06-17"
   },
   {
     "id": "pet-16230",
     "numero": "Pet 16.230/DF",
-    "apelido": "'Dark Horse' — cautelar conexa (2ª leva, frente inferida)",
-    "objeto": "Cautelar conexa de quebra de sigilo telemático de intermediários (citados nas reportagens: Thiago Miranda, Paulo Calixto, Altieres Santana, Karina Gama) ou de empresas da cadeia de financiamento do filme 'Dark Horse', da 2ª leva do caso Master. A vinculação a esta frente é inferência editorial por agrupamento temático (a matéria-índice do Poder360 lista este número sem descrição individual) — não confirmada processo a processo pela fonte.",
+    "apelido": "9ª fase da Compliance Zero — constrição patrimonial, eixo Jaques Wagner",
+    "objeto": "Representação da PF por medidas assecuratórias no eixo Jaques Wagner da Operação Compliance Zero, relacionada a Augusto Lima e ao Banco Master. O STF determinou constrições patrimoniais em junho de 2026; os indícios subjacentes seguem sob investigação e são contestados pelas defesas.",
     "status": "em_aberto",
     "sigilo": "parcial",
     "confianca": "apuracao",
     "relator_atual": "Min. André Mendonça",
-    "updated_at": "2026-09-15",
-    "source_url": "https://www.poder360.com.br/poder-justica/mendonca-derruba-sigilo-de-processos-sobre-dark-horse-ciro-e-castro/",
-    "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "updated_at": "2026-09-22",
+    "source_url": "https://portal.stf.jus.br/processos/detalhe.asp?incidente=7619744",
+    "source_name": "STF — andamento da Pet 16.230/DF",
+    "source_date": "2026-09-22"
   },
   {
     "id": "pet-16286",
