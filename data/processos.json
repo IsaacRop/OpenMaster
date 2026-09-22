@@ -56,18 +56,18 @@
     "relator_atual": "Min. Edson Fachin (Presidente)",
     "historico_relatoria": [],
     "ultima_movimentacao": {
-      "data": "2026-09-17",
-      "descricao": "Fachin retira a Pet 16.704 da pauta de 23/09 porque a questão de ordem pendente na Pet 16.662 alcança a regularidade da própria relatoria; nova data será designada oportunamente.",
+      "data": "2026-09-22",
+      "descricao": "André Mendonça protocola resposta negando irregularidades na sua atuação e pede arquivamento da representação contra si, além de apuração contra Alexandre de Moraes por denunciação caluniosa e abuso de autoridade, alegando distorção de documentos e ampliação indevida do inquérito das fake news.",
       "origem": "manual"
     },
     "movimentacoes": [],
     "proximo_evento": null,
     "sync": "sem_numero_cnj",
     "sync_checked_at": null,
-    "updated_at": "2026-09-20",
-    "source_url": "https://portal.stf.jus.br/processos/abaAndamentos.asp?incidente=7687920",
-    "source_name": "STF — andamento processual da Pet 16.704",
-    "source_date": "2026-09-17"
+    "updated_at": "2026-09-22",
+    "source_url": "https://www.conjur.com.br/2026-set-22/mendonca-nega-falhas-na-sua-atuacao-e-pede-nova-apuracao-contra-alexandre/",
+    "source_name": "ConJur",
+    "source_date": "2026-09-22"
   },
   {
     "id": "rcl-88121",
@@ -684,16 +684,37 @@
   {
     "id": "pet-15873",
     "numero": "Pet 15.873/DF",
-    "apelido": "Congresso Nacional — cautelar (2ª leva, frente inferida)",
-    "objeto": "Medida instrutória ou de apuração sobre conduta de parlamentar com prerrogativa de foro, desclassificada na 2ª leva do caso Master (frente do Congresso Nacional, com suspeitas envolvendo os senadores Ciro Nogueira e Jaques Wagner). A vinculação a esta frente é inferência editorial por agrupamento temático (a matéria-índice do Poder360 lista este número sem descrição individual) — não confirmada processo a processo pela fonte.",
+    "apelido": "Repasses a Ciro Nogueira via primo de Vorcaro",
+    "objeto": "Representação da Polícia Federal que apura pagamentos mensais — entre R$ 300 mil e R$ 500 mil, segundo a PF — operacionalizados por Felipe Cançado Vorcaro, primo de Daniel Vorcaro, em benefício do senador Ciro Nogueira (PP-PI). Desclassificada na 2ª leva do caso Master.",
     "status": "em_aberto",
     "sigilo": "parcial",
     "confianca": "apuracao",
-    "relator_atual": "Min. André Mendonça",
-    "updated_at": "2026-09-15",
-    "source_url": "https://www.poder360.com.br/poder-justica/mendonca-derruba-sigilo-de-processos-sobre-dark-horse-ciro-e-castro/",
+    "relator_atual": "Presidência do STF (Min. Fachin), após remessa de 12/09/2026",
+    "historico_relatoria": [
+      {
+        "relator": "Min. André Mendonça",
+        "de": null,
+        "ate": "2026-09-12",
+        "motivo": "Remessa determinada por Fachin junto com os demais feitos do caso Master (RISTF, art. 5º, I).",
+        "source_url": "https://www.poder360.com.br/poder-justica/primo-de-vorcaro-pede-fim-de-prisao-e-que-caso-volte-para-mendonca/"
+      },
+      {
+        "relator": "Presidência do STF (Min. Edson Fachin)",
+        "de": "2026-09-12",
+        "ate": null,
+        "motivo": "Avocação dos feitos relacionados ao Banco Master e às fraudes do INSS (RISTF, art. 13, XV).",
+        "source_url": "https://www.poder360.com.br/poder-justica/primo-de-vorcaro-pede-fim-de-prisao-e-que-caso-volte-para-mendonca/"
+      }
+    ],
+    "ultima_movimentacao": {
+      "data": "2026-09-21",
+      "descricao": "Defesa de Felipe Cançado Vorcaro pede à Presidência do STF que devolva o processo à relatoria de Mendonça e destrave a reavaliação da prisão preventiva, cujo prazo de 90 dias venceu em 14/09.",
+      "origem": "manual"
+    },
+    "updated_at": "2026-09-21",
+    "source_url": "https://www.poder360.com.br/poder-justica/primo-de-vorcaro-pede-fim-de-prisao-e-que-caso-volte-para-mendonca/",
     "source_name": "Poder360",
-    "source_date": "2026-09-11"
+    "source_date": "2026-09-21"
   },
   {
     "id": "pet-15877",

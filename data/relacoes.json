@@ -992,5 +992,65 @@
     "source_url": "https://www.poder360.com.br/poder-justica/gilmar-se-reuniu-com-vorcaro-e-votou-contra-interesse-do-master/",
     "source_name": "Poder360 — nota do gabinete de Gilmar Mendes",
     "source_date": "2026-09-18"
+  },
+  {
+    "id": "felipe-vorcaro-vorcaro",
+    "from": "felipe-vorcaro",
+    "to": "vorcaro",
+    "rotulo": "primo",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "confirmado",
+    "source_url": "https://www.poder360.com.br/poder-justica/primo-de-vorcaro-pede-fim-de-prisao-e-que-caso-volte-para-mendonca/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-21"
+  },
+  {
+    "id": "felipe-vorcaro-ciro-nogueira",
+    "from": "felipe-vorcaro",
+    "to": "ciro-nogueira",
+    "rotulo": "operacionalizou pagamentos mensais de R$ 300 mil a R$ 500 mil, segundo a PF",
+    "peso": "forte",
+    "direcionada": true,
+    "confianca": "apuracao",
+    "source_url": "https://www.poder360.com.br/poder-justica/primo-de-vorcaro-pede-fim-de-prisao-e-que-caso-volte-para-mendonca/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-21"
+  },
+  {
+    "id": "felipe-vorcaro-pet15873",
+    "from": "felipe-vorcaro",
+    "to": "pet-15873",
+    "rotulo": "réu — prisão preventiva sob reavaliação",
+    "peso": "forte",
+    "direcionada": true,
+    "confianca": "confirmado",
+    "source_url": "https://www.poder360.com.br/poder-justica/primo-de-vorcaro-pede-fim-de-prisao-e-que-caso-volte-para-mendonca/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-21"
+  },
+  {
+    "id": "henrique-vorcaro-vorcaro",
+    "from": "henrique-vorcaro",
+    "to": "vorcaro",
+    "rotulo": "pai",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "confirmado",
+    "source_url": "https://www.gazetadopovo.com.br/republica/vorcaro-ameaca-expor-relacao-ministros-stf-pgr-se-pai-nao-for-liberado-da-prisao/",
+    "source_name": "Gazeta do Povo",
+    "source_date": "2026-09-18"
+  },
+  {
+    "id": "nikolas-ferreira-gonet",
+    "from": "nikolas-ferreira",
+    "to": "gonet",
+    "rotulo": "pediu afastamento cautelar ao STF",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "confirmado",
+    "source_url": "https://ncnews.com.br/2026/09/19/nikolas-ferreira-pede-ao-stf-afastamento-cautelar-de-paulo-gonet-apos-foto-com-vorcaro/",
+    "source_name": "NC News",
+    "source_date": "2026-09-19"
   }
 ]

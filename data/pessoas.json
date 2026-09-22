@@ -1330,5 +1330,59 @@
       "x": 496,
       "y": 536
     }
+  },
+  {
+    "id": "felipe-vorcaro",
+    "nome": "Felipe Cançado Vorcaro",
+    "tipo": "pessoa",
+    "papel": "operador financeiro do esquema, primo de Daniel Vorcaro, preso preventivamente",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Primo de Daniel Vorcaro, apontado pela PF como o operador que teria viabilizado pagamentos mensais ao senador Ciro Nogueira — de R$ 300 mil a R$ 500 mil, segundo a investigação —, captados em mensagens periciadas nas quais relata dificuldades de caixa para sustentar os repasses. Preso preventivamente desde 07/05/2026 na Operação Compliance Zero; em 21/09/2026 a defesa pediu à Presidência do STF que devolva seu caso à relatoria de Mendonça, alegando que o prazo de 90 dias para reavaliação da prisão venceu em 14/09.",
+    "confianca": "apuracao",
+    "pos": {
+      "x": 330,
+      "y": 430
+    },
+    "source_url": "https://www.poder360.com.br/poder-justica/primo-de-vorcaro-pede-fim-de-prisao-e-que-caso-volte-para-mendonca/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-21"
+  },
+  {
+    "id": "henrique-vorcaro",
+    "nome": "Henrique Vorcaro",
+    "tipo": "pessoa",
+    "papel": "pai de Daniel Vorcaro, preso preventivamente",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Pai de Daniel Vorcaro, preso preventivamente desde março de 2026 na Operação Compliance Zero e mantido em custódia por decisão da 2ª Turma do STF. Enfrenta quadro de diverticulite; em 18/09/2026 o filho ameaçou publicamente expor relações com ao menos cinco ministros do STF — Moraes, Toffoli, Nunes Marques, Gilmar Mendes e Fux — e com o PGR Paulo Gonet, caso o pai não receba prisão domiciliar humanitária.",
+    "confianca": "apuracao",
+    "pos": {
+      "x": 150,
+      "y": 390
+    },
+    "source_url": "https://www.gazetadopovo.com.br/republica/vorcaro-ameaca-expor-relacao-ministros-stf-pgr-se-pai-nao-for-liberado-da-prisao/",
+    "source_name": "Gazeta do Povo",
+    "source_date": "2026-09-18"
+  },
+  {
+    "id": "nikolas-ferreira",
+    "nome": "Nikolas Ferreira",
+    "tipo": "pessoa",
+    "papel": "deputado federal (PL-MG)",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Deputado federal que divulgou, em 04/09/2026, vídeo com trechos de relatório da PF sobre relações entre Vorcaro e Alexandre de Moraes. Em 19/09/2026, protocolou ofício a Edson Fachin pedindo o afastamento cautelar do procurador-geral Paulo Gonet, após a divulgação de foto de Gonet com Vorcaro em evento em Londres (2024) e de conversas sobre despesas do filho de Gonet custeadas por Vorcaro.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 610,
+      "y": 90
+    },
+    "source_url": "https://ncnews.com.br/2026/09/19/nikolas-ferreira-pede-ao-stf-afastamento-cautelar-de-paulo-gonet-apos-foto-com-vorcaro/",
+    "source_name": "NC News",
+    "source_date": "2026-09-19"
   }
 ]

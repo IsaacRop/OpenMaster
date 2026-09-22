@@ -1426,5 +1426,183 @@
     "source_url": "https://www.poder360.com.br/poder-justica/gilmar-se-reuniu-com-vorcaro-e-votou-contra-interesse-do-master/",
     "source_name": "Poder360 — nota do gabinete de Gilmar Mendes",
     "source_date": "2026-09-18"
+  },
+  {
+    "id": "2026-09-18-vorcaro-ameaca-expor-ministros",
+    "data": "2026-09-18",
+    "titulo": "Vorcaro ameaça expor ministros do STF se pai não for solto",
+    "descricao": "Preso no Complexo da Papuda, Daniel Vorcaro ameaça revelar fotos, recibos e outros documentos sobre relações com ao menos cinco ministros do STF — Moraes, Toffoli, Nunes Marques, Gilmar Mendes e Fux — e com o PGR Paulo Gonet, caso seu pai, Henrique Vorcaro, preso desde março e com quadro de diverticulite, não receba prisão domiciliar humanitária.",
+    "milestone": false,
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "vorcaro",
+      "henrique-vorcaro",
+      "moraes",
+      "toffoli",
+      "kassio-nunes-marques",
+      "fux",
+      "gilmar",
+      "gonet"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.gazetadopovo.com.br/republica/vorcaro-ameaca-expor-relacao-ministros-stf-pgr-se-pai-nao-for-liberado-da-prisao/",
+    "source_name": "Gazeta do Povo",
+    "source_date": "2026-09-18"
+  },
+  {
+    "id": "2026-09-21-defesa-felipe-vorcaro-pede-devolucao",
+    "data": "2026-09-21",
+    "titulo": "Defesa de Felipe Vorcaro pede devolução do caso a Mendonça",
+    "descricao": "A defesa de Felipe Cançado Vorcaro, primo de Daniel Vorcaro, pede ao presidente do STF, Edson Fachin, que devolva à relatoria de André Mendonça a análise de sua prisão preventiva — suspensa desde 12/09 — e destrave a reavaliação obrigatória dos 90 dias da medida, vencida em 14/09.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-15873"
+    ],
+    "pessoas": [
+      "felipe-vorcaro",
+      "fachin",
+      "mendonca",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/primo-de-vorcaro-pede-fim-de-prisao-e-que-caso-volte-para-mendonca/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-21"
+  },
+  {
+    "id": "2026-09-17-pf-marca-depoimento-vorcaro-pai",
+    "data": "2026-09-17",
+    "titulo": "PF marca depoimentos de Daniel Vorcaro e do pai para 30/09",
+    "descricao": "A Polícia Federal agenda para 30/09/2026, às 14h, os depoimentos de Daniel Vorcaro e de seu pai, Henrique Vorcaro — preso preventivamente desde março no inquérito do núcleo 'A Turma' —, na fase final da investigação.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "vorcaro",
+      "henrique-vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.otempo.com.br/politica/judiciario/2026/9/17/pf-marca-depoimentos-de-daniel-vorcaro-e-do-pai-dele-henrique-vorcaro-para-30-de-setembro",
+    "source_name": "O Tempo",
+    "source_date": "2026-09-17"
+  },
+  {
+    "id": "2026-09-19-mendonca-fux-celular-vorcaro-inacessivel",
+    "data": "2026-09-19",
+    "titulo": "Mendonça e Fux dizem à PF que não acessaram celular de Vorcaro",
+    "descricao": "Os gabinetes de André Mendonça e Luiz Fux comunicam à PF dificuldade técnica para abrir os cerca de 500 GB extraídos do celular de Daniel Vorcaro, e pedem suporte para esclarecer se o defeito é operacional ou físico no material entregue.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "mendonca",
+      "fux",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.cnnbrasil.com.br/politica/mendonca-e-fux-dizem-a-pf-que-ainda-nao-acessaram-celular-de-vorcaro/",
+    "source_name": "CNN Brasil",
+    "source_date": "2026-09-19"
+  },
+  {
+    "id": "2026-09-19-nikolas-pede-afastamento-gonet",
+    "data": "2026-09-19",
+    "titulo": "Nikolas Ferreira pede afastamento cautelar de Gonet",
+    "descricao": "O deputado Nikolas Ferreira protocola ofício a Edson Fachin pedindo o afastamento cautelar do procurador-geral Paulo Gonet do caso Master, após a divulgação de foto de Gonet com Daniel Vorcaro em Londres (2024) e de conversas sobre despesas do filho de Gonet custeadas por Vorcaro.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "nikolas-ferreira",
+      "gonet",
+      "fachin",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://ncnews.com.br/2026/09/19/nikolas-ferreira-pede-ao-stf-afastamento-cautelar-de-paulo-gonet-apos-foto-com-vorcaro/",
+    "source_name": "NC News",
+    "source_date": "2026-09-19"
+  },
+  {
+    "id": "2026-09-22-csmpf-marca-sessao-gonet",
+    "data": "2026-09-22",
+    "titulo": "Conselho Superior do MPF marca sessão sobre suspeição de Gonet",
+    "descricao": "O CSMPF agenda para 25/09/2026, às 10h, sessão relatada pelo subprocurador-geral Francisco de Assis Sanseverino para decidir se referências a Gonet em mensagens de Vorcaro configuram impedimento ou suspeição para sua atuação nos casos do Banco Master. A PGR confirma como autêntica a foto de Gonet e Vorcaro no George Club, em Londres, em 25/04/2024, descrevendo o encontro como 'brevíssimo e banal'.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "gonet",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://ncnews.com.br/2026/09/22/suspeicao-gonet-caso-master-acende-alerta-stf/",
+    "source_name": "NC News",
+    "source_date": "2026-09-22"
+  },
+  {
+    "id": "2026-09-22-marilson-pede-liberdade",
+    "data": "2026-09-22",
+    "titulo": "Marilson Roseno pede liberdade citando impasse de relatoria",
+    "descricao": "A defesa de Marilson Roseno da Silva — como as de Daniel e Felipe Cançado Vorcaro — pede liberdade alegando que a revisão obrigatória das prisões preventivas a cada 90 dias não foi feita por causa do impasse sobre a relatoria entre André Mendonça e Alexandre de Moraes nos casos Master e INSS.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-15556"
+    ],
+    "pessoas": [
+      "marilson-roseno",
+      "vorcaro",
+      "felipe-vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.fatosdematogrosso.com.br/juridico/presos-do-caso-master-usam-crise-sobre-relatoria-no-stf-para-pedir-liberdade/16394",
+    "source_name": "Fatos de Mato Grosso",
+    "source_date": "2026-09-22"
+  },
+  {
+    "id": "2026-09-22-mendonca-responde-moraes-pet16704",
+    "data": "2026-09-22",
+    "titulo": "Mendonça nega irregularidades e pede apuração contra Moraes",
+    "descricao": "André Mendonça responde à representação da Pet 16.704 negando falhas em sua atuação e classificando os relatórios da PF usados por Alexandre de Moraes como 'manifestamente desprovidos de qualquer valor probatório'. Pede arquivamento da representação contra si e apuração contra Moraes por denunciação caluniosa e abuso de autoridade.",
+    "milestone": true,
+    "tipo": "decisao",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-16704"
+    ],
+    "pessoas": [
+      "mendonca",
+      "moraes"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.conjur.com.br/2026-set-22/mendonca-nega-falhas-na-sua-atuacao-e-pede-nova-apuracao-contra-alexandre/",
+    "source_name": "ConJur",
+    "source_date": "2026-09-22"
   }
 ]
