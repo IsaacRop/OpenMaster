@@ -68,19 +68,19 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
             <span />
           </span>
           <div>
-            <p className="kicker text-seal">OpenMaster IA</p>
+            <p className="kicker text-accent">OpenMaster IA</p>
             <h2 id="agente-titulo" className="mt-0.5 text-base font-semibold text-ink">Consultar o agente do caso</h2>
           </div>
         </div>
       </div>
 
       <div className={`grid gap-px bg-rule ${amplo ? "lg:grid-cols-[minmax(0,1fr)_280px]" : ""}`}>
-        <div className="bg-paper-3 p-4 sm:p-5">
+        <div className="bg-surface p-4 sm:p-5">
           <p className="max-w-2xl text-sm leading-relaxed text-ink-2">
             Faça perguntas em linguagem simples. As respostas são limitadas aos dados do OpenMaster e mostram as fontes usadas.
           </p>
 
-          <form onSubmit={aoEnviar} className="mt-4 border border-rule-strong bg-paper-2 p-2">
+          <form onSubmit={aoEnviar} className="mt-4 border border-rule-strong bg-surface-2 p-2">
             <label htmlFor="pergunta-agente" className="sr-only">Pergunta para o agente OpenMaster</label>
             <textarea
               id="pergunta-agente"
@@ -112,7 +112,7 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
                   perguntar(exemplo);
                 }}
                 disabled={carregando}
-                className="border border-rule px-2.5 py-1.5 text-xs text-ink-3 hover:border-seal hover:text-seal disabled:cursor-not-allowed disabled:opacity-60"
+                className="border border-rule px-2.5 py-1.5 text-xs text-ink-3 hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {exemplo}
               </button>
@@ -121,13 +121,13 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
 
           <div className="mt-4" aria-live="polite">
             {estado.tipo === "limite" && (
-              <p className="border border-seal/60 bg-paper-2 px-3 py-2 text-sm text-seal">{estado.mensagem}</p>
+              <p className="border border-rule-strong bg-surface-2 px-3 py-2 text-sm text-ink">{estado.mensagem}</p>
             )}
             {estado.tipo === "erro" && (
-              <p className="border border-disputed/60 bg-paper-2 px-3 py-2 text-sm text-disputed">{estado.mensagem}</p>
+              <p className="border border-l-2 border-rule-strong border-l-ink bg-surface-2 px-3 py-2 text-sm text-ink">{estado.mensagem}</p>
             )}
             {estado.tipo === "ok" && (
-              <div className="border border-rule-strong bg-paper-2 p-4">
+              <div className="border border-rule-strong bg-surface-2 p-4">
                 <p className="whitespace-pre-line text-sm leading-relaxed text-ink">{estado.dados.resposta}</p>
                 {estado.dados.fontes.length > 0 && (
                   <div className="mt-3 border-t border-rule pt-3">
@@ -139,9 +139,9 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
                             href={f.source_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="numero inline-flex items-center gap-1.5 text-xs text-ink-3 underline decoration-rule underline-offset-2 hover:text-seal hover:decoration-seal"
+                            className="numero inline-flex items-center gap-1.5 text-xs text-ink-3 underline decoration-rule underline-offset-2 hover:text-accent hover:decoration-accent"
                           >
-                            <span className="text-seal" aria-hidden="true">↗</span>
+                            <span className="text-accent" aria-hidden="true">↗</span>
                             {f.titulo} — {f.source_name}
                           </a>
                         </li>
@@ -155,14 +155,14 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
         </div>
 
         {amplo && (
-          <aside className="bg-paper-2 p-5">
+          <aside className="bg-surface-2 p-5">
             <p className="kicker">Compromissos do agente</p>
             <ul className="mt-3 space-y-4 text-sm leading-relaxed text-ink-2">
               <li><strong className="block font-medium text-ink">Responder com evidências</strong>Aponta documentos e registros usados.</li>
               <li><strong className="block font-medium text-ink">Separar fato de apuração</strong>Preserva os estados editoriais da base.</li>
               <li><strong className="block font-medium text-ink">Nunca julgar</strong>Reporta o que as fontes registram, sem juízo de culpa.</li>
             </ul>
-            <Link href="/busca" className="meta-link mt-6 text-seal hover:text-seal-soft">Usar busca literal →</Link>
+            <Link href="/busca" className="meta-link mt-6 text-accent hover:text-accent-hover">Usar busca literal →</Link>
           </aside>
         )}
       </div>

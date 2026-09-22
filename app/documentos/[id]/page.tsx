@@ -38,11 +38,11 @@ export default async function DocumentoPage({ params }: { params: Promise<{ id: 
   return (
     <article className="space-y-10">
       <header>
-        <Link href="/documentos" className="kicker no-underline hover:text-seal">
+        <Link href="/documentos" className="kicker no-underline hover:text-accent">
           ← Voltar para documentos
         </Link>
         <div className="mt-3 flex flex-wrap items-center gap-3">
-          <span className="numero border border-gold px-2 py-0.5 text-[0.6875rem] uppercase tracking-[0.12em] text-gold">
+          <span className="numero border border-accent px-2 py-0.5 text-[0.6875rem] uppercase tracking-[0.12em] text-accent">
             {TIPO_DOCUMENTO_LABEL[d.tipo]}
           </span>
           <span className="numero text-lg text-ink-3">{dataBR(d.data)}</span>
@@ -86,7 +86,7 @@ export default async function DocumentoPage({ params }: { params: Promise<{ id: 
             href={d.pdf_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="numero mt-2 inline-block border border-ink px-3 py-1.5 text-sm text-ink no-underline hover:border-seal hover:text-seal"
+            className="numero mt-2 inline-block border border-ink px-3 py-1.5 text-sm text-ink no-underline hover:border-accent hover:text-accent"
           >
             Abrir documento público ↗
           </a>
@@ -111,7 +111,7 @@ export default async function DocumentoPage({ params }: { params: Promise<{ id: 
                 <span className="numero w-20 shrink-0 text-sm text-ink-3">{dataBR(o.data)}</span>
                 <Link
                   href={`/documentos/${o.id}`}
-                  className="numero text-sm text-ink no-underline hover:text-seal"
+                  className="numero text-sm text-ink no-underline hover:text-accent"
                 >
                   {o.numero_referencia}
                 </Link>

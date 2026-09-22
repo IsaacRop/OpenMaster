@@ -30,7 +30,7 @@ export default function Home() {
     <div>
       <header className="mb-4 flex flex-wrap items-end justify-between gap-3 border-b border-rule pb-4">
         <div>
-          <p className="kicker text-seal">Central de inteligência · Caso Banco Master</p>
+          <p className="kicker text-accent">Central de inteligência · Caso Banco Master</p>
           <h1 className="mt-1 text-xl font-semibold tracking-[-0.02em] text-ink sm:text-2xl">Painel de consulta</h1>
           <p className="mt-1 text-sm text-ink-3">Pergunte ao agente ou examine diretamente as evidências da base.</p>
         </div>
@@ -40,7 +40,7 @@ export default function Home() {
             Consultar o agente <span aria-hidden="true">↗</span>
           </Link>
           <div className="flex items-center gap-2 font-mono text-xs text-ink-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-ok" aria-hidden="true" />
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
             Base verificada até {dataBR(dataCorte)}
           </div>
         </div>
@@ -53,16 +53,16 @@ export default function Home() {
           [documentos.length, "Documentos", "peças identificadas"],
           [timeline.length, "Eventos", `${stats.marcos} marcos centrais`],
         ].map(([valor, rotulo, apoio]) => (
-          <div key={rotulo} className="bg-paper-3 p-4">
+          <div key={rotulo} className="bg-surface p-4">
             <p className="kicker">{rotulo}</p>
-            <p className="numero mt-1 text-2xl font-medium text-white">{String(valor).padStart(2, "0")}</p>
+            <p className="numero mt-1 text-2xl font-medium text-ink">{String(valor).padStart(2, "0")}</p>
             <p className="mt-1 text-xs text-ink-3">{apoio}</p>
           </div>
         ))}
       </section>
 
       <div className="render-deferred-section grid gap-px bg-rule lg:grid-cols-[210px_minmax(0,1.5fr)_minmax(320px,0.9fr)]">
-        <aside className="bg-paper-2 p-4" aria-label="Orientação e filtros do painel">
+        <aside className="bg-surface-2 p-4" aria-label="Orientação e filtros do painel">
           <section>
             <p className="kicker">Explorar</p>
             <nav className="mt-3" aria-label="Seções da base">
@@ -92,21 +92,21 @@ export default function Home() {
           <section className="mt-7 border-t border-rule pt-5">
             <p className="kicker">Período indexado</p>
             <p className="numero mt-3 text-sm text-ink-2">{periodo}</p>
-            <div className="mt-3 h-[3px] bg-rule-strong"><div className="h-[3px] w-[88%] bg-seal" /></div>
+            <div className="mt-3 h-[3px] bg-rule-strong"><div className="h-[3px] w-[88%] bg-accent" /></div>
           </section>
 
-          <section className="mt-7 border border-rule-strong bg-paper-3 p-3.5">
-            <p className="kicker text-seal">Novo por aqui?</p>
+          <section className="mt-7 border border-rule-strong bg-surface p-3.5">
+            <p className="kicker text-accent">Novo por aqui?</p>
             <p className="mt-2 text-sm leading-relaxed text-ink-2">Veja os acontecimentos em ordem e abra os termos que não conhece.</p>
-            <Link href="/timeline" className="meta-link mt-3 text-seal hover:text-seal-soft">Entender o caso <span aria-hidden="true">→</span></Link>
+            <Link href="/timeline" className="meta-link mt-3 text-accent hover:text-accent-hover">Entender o caso <span aria-hidden="true">→</span></Link>
           </section>
         </aside>
 
-        <div className="min-w-0 bg-paper-2 p-4 sm:p-5">
+        <div className="min-w-0 bg-surface-2 p-4 sm:p-5">
           <section aria-labelledby="atividade-recente">
             <div className="hub-section-title">
               <h2 id="atividade-recente" className="text-base font-semibold text-ink">Atividade recente</h2>
-              <Link href="/timeline" className="meta-link hover:text-seal">Ver linha completa →</Link>
+              <Link href="/timeline" className="meta-link hover:text-accent">Ver linha completa →</Link>
             </div>
 
             <ol className="border-l border-rule-strong">
@@ -114,7 +114,7 @@ export default function Home() {
                 <li key={evento.id} className="relative grid gap-2 border-b border-rule py-4 pl-5 sm:grid-cols-[96px_1fr] sm:gap-4">
                   <span
                     className={`absolute -left-1 top-[1.35rem] h-2 w-2 rounded-full ${
-                      evento.confianca === "confirmado" ? "bg-ok" : evento.confianca === "apuracao" ? "bg-seal" : "bg-disputed"
+                      evento.confianca === "confirmado" ? "bg-confirmado" : evento.confianca === "apuracao" ? "bg-apuracao" : "bg-controverso"
                     }`}
                     aria-hidden="true"
                   />
@@ -124,7 +124,7 @@ export default function Home() {
                       <span className="kicker">{TIPO_LABEL[evento.tipo]}</span>
                       <ConfiancaBadge confianca={evento.confianca} />
                     </div>
-                    <Link href={`/eventos/${evento.id}`} className="mt-1 block text-[0.95rem] font-medium leading-snug text-ink no-underline hover:text-seal">
+                    <Link href={`/eventos/${evento.id}`} className="mt-1 block text-[0.95rem] font-medium leading-snug text-ink no-underline hover:text-accent">
                       {evento.titulo}
                     </Link>
                     <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-ink-3">{evento.descricao}</p>
@@ -138,16 +138,16 @@ export default function Home() {
           <section className="mt-6" aria-labelledby="processo-em-foco">
             <div className="hub-section-title">
               <h2 id="processo-em-foco" className="text-base font-semibold text-ink">Processo em foco</h2>
-              <Link href="/processos" className="meta-link hover:text-seal">Todos os processos →</Link>
+              <Link href="/processos" className="meta-link hover:text-accent">Todos os processos →</Link>
             </div>
-            <article className="mt-4 border border-rule-strong bg-paper-3 p-4">
+            <article className="mt-4 border border-rule-strong bg-surface p-4">
               {emFoco ? (
                 <>
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <Link href={`/processos/${emFoco.id}`} className="numero text-sm text-seal no-underline hover:text-seal-soft">{emFoco.numero}</Link>
+                    <Link href={`/processos/${emFoco.id}`} className="numero text-sm text-accent no-underline hover:text-accent-hover">{emFoco.numero}</Link>
                     <ConfiancaBadge confianca={emFoco.confianca} />
                   </div>
-                  <h3 className="mt-3 text-lg font-semibold leading-snug text-white">{emFoco.apelido}</h3>
+                  <h3 className="mt-3 text-lg font-semibold leading-snug text-ink">{emFoco.apelido}</h3>
                   <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-ink-2">{emFoco.objeto}</p>
                   <dl className="mt-4 grid gap-3 border-t border-rule pt-4 sm:grid-cols-3">
                     <div><dt className="kicker">Tribunal</dt><dd className="mt-1 text-sm text-ink-2">{emFoco.tribunal}</dd></div>
@@ -164,20 +164,20 @@ export default function Home() {
           </section>
         </div>
 
-        <aside className="min-w-0 bg-paper-2 p-4 sm:p-5" aria-label="Relações e agenda">
+        <aside className="min-w-0 bg-surface-2 p-4 sm:p-5" aria-label="Relações e agenda">
           <section aria-labelledby="grafo-resumo">
             <div className="hub-section-title">
               <h2 id="grafo-resumo" className="text-base font-semibold text-ink">Grafo de envolvidos</h2>
               <span className="numero text-xs text-ink-3">{pessoas.length + processos.length} nós</span>
             </div>
-            <div className="mt-4 border border-rule-strong bg-paper-3 p-2"><HubGraph /></div>
+            <div className="mt-4 border border-rule-strong bg-surface p-2"><HubGraph /></div>
             <p className="mt-2 text-xs leading-relaxed text-ink-3">Linhas mostram relações documentadas; não indicam culpa ou participação em crime.</p>
           </section>
 
           <section className="mt-6" aria-labelledby="mais-conectados">
             <div className="hub-section-title">
               <h2 id="mais-conectados" className="text-base font-semibold text-ink">Mais conectados</h2>
-              <Link href="/pessoas" className="meta-link hover:text-seal">Ver fichas →</Link>
+              <Link href="/pessoas" className="meta-link hover:text-accent">Ver fichas →</Link>
             </div>
             <p className="mt-1 text-xs leading-relaxed text-ink-3">
               Quem mais aparece citado em processos, eventos e relações registradas na base.
@@ -187,7 +187,7 @@ export default function Home() {
                 <li key={pessoa.id}>
                   <Link href={`/pessoas/${pessoa.id}`} className="group flex items-center justify-between gap-3 py-3 no-underline">
                     <span className="flex min-w-0 items-center gap-2.5">
-                      <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${pessoa.confianca === "confirmado" ? "bg-ok" : pessoa.confianca === "apuracao" ? "bg-seal" : "bg-disputed"}`} />
+                      <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${pessoa.confianca === "confirmado" ? "bg-confirmado" : pessoa.confianca === "apuracao" ? "bg-apuracao" : "bg-controverso"}`} />
                       <span className="truncate text-sm text-ink-2 group-hover:text-ink">{pessoa.nome}</span>
                     </span>
                     <span className="numero shrink-0 text-xs text-ink-3">{grau(pessoa.id)} referências</span>
@@ -206,9 +206,9 @@ export default function Home() {
               <ol className="divide-y divide-rule">
                 {proximos.map((processo) => (
                   <li key={processo.id} className="grid grid-cols-[70px_1fr] gap-3 py-3">
-                    <time dateTime={processo.proximo_evento!.data} className="numero text-xs text-seal">{dataBR(processo.proximo_evento!.data)}</time>
+                    <time dateTime={processo.proximo_evento!.data} className="numero text-xs text-accent">{dataBR(processo.proximo_evento!.data)}</time>
                     <div>
-                      <Link href={`/processos/${processo.id}`} className="numero text-xs text-ink no-underline hover:text-seal">{processo.numero}</Link>
+                      <Link href={`/processos/${processo.id}`} className="numero text-xs text-ink no-underline hover:text-accent">{processo.numero}</Link>
                       <p className="mt-1 text-xs leading-relaxed text-ink-3">{processo.proximo_evento!.descricao}</p>
                     </div>
                   </li>

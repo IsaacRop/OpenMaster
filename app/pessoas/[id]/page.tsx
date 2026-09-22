@@ -32,7 +32,7 @@ export default async function PessoaPage({ params }: { params: Promise<{ id: str
   return (
     <article className="space-y-10">
       <header>
-        <Link href="/pessoas" className="kicker no-underline hover:text-seal">
+        <Link href="/pessoas" className="kicker no-underline hover:text-accent">
           ← Voltar para quem é quem
         </Link>
         <div className="mt-3 flex flex-wrap items-center gap-3">

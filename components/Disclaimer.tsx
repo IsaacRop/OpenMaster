@@ -19,7 +19,7 @@ export default function Disclaimer() {
         <p className="mt-4 numero text-xs text-ink-3">
           Dados com corte em {dataCorte.split("-").reverse().join("/")} · Código e dados sob licença
           MIT ·{" "}
-          <a href="/metodologia" className="underline hover:text-seal">
+          <a href="/metodologia" className="underline hover:text-accent">
             metodologia e correções
           </a>
         </p>

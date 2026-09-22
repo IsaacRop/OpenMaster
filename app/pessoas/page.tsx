@@ -54,10 +54,10 @@ export default function PessoasPage() {
 
             <ul className="mt-4 grid gap-4 md:grid-cols-2">
               {grupo.map((p) => (
-                <li key={p.id} className="render-deferred-item panel flex h-full flex-col p-4 transition-colors hover:border-seal/60">
+                <li key={p.id} className="render-deferred-item panel flex h-full flex-col p-4 transition-colors hover:border-accent/60">
                   <div className="flex flex-wrap items-baseline gap-2">
                     <Link href={`/pessoas/${p.id}`} className="no-underline">
-                      <h4 className="headline text-xl text-ink hover:text-seal">{p.nome}</h4>
+                      <h4 className="headline text-xl text-ink hover:text-accent">{p.nome}</h4>
                     </Link>
                     <NivelBadge nivel={p.nivel_presenca} />
                     <ConfiancaBadge confianca={p.confianca} />

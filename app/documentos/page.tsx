@@ -46,7 +46,7 @@ export default function DocumentosPage() {
                 <div className="flex flex-wrap items-baseline gap-2">
                   <TipoBadge tipo="documento" />
                   <Link href={`/documentos/${d.id}`} className="no-underline">
-                    <h3 className="numero text-lg text-ink hover:text-seal">
+                    <h3 className="numero text-lg text-ink hover:text-accent">
                       {d.numero_referencia}
                     </h3>
                   </Link>
@@ -56,11 +56,11 @@ export default function DocumentosPage() {
                 <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-ink-2">{d.resumo}</p>
 
                 <p className="mt-2 text-xs text-ink-3">
-                  <Link href={autor.href} className="text-ink-2 underline hover:text-seal">
+                  <Link href={autor.href} className="text-ink-2 underline hover:text-accent">
                     {autor.rotulo}
                   </Link>{" "}
                   ·{" "}
-                  <Link href={processo.href} className="numero text-ink-2 underline hover:text-seal">
+                  <Link href={processo.href} className="numero text-ink-2 underline hover:text-accent">
                     {processo.rotulo}
                   </Link>
                 </p>

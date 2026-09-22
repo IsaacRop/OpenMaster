@@ -1,7 +1,7 @@
 import { NIVEL_PRESENCA_LABEL, type NivelPresenca } from "@/lib/schema";
 
 const ESTILO: Record<NivelPresenca, string> = {
-  central: "border-seal text-seal",
+  central: "border-accent text-accent",
   recorrente: "border-ink-2 text-ink-2",
   periferico: "border-rule text-ink-3",
 };

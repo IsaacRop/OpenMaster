@@ -1,686 +1,840 @@
 @import "tailwindcss";
 
+/*
+ * Tokens do tema claro. O escuro redefine as mesmas variáveis mais abaixo:
+ * como as utilidades do Tailwind leem `var(--color-*)` em vez de copiar o
+ * valor, trocar a variável no `:root` troca o site inteiro sem uma classe
+ * `dark:` sequer nos componentes.
+ */
 @theme {
-  /* Tokens oficiais da identidade OpenMaster. */
-  --color-paper: #0b0d10;
-  --color-paper-2: #0e1116;
-  --color-paper-3: #101317;
-  --color-ink: #e7e9ec;
-  --color-ink-2: #a8b0bb;
-  --color-ink-3: #8a929d;
-  --color-rule: #1c2026;
-  --color-rule-strong: #232830;
-  --color-seal: #e9b44c;
-  --color-seal-soft: #f5ce86;
-  --color-gold: #e9b44c;
-  --color-ok: #4fa98a;
-  /* Mantem contraste AA inclusive nos selos pequenos sobre --color-paper-3. */
-  --color-disputed: #ca6075;
+  --color-bg: #f6f5f1;
+  --color-surface: #ffffff;
+  --color-surface-2: #eeede8;
+  --color-ink: #141518;
+  --color-ink-2: #45484f;
+  /* #6B6F77 da especificação caía para 4,3:1 sobre surface-2; escurecido para AA. */
+  --color-ink-3: #60646c;
+  --color-rule: #dad8d1;
+  --color-rule-strong: #c4c1b8;
+  --color-accent: #2f4bd8;
+  --color-accent-hover: #2238b0;
+  --color-accent-soft: #e6eafb;
+  /* Texto sobre fundo de acento (botão primário, seleção). */
+  --color-on-accent: #ffffff;
+  /*
+   * Os três status saem mais escuros que a especificação no claro (#2E8B6A,
+   * #B7791F): os selos têm 10px, e nessa altura só passam em AA acima de
+   * 4,5:1 — os originais ficavam em 3,8 e 3,3 sobre o fundo da página.
+   */
+  --color-confirmado: #23755a;
+  --color-apuracao: #8f5f12;
+  --color-controverso: #c0392b;
 
-  --font-serif: var(--font-sans-stack);
-  --font-mono: var(--font-mono-stack);
-  --font-sans: var(--font-sans-stack);
+  --font-serif: var(--font-newsreader), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  /*
+   * Escala fluida dos títulos. Sobrescrever os tamanhos do próprio Tailwind
+   * (e não criar classes paralelas) faz os `text-4xl` que já estão nas páginas
+   * encolherem no celular sem tocar em cada uma delas.
+   */
+  --text-4xl: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --text-4xl--line-height: 1.08;
+  --text-3xl: clamp(1.625rem, 1.3rem + 1.5vw, 2.25rem);
+  --text-3xl--line-height: 1.12;
+  --text-2xl: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);
+  --text-2xl--line-height: 1.2;
+
+  /* Entrelinha de leitura dos textos corridos. */
+  --leading-relaxed: 1.6;
+
+  /* Raio editorial: canto de papel cortado, não de cartão de SaaS. */
+  --radius-xs: 2px;
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
+  --radius-2xl: 4px;
 }
 
 /*
- * Listas editoriais longas continuam presentes no HTML (SEO, busca e leitor
- * de tela), mas o navegador pode adiar layout e pintura do que esta longe da
- * viewport. O tamanho intrinseco evita saltos grandes na barra de rolagem.
+ * Paleta escura crua. Existe separada dos tokens porque é usada em dois
+ * lugares que não podem compartilhar um bloco: o tema escuro (que precisa
+ * aparecer duas vezes — pela preferência do sistema e pelo toggle) e o mapa,
+ * que é escuro sempre, inclusive dentro do tema claro.
  */
-.render-deferred-item {
-  content-visibility: auto;
-  contain-intrinsic-block-size: auto 240px;
-}
-
-.render-deferred-section {
-  content-visibility: auto;
-  contain-intrinsic-block-size: auto 1200px;
-}
-
 :root {
+  --escuro-bg: #0e0f12;
+  --escuro-surface: #15171b;
+  --escuro-surface-2: #1b1e23;
+  --escuro-ink: #ecedef;
+  --escuro-ink-2: #b3b7be;
+  --escuro-ink-3: #8c919a;
+  --escuro-rule: #25282e;
+  --escuro-rule-strong: #31353c;
+  --escuro-accent: #7c93ff;
+  --escuro-accent-hover: #9aadff;
+  --escuro-accent-soft: rgba(124, 147, 255, 0.12);
+  --escuro-on-accent: #0e0f12;
+  --escuro-confirmado: #5dbb98;
+  --escuro-apuracao: #d9a45b;
+  --escuro-controverso: #e0707a;
+
+  /* Escala de espaçamento das regras escritas à mão (as utilidades têm a sua). */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Mapa: sempre escuro, independente do tema do resto do site. */
+  --mapa-fundo: #080a0e;
+  --mapa-painel: #0b0d11;
+  --mapa-superficie: #12161c;
+  --mapa-borda: #22262d;
+  --mapa-borda-forte: #30353e;
+  --mapa-grade: rgba(255, 255, 255, 0.035);
+  --mapa-no: #12161c;
+  --mapa-no-traco: #b4bbc3;
+  --mapa-no-traco-2: #848d99;
+  --mapa-processo: #8d9be0;
+  --mapa-logo-fundo: #eef1f4;
+  --mapa-aresta: #59616c;
+  --mapa-aresta-apuracao: var(--escuro-apuracao);
+  --mapa-aresta-controverso: var(--escuro-controverso);
+  --mapa-selecao: var(--escuro-accent);
+  --mapa-texto: #e4e7ea;
+  --mapa-texto-2: #a3aab4;
+  --mapa-texto-3: #7f8792;
+  /* Único sombreado que sobrou no site: separa o que flutua sobre o grafo. */
+  --mapa-sombra: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
+
   color-scheme: light;
 }
 
-html {
-  scroll-behavior: smooth;
-  background-color: var(--color-paper);
-}
-
-body {
-  background-color: var(--color-paper);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  min-width: 320px;
-  /* Ver `.mapa-bleed`. `clip` preserva o sticky do cabeçalho; `hidden` não. */
-  overflow-x: clip;
-}
-
-::selection {
-  background: var(--color-seal);
-  color: var(--color-paper);
-}
-
-a {
-  text-underline-offset: 3px;
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-seal);
-  outline-offset: 3px;
-}
-
-.skip-link {
-  position: fixed;
-  left: 1rem;
-  top: 1rem;
-  z-index: 100;
-  transform: translateY(-200%);
-  border: 1px solid var(--color-seal);
-  background: var(--color-paper-3);
-  padding: 0.65rem 1rem;
-  color: var(--color-ink);
-  font-size: 0.875rem;
-}
-
-.skip-link:focus {
-  transform: translateY(0);
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  border-bottom: 1px solid var(--color-rule);
-  background: color-mix(in srgb, var(--color-paper) 92%, transparent);
-  backdrop-filter: blur(16px);
-}
-
-.status-line,
-.meta-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.04em;
-  color: var(--color-ink-3);
-  text-decoration: none;
-}
-
-.status-dot {
-  height: 0.42rem;
-  width: 0.42rem;
-  flex: none;
-  border-radius: 999px;
-  background: var(--color-seal);
-  box-shadow: 0 0 0.65rem rgba(233, 180, 76, 0.58);
-}
-
-.nav-link {
-  display: block;
-  border-bottom: 2px solid transparent;
-  padding: 0.55rem 0.65rem 0.5rem;
-  color: var(--color-ink-2);
-  font-size: 0.82rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: border-color 150ms ease, color 150ms ease, background 150ms ease;
-}
-
-.nav-link:hover {
-  color: var(--color-ink);
-  background: rgba(233, 180, 76, 0.035);
-}
-
-.nav-link-active {
-  border-color: var(--color-seal);
-  color: var(--color-ink);
-}
-
-.search-affordance {
-  display: inline-flex;
-  min-height: 2.25rem;
-  align-items: center;
-  gap: 0.65rem;
-  border: 1px solid var(--color-rule-strong);
-  background: var(--color-paper-3);
-  padding: 0.45rem 0.75rem;
-  color: var(--color-ink-3);
-  font-size: 0.82rem;
-  text-decoration: none;
-}
-
-.search-affordance:hover {
-  border-color: var(--color-seal);
-  color: var(--color-ink);
-}
-
-.hub-cell {
-  border: 1px solid var(--color-rule);
-  background: var(--color-paper-2);
-}
-
-.hub-section-title {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  border-bottom: 1px solid var(--color-rule);
-  padding-bottom: 0.75rem;
-}
-
-.agent-panel {
-  overflow: hidden;
-  border: 1px solid var(--color-rule-strong);
-  background: var(--color-paper-3);
-  box-shadow: inset 3px 0 0 var(--color-seal), 0 1.5rem 4rem rgba(0, 0, 0, 0.16);
-}
-
-.agent-symbol {
-  position: relative;
-  display: grid;
-  height: 2rem;
-  width: 2rem;
-  flex: none;
-  place-items: center;
-  border: 1px solid var(--color-rule-strong);
-}
-
-.agent-symbol::before,
-.agent-symbol::after {
-  content: "";
-  position: absolute;
-  background: var(--color-seal);
-}
-
-.agent-symbol::before { height: 1px; width: 1.2rem; }
-.agent-symbol::after { height: 1.2rem; width: 1px; }
-.agent-symbol span { position: relative; z-index: 1; height: 0.45rem; width: 0.45rem; border: 1.5px solid white; border-radius: 999px; background: var(--color-paper-3); }
-
-.agent-submit {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: var(--color-seal);
-  padding: 0.5rem 0.8rem;
-  color: var(--color-paper);
-  font-size: 0.8rem;
-  font-weight: 650;
-}
-
-.agent-submit:disabled {
-  cursor: not-allowed;
-  background: var(--color-rule-strong);
-  color: var(--color-ink-3);
-}
-
-/* Régua tipográfica da gazeta ------------------------------------------- */
-
-.rule-thick {
-  height: 2px;
-  border: 0;
-  background: linear-gradient(90deg, var(--color-seal), var(--color-rule) 45%, transparent);
-}
-
-.rule-thin {
-  border-top: 1px solid var(--color-rule);
-}
-
-.kicker {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-ink-3);
-}
-
-.headline {
-  font-family: var(--font-sans);
-  font-weight: 650;
-  letter-spacing: -0.035em;
-  line-height: 1.06;
-}
-
-.numero {
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
-}
-
-/* Selo de marco — o carimbo vermelho da capa. */
-.selo {
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-seal);
-  border: 1.5px solid var(--color-seal);
-  padding: 0.1rem 0.4rem;
-  display: inline-block;
-}
-
-.panel {
-  border: 1px solid var(--color-rule);
-  background: var(--color-paper-3);
-  box-shadow: 0 1.25rem 4rem rgba(0, 0, 0, 0.18);
-}
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-seal);
-}
-
-.eyebrow::before {
-  content: "";
-  width: 1.25rem;
-  height: 1px;
-  background: currentColor;
-}
-
-.plain-note {
-  border-left: 2px solid var(--color-seal);
-  background: rgba(233, 180, 76, 0.045);
-  padding: 0.8rem 1rem;
-  color: var(--color-ink-2);
-}
-
-.action-primary,
-.action-secondary {
-  display: inline-flex;
-  min-height: 2.75rem;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  padding: 0.7rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 650;
-  text-decoration: none;
-  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease;
-}
-
-.action-primary { border: 1px solid var(--color-seal); background: var(--color-seal); color: var(--color-paper); }
-.action-secondary { border: 1px solid var(--color-rule); color: var(--color-ink); }
-.action-primary:hover, .action-secondary:hover { transform: translateY(-1px); }
-.action-secondary:hover { border-color: var(--color-seal); background: rgba(233, 180, 76, 0.045); }
-
-.discovery-card {
-  position: relative;
-  display: flex;
-  min-height: 15rem;
-  flex-direction: column;
-  border: 1px solid var(--color-rule);
-  background: var(--color-paper-3);
-  padding: 1.25rem;
-  text-decoration: none;
-  transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
-}
-
-.discovery-card::after {
-  content: "";
-  position: absolute;
-  right: 1.25rem;
-  top: 1.25rem;
-  height: 0.55rem;
-  width: 0.55rem;
-  border: 1px solid var(--color-rule);
-  transform: rotate(45deg);
-}
-
-.discovery-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--color-seal);
-  background: #141820;
-}
-
-/* Mapa — o palco -------------------------------------------------------- */
-
-/*
- * O grafo escapa do container de 1440px do layout. `overflow-x: clip` no body
- * segura a barra de rolagem horizontal que 100vw cria no Windows — `clip` e não
- * `hidden` porque `hidden` num ancestral quebraria o `position: sticky` do
- * cabeçalho.
- */
-/*
- * `--mapa-vw` é medido em JS com `documentElement.clientWidth`, que — ao
- * contrário de `100vw` — exclui a barra de rolagem. Sem isso o palco transborda
- * metade da barra em cada lado e o HUD da direita fica atrás dela. O `100vw` do
- * fallback só vale no primeiro quadro, antes do efeito rodar.
- */
-.mapa-bleed {
-  width: var(--mapa-vw, 100vw);
-  max-width: var(--mapa-vw, 100vw);
-  margin-left: calc(50% - var(--mapa-vw, 100vw) / 2);
-}
-
-/*
- * Tela cheia: o palco ocupa o que sobra da viewport abaixo do cabeçalho fixo.
- * `--mapa-cabecalho` é medido em JS porque a barra muda de altura quando a
- * navegação quebra em duas linhas. `svh` e não `vh` para o mapa não ficar
- * cortado atrás da barra do navegador no celular. A margem negativa cancela o
- * padding vertical do `<main>`, que é compartilhado com as outras páginas.
- */
-.mapa-palco.mapa-tela {
-  height: calc(100svh - var(--mapa-cabecalho, 4.5rem));
-  min-height: 26rem;
-  margin-top: -1rem;
-  border-top: 0;
-}
-
-@media (min-width: 40rem) {
-  .mapa-palco.mapa-tela {
-    margin-top: -1.5rem;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: var(--escuro-bg);
+    --color-surface: var(--escuro-surface);
+    --color-surface-2: var(--escuro-surface-2);
+    --color-ink: var(--escuro-ink);
+    --color-ink-2: var(--escuro-ink-2);
+    --color-ink-3: var(--escuro-ink-3);
+    --color-rule: var(--escuro-rule);
+    --color-rule-strong: var(--escuro-rule-strong);
+    --color-accent: var(--escuro-accent);
+    --color-accent-hover: var(--escuro-accent-hover);
+    --color-accent-soft: var(--escuro-accent-soft);
+    --color-on-accent: var(--escuro-on-accent);
+    --color-confirmado: var(--escuro-confirmado);
+    --color-apuracao: var(--escuro-apuracao);
+    --color-controverso: var(--escuro-controverso);
+    color-scheme: dark;
   }
 }
 
-.mapa-palco {
-  position: relative;
-  height: clamp(28rem, 76vh, 47.5rem);
-  overflow: hidden;
-  border-top: 1px solid var(--color-rule);
-  border-bottom: 1px solid var(--color-rule);
-  background: radial-gradient(ellipse 115% 90% at 50% 42%, #1a202b 0%, #0d1015 55%, #050609 100%);
+/* O toggle grava `data-theme` e vence a preferência do sistema. */
+:root[data-theme="dark"] {
+  --color-bg: var(--escuro-bg);
+  --color-surface: var(--escuro-surface);
+  --color-surface-2: var(--escuro-surface-2);
+  --color-ink: var(--escuro-ink);
+  --color-ink-2: var(--escuro-ink-2);
+  --color-ink-3: var(--escuro-ink-3);
+  --color-rule: var(--escuro-rule);
+  --color-rule-strong: var(--escuro-rule-strong);
+  --color-accent: var(--escuro-accent);
+  --color-accent-hover: var(--escuro-accent-hover);
+  --color-accent-soft: var(--escuro-accent-soft);
+  --color-on-accent: var(--escuro-on-accent);
+  --color-confirmado: var(--escuro-confirmado);
+  --color-apuracao: var(--escuro-apuracao);
+  --color-controverso: var(--escuro-controverso);
+  color-scheme: dark;
 }
 
-/* Grade: dá escala ao vazio sem competir com o grafo. Some nas bordas. */
-.mapa-palco::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 72px 72px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 62% at 50% 50%, #000 0%, transparent 100%);
-  mask-image: radial-gradient(ellipse 70% 62% at 50% 50%, #000 0%, transparent 100%);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg);
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.5;
+    min-width: 320px;
+    /* Ver `.mapa-bleed`. `clip` preserva o sticky do cabeçalho; `hidden` não. */
+    overflow-x: clip;
+  }
+
+  /*
+   * Títulos na Newsreader por padrão. Quem precisa de outra voz (o número de
+   * um processo em mono, um kicker) declara a classe, e a classe vence porque
+   * mora numa camada posterior a esta.
+   */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-optical-sizing: auto;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  h1 { font-size: var(--text-4xl); line-height: var(--text-4xl--line-height); }
+  h2 { font-size: var(--text-3xl); line-height: var(--text-3xl--line-height); }
+  h3 { font-size: var(--text-2xl); line-height: var(--text-2xl--line-height); }
+  h4 { font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem); }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+
+  a {
+    text-underline-offset: 3px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
 }
 
-.mapa-canvas {
-  position: relative;
-  z-index: 1;
-  display: block;
-  height: 100%;
-  width: 100%;
-}
+@layer components {
+  /*
+   * Listas editoriais longas continuam presentes no HTML (SEO, busca e leitor
+   * de tela), mas o navegador pode adiar layout e pintura do que esta longe da
+   * viewport. O tamanho intrinseco evita saltos grandes na barra de rolagem.
+   */
+  .render-deferred-item {
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto 240px;
+  }
 
-/* Mapa imersivo — experiência editorial ------------------------------- */
-.mapa-experiencia { position: relative; }
-.mapa-palco.mapa-tela {
-  height: calc(100svh - var(--mapa-cabecalho, 4.5rem));
-  min-height: 40rem;
-  margin-top: -1rem;
-  border: 0;
-}
-.mapa-palco {
-  isolation: isolate;
-  color: #f2f3f4;
-  background:
-    radial-gradient(circle at 48% 44%, rgba(50, 59, 71, 0.25), transparent 42%),
-    radial-gradient(circle at 15% 15%, rgba(126, 28, 39, 0.08), transparent 24%),
-    #080a0e;
-}
-.mapa-palco::before {
-  z-index: -1;
-  opacity: 0.5;
-  background-image:
-    linear-gradient(112deg, transparent 0 48%, rgba(255,255,255,.018) 49%, transparent 50%),
-    radial-gradient(circle at 30% 70%, rgba(255,255,255,.035) 0 1px, transparent 1.5px);
-  background-size: 260px 220px, 6px 6px;
-  mask-image: linear-gradient(#000, transparent 135%);
-}
-/*
- * `touch-action` sozinho resolvia o toque e deixava o mouse de fora: arrastar
- * o fundo pintava de azul os rótulos dos nós, como se fosse texto de página.
- * Um mapa não tem texto para selecionar — os nomes sao etiquetas, e o gesto
- * ali significa mover, nunca marcar.
- */
-.mapa-canvas {
-  z-index: 1;
-  cursor: grab;
-  touch-action: none;
-  user-select: none;
-  -webkit-user-select: none;
-}
-.mapa-canvas:active { cursor: grabbing; }
-.mapa-topbar {
-  position: absolute;
-  z-index: 8;
-  top: 1.25rem;
-  left: 1.5rem;
-  right: 1.5rem;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  pointer-events: none;
-}
-.mapa-topbar > * { pointer-events: auto; }
-.mapa-titulo { display: grid; gap: .15rem; text-shadow: 0 2px 18px #000; }
-.mapa-capitulo { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: #9da4ad; }
-.mapa-titulo strong { font-size: clamp(1.25rem, 2vw, 1.85rem); font-weight: 500; letter-spacing: -.035em; }
-.mapa-acoes { display: flex; gap: .5rem; }
-.mapa-modo {
-  display: flex;
-  min-height: 2.65rem;
-  align-items: stretch;
-  border: 1px solid rgba(255,255,255,.14);
-  background: #0b0e13;
-  padding: .2rem;
-}
-.mapa-modo button {
-  padding: .35rem .7rem;
-  color: #707985;
-  font-family: var(--font-mono);
-  font-size: .64rem;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-.mapa-modo button[aria-pressed="true"] { background: #242a32; color: #f1f3f5; }
-.mapa-modo button:hover { color: #fff; }
-.mapa-controle {
-  display: inline-flex;
-  min-height: 2.65rem;
-  align-items: center;
-  gap: .5rem;
-  border: 1px solid rgba(255,255,255,.18);
-  background: #0b0e13;
-  padding: .6rem .8rem;
-  color: #dfe2e6;
-  font-family: var(--font-mono);
-  font-size: .7rem;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-.mapa-controle:hover, .mapa-controle[aria-expanded="true"] { border-color: #9d2d3b; color: white; }
-.mapa-controle kbd { border: 1px solid #343943; padding: .05rem .28rem; font: inherit; color: #808894; }
-.mapa-contagem { color: #bd5360; }
+  .render-deferred-section {
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto 1200px;
+  }
 
-.mapa-popover {
-  position: absolute;
-  z-index: 12;
-  top: 4.45rem;
-  border: 1px solid #292e36;
-  background: #0a0c10;
-  box-shadow: 0 1.5rem 5rem rgba(0,0,0,.55);
-}
-.mapa-popover-busca { right: 8.8rem; width: min(30rem, calc(100% - 2rem)); padding: 1rem; }
-.mapa-popover-busca > label { display: block; margin-bottom: .55rem; color: #89919b; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; }
-.mapa-input-wrap { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .65rem; border-bottom: 1px solid #5d6570; }
-.mapa-input-wrap input { min-width: 0; background: transparent; padding: .65rem 0; color: white; font-size: 1rem; outline: none; }
-.mapa-input-wrap input::placeholder { color: #68707b; }
-.mapa-input-wrap button, .mapa-popover-cabecalho button { padding: .3rem; color: #aab0b8; font-size: 1.3rem; }
-.mapa-resultados { margin-top: .65rem; max-height: 23rem; overflow: auto; }
-.mapa-resultados li + li { border-top: 1px solid #20242b; }
-.mapa-resultados button { display: grid; width: 100%; grid-template-columns: 5rem 1fr; gap: .8rem; padding: .75rem .35rem; text-align: left; }
-.mapa-resultados button:hover { background: #12161c; }
-.mapa-resultados button > span:last-child { display: grid; gap: .15rem; min-width: 0; }
-.mapa-resultados strong { font-size: .9rem; font-weight: 500; }
-.mapa-resultados small { overflow: hidden; color: #858d98; font-size: .74rem; text-overflow: ellipsis; white-space: nowrap; }
-.mapa-sem-resultado { padding: 1rem .35rem; color: #858d98; font-size: .85rem; }
-.mapa-mini-tipo { align-self: start; margin-top: .15rem; font-family: var(--font-mono); font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; }
+  .skip-link {
+    position: fixed;
+    left: var(--space-4);
+    top: var(--space-4);
+    z-index: 100;
+    transform: translateY(-200%);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    padding: 0.65rem var(--space-4);
+    color: var(--color-ink);
+    font-size: 0.875rem;
+  }
 
-.mapa-popover-filtros { right: 1.5rem; width: 17rem; padding: .9rem; }
-.mapa-popover-cabecalho { display: flex; align-items: center; justify-content: space-between; margin-bottom: .5rem; font-size: .85rem; }
-.mapa-popover-filtros label { display: grid; min-height: 2.45rem; grid-template-columns: auto auto 1fr auto; align-items: center; gap: .65rem; border-top: 1px solid #20242b; color: #ced2d7; font-size: .8rem; cursor: pointer; }
-.mapa-popover-filtros input { accent-color: #9d2d3b; }
-.mapa-popover-filtros small { color: #737b86; font-family: var(--font-mono); }
-.mapa-popover-filtros p { margin-top: .65rem; color: #737b86; font-size: .7rem; line-height: 1.45; }
-.mapa-legenda-sinal { display: inline-block; width: .75rem; height: .75rem; border: 1px solid currentColor; }
-.mapa-mini-pessoa { color: #e4e7ea; border-radius: 50%; }
-.mapa-mini-instituicao { color: #aeb6c1; transform: rotate(45deg); }
-.mapa-mini-processo { color: #c04a58; border-radius: 1px; }
-.mapa-mini-documento { color: #8d96a2; border-radius: 1px; }
-.mapa-mini-tipo.mapa-mini-instituicao { transform: none; }
+  .skip-link:focus {
+    transform: translateY(0);
+  }
 
-.mapa-aresta { stroke: #59616c; stroke-width: 1; opacity: .38; vector-effect: non-scaling-stroke; }
-.mapa-aresta-forte { stroke-width: 1.35; }
-.mapa-aresta-apuracao { stroke: #a66a53; stroke-dasharray: 5 4; }
-.mapa-aresta-controverso { stroke: #9d2d3b; stroke-dasharray: 2 4; }
-.mapa-arestas marker path { fill: #6b7480; }
-.mapa-aresta-hit { stroke: transparent; stroke-width: 13; cursor: pointer; vector-effect: non-scaling-stroke; }
-.mapa-arestas .is-dimmed { opacity: .08; }
-.mapa-arestas .is-selected .mapa-aresta { stroke: #c54453; stroke-width: 2; opacity: 1; filter: url(#mapa-glow); }
-.mapa-aresta-rotulo { cursor: pointer; }
-.mapa-aresta-rotulo rect { fill: #11151b; stroke: #343b45; stroke-width: .7; }
-.mapa-aresta-rotulo text { fill: #d7dbe0; font-family: var(--font-mono); font-size: 8px; letter-spacing: .01em; }
+  /* Cabeçalho e navegação ----------------------------------------------- */
 
-.mapa-no { cursor: pointer; outline: none; }
-.mapa-no.is-dimmed { opacity: .13; }
-.mapa-no:focus-visible .mapa-no-marca > :first-child { stroke: #fff; stroke-width: 2.5; }
-.mapa-no-marca > circle:first-child, .mapa-no-marca > rect:first-child, .mapa-no-marca > path:first-child { fill: #12161c; stroke: #b4bbc3; stroke-width: 1.35; vector-effect: non-scaling-stroke; }
-.mapa-no-marca text { fill: #e9ebee; font-family: var(--font-sans); font-size: 10px; font-weight: 600; letter-spacing: .08em; }
-.mapa-no-anel { fill: none; stroke: #353c45; stroke-width: .7; }
-/*
- * Retrato. O aro sobrepoe a borda do recorte, que sai serrilhada no SVG, e
- * devolve ao no com foto o mesmo contorno que o monograma tem — para os dois
- * estados parecerem o mesmo componente em variantes, e nao um completo e um
- * quebrado. Fotos so entram com credito e licenca; ver `Foto` em lib/schema.
- */
-.mapa-no-marca.tem-foto > circle:first-child { fill: #0d1116; }
-.mapa-no-aro { fill: none; stroke: #b4bbc3; stroke-width: 1.35; vector-effect: non-scaling-stroke; }
-.mapa-no-marca.tem-foto image { filter: saturate(.72) contrast(1.04); }
-.mapa-no-marca.tem-foto.is-selected image { filter: none; }
-.mapa-no-marca.tem-logo > rect:first-of-type { fill: #eef1f4; }
-.mapa-no-marca.tem-logo image { filter: saturate(.78) contrast(1.05); }
-.mapa-no-instituicao > rect { fill: #11151a; stroke: #818b97; }
-.mapa-no-processo > rect { fill: #151217; stroke: #a73c49; }
-.mapa-no-processo text { fill: #f1dfe2; font-family: var(--font-mono); font-size: 8px; letter-spacing: -.04em; }
-.mapa-no-documento > path:first-child { fill: #11151a; stroke: #89929d; }
-.mapa-no-documento line, .mapa-no-dobra { fill: none; stroke: #59626d; stroke-width: .8; }
-.mapa-no-marca.is-selected > :first-child { stroke: #d14b5a; stroke-width: 2.2; filter: url(#mapa-glow); }
-.mapa-no-nome { fill: #dfe2e6; paint-order: stroke; stroke: #080a0e; stroke-width: 3px; font-family: var(--font-sans); font-size: 10px; font-weight: 500; letter-spacing: -.01em; }
-.mapa-no-papel { fill: #8d96a1; paint-order: stroke; stroke: #080a0e; stroke-width: 3px; font-family: var(--font-mono); font-size: 6.5px; }
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    border-bottom: 1px solid var(--color-rule);
+    background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+    backdrop-filter: blur(16px);
+  }
 
-.mapa-rodape { position: absolute; z-index: 5; bottom: 1.25rem; left: 1.5rem; display: flex; max-width: calc(100% - 24rem); align-items: center; gap: 1.25rem; pointer-events: none; }
-.mapa-rodape p { color: #737b86; font-size: .7rem; }
-.mapa-indice { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: #777f8a; white-space: nowrap; }
-.mapa-indice span { color: #f0f2f4; font-size: 1rem; }
-.mapa-zoom { position: absolute; z-index: 7; right: 1.5rem; bottom: 1.25rem; display: flex; align-items: center; border: 1px solid #2b3038; background: #0b0e13; }
-.mapa-zoom button, .mapa-zoom span { display: grid; min-width: 2.5rem; min-height: 2.5rem; place-items: center; color: #b6bdc6; font-family: var(--font-mono); font-size: .72rem; }
-.mapa-zoom button:hover { color: white; background: #171b22; }
-.mapa-zoom .mapa-reenquadrar { width: auto; padding: 0 .75rem; border-left: 1px solid #2b3038; text-transform: uppercase; letter-spacing: .06em; }
+  /*
+   * Wordmark na Newsreader: o nome no alto da página é o cabeçalho de jornal
+   * do site, e é a mesma voz das manchetes logo abaixo. "Open" regular e
+   * "Master" em bold mantêm o desenho do nome que já circulava.
+   */
+  .wordmark {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
+    line-height: 1;
+    color: var(--color-ink);
+  }
 
-.mapa-ficha { position: absolute; z-index: 10; top: 0; right: 0; bottom: 0; width: min(27rem, 38vw); overflow-y: auto; border-left: 1px solid #30353e; background: #090b0f; padding: 1.25rem 1.4rem 1.5rem; box-shadow: -2rem 0 6rem rgba(0,0,0,.46); }
-.mapa-ficha-acoes { display: flex; justify-content: space-between; margin-bottom: 2.5rem; }
-.mapa-ficha-acoes button { display: grid; width: 2.35rem; height: 2.35rem; place-items: center; border: 1px solid #2d333c; color: #adb4bd; font-size: 1.1rem; }
-.mapa-ficha-acoes button:hover { border-color: #9d2d3b; color: white; }
-.mapa-ficha-tipo { display: flex; align-items: center; gap: .55rem; color: #8f97a2; font-family: var(--font-mono); font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; }
-.mapa-linha-amostra { width: 1.5rem; border-top: 1px solid #a63d4a; }
-.mapa-ficha h3 { margin-top: .75rem; color: #f3f4f5; font-size: clamp(1.65rem, 3vw, 2.5rem); font-weight: 500; letter-spacing: -.045em; line-height: 1.04; }
-.mapa-ficha-papel { margin-top: .7rem; color: #9da5af; font-size: .85rem; line-height: 1.5; }
-.mapa-status { display: inline-flex; align-items: center; gap: .45rem; margin-top: .85rem; border: 1px solid currentColor; padding: .25rem .4rem; font-family: var(--font-mono); font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; }
-.mapa-status > span { width: .38rem; height: .38rem; border-radius: 50%; background: currentColor; }
-.mapa-status-confirmado { color: #67ae98; }
-.mapa-status-apuracao { color: #c28c62; }
-.mapa-status-controverso { color: #c95764; }
-.mapa-ficha-resumo { margin-top: 1.25rem; color: #c2c7ce; font-size: .86rem; line-height: 1.7; }
-.mapa-ficha section { margin-top: 1.7rem; padding-top: 1rem; border-top: 1px solid #272c34; }
-.mapa-ficha h4 { display: flex; justify-content: space-between; color: #929aa5; font-family: var(--font-mono); font-size: .65rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; }
-.mapa-ficha h4 span { color: #c64b59; }
-.mapa-ficha-nota { margin-top: .55rem; color: #747d88; font-size: .7rem; line-height: 1.45; }
-.mapa-ficha-relacoes, .mapa-ficha-eventos { margin-top: .55rem; }
-.mapa-ficha-relacoes li + li, .mapa-ficha-eventos li + li { border-top: 1px solid #20242b; }
-.mapa-ficha-relacoes button { display: grid; width: 100%; grid-template-columns: 1.2rem 1fr; gap: .5rem; padding: .7rem 0; color: #aeb5be; text-align: left; }
-.mapa-ficha-relacoes button:hover strong { color: #d15462; }
-.mapa-ficha-relacoes button > span:last-child { display: grid; gap: .2rem; }
-.mapa-ficha-relacoes strong { color: #dfe2e6; font-size: .76rem; font-weight: 500; line-height: 1.35; }
-.mapa-ficha-relacoes small { color: #7d8590; font-size: .7rem; }
-.mapa-ficha-eventos li { display: grid; grid-template-columns: 5rem 1fr; gap: .65rem; padding: .65rem 0; font-size: .75rem; }
-.mapa-ficha-eventos time { color: #747c87; font-family: var(--font-mono); font-size: .65rem; }
-.mapa-ficha-eventos a { color: #c8cdd3; text-decoration: none; }
-.mapa-ficha-eventos a:hover { color: #d15462; }
-.mapa-ficha-fontes { display: grid; gap: .45rem; margin-top: 1.5rem; padding: .9rem; border: 1px solid #2b3038; background: #0d1015; }
-.mapa-ficha-fontes > small { color: #747d88; font-size: .65rem; }
-/* O no nao tem onde creditar um retrato de 44px; a ficha tem. */
-.mapa-ficha-credito { color: #747d88; font-size: .62rem; line-height: 1.45; }
-.mapa-ficha-credito a { color: #9aa2ac; text-decoration: underline; text-underline-offset: 2px; }
-.mapa-ficha-fontes a { display: grid; grid-template-columns: 1fr auto; gap: .2rem .5rem; color: #d7dbe0; font-size: .78rem; text-decoration: none; }
-.mapa-ficha-fontes a small { grid-column: 1 / -1; color: #747d88; font-size: .65rem; }
-.mapa-ficha-fontes a:hover { color: #d15462; }
-.mapa-ficha-pagina { display: flex; justify-content: space-between; margin-top: .7rem; border: 1px solid #983643; padding: .75rem .9rem; color: #eef0f2; font-size: .78rem; text-decoration: none; }
-.mapa-ficha-pagina:hover { background: #8c2d39; }
-.mapa-relacao-pontas { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .6rem; margin-top: 1.5rem; }
-.mapa-relacao-pontas button { display: grid; gap: .3rem; min-height: 4.5rem; border: 1px solid #2a3038; padding: .65rem; text-align: left; }
-.mapa-relacao-pontas button:hover { border-color: #9d2d3b; }
-.mapa-relacao-pontas small { color: #747d88; font-family: var(--font-mono); font-size: .56rem; letter-spacing: .1em; text-transform: uppercase; }
-.mapa-relacao-pontas strong { color: #d8dce1; font-size: .75rem; font-weight: 500; line-height: 1.25; }
-.mapa-relacao-pontas > span { color: #a63d4a; }
-.mapa-instrucoes { display: flex; justify-content: space-between; gap: 2rem; padding: .85rem 0 0; color: var(--color-ink-3); font-size: .72rem; line-height: 1.5; }
-.mapa-instrucoes p:last-child { text-align: right; }
+  .wordmark b {
+    font-weight: 700;
+  }
 
-@media (max-width: 48rem) {
-  .mapa-palco.mapa-tela { min-height: 36rem; margin-top: -1rem; }
-  .mapa-topbar { top: .8rem; left: .8rem; right: .8rem; align-items: center; }
-  .mapa-capitulo { display: none; }
-  .mapa-titulo strong { font-size: 1rem; }
-  .mapa-acoes { gap: .35rem; }
-  .mapa-modo button { padding: .3rem .45rem; font-size: .56rem; }
-  .mapa-controle { min-height: 2.4rem; padding: .5rem .6rem; font-size: .62rem; }
-  .mapa-busca-gatilho kbd, .mapa-busca-gatilho { font-size: 0; }
-  .mapa-busca-gatilho span { font-size: 1.1rem; }
-  .mapa-popover { top: 3.8rem; right: .8rem; }
-  .mapa-popover-busca { left: .8rem; width: auto; }
-  .mapa-popover-filtros { width: min(17rem, calc(100% - 1.6rem)); }
-  .mapa-rodape { bottom: 4.2rem; left: .8rem; max-width: calc(100% - 1.6rem); }
-  .mapa-rodape p { display: none; }
-  .mapa-zoom { right: .8rem; bottom: .8rem; }
-  .mapa-zoom .mapa-reenquadrar { padding: 0 .55rem; font-size: .58rem; }
-  .mapa-ficha { top: auto; left: 0; right: 0; bottom: 0; width: 100%; max-height: 52svh; border-top: 1px solid #343a43; border-left: 0; padding: 1rem; border-radius: .85rem .85rem 0 0; }
-  .mapa-ficha::before { content: ""; display: block; width: 2.7rem; height: 3px; margin: -.25rem auto .7rem; border-radius: 3px; background: #555e69; }
-  .mapa-ficha-acoes { margin-bottom: 1.2rem; }
-  .mapa-ficha h3 { font-size: 1.7rem; }
-  .mapa-instrucoes { display: block; }
-  .mapa-instrucoes p:last-child { margin-top: .35rem; text-align: left; }
-}
+  .status-line,
+  .meta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--color-ink-3);
+    text-decoration: none;
+  }
 
-/* Fluidez — transições e entradas -------------------------------------- */
+  .nav-link {
+    display: block;
+    border-bottom: 2px solid transparent;
+    padding: 0.55rem 0.65rem 0.5rem;
+    color: var(--color-ink-2);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 150ms ease, color 150ms ease;
+  }
 
-/*
- * Vocabulário curto de propósito: easeOutQuad para o que aparece,
- * easeInOutQuad para mudança de estado, e nada acima de meio segundo. São as
- * duas curvas e a faixa de duração medidas na referência — um repertório
- * pequeno é o que faz movimentos diferentes parecerem do mesmo lugar.
- */
-.mapa-no { transition: opacity .3s cubic-bezier(.25, .46, .45, .94); }
-.mapa-no-marca { transition: transform .22s cubic-bezier(.455, .03, .515, .955); }
-/* As marcas sao desenhadas centradas em 0,0, entao a escala ja gira em torno
-   do proprio no — sem precisar de transform-origin. */
-.mapa-no:hover .mapa-no-marca { transform: scale(1.07); }
-.mapa-no-marca.is-selected { transform: scale(1.1); }
-.mapa-no-nome, .mapa-no-papel { animation: mapa-surge .26s cubic-bezier(.25, .46, .45, .94) both; }
+  .nav-link:hover {
+    color: var(--color-ink);
+  }
 
-.mapa-arestas > g { transition: opacity .3s cubic-bezier(.25, .46, .45, .94); }
-.mapa-aresta {
-  transition:
-    stroke .25s cubic-bezier(.455, .03, .515, .955),
-    stroke-width .25s cubic-bezier(.455, .03, .515, .955),
-    opacity .3s cubic-bezier(.25, .46, .45, .94);
+  .nav-link-active {
+    border-color: var(--color-accent);
+    color: var(--color-ink);
+  }
+
+  .search-affordance {
+    display: inline-flex;
+    min-height: 2.25rem;
+    align-items: center;
+    gap: 0.65rem;
+    border: 1px solid var(--color-rule-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    padding: 0.45rem var(--space-3);
+    color: var(--color-ink-3);
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+
+  .search-affordance:hover {
+    border-color: var(--color-accent);
+    color: var(--color-ink);
+  }
+
+  .theme-toggle {
+    display: inline-grid;
+    height: 2.25rem;
+    width: 2.25rem;
+    place-items: center;
+    border: 1px solid var(--color-rule-strong);
+    border-radius: var(--radius-sm);
+    color: var(--color-ink-2);
+  }
+
+  .theme-toggle:hover {
+    border-color: var(--color-accent);
+    color: var(--color-ink);
+  }
+
+  /* Mostra o ícone do tema para o qual o clique leva. */
+  .theme-toggle .icone-sol { display: none; }
+  :root[data-theme="dark"] .theme-toggle .icone-sol { display: block; }
+  :root[data-theme="dark"] .theme-toggle .icone-lua { display: none; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-toggle .icone-sol { display: block; }
+    :root:not([data-theme="light"]) .theme-toggle .icone-lua { display: none; }
+  }
+
+  .hub-section-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+    border-bottom: 1px solid var(--color-rule);
+    padding-bottom: var(--space-3);
+  }
+
+  /* Agente --------------------------------------------------------------- */
+
+  .agent-panel {
+    overflow: hidden;
+    border: 1px solid var(--color-rule-strong);
+    border-left: 2px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+  }
+
+  .agent-symbol {
+    position: relative;
+    display: grid;
+    height: 2rem;
+    width: 2rem;
+    flex: none;
+    place-items: center;
+    border: 1px solid var(--color-rule-strong);
+    border-radius: var(--radius-sm);
+  }
+
+  .agent-symbol::before,
+  .agent-symbol::after {
+    content: "";
+    position: absolute;
+    background: var(--color-accent);
+  }
+
+  .agent-symbol::before { height: 1px; width: 1.2rem; }
+  .agent-symbol::after { height: 1.2rem; width: 1px; }
+  .agent-symbol span { position: relative; z-index: 1; height: 0.45rem; width: 0.45rem; border: 1.5px solid var(--color-ink); border-radius: 999px; background: var(--color-surface); }
+
+  .agent-submit {
+    display: inline-flex;
+    min-height: 2.25rem;
+    align-items: center;
+    gap: 0.45rem;
+    border-radius: var(--radius-sm);
+    background: var(--color-accent);
+    padding: var(--space-2) 0.85rem;
+    color: var(--color-on-accent);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .agent-submit:hover {
+    background: var(--color-accent-hover);
+  }
+
+  .agent-submit:disabled {
+    cursor: not-allowed;
+    background: var(--color-rule-strong);
+    color: var(--color-ink-3);
+  }
+
+  /* Vocabulário tipográfico editorial ------------------------------------ */
+
+  /*
+   * Régua de abertura de seção: um trecho curto no acento seguido de fio
+   * fino. É a marca de "começa aqui" dos cadernos de jornal, sem pesar como
+   * um fio grosso de ponta a ponta.
+   */
+  .rule-thick {
+    height: 2px;
+    border: 0;
+    background: linear-gradient(90deg, var(--color-accent) 0 3rem, var(--color-rule-strong) 3rem);
+  }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+  }
+
+  .headline {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+  }
+
+  .numero {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  /* Selo de marco: editorial, não de confiança — por isso no acento. */
+  .selo {
+    display: inline-block;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-xs);
+    padding: 0.1rem 0.4rem;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .panel {
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 1.25rem;
+    height: 1px;
+    background: currentColor;
+  }
+
+  .plain-note {
+    border-left: 2px solid var(--color-accent);
+    background: var(--color-accent-soft);
+    padding: 0.8rem var(--space-4);
+    color: var(--color-ink-2);
+  }
+
+  /* Mapa — o palco -------------------------------------------------------- */
+
+  /*
+   * O grafo escapa do container de 1440px do layout. `overflow-x: clip` no body
+   * segura a barra de rolagem horizontal que 100vw cria no Windows — `clip` e não
+   * `hidden` porque `hidden` num ancestral quebraria o `position: sticky` do
+   * cabeçalho.
+   */
+  /*
+   * `--mapa-vw` é medido em JS com `documentElement.clientWidth`, que — ao
+   * contrário de `100vw` — exclui a barra de rolagem. Sem isso o palco transborda
+   * metade da barra em cada lado e o HUD da direita fica atrás dela. O `100vw` do
+   * fallback só vale no primeiro quadro, antes do efeito rodar.
+   */
+  .mapa-bleed {
+    width: var(--mapa-vw, 100vw);
+    max-width: var(--mapa-vw, 100vw);
+    margin-left: calc(50% - var(--mapa-vw, 100vw) / 2);
+  }
+
+  /*
+   * O palco é escuro em qualquer tema: um grafo denso lê melhor sobre fundo
+   * escuro, e os retratos foram tratados para ele. `color-scheme` escuro para
+   * o input de busca e as caixas de filtro nativas seguirem o palco, não a
+   * página.
+   */
+  .mapa-palco {
+    position: relative;
+    isolation: isolate;
+    height: clamp(28rem, 76vh, 47.5rem);
+    overflow: hidden;
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+    color-scheme: dark;
+    color: var(--mapa-texto);
+    background:
+      radial-gradient(circle at 48% 44%, rgba(50, 59, 71, 0.25), transparent 42%),
+      var(--mapa-fundo);
+  }
+
+  /*
+   * Tela cheia: o palco ocupa o que sobra da viewport abaixo do cabeçalho fixo.
+   * `--mapa-cabecalho` é medido em JS porque a barra muda de altura quando a
+   * navegação quebra em duas linhas. `svh` e não `vh` para o mapa não ficar
+   * cortado atrás da barra do navegador no celular. A margem negativa cancela o
+   * padding vertical do `<main>`, que é compartilhado com as outras páginas.
+   */
+  .mapa-palco.mapa-tela {
+    height: calc(100svh - var(--mapa-cabecalho, 4.5rem));
+    min-height: 40rem;
+    margin-top: -1rem;
+    border: 0;
+  }
+
+  /* Textura: dá escala ao vazio sem competir com o grafo. Some embaixo. */
+  .mapa-palco::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image:
+      linear-gradient(112deg, transparent 0 48%, var(--mapa-grade) 49%, transparent 50%),
+      radial-gradient(circle at 30% 70%, var(--mapa-grade) 0 1px, transparent 1.5px);
+    background-size: 260px 220px, 6px 6px;
+    mask-image: linear-gradient(#000, transparent 135%);
+  }
+
+  /*
+   * `touch-action` sozinho resolvia o toque e deixava o mouse de fora: arrastar
+   * o fundo pintava de azul os rótulos dos nós, como se fosse texto de página.
+   * Um mapa não tem texto para selecionar — os nomes sao etiquetas, e o gesto
+   * ali significa mover, nunca marcar.
+   */
+  .mapa-canvas {
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 100%;
+    width: 100%;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .mapa-canvas:active { cursor: grabbing; }
+
+  .mapa-experiencia { position: relative; }
+  .mapa-topbar {
+    position: absolute;
+    z-index: 8;
+    top: 1.25rem;
+    left: var(--space-5);
+    right: var(--space-5);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+    pointer-events: none;
+  }
+  .mapa-topbar > * { pointer-events: auto; }
+  .mapa-titulo { display: grid; gap: .15rem; text-shadow: 0 2px 18px var(--mapa-fundo); }
+  .mapa-capitulo { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--mapa-texto-2); }
+  .mapa-titulo strong { font-family: var(--font-serif); font-size: clamp(1.25rem, 2vw, 1.85rem); font-weight: 600; letter-spacing: -.015em; }
+  .mapa-acoes { display: flex; gap: var(--space-2); }
+  .mapa-modo {
+    display: flex;
+    min-height: 2.65rem;
+    align-items: stretch;
+    border: 1px solid var(--mapa-borda-forte);
+    border-radius: var(--radius-sm);
+    background: var(--mapa-painel);
+    padding: .2rem;
+  }
+  .mapa-modo button {
+    padding: .35rem .7rem;
+    color: var(--mapa-texto-3);
+    font-family: var(--font-mono);
+    font-size: .64rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .mapa-modo button[aria-pressed="true"] { background: var(--mapa-superficie); color: var(--mapa-texto); box-shadow: inset 0 -2px 0 var(--mapa-selecao); }
+  .mapa-modo button:hover { color: var(--mapa-texto); }
+  .mapa-controle {
+    display: inline-flex;
+    min-height: 2.65rem;
+    align-items: center;
+    gap: var(--space-2);
+    border: 1px solid var(--mapa-borda-forte);
+    border-radius: var(--radius-sm);
+    background: var(--mapa-painel);
+    padding: .6rem .8rem;
+    color: var(--mapa-texto);
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .mapa-controle:hover, .mapa-controle[aria-expanded="true"] { border-color: var(--mapa-selecao); }
+  .mapa-controle kbd { border: 1px solid var(--mapa-borda-forte); border-radius: var(--radius-xs); padding: .05rem .28rem; font: inherit; color: var(--mapa-texto-3); }
+  .mapa-contagem { color: var(--mapa-selecao); }
+
+  .mapa-popover {
+    position: absolute;
+    z-index: 12;
+    top: 4.45rem;
+    border: 1px solid var(--mapa-borda-forte);
+    border-radius: var(--radius-sm);
+    background: var(--mapa-painel);
+    box-shadow: var(--mapa-sombra);
+  }
+  .mapa-popover-busca { right: 8.8rem; width: min(30rem, calc(100% - 2rem)); padding: var(--space-4); }
+  .mapa-popover-busca > label { display: block; margin-bottom: .55rem; color: var(--mapa-texto-2); font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; }
+  .mapa-input-wrap { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .65rem; border-bottom: 1px solid var(--mapa-texto-3); }
+  .mapa-input-wrap:focus-within { border-color: var(--mapa-selecao); }
+  .mapa-input-wrap input { min-width: 0; background: transparent; padding: .65rem 0; color: var(--mapa-texto); font-size: 1rem; outline: none; }
+  .mapa-input-wrap input::placeholder { color: var(--mapa-texto-3); }
+  .mapa-input-wrap button, .mapa-popover-cabecalho button { padding: .3rem; color: var(--mapa-texto-2); font-size: 1.3rem; }
+  .mapa-resultados { margin-top: .65rem; max-height: 23rem; overflow: auto; }
+  .mapa-resultados li + li { border-top: 1px solid var(--mapa-borda); }
+  .mapa-resultados button { display: grid; width: 100%; grid-template-columns: 5rem 1fr; gap: .8rem; padding: .75rem .35rem; text-align: left; }
+  .mapa-resultados button:hover { background: var(--mapa-superficie); }
+  .mapa-resultados button > span:last-child { display: grid; gap: .15rem; min-width: 0; }
+  .mapa-resultados strong { font-size: .9rem; font-weight: 500; }
+  .mapa-resultados small { overflow: hidden; color: var(--mapa-texto-3); font-size: .74rem; text-overflow: ellipsis; white-space: nowrap; }
+  .mapa-sem-resultado { padding: var(--space-4) .35rem; color: var(--mapa-texto-3); font-size: .85rem; }
+  .mapa-mini-tipo { align-self: start; margin-top: .15rem; font-family: var(--font-mono); font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; }
+
+  .mapa-popover-filtros { right: var(--space-5); width: 17rem; padding: .9rem; }
+  .mapa-popover-cabecalho { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-2); font-size: .85rem; }
+  .mapa-popover-filtros label { display: grid; min-height: 2.75rem; grid-template-columns: auto auto 1fr auto; align-items: center; gap: .65rem; border-top: 1px solid var(--mapa-borda); color: var(--mapa-texto); font-size: .8rem; cursor: pointer; }
+  .mapa-popover-filtros input { accent-color: var(--mapa-selecao); }
+  .mapa-popover-filtros small { color: var(--mapa-texto-3); font-family: var(--font-mono); }
+  .mapa-popover-filtros p { margin-top: .65rem; color: var(--mapa-texto-3); font-size: .7rem; line-height: 1.45; }
+  .mapa-legenda-sinal { display: inline-block; width: .75rem; height: .75rem; border: 1px solid currentColor; }
+  .mapa-mini-pessoa { color: var(--mapa-texto); border-radius: 50%; }
+  .mapa-mini-instituicao { color: var(--mapa-no-traco); transform: rotate(45deg); }
+  .mapa-mini-processo { color: var(--mapa-processo); border-radius: 1px; }
+  .mapa-mini-documento { color: var(--mapa-no-traco-2); border-radius: 1px; }
+  .mapa-mini-tipo.mapa-mini-instituicao { transform: none; }
+
+  .mapa-aresta { stroke: var(--mapa-aresta); stroke-width: 1; opacity: .38; vector-effect: non-scaling-stroke; }
+  .mapa-aresta-forte { stroke-width: 1.35; }
+  .mapa-aresta-apuracao { stroke: var(--mapa-aresta-apuracao); stroke-dasharray: 5 4; }
+  .mapa-aresta-controverso { stroke: var(--mapa-aresta-controverso); stroke-dasharray: 2 4; }
+  .mapa-arestas marker path { fill: var(--mapa-texto-3); }
+  .mapa-aresta-hit { stroke: transparent; stroke-width: 13; cursor: pointer; vector-effect: non-scaling-stroke; }
+  .mapa-arestas .is-dimmed { opacity: .08; }
+  .mapa-arestas .is-selected .mapa-aresta { stroke: var(--mapa-selecao); stroke-width: 2; opacity: 1; filter: url(#mapa-glow); }
+  .mapa-aresta-rotulo { cursor: pointer; }
+  .mapa-aresta-rotulo rect { fill: var(--mapa-painel); stroke: var(--mapa-borda-forte); stroke-width: .7; }
+  .mapa-aresta-rotulo text { fill: var(--mapa-texto); font-family: var(--font-mono); font-size: 8px; letter-spacing: .01em; }
+
+  .mapa-no { cursor: pointer; outline: none; }
+  .mapa-no.is-dimmed { opacity: .13; }
+  .mapa-no:focus-visible .mapa-no-marca > :first-child { stroke: var(--mapa-selecao); stroke-width: 2.5; }
+  .mapa-no-marca > circle:first-child, .mapa-no-marca > rect:first-child, .mapa-no-marca > path:first-child { fill: var(--mapa-no); stroke: var(--mapa-no-traco); stroke-width: 1.35; vector-effect: non-scaling-stroke; }
+  .mapa-no-marca text { fill: var(--mapa-texto); font-family: var(--font-sans); font-size: 10px; font-weight: 600; letter-spacing: .08em; }
+  .mapa-no-anel { fill: none; stroke: var(--mapa-borda-forte); stroke-width: .7; }
+  /*
+   * Retrato. O aro sobrepoe a borda do recorte, que sai serrilhada no SVG, e
+   * devolve ao no com foto o mesmo contorno que o monograma tem — para os dois
+   * estados parecerem o mesmo componente em variantes, e nao um completo e um
+   * quebrado. Fotos so entram com credito e licenca; ver `Foto` em lib/schema.
+   */
+  .mapa-no-marca.tem-foto > circle:first-child { fill: var(--mapa-fundo); }
+  .mapa-no-aro { fill: none; stroke: var(--mapa-no-traco); stroke-width: 1.35; vector-effect: non-scaling-stroke; }
+  .mapa-no-marca.tem-foto image { filter: saturate(.72) contrast(1.04); }
+  .mapa-no-marca.tem-foto.is-selected image { filter: none; }
+  .mapa-no-marca.tem-logo > rect:first-of-type { fill: var(--mapa-logo-fundo); }
+  .mapa-no-marca.tem-logo image { filter: saturate(.78) contrast(1.05); }
+  .mapa-no-instituicao > rect { fill: var(--mapa-no); stroke: var(--mapa-no-traco-2); }
+  .mapa-no-processo > rect { fill: var(--mapa-no); stroke: var(--mapa-processo); }
+  .mapa-no-processo text { fill: var(--mapa-texto); font-family: var(--font-mono); font-size: 8px; letter-spacing: -.04em; }
+  .mapa-no-documento > path:first-child { fill: var(--mapa-no); stroke: var(--mapa-no-traco-2); }
+  .mapa-no-documento line, .mapa-no-dobra { fill: none; stroke: var(--mapa-aresta); stroke-width: .8; }
+  .mapa-no-marca.is-selected > :first-child { stroke: var(--mapa-selecao); stroke-width: 2.2; filter: url(#mapa-glow); }
+  .mapa-no-nome { fill: var(--mapa-texto); paint-order: stroke; stroke: var(--mapa-fundo); stroke-width: 3px; font-family: var(--font-sans); font-size: 10px; font-weight: 500; letter-spacing: -.01em; }
+  .mapa-no-papel { fill: var(--mapa-texto-2); paint-order: stroke; stroke: var(--mapa-fundo); stroke-width: 3px; font-family: var(--font-mono); font-size: 6.5px; }
+
+  .mapa-rodape { position: absolute; z-index: 5; bottom: 1.25rem; left: var(--space-5); display: flex; max-width: calc(100% - 24rem); align-items: center; gap: 1.25rem; pointer-events: none; }
+  .mapa-rodape p { color: var(--mapa-texto-3); font-size: .7rem; }
+  .mapa-indice { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--mapa-texto-3); white-space: nowrap; }
+  .mapa-indice span { color: var(--mapa-texto); font-size: 1rem; }
+  .mapa-zoom { position: absolute; z-index: 7; right: var(--space-5); bottom: 1.25rem; display: flex; align-items: center; border: 1px solid var(--mapa-borda-forte); border-radius: var(--radius-sm); background: var(--mapa-painel); }
+  .mapa-zoom button, .mapa-zoom span { display: grid; min-width: 2.75rem; min-height: 2.75rem; place-items: center; color: var(--mapa-texto-2); font-family: var(--font-mono); font-size: .72rem; }
+  .mapa-zoom button:hover { color: var(--mapa-texto); background: var(--mapa-superficie); }
+  .mapa-zoom .mapa-reenquadrar { width: auto; padding: 0 var(--space-3); border-left: 1px solid var(--mapa-borda-forte); text-transform: uppercase; letter-spacing: .06em; }
+
+  .mapa-ficha { position: absolute; z-index: 10; top: 0; right: 0; bottom: 0; width: min(27rem, 38vw); overflow-y: auto; border-left: 1px solid var(--mapa-borda-forte); background: var(--mapa-painel); padding: 1.25rem 1.4rem var(--space-5); box-shadow: var(--mapa-sombra); }
+  .mapa-ficha-acoes { display: flex; justify-content: space-between; margin-bottom: 2.5rem; }
+  .mapa-ficha-acoes button { display: grid; width: 2.75rem; height: 2.75rem; place-items: center; border: 1px solid var(--mapa-borda-forte); border-radius: var(--radius-sm); color: var(--mapa-texto-2); font-size: 1.1rem; }
+  .mapa-ficha-acoes button:hover { border-color: var(--mapa-selecao); color: var(--mapa-texto); }
+  .mapa-ficha-tipo { display: flex; align-items: center; gap: .55rem; color: var(--mapa-texto-2); font-family: var(--font-mono); font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; }
+  .mapa-linha-amostra { width: var(--space-5); border-top: 1px solid var(--mapa-selecao); }
+  .mapa-ficha h3 { margin-top: var(--space-3); color: var(--mapa-texto); font-family: var(--font-serif); font-size: clamp(1.65rem, 3vw, 2.5rem); font-weight: 600; letter-spacing: -.02em; line-height: 1.06; }
+  .mapa-ficha-papel { margin-top: .7rem; color: var(--mapa-texto-2); font-size: .875rem; line-height: 1.5; }
+  .mapa-status { display: inline-flex; align-items: center; gap: .45rem; margin-top: .85rem; border: 1px solid currentColor; border-radius: var(--radius-xs); padding: .25rem .4rem; font-family: var(--font-mono); font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; }
+  .mapa-status > span { width: .38rem; height: .38rem; border-radius: 50%; background: currentColor; }
+  .mapa-status-confirmado { color: var(--escuro-confirmado); }
+  .mapa-status-apuracao { color: var(--escuro-apuracao); }
+  .mapa-status-controverso { color: var(--escuro-controverso); }
+  .mapa-ficha-resumo { margin-top: 1.25rem; color: var(--mapa-texto); font-size: .9rem; line-height: 1.6; }
+  .mapa-ficha section { margin-top: 1.7rem; padding-top: var(--space-4); border-top: 1px solid var(--mapa-borda); }
+  .mapa-ficha h4 { display: flex; justify-content: space-between; color: var(--mapa-texto-2); font-family: var(--font-mono); font-size: .65rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; }
+  .mapa-ficha h4 span { color: var(--mapa-selecao); }
+  .mapa-ficha-nota { margin-top: .55rem; color: var(--mapa-texto-3); font-size: .72rem; line-height: 1.45; }
+  .mapa-ficha-relacoes, .mapa-ficha-eventos { margin-top: .55rem; }
+  .mapa-ficha-relacoes li + li, .mapa-ficha-eventos li + li { border-top: 1px solid var(--mapa-borda); }
+  .mapa-ficha-relacoes button { display: grid; width: 100%; grid-template-columns: 1.2rem 1fr; gap: var(--space-2); padding: .7rem 0; color: var(--mapa-texto-2); text-align: left; }
+  .mapa-ficha-relacoes button:hover strong { color: var(--mapa-selecao); }
+  .mapa-ficha-relacoes button > span:last-child { display: grid; gap: .2rem; }
+  .mapa-ficha-relacoes strong { color: var(--mapa-texto); font-size: .8rem; font-weight: 500; line-height: 1.35; }
+  .mapa-ficha-relacoes small { color: var(--mapa-texto-3); font-size: .72rem; }
+  .mapa-ficha-eventos li { display: grid; grid-template-columns: 5rem 1fr; gap: .65rem; padding: .65rem 0; font-size: .8rem; }
+  .mapa-ficha-eventos time { color: var(--mapa-texto-3); font-family: var(--font-mono); font-size: .68rem; }
+  .mapa-ficha-eventos a { color: var(--mapa-texto); text-decoration: none; }
+  .mapa-ficha-eventos a:hover { color: var(--mapa-selecao); }
+  .mapa-ficha-fontes { display: grid; gap: .45rem; margin-top: var(--space-5); padding: .9rem; border: 1px solid var(--mapa-borda-forte); border-radius: var(--radius-sm); background: var(--mapa-fundo); }
+  .mapa-ficha-fontes > small { color: var(--mapa-texto-3); font-size: .68rem; }
+  /* O no nao tem onde creditar um retrato de 44px; a ficha tem. */
+  .mapa-ficha-credito { color: var(--mapa-texto-3); font-size: .65rem; line-height: 1.45; }
+  .mapa-ficha-credito a { color: var(--mapa-texto-2); text-decoration: underline; text-underline-offset: 2px; }
+  .mapa-ficha-fontes a { display: grid; grid-template-columns: 1fr auto; gap: .2rem var(--space-2); color: var(--mapa-texto); font-size: .8rem; text-decoration: none; }
+  .mapa-ficha-fontes a small { grid-column: 1 / -1; color: var(--mapa-texto-3); font-size: .68rem; }
+  .mapa-ficha-fontes a:hover { color: var(--mapa-selecao); }
+  .mapa-ficha-pagina { display: flex; justify-content: space-between; margin-top: .7rem; border: 1px solid var(--mapa-selecao); border-radius: var(--radius-sm); padding: var(--space-3) .9rem; color: var(--mapa-texto); font-size: .8rem; text-decoration: none; }
+  .mapa-ficha-pagina:hover { background: var(--mapa-selecao); color: var(--mapa-fundo); }
+  .mapa-relacao-pontas { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .6rem; margin-top: var(--space-5); }
+  .mapa-relacao-pontas button { display: grid; gap: .3rem; min-height: 4.5rem; border: 1px solid var(--mapa-borda-forte); border-radius: var(--radius-sm); padding: .65rem; text-align: left; }
+  .mapa-relacao-pontas button:hover { border-color: var(--mapa-selecao); }
+  .mapa-relacao-pontas small { color: var(--mapa-texto-3); font-family: var(--font-mono); font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; }
+  .mapa-relacao-pontas strong { color: var(--mapa-texto); font-size: .8rem; font-weight: 500; line-height: 1.25; }
+  .mapa-relacao-pontas > span { color: var(--mapa-selecao); }
+  .mapa-instrucoes { display: flex; justify-content: space-between; gap: var(--space-6); padding: .85rem 0 0; color: var(--color-ink-3); font-size: .75rem; line-height: 1.5; }
+  .mapa-instrucoes p:last-child { text-align: right; }
+
+  @media (max-width: 48rem) {
+    .mapa-palco.mapa-tela { min-height: 36rem; }
+    .mapa-topbar { top: .8rem; left: .8rem; right: .8rem; align-items: center; }
+    .mapa-capitulo { display: none; }
+    .mapa-titulo strong { font-size: 1rem; }
+    .mapa-acoes { gap: .35rem; }
+    .mapa-modo button { padding: .3rem .45rem; font-size: .56rem; }
+    .mapa-controle { min-height: 2.4rem; padding: .5rem .6rem; font-size: .62rem; }
+    .mapa-busca-gatilho { font-size: 0; }
+    /* O atalho `/` não existe sem teclado físico; a caixa vazia ficava para trás. */
+    .mapa-busca-gatilho kbd { display: none; }
+    .mapa-busca-gatilho span { font-size: 1.1rem; }
+    .mapa-popover { top: 3.8rem; right: .8rem; }
+    .mapa-popover-busca { left: .8rem; width: auto; }
+    .mapa-popover-filtros { width: min(17rem, calc(100% - 1.6rem)); }
+    .mapa-rodape { bottom: 4.2rem; left: .8rem; max-width: calc(100% - 1.6rem); }
+    .mapa-rodape p { display: none; }
+    .mapa-zoom { right: .8rem; bottom: .8rem; }
+    .mapa-zoom .mapa-reenquadrar { padding: 0 .55rem; font-size: .58rem; }
+    .mapa-ficha { top: auto; left: 0; right: 0; bottom: 0; width: 100%; max-height: 52svh; border-top: 1px solid var(--mapa-borda-forte); border-left: 0; padding: var(--space-4); border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+    .mapa-ficha::before { content: ""; display: block; width: 2.7rem; height: 3px; margin: -.25rem auto .7rem; border-radius: 3px; background: var(--mapa-texto-3); }
+    .mapa-ficha-acoes { margin-bottom: 1.2rem; }
+    .mapa-ficha h3 { font-size: 1.7rem; }
+    .mapa-instrucoes { display: block; }
+    .mapa-instrucoes p:last-child { margin-top: .35rem; text-align: left; }
+  }
+
+  /* Fluidez — transições e entradas -------------------------------------- */
+
+  /*
+   * Vocabulário curto de propósito: easeOutQuad para o que aparece,
+   * easeInOutQuad para mudança de estado, e nada acima de meio segundo. São as
+   * duas curvas e a faixa de duração medidas na referência — um repertório
+   * pequeno é o que faz movimentos diferentes parecerem do mesmo lugar.
+   */
+  .mapa-no { transition: opacity .3s cubic-bezier(.25, .46, .45, .94); }
+  .mapa-no-marca { transition: transform .22s cubic-bezier(.455, .03, .515, .955); }
+  /* As marcas sao desenhadas centradas em 0,0, entao a escala ja gira em torno
+     do proprio no — sem precisar de transform-origin. */
+  .mapa-no:hover .mapa-no-marca { transform: scale(1.07); }
+  .mapa-no-marca.is-selected { transform: scale(1.1); }
+  .mapa-no-nome, .mapa-no-papel { animation: mapa-surge .26s cubic-bezier(.25, .46, .45, .94) both; }
+
+  .mapa-arestas > g { transition: opacity .3s cubic-bezier(.25, .46, .45, .94); }
+  .mapa-aresta {
+    transition:
+      stroke .25s cubic-bezier(.455, .03, .515, .955),
+      stroke-width .25s cubic-bezier(.455, .03, .515, .955),
+      opacity .3s cubic-bezier(.25, .46, .45, .94);
+  }
+
+  .mapa-ficha { animation: mapa-ficha-entra .34s cubic-bezier(.25, .46, .45, .94) both; }
+  /* O conteudo entra logo atras do painel, escalonado: o olho pousa no nome
+     antes de a lista de relacoes chegar, em vez de receber tudo de uma vez. */
+  .mapa-ficha > * { animation: mapa-sobe .3s cubic-bezier(.25, .46, .45, .94) both; }
+  .mapa-ficha > *:nth-child(1) { animation-delay: .08s; }
+  .mapa-ficha > *:nth-child(2) { animation-delay: .12s; }
+  .mapa-ficha > *:nth-child(3) { animation-delay: .16s; }
+  .mapa-ficha > *:nth-child(n + 4) { animation-delay: .2s; }
+
+  .mapa-popover { animation: mapa-popover-entra .24s cubic-bezier(.25, .46, .45, .94) both; }
 }
 
 @keyframes mapa-surge { from { opacity: 0; } to { opacity: 1; } }
@@ -688,18 +842,8 @@ a {
 @keyframes mapa-ficha-entra { from { opacity: 0; transform: translateX(1.6rem); } to { opacity: 1; transform: none; } }
 @keyframes mapa-popover-entra { from { opacity: 0; transform: translateY(-.5rem) scale(.985); } to { opacity: 1; transform: none; } }
 
-.mapa-ficha { animation: mapa-ficha-entra .34s cubic-bezier(.25, .46, .45, .94) both; }
-/* O conteudo entra logo atras do painel, escalonado: o olho pousa no nome
-   antes de a lista de relacoes chegar, em vez de receber tudo de uma vez. */
-.mapa-ficha > * { animation: mapa-sobe .3s cubic-bezier(.25, .46, .45, .94) both; }
-.mapa-ficha > *:nth-child(1) { animation-delay: .08s; }
-.mapa-ficha > *:nth-child(2) { animation-delay: .12s; }
-.mapa-ficha > *:nth-child(3) { animation-delay: .16s; }
-.mapa-ficha > *:nth-child(n + 4) { animation-delay: .2s; }
-
-.mapa-popover { animation: mapa-popover-entra .24s cubic-bezier(.25, .46, .45, .94) both; }
-
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .mapa-no, .mapa-no-marca, .mapa-aresta, .mapa-arestas > g { transition: none; }
   /*
    * Zera a animacao, nao o transform: a escala do no selecionado e estado, nao

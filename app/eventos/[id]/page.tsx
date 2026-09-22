@@ -36,11 +36,11 @@ export default async function EventoPage({ params }: { params: Promise<{ id: str
   return (
     <article className="space-y-10">
       <header>
-        <Link href="/timeline" className="kicker no-underline hover:text-seal">
+        <Link href="/timeline" className="kicker no-underline hover:text-accent">
           ← Voltar para o que aconteceu
         </Link>
         <div className="mt-3 flex flex-wrap items-center gap-3">
-          <span className="numero text-2xl text-seal">{dataBR(e.data)}</span>
+          <span className="numero text-2xl text-accent">{dataBR(e.data)}</span>
           <span className="kicker">{TIPO_LABEL[e.tipo]}</span>
           {e.milestone && <span className="selo">Marco</span>}
           <ConfiancaBadge confianca={e.confianca} />
@@ -55,7 +55,7 @@ export default async function EventoPage({ params }: { params: Promise<{ id: str
           <SourceTag fonte={e} />
         </div>
         {e.sigilo_ack && (
-          <p className="mt-4 max-w-3xl border-l-2 border-seal bg-paper-2/60 px-4 py-3 text-sm leading-relaxed text-ink-2">
+          <p className="mt-4 max-w-3xl border-l-2 border-accent bg-surface-2/60 px-4 py-3 text-sm leading-relaxed text-ink-2">
             Este evento toca processo sob sigilo. O registro afirma que a peça existe e que há
             controvérsia pública sobre ela — nunca seu conteúdo.
           </p>
@@ -96,16 +96,16 @@ export default async function EventoPage({ params }: { params: Promise<{ id: str
       <nav className="flex flex-wrap justify-between gap-4 border-t border-rule pt-4">
         {anterior ? (
           <Link href={`/eventos/${anterior.id}`} className="max-w-[45%] no-underline group">
-            <span className="kicker group-hover:text-seal">← {dataBR(anterior.data)}</span>
-            <p className="headline text-sm text-ink-2 group-hover:text-seal">{anterior.titulo}</p>
+            <span className="kicker group-hover:text-accent">← {dataBR(anterior.data)}</span>
+            <p className="headline text-sm text-ink-2 group-hover:text-accent">{anterior.titulo}</p>
           </Link>
         ) : (
           <span />
         )}
         {seguinte && (
           <Link href={`/eventos/${seguinte.id}`} className="max-w-[45%] text-right no-underline group">
-            <span className="kicker group-hover:text-seal">{dataBR(seguinte.data)} →</span>
-            <p className="headline text-sm text-ink-2 group-hover:text-seal">{seguinte.titulo}</p>
+            <span className="kicker group-hover:text-accent">{dataBR(seguinte.data)} →</span>
+            <p className="headline text-sm text-ink-2 group-hover:text-accent">{seguinte.titulo}</p>
           </Link>
         )}
       </nav>

@@ -58,7 +58,7 @@ export default async function ProcessoPage({
   return (
     <article className="space-y-10">
       <header>
-        <Link href="/processos" className="kicker no-underline hover:text-seal">
+        <Link href="/processos" className="kicker no-underline hover:text-accent">
           ← Voltar para processos
         </Link>
         <div className="mt-3 flex flex-wrap items-center gap-3">
@@ -76,7 +76,7 @@ export default async function ProcessoPage({
       </header>
 
       {p.sigilo === "sigiloso" && (
-        <p className="border-l-2 border-seal bg-paper-2/60 px-4 py-3 text-sm leading-relaxed text-ink-2">
+        <p className="border-l-2 border-accent bg-surface-2/60 px-4 py-3 text-sm leading-relaxed text-ink-2">
           Processo sob sigilo. O painel registra apenas dados de tramitação divulgados
           publicamente e o fato de que a peça existe — nunca seu conteúdo.
         </p>
@@ -135,9 +135,9 @@ export default async function ProcessoPage({
           )}
 
           {p.proximo_evento && (
-            <div className="mt-4 border-l-2 border-seal pl-3">
-              <p className="kicker text-seal">Próximo ato</p>
-              <p className="numero mt-0.5 text-base text-seal">
+            <div className="mt-4 border-l-2 border-accent pl-3">
+              <p className="kicker text-accent">Próximo ato</p>
+              <p className="numero mt-0.5 text-base text-accent">
                 <DataBR iso={p.proximo_evento.data} />
               </p>
               <p className="text-sm text-ink-2">{p.proximo_evento.descricao}</p>
@@ -205,7 +205,7 @@ export default async function ProcessoPage({
                   <p className="mt-1 max-w-3xl text-sm leading-relaxed text-ink-2">{d.resumo}</p>
                   <p className="mt-1 text-xs text-ink-3">
                     Assinada por{" "}
-                    <Link href={ref(d.autor_id).href} className="underline hover:text-seal">
+                    <Link href={ref(d.autor_id).href} className="underline hover:text-accent">
                       {ref(d.autor_id).rotulo}
                     </Link>
                   </p>

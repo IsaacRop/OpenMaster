@@ -53,7 +53,7 @@ function Realce({ texto, termos }: { texto: string; termos: string[] }) {
     <>
       {partes.map((parte, i) =>
         alvos.has(parte.toLowerCase()) ? (
-          <mark key={i} className="bg-gold/25 text-ink">
+          <mark key={i} className="bg-accent-soft text-ink">
             {parte}
           </mark>
         ) : (
@@ -145,7 +145,7 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
                   className={`numero border px-2 py-0.5 text-[0.625rem] uppercase tracking-[0.12em] transition-colors ${
                     oculto
                       ? "border-rule text-ink-3 line-through"
-                      : "border-ink bg-ink text-paper-3"
+                      : "border-ink bg-ink text-surface"
                   }`}
                 >
                   {TITULO_GRUPO[t]} {contagem(t)}
@@ -177,7 +177,7 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
                             <TipoBadge tipo={r.tipo} />
                             <Link
                               href={r.href}
-                              className="headline text-lg text-ink no-underline hover:text-seal"
+                              className="headline text-lg text-ink no-underline hover:text-accent"
                             >
                               <Realce texto={r.titulo} termos={termos} />
                             </Link>

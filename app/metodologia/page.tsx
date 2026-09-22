@@ -40,8 +40,8 @@ export default function MetodologiaPage() {
         <div className="rule-thick mt-4" />
       </header>
 
-      <div className="border-l-4 border-seal bg-paper-2/60 px-5 py-4">
-        <p className="kicker text-seal">Corte temporal desta edição</p>
+      <div className="border-l-4 border-accent bg-surface-2/60 px-5 py-4">
+        <p className="kicker text-accent">Corte temporal desta edição</p>
         <p className="mt-2 max-w-3xl text-base leading-relaxed text-ink">
           Base verificada até {dataBR(dataCorte)} — a data mais recente entre as movimentações
           registradas nos processos. Verifique a matéria fonte antes de tratar qualquer item
@@ -95,10 +95,10 @@ export default function MetodologiaPage() {
       <Secao titulo="Hedging: por que alguns itens vêm marcados">
         <p>
           Cada registro carrega um grau de confiança que espelha o da própria fonte.{" "}
-          <span className="numero text-seal">Em apuração</span> marca o que a imprensa ainda trata
+          <span className="numero text-apuracao">Em apuração</span> marca o que a imprensa ainda trata
           como apuração em curso, e também atos apenas pautados — uma sessão marcada não é um
           julgamento realizado.{" "}
-          <span className="numero text-disputed">Ponto controverso</span> marca aquilo sobre o que há
+          <span className="numero text-controverso">Ponto controverso</span> marca aquilo sobre o que há
           disputa pública. Quando um ato pautado acontece, o resultado entra como evento novo; o
           item de pauta permanece como estava, para que o registro do que se esperava não seja
           reescrito pelo que veio depois.
@@ -167,7 +167,7 @@ export default function MetodologiaPage() {
                 href={f.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-ink underline decoration-rule underline-offset-2 hover:text-seal"
+                className="text-ink underline decoration-rule underline-offset-2 hover:text-accent"
               >
                 {f.nome}
               </a>

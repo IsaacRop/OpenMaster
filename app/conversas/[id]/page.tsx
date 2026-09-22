@@ -36,11 +36,11 @@ function ChatMensagem({ msg, souDV }: { msg: ConversaMensagem; souDV: boolean })
     <li className={`flex ${souDV ? "justify-end" : "justify-start"}`}>
       <div
         className={`max-w-[82%] border px-3 py-2 text-sm leading-relaxed ${
-          souDV ? "border-seal/40 bg-seal/10 text-ink" : "border-rule bg-paper-3 text-ink"
+          souDV ? "border-accent/40 bg-accent/10 text-ink" : "border-rule bg-surface text-ink"
         }`}
       >
         {!souDV && (
-          <p className="numero mb-0.5 text-[0.6875rem] font-semibold text-seal">
+          <p className="numero mb-0.5 text-[0.6875rem] font-semibold text-accent">
             {nomeExibicao(msg.sender)}
           </p>
         )}
@@ -106,7 +106,7 @@ export default async function ConversaPage({
             <Link
               href="/conversas"
               aria-label="Voltar para a lista de conversas"
-              className="shrink-0 px-1 text-lg text-ink-2 no-underline hover:text-seal"
+              className="shrink-0 px-1 text-lg text-ink-2 no-underline hover:text-accent"
             >
               ←
             </Link>
@@ -129,7 +129,7 @@ export default async function ConversaPage({
                   title="Dia anterior"
                   className={`shrink-0 border px-3 py-1.5 text-center text-sm no-underline ${
                     diaAnterior
-                      ? "border-rule text-ink-2 hover:border-seal hover:text-seal"
+                      ? "border-rule text-ink-2 hover:border-accent hover:text-accent"
                       : "cursor-not-allowed border-rule/40 text-ink-3/40"
                   }`}
                 >
@@ -150,7 +150,7 @@ export default async function ConversaPage({
                   title="Dia seguinte"
                   className={`shrink-0 border px-3 py-1.5 text-center text-sm no-underline ${
                     diaProximo
-                      ? "border-rule text-ink-2 hover:border-seal hover:text-seal"
+                      ? "border-rule text-ink-2 hover:border-accent hover:text-accent"
                       : "cursor-not-allowed border-rule/40 text-ink-3/40"
                   }`}
                 >
@@ -168,7 +168,7 @@ export default async function ConversaPage({
                   defaultValue={diaAtivo}
                   name="data"
                   aria-label="Pular para um dia específico da conversa"
-                  className="min-w-0 flex-1 border border-rule bg-paper-2 px-1.5 py-1 text-[0.625rem] text-ink"
+                  className="min-w-0 flex-1 border border-rule bg-surface-2 px-1.5 py-1 text-[0.625rem] text-ink"
                 >
                   {datas.map((d) => (
                     <option key={d.date} value={d.date}>
@@ -178,7 +178,7 @@ export default async function ConversaPage({
                 </select>
                 <button
                   type="submit"
-                  className="shrink-0 border border-rule px-2 py-1 text-[0.625rem] text-ink-2 hover:border-seal hover:text-seal"
+                  className="shrink-0 border border-rule px-2 py-1 text-[0.625rem] text-ink-2 hover:border-accent hover:text-accent"
                 >
                   Ir
                 </button>
@@ -197,7 +197,7 @@ export default async function ConversaPage({
       </PhoneFrame>
 
       <p className="shrink-0 text-center text-[0.6875rem] leading-none text-ink-3">
-        <Link href="/conversas" className="underline hover:text-seal">
+        <Link href="/conversas" className="underline hover:text-accent">
           ← todas as conversas
         </Link>
         {" · "}
@@ -206,7 +206,7 @@ export default async function ConversaPage({
           href="https://www.masterwhats.com.br/"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline decoration-rule underline-offset-2 hover:text-seal hover:decoration-seal"
+          className="underline decoration-rule underline-offset-2 hover:text-accent hover:decoration-accent"
         >
           MasterWhats
         </a>

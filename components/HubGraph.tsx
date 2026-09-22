@@ -1,10 +1,10 @@
 import { arestasGrafo, nosGrafo } from "@/lib/grafo";
 
 const COR_GRUPO = {
-  central: "var(--color-seal)",
-  stf: "var(--color-ok)",
+  central: "var(--color-accent)",
+  stf: "var(--color-ink-2)",
   instituicao: "var(--color-ink-3)",
-  outros: "var(--color-disputed)",
+  outros: "var(--color-ink-3)",
   processo: "var(--color-ink-2)",
   documento: "var(--color-ink-3)",
 } as const;
@@ -38,7 +38,7 @@ export default function HubGraph() {
               y1={inicio.y}
               x2={fim.x}
               y2={fim.y}
-              stroke={a.apuracao ? "var(--color-seal)" : undefined}
+              stroke={a.apuracao ? "var(--color-accent)" : undefined}
               strokeDasharray={a.apuracao ? "4 4" : undefined}
               opacity={a.apuracao ? 0.8 : 1}
             />

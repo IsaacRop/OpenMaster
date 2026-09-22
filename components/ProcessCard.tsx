@@ -5,7 +5,7 @@ import { SIGILO_LABEL, STATUS_LABEL, type Processo } from "@/lib/schema";
 import { SourceTag } from "./SourceTag";
 
 const STATUS_ESTILO: Record<Processo["status"], string> = {
-  pautado: "bg-seal text-paper-3",
+  pautado: "bg-accent text-on-accent",
   em_aberto: "border border-ink-2 text-ink-2",
   decidido: "border border-rule text-ink-3",
 };
@@ -25,10 +25,10 @@ export default function ProcessCard({ processo: p }: { processo: Processo }) {
   const syncNota = SYNC_NOTA[p.sync];
 
   return (
-    <article className="panel group flex h-full flex-col p-4 transition-colors hover:border-seal/60">
+    <article className="panel group flex h-full flex-col p-4 transition-colors hover:border-accent/60">
       <header className="flex items-start justify-between gap-3">
         <Link href={`/processos/${p.id}`} className="no-underline">
-          <h3 className="numero text-lg font-medium text-ink hover:text-seal">{p.numero}</h3>
+          <h3 className="numero text-lg font-medium text-ink hover:text-accent">{p.numero}</h3>
         </Link>
         <span
           className={`numero shrink-0 px-2 py-0.5 text-[0.625rem] uppercase tracking-[0.12em] ${STATUS_ESTILO[p.status]}`}
@@ -56,8 +56,8 @@ export default function ProcessCard({ processo: p }: { processo: Processo }) {
         )}
         {p.proximo_evento && (
           <div className="flex gap-2">
-            <dt className="kicker shrink-0 w-20 text-seal">A seguir</dt>
-            <dd className="text-seal">
+            <dt className="kicker shrink-0 w-20 text-accent">A seguir</dt>
+            <dd className="text-accent">
               <DataBR iso={p.proximo_evento.data} /> — {p.proximo_evento.descricao}
             </dd>
           </div>

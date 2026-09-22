@@ -1,36 +1,62 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
-import { Archivo, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Inter, Newsreader } from "next/font/google";
 
 import ConditionalDisclaimer from "@/components/ConditionalDisclaimer";
 import LogoMark from "@/components/LogoMark";
 import MainNav from "@/components/MainNav";
+import ThemeToggle from "@/components/ThemeToggle";
+import { COR_TEMA, SCRIPT_TEMA } from "@/components/tema";
 import { dataCorte } from "@/lib/data";
 import "./globals.css";
+
+/*
+ * Três vozes: Newsreader para o que é manchete (tem eixo de tamanho óptico,
+ * então o mesmo arquivo serve ao título de 52px e ao de 17px), Inter para a
+ * interface e o corpo, IBM Plex Mono para datas, números e metadados.
+ */
+const serif = Newsreader({
+  subsets: ["latin"],
+  weight: "variable",
+  axes: ["opsz"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 const mono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-mono-stack",
-  display: "swap",
-});
-
-const sans = Archivo({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-sans-stack",
+  variable: "--font-plex-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "OpenMaster — inteligência pública com IA",
+  metadataBase: new URL("https://openmaster.vercel.app"),
+  title: "OpenMaster — o caso Banco Master, com fonte em cada linha",
   description:
-    "Painel público de consulta ao caso Banco Master: um agente de IA apoiado por processos, documentos, linha do tempo e relações verificáveis, com fonte em cada afirmação.",
+    "Acompanhamento independente do caso Banco Master: processos, documentos, linha do tempo, mapa de envolvidos e um agente de IA, com a fonte de cada afirmação.",
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: COR_TEMA.light },
+    { media: "(prefers-color-scheme: dark)", color: COR_TEMA.dark },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${mono.variable} ${sans.variable}`}>
+    // `data-theme` é escrito pelo script abaixo antes da hidratação.
+    <html lang="pt-BR" className={`${serif.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: SCRIPT_TEMA }} />
+      </head>
       <body className="min-h-screen antialiased">
         <a href="#conteudo" className="skip-link">
           Pular para o conteúdo
@@ -40,8 +66,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-x-5 gap-y-2 px-4 py-3 sm:px-6">
             <Link href="/" className="inline-flex shrink-0 items-center gap-2.5 no-underline" aria-label="OpenMaster - início">
               <LogoMark size={30} />
-              <span className="text-[1.08rem] tracking-[-0.025em]">
-                <span className="font-normal text-ink">Open</span><span className="font-bold text-white">Master</span>
+              <span className="wordmark">
+                Open<b>Master</b>
               </span>
             </Link>
 
@@ -50,15 +76,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             <Link href="/agente" className="search-affordance ml-auto lg:min-w-64 lg:flex-1">
-              <span className="text-seal" aria-hidden="true">⌁</span>
+              <span className="text-accent" aria-hidden="true">⌁</span>
               <span className="hidden sm:inline">Perguntar ao agente…</span>
               <span className="sm:hidden">Agente IA</span>
             </Link>
 
             <Link href="/metodologia" className="status-line hidden xl:inline-flex">
-              <span className="h-1.5 w-1.5 rounded-full bg-ok" aria-hidden="true" />
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
               Dados até {dataCorte.split("-").reverse().join("/")}
             </Link>
+
+            <ThemeToggle />
           </div>
         </header>
 

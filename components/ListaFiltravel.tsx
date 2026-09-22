@@ -81,7 +81,7 @@ function Campo({
       <select
         value={valor}
         onChange={(e) => aoMudar(chave, e.target.value)}
-        className="numero max-w-[15rem] border border-rule bg-paper-3 px-2 py-1 text-sm text-ink outline-none focus:border-ink"
+        className="numero max-w-[15rem] border border-rule bg-surface px-2 py-1 text-sm text-ink outline-none focus:border-ink"
       >
         <option value="">todos</option>
         {opcoes.map((o) => (
@@ -110,7 +110,7 @@ function CampoData({
         type="date"
         value={valor}
         onChange={(e) => aoMudar(chave, e.target.value)}
-        className="numero border border-rule bg-paper-3 px-2 py-1 text-sm text-ink outline-none focus:border-ink"
+        className="numero border border-rule bg-surface px-2 py-1 text-sm text-ink outline-none focus:border-ink"
       />
     </label>
   );
@@ -195,7 +195,7 @@ export default function ListaFiltravel({
           <button
             type="button"
             onClick={limpar}
-            className="kicker border border-rule px-2 py-1.5 hover:border-seal hover:text-seal"
+            className="kicker border border-rule px-2 py-1.5 hover:border-accent hover:text-accent"
           >
             Limpar {ativos.length}
           </button>

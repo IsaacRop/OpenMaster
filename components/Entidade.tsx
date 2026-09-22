@@ -42,7 +42,7 @@ export function EntidadeLink({
       {comTipo && <TipoBadge tipo={entidade.tipo} />}
       <Link
         href={entidade.href}
-        className={`${entidade.tipo === "processo" || entidade.tipo === "documento" ? "numero" : "headline"} text-base text-ink no-underline decoration-rule hover:text-seal hover:underline`}
+        className={`${entidade.tipo === "processo" || entidade.tipo === "documento" ? "numero" : "headline"} text-base text-ink no-underline decoration-rule hover:text-accent hover:underline`}
       >
         {entidade.rotulo}
       </Link>
