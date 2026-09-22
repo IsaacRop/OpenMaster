@@ -91,7 +91,7 @@ export default async function DocumentoPage({ params }: { params: Promise<{ id: 
                 href={d.pdf_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="numero mt-2 inline-block border border-ink px-3 py-1.5 text-sm text-ink no-underline hover:border-accent hover:text-accent"
+                className="numero mt-2 inline-block rounded-full border border-rule-strong bg-surface px-4 py-2 text-sm font-medium text-ink no-underline shadow-sm hover:border-accent hover:text-accent"
               >
                 Abrir documento público ↗
               </a>
@@ -107,7 +107,7 @@ export default async function DocumentoPage({ params }: { params: Promise<{ id: 
 
           {irmas.length > 0 && (
             <section>
-              <h2 className="kicker border-b border-ink pb-1.5">
+              <h2 className="titulo-secao">
                 Outras peças no mesmo processo · {irmas.length}
               </h2>
               <ul className="mt-3 divide-y divide-rule">
