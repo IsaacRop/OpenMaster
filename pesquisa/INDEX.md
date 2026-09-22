@@ -2,6 +2,10 @@
 
 > **Escopo:** Catálogo sistemático de todas as fontes primárias e jornalísticas consumidas nesta sessão de pesquisa, baseado na matéria-índice do Poder360 e em 54 reportagens derivadas e de contexto institucional publicadas a partir do levantamento de sigilo de 53 processos no Supremo Tribunal Federal pelo ministro André Mendonça em setembro de 2026.
 
+## Atualizações temáticas
+
+- [Valadão, Lagoinha, Nikolas e Prime You — 22/09/2026](ATUALIZACAO_2026-09-22_VALADAO_LAGOINHA_NIKOLAS.md)
+
 ## 1. Matéria-Índice Central (Poder360)
 
 - **Título:** [Ao todo, Mendonça libera acesso a 53 processos do caso Master; veja lista](https://www.poder360.com.br/poder-justica/ao-todo-mendonca-libera-acesso-a-53-processos-do-caso-master-veja-lista/)
