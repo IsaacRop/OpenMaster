@@ -1426,5 +1426,55 @@
     "source_url": "https://www.poder360.com.br/poder-justica/gilmar-se-reuniu-com-vorcaro-e-votou-contra-interesse-do-master/",
     "source_name": "Poder360 — nota do gabinete de Gilmar Mendes",
     "source_date": "2026-09-18"
+  },
+  {
+    "id": "2026-09-18-vorcaro-ameaca-expor-ministros",
+    "data": "2026-09-18",
+    "titulo": "Vorcaro ameaça expor ministros do STF se pai não for solto",
+    "descricao": "Preso no Complexo da Papuda, Daniel Vorcaro ameaça revelar fotos, recibos e outros documentos sobre relações com ao menos cinco ministros do STF — Moraes, Toffoli, Nunes Marques, Gilmar Mendes e Fux — e com o PGR Paulo Gonet, caso seu pai, Henrique Vorcaro, preso desde março e com quadro de diverticulite, não receba prisão domiciliar humanitária.",
+    "milestone": false,
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "vorcaro",
+      "henrique-vorcaro",
+      "moraes",
+      "toffoli",
+      "kassio-nunes-marques",
+      "fux",
+      "gilmar",
+      "gonet"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.gazetadopovo.com.br/republica/vorcaro-ameaca-expor-relacao-ministros-stf-pgr-se-pai-nao-for-liberado-da-prisao/",
+    "source_name": "Gazeta do Povo",
+    "source_date": "2026-09-18"
+  },
+  {
+    "id": "2026-09-21-defesa-felipe-vorcaro-pede-devolucao",
+    "data": "2026-09-21",
+    "titulo": "Defesa de Felipe Vorcaro pede devolução do caso a Mendonça",
+    "descricao": "A defesa de Felipe Cançado Vorcaro, primo de Daniel Vorcaro, pede ao presidente do STF, Edson Fachin, que devolva à relatoria de André Mendonça a análise de sua prisão preventiva — suspensa desde 12/09 — e destrave a reavaliação obrigatória dos 90 dias da medida, vencida em 14/09.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [
+      "pet-15873"
+    ],
+    "pessoas": [
+      "felipe-vorcaro",
+      "fachin",
+      "mendonca",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.poder360.com.br/poder-justica/primo-de-vorcaro-pede-fim-de-prisao-e-que-caso-volte-para-mendonca/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-21"
   }
 ]
