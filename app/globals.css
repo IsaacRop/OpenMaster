@@ -713,6 +713,273 @@
     color: var(--color-ink-2);
   }
 
+  /* Capa ------------------------------------------------------------------ */
+
+  /*
+   * Hierarquia de jornal, não de landing page: o tamanho da manchete é o
+   * único gesto grande da página. O resto se organiza por fios — um fio
+   * preto abre cada seção, fios finos separam os itens.
+   */
+  .manchete-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+  }
+
+  .manchete-titulo {
+    margin-top: 0.6rem;
+    max-width: 24ch;
+    font-size: clamp(1.875rem, 1.1rem + 3.4vw, 3.75rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.04;
+  }
+
+  .manchete-titulo a {
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .manchete-titulo a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.12em;
+  }
+
+  /* No celular o resumo sai para a manchete e as três chamadas caberem na primeira tela. */
+  .manchete-resumo {
+    display: none;
+    margin-top: 0.9rem;
+    max-width: 65ch;
+    color: var(--color-ink-2);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  @media (min-width: 40rem) {
+    .manchete-resumo { display: block; }
+  }
+
+  .linha-fina {
+    margin-top: var(--space-3);
+    max-width: 62ch;
+    border-top: 1px solid var(--color-rule);
+    padding-top: var(--space-3);
+    color: var(--color-ink-2);
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  @media (min-width: 40rem) {
+    .linha-fina { font-size: 1.125rem; }
+  }
+
+  .portas {
+    display: grid;
+    margin-top: var(--space-4);
+    border-top: 2px solid var(--color-ink);
+  }
+
+  .porta {
+    position: relative;
+    display: grid;
+    gap: 0.15rem;
+    border-bottom: 1px solid var(--color-rule);
+    padding: 0.55rem 1.75rem 0.55rem 0;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  a.porta::after {
+    content: "→";
+    position: absolute;
+    top: 50%;
+    right: 0.25rem;
+    transform: translateY(-50%);
+    color: var(--color-ink-3);
+  }
+
+  a.porta:hover .porta-secao,
+  a.porta:hover::after { color: var(--color-accent); }
+
+  .porta-agente { padding-right: 0; }
+
+  .porta-secao {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .porta-texto {
+    display: none;
+    color: var(--color-ink-2);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .porta-numero {
+    color: var(--color-ink-3);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .porta-form {
+    display: flex;
+    height: 2.75rem;
+    margin-block: 0.35rem 0.2rem;
+    overflow: hidden;
+    border: 1px solid var(--color-rule-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+  }
+
+  .porta-form:focus-within {
+    border-color: var(--color-accent);
+    outline: 2px solid var(--color-accent);
+    outline-offset: 1px;
+  }
+
+  /* 16px: abaixo disso o Safari do iPhone dá zoom na página ao focar. */
+  .porta-form input {
+    min-width: 0;
+    flex: 1;
+    background: transparent;
+    padding-inline: var(--space-3);
+    color: var(--color-ink);
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .porta-form input::placeholder { color: var(--color-ink-3); }
+
+  .porta-form button {
+    width: 2.75rem;
+    flex: none;
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    font-size: 1.1rem;
+  }
+
+  .porta-form button:hover { background: var(--color-accent-hover); }
+
+  @media (min-width: 40rem) {
+    .portas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .porta { align-content: start; gap: 0.4rem; border-bottom: 0; padding: var(--space-4) var(--space-5) var(--space-2) 0; }
+    .porta + .porta { border-left: 1px solid var(--color-rule); padding-left: var(--space-5); }
+    .porta:last-child { padding-right: 0; }
+    a.porta::after { display: none; }
+    .porta-texto { display: block; }
+  }
+
+  .secao-cabeca {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-4);
+    border-top: 2px solid var(--color-ink);
+    padding-top: 0.6rem;
+  }
+
+  .secao-cabeca h2 {
+    font-size: 1.35rem;
+    line-height: 1.2;
+  }
+
+  .feed-item {
+    display: grid;
+    gap: 0.35rem;
+    border-bottom: 1px solid var(--color-rule);
+    padding: var(--space-4) 0;
+  }
+
+  @media (min-width: 40rem) {
+    .feed-item { grid-template-columns: 6.5rem minmax(0, 1fr); gap: var(--space-5); }
+  }
+
+  .feed-data {
+    padding-top: 0.1rem;
+    color: var(--color-ink-3);
+    font-size: 0.8rem;
+  }
+
+  .feed-titulo {
+    margin-top: 0.4rem;
+    font-size: 1.25rem;
+    line-height: 1.25;
+  }
+
+  .feed-titulo a { color: var(--color-ink); text-decoration: none; }
+  .feed-titulo a:hover { color: var(--color-accent); }
+
+  .feed-resumo {
+    display: -webkit-box;
+    margin-top: 0.3rem;
+    max-width: 68ch;
+    overflow: hidden;
+    color: var(--color-ink-2);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .lateral {
+    display: grid;
+    align-content: start;
+    gap: 2.5rem;
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 64rem) {
+    .lateral { margin-top: 0; border-left: 1px solid var(--color-rule); padding-left: var(--space-6); }
+  }
+
+  .lateral-lista li {
+    border-bottom: 1px solid var(--color-rule);
+    padding: var(--space-3) 0;
+  }
+
+  .numeros-base {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-2) var(--space-6);
+    margin-top: 3.5rem;
+    border-top: 1px solid var(--color-rule);
+    padding-top: var(--space-3);
+  }
+
+  .numeros-base dl {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+  }
+
+  .numeros-base dl > div {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+  }
+
+  .numeros-base dd {
+    order: -1;
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .numeros-base dt {
+    color: var(--color-ink-3);
+    font-size: 0.85rem;
+  }
+
   /* Mapa — o palco -------------------------------------------------------- */
 
   /*

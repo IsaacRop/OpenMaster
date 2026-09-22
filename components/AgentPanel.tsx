@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
 const EXEMPLOS = [
   "O que aconteceu por último?",
@@ -52,6 +52,19 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
       setEstado({ tipo: "erro", mensagem: "Falha de conexão. Tente novamente." });
     }
   }
+
+  // A pergunta digitada na capa chega como `/agente?q=`. Lida uma vez, na
+  // montagem: com `useSearchParams` a página inteira esperaria a hidratação.
+  const perguntaDaUrl = useRef(false);
+  useEffect(() => {
+    if (perguntaDaUrl.current) return;
+    perguntaDaUrl.current = true;
+    const q = new URLSearchParams(window.location.search).get("q")?.trim().slice(0, 500);
+    if (!q) return;
+    setPergunta(q);
+    perguntar(q);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function aoEnviar(e: FormEvent) {
     e.preventDefault();
