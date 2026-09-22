@@ -1,9 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-
-import Icone from "./Icone";
 
 const EXEMPLOS = [
   "O que aconteceu por último?",
@@ -20,38 +17,67 @@ type Resposta = {
 };
 
 type Estado =
-  | { tipo: "ocioso" }
   | { tipo: "carregando" }
   | { tipo: "erro"; mensagem: string }
   | { tipo: "limite"; mensagem: string }
   | { tipo: "ok"; dados: Resposta };
 
-export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
+type Turno = { pergunta: string; estado: Estado };
+
+/** O M da marca, no ladrilho que assina as respostas do agente. */
+function MarcaAgente({ pensando = false }: { pensando?: boolean }) {
+  return (
+    <span className="agente-marca" aria-hidden="true">
+      {pensando ? (
+        <span className="text-accent">…</span>
+      ) : (
+        <svg width="20" height="20" viewBox="0 0 48 48">
+          <path d="M11 37V11L24 25.5L37 11V37" fill="none" stroke="var(--color-accent)" strokeWidth="4" strokeLinejoin="round" strokeLinecap="round" />
+        </svg>
+      )}
+    </span>
+  );
+}
+
+/**
+ * A conversa com o agente. Cada pergunta vira um turno: o balão de quem
+ * perguntou, a resposta assinada pelo M da marca e as fontes como fichas de
+ * papel — o documento de onde a frase saiu. A barra de pergunta é o vidro
+ * do guia; no celular ela fica presa ao pé, acima das abas ou do teclado.
+ */
+export default function AgentPanel({ registros }: { registros: number }) {
   const [pergunta, setPergunta] = useState("");
-  const [estado, setEstado] = useState<Estado>({ tipo: "ocioso" });
+  const [turnos, setTurnos] = useState<Turno[]>([]);
+  const carregando = turnos.at(-1)?.estado.tipo === "carregando";
+
+  function atualizarUltimo(estado: Estado) {
+    setTurnos((ts) => ts.map((t, i) => (i === ts.length - 1 ? { ...t, estado } : t)));
+  }
 
   async function perguntar(texto: string) {
-    if (!texto.trim() || estado.tipo === "carregando") return;
-    setEstado({ tipo: "carregando" });
+    const q = texto.trim();
+    if (!q || carregando) return;
+    setTurnos((ts) => [...ts, { pergunta: q, estado: { tipo: "carregando" } }]);
+    setPergunta("");
     try {
       const resp = await fetch("/api/agente", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pergunta: texto }),
+        body: JSON.stringify({ pergunta: q }),
       });
       const dados = await resp.json();
 
       if (resp.status === 429) {
-        setEstado({ tipo: "limite", mensagem: dados.erro ?? "Muitas perguntas em pouco tempo." });
+        atualizarUltimo({ tipo: "limite", mensagem: dados.erro ?? "Muitas perguntas em pouco tempo." });
         return;
       }
       if (!resp.ok) {
-        setEstado({ tipo: "erro", mensagem: dados.erro ?? "Não foi possível responder agora." });
+        atualizarUltimo({ tipo: "erro", mensagem: dados.erro ?? "Não foi possível responder agora." });
         return;
       }
-      setEstado({ tipo: "ok", dados });
+      atualizarUltimo({ tipo: "ok", dados });
     } catch {
-      setEstado({ tipo: "erro", mensagem: "Falha de conexão. Tente novamente." });
+      atualizarUltimo({ tipo: "erro", mensagem: "Falha de conexão. Tente novamente." });
     }
   }
 
@@ -62,9 +88,7 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
     if (perguntaDaUrl.current) return;
     perguntaDaUrl.current = true;
     const q = new URLSearchParams(window.location.search).get("q")?.trim().slice(0, 500);
-    if (!q) return;
-    setPergunta(q);
-    perguntar(q);
+    if (q) perguntar(q);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -86,123 +110,135 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
     };
   }, []);
 
+  // Cada turno novo rola a conversa até o fim, como num app de mensagens.
+  const fim = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (turnos.length) fim.current?.scrollIntoView({ block: "end", behavior: "smooth" });
+  }, [turnos]);
+
   function aoEnviar(e: FormEvent) {
     e.preventDefault();
     perguntar(pergunta);
   }
 
-  const carregando = estado.tipo === "carregando";
-
   return (
-    <section className={`agent-panel ${amplo ? "min-h-[520px]" : ""}`} aria-labelledby="agente-titulo">
-      <div className="flex flex-wrap items-start justify-between gap-3 border-b border-rule px-4 py-3 sm:px-5">
-        <div className="flex items-center gap-3">
-          <span className="icone-chip" aria-hidden="true">
-            <Icone nome="faisca" />
-          </span>
-          <div>
-            <p className="kicker text-accent">OpenMaster IA</p>
-            <h2 id="agente-titulo" className="mt-0.5 text-base font-semibold text-ink">Consultar o agente do caso</h2>
-          </div>
-        </div>
-      </div>
+    <section className="agente" aria-labelledby="agente-titulo">
+      <header className="agente-abertura">
+        <p className="eyebrow">Agente OpenMaster</p>
+        <h1 id="agente-titulo" className="m-0 text-[clamp(2rem,1.5rem+2.2vw,2.75rem)]">
+          Pergunte à base.
+        </h1>
+        <p className="max-w-[29rem] text-sm text-ink-3">
+          Respostas baseadas apenas nos registros do OpenMaster, um projeto independente e sem vínculo
+          oficial com os órgãos do caso. Toda afirmação traz a fonte pública de onde saiu.
+        </p>
+      </header>
 
-      <div className={`grid gap-px bg-rule ${amplo ? "lg:grid-cols-[minmax(0,1fr)_280px]" : ""}`}>
-        <div className="bg-surface p-4 sm:p-5">
-          <p className="max-w-2xl text-sm leading-relaxed text-ink-2">
-            Faça perguntas em linguagem simples. As respostas são limitadas aos dados do OpenMaster e mostram as fontes usadas.
-          </p>
+      <div className="grid gap-6" aria-live="polite">
+        {turnos.map((t, i) => (
+          <div key={i} className="grid gap-5">
+            <p className="agente-pergunta">{t.pergunta}</p>
 
-          <form
-            onSubmit={aoEnviar}
-            className="agente-compositor"
-            style={teclado > 0 ? ({ "--teclado": `${teclado}px` } as React.CSSProperties) : undefined}
-          >
-            <label htmlFor="pergunta-agente" className="sr-only">Pergunta para o agente OpenMaster</label>
-            <textarea
-              id="pergunta-agente"
-              rows={amplo ? 5 : 2}
-              value={pergunta}
-              onChange={(e) => setPergunta(e.target.value)}
-              placeholder="Ex.: Por que a Pet 16.662 é importante para o caso?"
-              maxLength={500}
-              className="agente-campo block w-full resize-none bg-transparent px-2 py-2 text-base leading-relaxed text-ink placeholder:text-ink-3 disabled:cursor-not-allowed disabled:opacity-60"
-              disabled={carregando}
-            />
-            <div className="flex flex-wrap items-center justify-between gap-3 border-t border-rule px-2 pt-2">
-              <p className="numero text-xs text-ink-3">
-                {carregando ? "Consultando a base…" : "Respostas com fonte citada"}
-              </p>
-              <button type="submit" disabled={carregando || !pergunta.trim()} className="agent-submit">
-                Perguntar <Icone nome="direita" tamanho={16} />
-              </button>
-            </div>
-          </form>
-
-          <div className="mt-3 flex flex-wrap gap-2" aria-label="Exemplos de perguntas">
-            {EXEMPLOS.map((exemplo) => (
-              <button
-                key={exemplo}
-                type="button"
-                onClick={() => {
-                  setPergunta(exemplo);
-                  perguntar(exemplo);
-                }}
-                disabled={carregando}
-                className="rounded-full border border-rule bg-surface px-3 py-1.5 text-xs text-ink-2 hover:border-accent hover:bg-accent-soft hover:text-accent disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                {exemplo}
-              </button>
-            ))}
-          </div>
-
-          <div className="mt-4" aria-live="polite">
-            {estado.tipo === "limite" && (
-              <p className="rounded-xl bg-surface-2 px-4 py-3 text-sm text-ink">{estado.mensagem}</p>
+            {t.estado.tipo === "carregando" && (
+              <div className="flex items-center gap-3.5">
+                <MarcaAgente pensando />
+                <span className="lapis">folheando os registros…</span>
+              </div>
             )}
-            {estado.tipo === "erro" && (
-              <p className="rounded-xl bg-surface-2 px-4 py-3 text-sm text-ink">{estado.mensagem}</p>
+
+            {(t.estado.tipo === "erro" || t.estado.tipo === "limite") && (
+              <div className="flex items-start gap-3.5">
+                <MarcaAgente />
+                <p className="rounded-2xl border border-rule-strong bg-surface px-4 py-3 text-sm text-ink-2">
+                  {t.estado.mensagem}
+                </p>
+              </div>
             )}
-            {estado.tipo === "ok" && (
-              <div className="rounded-2xl bg-surface-2 p-4 sm:p-5">
-                <p className="max-w-[70ch] whitespace-pre-line text-base leading-relaxed text-ink">{estado.dados.resposta}</p>
-                {estado.dados.fontes.length > 0 && (
-                  <div className="mt-3 border-t border-rule pt-3">
-                    <p className="kicker text-ink-3">Fontes citadas</p>
-                    <ul className="mt-2 divide-y divide-rule">
-                      {estado.dados.fontes.map((f, i) => (
-                        <li key={i}>
-                          <a
-                            href={f.source_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group grid min-h-11 grid-cols-[auto_1fr] items-baseline gap-x-2 py-2 no-underline"
-                          >
-                            <Icone nome="externo" tamanho={14} className="translate-y-0.5 text-accent" />
-                            <span className="text-sm text-ink group-hover:text-accent group-hover:underline">{f.titulo}</span>
-                            <span className="numero col-start-2 text-xs text-ink-3">{f.source_name}</span>
+
+            {t.estado.tipo === "ok" && (
+              <div className="flex items-start gap-3.5">
+                <MarcaAgente />
+                <div className="grid min-w-0 flex-1 gap-3.5">
+                  <p className="whitespace-pre-line text-base leading-[1.7] text-ink">{t.estado.dados.resposta}</p>
+                  {i === 0 && t.estado.dados.fontes.length > 0 && (
+                    <p className="lapis" aria-hidden="true">
+                      <svg width="26" height="14" viewBox="0 0 26 14">
+                        <g filter="url(#omp)" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+                          <path d="M2 10 C8 4 16 3 22 6" />
+                          <path d="M17 2 L23 6 L17 10" />
+                        </g>
+                      </svg>
+                      confira sempre na fonte original
+                    </p>
+                  )}
+                  {t.estado.dados.fontes.length > 0 && (
+                    <ul className="agente-fontes" aria-label="Fontes citadas">
+                      {t.estado.dados.fontes.map((f, n) => (
+                        <li key={n}>
+                          <a href={f.source_url} target="_blank" rel="noopener noreferrer" className="agente-fonte h-full">
+                            <small>
+                              <span>FONTE {n + 1}</span>
+                              <span aria-hidden="true">↗</span>
+                            </small>
+                            <span className="text-[0.85rem] font-bold leading-snug">{f.titulo}</span>
+                            <span>{f.source_name}</span>
                           </a>
                         </li>
                       ))}
                     </ul>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             )}
           </div>
-        </div>
+        ))}
+        {/* No celular o campo fixo cobre o pé: a rolagem para antes dele. */}
+        <div ref={fim} className="scroll-mb-64 lg:scroll-mb-0" />
+      </div>
 
-        {amplo && (
-          <aside className="bg-surface-2 p-5">
-            <p className="kicker">Compromissos do agente</p>
-            <ul className="mt-3 space-y-4 text-sm leading-relaxed text-ink-2">
-              <li><strong className="block font-medium text-ink">Responder com evidências</strong>Aponta documentos e registros usados.</li>
-              <li><strong className="block font-medium text-ink">Separar fato de apuração</strong>Preserva os estados editoriais da base.</li>
-              <li><strong className="block font-medium text-ink">Nunca julgar</strong>Reporta o que as fontes registram, sem juízo de culpa.</li>
-            </ul>
-            <Link href="/busca" className="meta-link mt-6">Usar busca literal <Icone nome="direita" tamanho={16} /></Link>
-          </aside>
-        )}
+      <div
+        className="agente-rodape"
+        style={
+          teclado > 0
+            ? ({ "--teclado": `${teclado}px`, "--abaixo-do-campo": "0px" } as React.CSSProperties)
+            : undefined
+        }
+      >
+        <div className="mb-2.5 flex gap-2 overflow-x-auto pb-0.5 [scrollbar-width:none]" aria-label="Exemplos de perguntas">
+          {EXEMPLOS.map((exemplo) => (
+            <button
+              key={exemplo}
+              type="button"
+              onClick={() => perguntar(exemplo)}
+              disabled={carregando}
+              className="pilula shrink-0 bg-[rgb(255_255_255_/_0.05)] font-medium disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {exemplo}
+            </button>
+          ))}
+        </div>
+        <form onSubmit={aoEnviar} className="agente-compositor flex items-center gap-2.5">
+          <label htmlFor="pergunta-agente" className="sr-only">
+            Pergunta para o agente OpenMaster
+          </label>
+          <input
+            id="pergunta-agente"
+            value={pergunta}
+            onChange={(e) => setPergunta(e.target.value)}
+            placeholder="Pergunte sobre pessoas, processos ou decisões"
+            maxLength={500}
+            autoComplete="off"
+            className="min-w-0 flex-1 bg-transparent py-2.5 text-base font-medium text-ink outline-none"
+          />
+          <span className="hidden shrink-0 whitespace-nowrap rounded-full border border-[rgb(255_255_255_/_0.12)] px-3 py-2 text-xs text-ink-2 lg:inline">
+            {registros.toLocaleString("pt-BR")} registros
+          </span>
+          <button type="submit" disabled={carregando || !pergunta.trim()} className="agente-enviar" aria-label="Perguntar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M12 19V5M5 12l7-7 7 7" />
+            </svg>
+          </button>
+        </form>
       </div>
     </section>
   );

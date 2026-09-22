@@ -7,7 +7,6 @@ import { createPortal } from "react-dom";
 
 import Icone from "./Icone";
 import LogoMark from "./LogoMark";
-import ThemeToggle from "./ThemeToggle";
 import { useDialogo } from "./useDialogo";
 import { PRIMARIOS, SECUNDARIOS, ativo, explorarAtivo, type ItemNav } from "./navegacao";
 
@@ -85,8 +84,8 @@ function MenuExplorar() {
                 aria-current={ativo(item.href, pathname) ? "page" : undefined}
                 onClick={() => setAberto(false)}
               >
-                <span className="icone-chip">
-                  <Icone nome={item.icone} tamanho={18} />
+                <span className="glifo" aria-hidden="true">
+                  {item.glifo}
                 </span>
                 <strong>{item.label}</strong>
                 <span>{item.descricao}</span>
@@ -102,7 +101,7 @@ function MenuExplorar() {
 /**
  * Gaveta do celular. Diálogo modal de verdade: foco preso, Esc fecha, o
  * resto da página sai da árvore de acessibilidade (`inert`) e da rolagem.
- * O foco volta para quem abriu — o botão do cabeçalho ou a aba "Explorar".
+ * O foco volta para quem abriu: a aba "Explorar".
  */
 function Gaveta({ aberta, fechar, dataCorteBR }: { aberta: boolean; fechar: () => void; dataCorteBR: string }) {
   const pathname = usePathname();
@@ -111,16 +110,12 @@ function Gaveta({ aberta, fechar, dataCorteBR }: { aberta: boolean; fechar: () =
 
   if (!aberta) return null;
 
-  const link = (item: ItemNav, chip = false) => (
+  const link = (item: ItemNav) => (
     <li key={item.href}>
       <Link href={item.href} aria-current={ativo(item.href, pathname) ? "page" : undefined} onClick={fechar}>
-        {chip ? (
-          <span className="icone-chip">
-            <Icone nome={item.icone} tamanho={18} />
-          </span>
-        ) : (
-          <Icone nome={item.icone} />
-        )}
+        <span className="glifo" aria-hidden="true">
+          {item.glifo}
+        </span>
         {item.label}
       </Link>
     </li>
@@ -145,7 +140,7 @@ function Gaveta({ aberta, fechar, dataCorteBR }: { aberta: boolean; fechar: () =
         </nav>
         <nav aria-label="Explorar a base">
           <p className="gaveta-rotulo">Explorar a base</p>
-          <ul className="gaveta-secundarios">{SECUNDARIOS.map((i) => link(i, true))}</ul>
+          <ul className="gaveta-secundarios">{SECUNDARIOS.map((i) => link(i))}</ul>
         </nav>
         <div className="mt-auto px-2 pt-6">
           <SeloDados dataCorteBR={dataCorteBR} />
@@ -178,8 +173,8 @@ export default function SiteHeader({ dataCorteBR }: { dataCorteBR: string }) {
           </span>
         </Link>
 
-        <nav aria-label="Principal" className="hidden lg:block">
-          <ul className="flex items-center">
+        <nav aria-label="Principal" className="hidden min-w-0 lg:block">
+          <ul className="flex items-center gap-1">
             {PRIMARIOS.map((item) => (
               <li key={item.href}>
                 <Link
@@ -197,30 +192,21 @@ export default function SiteHeader({ dataCorteBR }: { dataCorteBR: string }) {
           </ul>
         </nav>
 
-        <div className="ml-auto flex items-center gap-2 lg:gap-3">
-          <form action="/busca" role="search" className="busca-compacta hidden lg:flex">
-            <Icone nome="busca" tamanho={16} />
+        <div className="ml-auto flex items-center gap-2">
+          <form action="/busca" role="search" className="busca-compacta hidden xl:flex">
+            <Icone nome="busca" tamanho={15} />
             <label htmlFor="busca-cabecalho" className="sr-only">
               Buscar na base
             </label>
-            <input id="busca-cabecalho" name="q" type="search" placeholder="Buscar" autoComplete="off" />
+            <input id="busca-cabecalho" name="q" type="search" placeholder="Pessoas, processos…" autoComplete="off" />
           </form>
-          <span className="hidden lg:inline-flex">
-            <SeloDados dataCorteBR={dataCorteBR} />
-          </span>
-          <Link href="/busca" className="icone-botao lg:hidden" aria-label="Buscar na base">
-            <Icone nome="busca" />
+          <Link href="/busca" className="icone-botao xl:hidden" aria-label="Buscar na base">
+            <Icone nome="busca" tamanho={18} />
           </Link>
-          <ThemeToggle />
-          <button
-            type="button"
-            className="icone-botao lg:hidden"
-            aria-label="Abrir menu"
-            aria-expanded={gaveta}
-            onClick={() => setGaveta(true)}
-          >
-            <Icone nome="menu" />
-          </button>
+          {/* A barra de abas já leva ao agente no celular; aqui é o CTA principal. */}
+          <Link href="/agente" className="cta-principal cta-compacto hidden lg:inline-flex">
+            Perguntar ao agente
+          </Link>
         </div>
       </div>
 

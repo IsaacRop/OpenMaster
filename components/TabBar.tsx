@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import Icone from "./Icone";
 import { EVENTO_ABRIR_MENU } from "./SiteHeader";
 import { PRIMARIOS, ativo, explorarAtivo } from "./navegacao";
 
@@ -24,7 +23,7 @@ export default function TabBar() {
           return (
             <li key={item.href}>
               <Link href={item.href} aria-current={atual ? "page" : undefined}>
-                <Icone nome={item.icone} />
+                <span className="tab-glifo" aria-hidden="true">{item.glifo}</span>
                 <span>{item.curto ?? item.label}</span>
               </Link>
             </li>
@@ -36,7 +35,7 @@ export default function TabBar() {
             aria-current={explorarAtivo(pathname) ? "page" : undefined}
             onClick={() => window.dispatchEvent(new Event(EVENTO_ABRIR_MENU))}
           >
-            <Icone nome="explorar" />
+            <span className="tab-glifo" aria-hidden="true">≡</span>
             <span>Explorar</span>
           </button>
         </li>

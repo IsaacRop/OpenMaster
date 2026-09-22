@@ -28,7 +28,7 @@ export default function TimelinePage() {
           antigo. Os {marcos} pontos que mudaram o rumo do caso recebem a indicação “marco”.
         </p>
         <p className="plain-note mt-4 max-w-3xl text-sm leading-relaxed">
-          <strong className="text-ink">Em apuração</strong> significa que algo ainda está sendo
+          <strong>Em apuração</strong> significa que algo ainda está sendo
           verificado ou ainda pode acontecer. Não deve ser lido como resultado ou fato encerrado.
         </p>
       </header>

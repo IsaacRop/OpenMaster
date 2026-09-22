@@ -69,7 +69,7 @@ export default function ProcessCard({ processo: p }: { processo: Processo }) {
       </dl>
 
       <div className="mt-auto pt-4">
-        {syncNota && <p className="kicker mb-1">{syncNota}</p>}
+        {syncNota && <p className="nota mb-1">{syncNota}</p>}
         <SourceTag fonte={p} />
       </div>
     </article>

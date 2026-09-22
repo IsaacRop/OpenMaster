@@ -4,14 +4,14 @@ import { dataCorte } from "@/lib/data";
 
 export default function Disclaimer() {
   return (
-    <footer className="mt-12 border-t border-rule bg-surface-2">
-      <div className="mx-auto grid max-w-[1440px] gap-x-12 gap-y-6 px-4 py-10 sm:px-6 lg:grid-cols-[14rem_minmax(0,1fr)]">
+    <footer className="mt-16 border-t border-[rgb(255_255_255_/_0.08)]">
+      <div className="mx-auto grid max-w-[1304px] gap-x-12 gap-y-6 px-4 py-10 sm:px-8 lg:grid-cols-[14rem_minmax(0,1fr)]">
         <div>
           <p className="wordmark">
             Open<b>Master</b>
           </p>
           <p className="mt-2 text-sm leading-relaxed text-ink-3">
-            Acompanhamento independente do caso Banco Master.
+            Acompanhamento independente do caso Banco Master. Projeto open source.
           </p>
         </div>
 
@@ -27,10 +27,10 @@ export default function Disclaimer() {
             foi extraída — confira a fonte antes de citar. Onde a própria fonte trata o fato como
             apuração em curso, o painel o marca como tal.
           </p>
-          <p className="numero mt-5 flex flex-wrap gap-x-4 gap-y-2 border-t border-rule pt-4 text-xs text-ink-3">
+          <p className="numero mt-5 flex flex-wrap gap-x-5 gap-y-2 border-t border-[rgb(255_255_255_/_0.08)] pt-4 text-[0.8rem] text-ink-3">
             <span>Dados com corte em {dataCorte.split("-").reverse().join("/")}</span>
             <span>Código e dados sob licença MIT</span>
-            <Link href="/metodologia" className="underline hover:text-accent">
+            <Link href="/metodologia" className="font-semibold text-accent no-underline hover:text-accent-hover">
               Metodologia e correções
             </Link>
           </p>

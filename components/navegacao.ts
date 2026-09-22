@@ -4,26 +4,28 @@
  * apareça num menu e falte no outro.
  */
 
-import type { NomeIcone } from "./Icone";
-
-export type ItemNav = { href: string; label: string; icone: NomeIcone; curto?: string; descricao?: string };
+/**
+ * `glifo`: o ícone da marca é tipográfico (guia de marca, "Componentes"), em
+ * Bodoni, e não um desenho de traço.
+ */
+export type ItemNav = { href: string; label: string; glifo: string; curto?: string; descricao?: string };
 
 /** O que o leitor procura primeiro: ficam sempre à vista. */
 export const PRIMARIOS: ItemNav[] = [
-  { href: "/", label: "Início", icone: "inicio" },
-  { href: "/mapa", label: "Mapa", icone: "mapa" },
-  { href: "/conversas", label: "Conversas", icone: "conversas" },
-  { href: "/agente", label: "Agente IA", icone: "faisca", curto: "Agente" },
+  { href: "/", label: "Início", glifo: "⌂" },
+  { href: "/mapa", label: "Mapa", glifo: "⌘" },
+  { href: "/conversas", label: "Conversas", glifo: "“" },
+  { href: "/agente", label: "Agente IA", glifo: "✦", curto: "Agente" },
 ];
 
 /** A base de consulta: agrupada em "Explorar". */
 export const SECUNDARIOS: ItemNav[] = [
-  { href: "/timeline", icone: "relogio", label: "Linha do tempo", descricao: "Os acontecimentos em ordem, com fonte" },
-  { href: "/processos", icone: "balanca", label: "Processos", descricao: "As frentes do caso e seu estado" },
-  { href: "/pessoas", icone: "pessoas", label: "Pessoas e instituições", descricao: "Quem é quem e qual o papel de cada um" },
-  { href: "/documentos", icone: "documento", label: "Documentos", descricao: "Decisões, liminares e ofícios citados" },
-  { href: "/busca", icone: "busca", label: "Busca", descricao: "Texto completo, no seu navegador" },
-  { href: "/metodologia", icone: "livro", label: "Metodologia", descricao: "De onde vêm os dados e como corrigir" },
+  { href: "/timeline", glifo: "→", label: "Linha do tempo", descricao: "Os acontecimentos em ordem, com fonte" },
+  { href: "/processos", glifo: "§", label: "Processos", descricao: "As frentes do caso e seu estado" },
+  { href: "/pessoas", glifo: "¶", label: "Pessoas e instituições", descricao: "Quem é quem e qual o papel de cada um" },
+  { href: "/documentos", glifo: "fl.", label: "Documentos", descricao: "Decisões, liminares e ofícios citados" },
+  { href: "/busca", glifo: "?", label: "Busca", descricao: "Texto completo, no seu navegador" },
+  { href: "/metodologia", glifo: "*", label: "Metodologia", descricao: "De onde vêm os dados e como corrigir" },
 ];
 
 export function ativo(href: string, pathname: string) {

@@ -184,7 +184,7 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
                             >
                               <Realce texto={r.titulo} termos={termos} />
                             </Link>
-                            <span className="kicker">
+                            <span className="nota">
                               {r.subtitulo}
                             </span>
                           </div>

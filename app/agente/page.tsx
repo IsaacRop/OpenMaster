@@ -1,21 +1,14 @@
 import type { Metadata } from "next";
 
 import AgentPanel from "@/components/AgentPanel";
+import { documentos, pessoas, processos, timeline } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Agente IA — OpenMaster",
-  description: "Espaço de consulta em linguagem simples ao futuro agente interno do OpenMaster.",
+  description: "Pergunte à base do OpenMaster em linguagem simples. Toda resposta cita a fonte pública de onde saiu.",
 };
 
 export default function AgentePage() {
-  return (
-    <div>
-      <header className="mb-4 border-b border-rule pb-4">
-        <p className="kicker text-accent">Central de consulta</p>
-        <h1 className="headline mt-1 text-3xl text-ink">Agente OpenMaster</h1>
-        <p className="mt-1 text-sm text-ink-3">Uma interface preparada para investigar a base por perguntas, sempre com fontes.</p>
-      </header>
-      <AgentPanel amplo />
-    </div>
-  );
+  const registros = processos.length + timeline.length + pessoas.length + documentos.length;
+  return <AgentPanel registros={registros} />;
 }

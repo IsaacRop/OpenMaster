@@ -1,1 +1,1 @@
-OpenMaster: acompanhamento independente do caso Banco Master, com a fonte de cada afirmação.
+OpenMaster: o caso Banco Master, com a fonte em cada linha. Uma folha de papel com o carimbo "fonte pública" sobre fundo escuro.

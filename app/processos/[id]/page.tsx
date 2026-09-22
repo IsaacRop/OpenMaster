@@ -130,7 +130,7 @@ export default async function ProcessoPage({
                   <p className="mt-1 text-sm leading-relaxed text-ink-2">
                     {p.ultima_movimentacao.descricao}
                   </p>
-                  <p className="kicker mt-1">
+                  <p className="nota mt-1">
                     origem: {p.ultima_movimentacao.origem === "datajud" ? "DataJud/CNJ" : "curadoria manual"}
                   </p>
                 </>

@@ -256,7 +256,7 @@ export default function ListaFiltravel({
         </div>
       </div>
 
-      <p className="kicker mt-2">
+      <p className="nota mt-2">
         {visiveis.length} de {itens.length} · os filtros ficam na barra de endereços, então este
         recorte pode ser copiado e citado como link.
       </p>
