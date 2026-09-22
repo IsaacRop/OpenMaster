@@ -15,10 +15,10 @@ function Grupo({ titulo, itens }: { titulo: string; itens: Backlink[] }) {
   if (itens.length === 0) return null;
   return (
     <div>
-      <h4 className="kicker flex items-baseline justify-between border-b border-rule pb-1">
+      <h3 className="kicker flex items-baseline justify-between border-b border-rule pb-1">
         <span>{titulo}</span>
         <span className="numero text-ink-3">{String(itens.length).padStart(2, "0")}</span>
-      </h4>
+      </h3>
       <ul className="divide-y divide-rule">
         {itens.map((b, i) => (
           <li key={`${b.origem.id}-${i}`} className="py-2.5">
@@ -37,13 +37,17 @@ function Grupo({ titulo, itens }: { titulo: string; itens: Backlink[] }) {
   );
 }
 
-export default function Backlinks({ backlinks }: { backlinks: TBacklinks }) {
+/**
+ * `lateral`: a lista ocupa a coluna estreita das páginas de entidade no
+ * desktop, então os grupos empilham em vez de dividir três colunas.
+ */
+export default function Backlinks({ backlinks, lateral = false }: { backlinks: TBacklinks; lateral?: boolean }) {
   return (
     <section>
       <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-ink pb-1.5">
         <div>
           <p className="kicker">Referências</p>
-          <h3 className="headline text-2xl text-ink">O que aponta para aqui</h3>
+          <h2 className="headline text-2xl text-ink">O que aponta para aqui</h2>
         </div>
         <span className="numero text-sm text-ink-3">
           {backlinks.total} {backlinks.total === 1 ? "referência" : "referências"}
@@ -59,7 +63,7 @@ export default function Backlinks({ backlinks }: { backlinks: TBacklinks }) {
       </p>
 
       {backlinks.total > 0 && (
-        <div className="mt-5 grid gap-x-8 gap-y-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className={`mt-5 grid gap-x-8 gap-y-6 ${lateral ? "md:grid-cols-2 lg:grid-cols-1" : "md:grid-cols-2 lg:grid-cols-3"}`}>
           <Grupo titulo="Eventos" itens={backlinks.eventos} />
           <Grupo titulo="Documentos" itens={backlinks.documentos} />
           <Grupo titulo="Relações diretas" itens={backlinks.relacoes} />

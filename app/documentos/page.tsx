@@ -18,7 +18,7 @@ export default function DocumentosPage() {
     <div className="space-y-8">
       <header>
         <p className="eyebrow">Base documental</p>
-        <h2 className="headline mt-2 text-4xl text-ink">Documentos identificados</h2>
+        <h1 className="headline mt-2 text-4xl text-ink">Documentos identificados</h1>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-2">
           Decisões, ordens e ofícios mencionados pelas fontes públicas. Para cada um dos{" "}
           {documentosDesc.length} documentos, mostramos quem assinou, a qual processo pertence e o
@@ -46,9 +46,9 @@ export default function DocumentosPage() {
                 <div className="flex flex-wrap items-baseline gap-2">
                   <TipoBadge tipo="documento" />
                   <Link href={`/documentos/${d.id}`} className="no-underline">
-                    <h3 className="numero text-lg text-ink hover:text-seal">
+                    <h2 className="numero text-lg text-ink hover:text-accent">
                       {d.numero_referencia}
-                    </h3>
+                    </h2>
                   </Link>
                   <ConfiancaBadge confianca={d.confianca} />
                 </div>
@@ -56,11 +56,11 @@ export default function DocumentosPage() {
                 <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-ink-2">{d.resumo}</p>
 
                 <p className="mt-2 text-xs text-ink-3">
-                  <Link href={autor.href} className="text-ink-2 underline hover:text-seal">
+                  <Link href={autor.href} className="text-ink-2 underline hover:text-accent">
                     {autor.rotulo}
                   </Link>{" "}
                   ·{" "}
-                  <Link href={processo.href} className="numero text-ink-2 underline hover:text-seal">
+                  <Link href={processo.href} className="numero text-ink-2 underline hover:text-accent">
                     {processo.rotulo}
                   </Link>
                 </p>

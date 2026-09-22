@@ -11,9 +11,9 @@ export function SourceTag({ fonte }: { fonte: Fonte }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Abrir fonte: ${fonte.source_name}`}
-      className="numero inline-flex min-h-7 items-center gap-1.5 text-xs text-ink-3 underline decoration-rule underline-offset-2 hover:text-seal hover:decoration-seal"
+      className="numero inline-flex min-h-7 items-center gap-1.5 text-xs text-ink-3 underline decoration-rule underline-offset-2 hover:text-accent hover:decoration-accent"
     >
-      <span className="text-seal" aria-hidden="true">↗</span>
+      <span className="text-accent" aria-hidden="true">↗</span>
       Fonte: {fonte.source_name}
       {fonte.source_date ? ` (${fonte.source_date.split("-").reverse().join("/")})` : ""}
     </a>
@@ -37,9 +37,9 @@ export const CONFIANCA_EXPLICACAO: Record<Confianca, string> = {
 export function ConfiancaBadge({ confianca }: { confianca: Confianca }) {
   const label = CONFIANCA_LABEL[confianca] ?? "Confirmado";
   const estilo = {
-    confirmado: "border-ok/60 text-ok",
-    apuracao: "border-seal/60 text-seal",
-    controverso: "border-disputed/60 text-disputed",
+    confirmado: "border-confirmado/60 text-confirmado",
+    apuracao: "border-apuracao/60 text-apuracao",
+    controverso: "border-controverso/60 text-controverso",
   }[confianca];
 
   return (

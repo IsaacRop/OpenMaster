@@ -20,7 +20,7 @@ export function TipoBadge({ tipo }: { tipo: TipoEntidade }) {
   const m = MARCA_TIPO[tipo];
   return (
     <span
-      className={`numero inline-block shrink-0 border ${m.classe} px-1 py-px text-[0.5625rem] uppercase tracking-[0.12em]`}
+      className={`numero inline-block shrink-0 border ${m.classe} px-1 py-px text-[0.625rem] uppercase tracking-[0.12em]`}
     >
       {m.sigla}
     </span>
@@ -42,7 +42,7 @@ export function EntidadeLink({
       {comTipo && <TipoBadge tipo={entidade.tipo} />}
       <Link
         href={entidade.href}
-        className={`${entidade.tipo === "processo" || entidade.tipo === "documento" ? "numero" : "headline"} text-base text-ink no-underline decoration-rule hover:text-seal hover:underline`}
+        className={`${entidade.tipo === "processo" || entidade.tipo === "documento" ? "numero" : "headline"} text-base text-ink no-underline decoration-rule hover:text-accent hover:underline`}
       >
         {entidade.rotulo}
       </Link>

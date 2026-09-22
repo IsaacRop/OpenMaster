@@ -30,6 +30,9 @@ export function EventoItem({
   evento: EventoTimeline;
   compacta?: boolean;
 }) {
+  // Na linha do tempo o evento é o nível logo abaixo do título da página; na
+  // versão compacta ele mora dentro de uma seção de outra página.
+  const Titulo = compacta ? "h3" : "h2";
   return (
     <li id={e.id} className="render-deferred-item grid grid-cols-[3.25rem_1px_1fr] gap-x-4 scroll-mt-40">
       <div className="pt-5">
@@ -40,7 +43,7 @@ export function EventoItem({
       <div className="relative bg-rule">
         <span
           className={`absolute left-1/2 top-6 h-2.5 w-2.5 -translate-x-1/2 rotate-45 ${
-            e.milestone ? "bg-seal shadow-[0_0_12px_rgba(233,180,76,0.55)]" : "bg-paper border border-ink-3"
+            e.milestone ? "bg-accent" : "bg-bg border border-ink-3"
           }`}
         />
       </div>
@@ -52,11 +55,11 @@ export function EventoItem({
           <ConfiancaBadge confianca={e.confianca} />
         </div>
 
-        <h3 className="mt-1.5 text-lg font-semibold text-ink sm:text-xl">
-          <Link href={`/eventos/${e.id}`} className="text-ink no-underline hover:text-seal">
+        <Titulo className="mt-1.5 text-lg font-semibold text-ink sm:text-xl">
+          <Link href={`/eventos/${e.id}`} className="text-ink no-underline hover:text-accent">
             {e.titulo}
           </Link>
-        </h3>
+        </Titulo>
         <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-ink-2">{e.descricao}</p>
 
         {!compacta && e.processos.length > 0 && (
@@ -68,7 +71,7 @@ export function EventoItem({
                 <li key={id}>
                   <Link
                     href={`/processos/${id}`}
-                    className="numero border border-rule px-1.5 py-0.5 text-[0.6875rem] text-ink-2 no-underline hover:border-seal hover:text-seal"
+                    className="numero border border-rule px-1.5 py-0.5 text-[0.6875rem] text-ink-2 no-underline hover:border-accent hover:text-accent"
                   >
                     {p.numero.replace("/DF", "")}
                   </Link>

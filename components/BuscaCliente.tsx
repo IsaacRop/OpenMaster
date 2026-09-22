@@ -53,7 +53,7 @@ function Realce({ texto, termos }: { texto: string; termos: string[] }) {
     <>
       {partes.map((parte, i) =>
         alvos.has(parte.toLowerCase()) ? (
-          <mark key={i} className="bg-gold/25 text-ink">
+          <mark key={i} className="bg-accent-soft text-ink">
             {parte}
           </mark>
         ) : (
@@ -86,7 +86,10 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
     return ms;
   }, [indice]);
 
+  // O campo de busca do cabeçalho chega aqui como `/busca?q=`.
   useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q");
+    if (q) setConsulta(q);
     input.current?.focus();
   }, []);
 
@@ -145,7 +148,7 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
                   className={`numero border px-2 py-0.5 text-[0.625rem] uppercase tracking-[0.12em] transition-colors ${
                     oculto
                       ? "border-rule text-ink-3 line-through"
-                      : "border-ink bg-ink text-paper-3"
+                      : "border-ink bg-ink text-surface"
                   }`}
                 >
                   {TITULO_GRUPO[t]} {contagem(t)}
@@ -167,9 +170,9 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
                 if (doTipo.length === 0) return null;
                 return (
                   <section key={tipo}>
-                    <h3 className="kicker border-b border-ink pb-1">
+                    <h2 className="kicker border-b border-ink pb-1">
                       {TITULO_GRUPO[tipo]} · {doTipo.length}
-                    </h3>
+                    </h2>
                     <ul className="divide-y divide-rule">
                       {doTipo.map((r) => (
                         <li key={r.id} className="py-3">
@@ -177,7 +180,7 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
                             <TipoBadge tipo={r.tipo} />
                             <Link
                               href={r.href}
-                              className="headline text-lg text-ink no-underline hover:text-seal"
+                              className="headline text-lg text-ink no-underline hover:text-accent"
                             >
                               <Realce texto={r.titulo} termos={termos} />
                             </Link>
@@ -186,7 +189,7 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
                             </span>
                           </div>
                           {r.texto && (
-                            <p className="mt-1 max-w-3xl text-sm leading-relaxed text-ink-2">
+                            <p className="mt-1 max-w-[70ch] text-sm leading-relaxed text-ink-2">
                               <Realce texto={trecho(r.texto, termos)} termos={termos} />
                             </p>
                           )}

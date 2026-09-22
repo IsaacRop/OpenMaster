@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 
 const EXEMPLOS = [
   "O que aconteceu por último?",
@@ -53,6 +53,37 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
     }
   }
 
+  // A pergunta digitada na capa chega como `/agente?q=`. Lida uma vez, na
+  // montagem: com `useSearchParams` a página inteira esperaria a hidratação.
+  const perguntaDaUrl = useRef(false);
+  useEffect(() => {
+    if (perguntaDaUrl.current) return;
+    perguntaDaUrl.current = true;
+    const q = new URLSearchParams(window.location.search).get("q")?.trim().slice(0, 500);
+    if (!q) return;
+    setPergunta(q);
+    perguntar(q);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  /*
+   * No celular o campo fica preso ao pé da tela. O teclado virtual cobre a
+   * viewport de layout sem redimensioná-la (Safari e Chrome atuais), então
+   * `bottom: 0` ficaria atrás dele; o `visualViewport` diz quanto ele ocupa.
+   */
+  const [teclado, setTeclado] = useState(0);
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const medir = () => setTeclado(Math.max(0, Math.round(window.innerHeight - vv.height - vv.offsetTop)));
+    vv.addEventListener("resize", medir);
+    vv.addEventListener("scroll", medir);
+    return () => {
+      vv.removeEventListener("resize", medir);
+      vv.removeEventListener("scroll", medir);
+    };
+  }, []);
+
   function aoEnviar(e: FormEvent) {
     e.preventDefault();
     perguntar(pergunta);
@@ -68,19 +99,23 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
             <span />
           </span>
           <div>
-            <p className="kicker text-seal">OpenMaster IA</p>
+            <p className="kicker text-accent">OpenMaster IA</p>
             <h2 id="agente-titulo" className="mt-0.5 text-base font-semibold text-ink">Consultar o agente do caso</h2>
           </div>
         </div>
       </div>
 
       <div className={`grid gap-px bg-rule ${amplo ? "lg:grid-cols-[minmax(0,1fr)_280px]" : ""}`}>
-        <div className="bg-paper-3 p-4 sm:p-5">
+        <div className="bg-surface p-4 sm:p-5">
           <p className="max-w-2xl text-sm leading-relaxed text-ink-2">
             Faça perguntas em linguagem simples. As respostas são limitadas aos dados do OpenMaster e mostram as fontes usadas.
           </p>
 
-          <form onSubmit={aoEnviar} className="mt-4 border border-rule-strong bg-paper-2 p-2">
+          <form
+            onSubmit={aoEnviar}
+            className="agente-compositor"
+            style={teclado > 0 ? ({ "--teclado": `${teclado}px` } as React.CSSProperties) : undefined}
+          >
             <label htmlFor="pergunta-agente" className="sr-only">Pergunta para o agente OpenMaster</label>
             <textarea
               id="pergunta-agente"
@@ -89,7 +124,7 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
               onChange={(e) => setPergunta(e.target.value)}
               placeholder="Ex.: Por que a Pet 16.662 é importante para o caso?"
               maxLength={500}
-              className="block w-full resize-none bg-transparent px-2 py-2 text-base leading-relaxed text-ink placeholder:text-ink-3 disabled:cursor-not-allowed disabled:opacity-60"
+              className="agente-campo block w-full resize-none bg-transparent px-2 py-2 text-base leading-relaxed text-ink placeholder:text-ink-3 disabled:cursor-not-allowed disabled:opacity-60"
               disabled={carregando}
             />
             <div className="flex flex-wrap items-center justify-between gap-3 border-t border-rule px-2 pt-2">
@@ -112,7 +147,7 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
                   perguntar(exemplo);
                 }}
                 disabled={carregando}
-                className="border border-rule px-2.5 py-1.5 text-xs text-ink-3 hover:border-seal hover:text-seal disabled:cursor-not-allowed disabled:opacity-60"
+                className="border border-rule px-2.5 py-1.5 text-xs text-ink-3 hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {exemplo}
               </button>
@@ -121,28 +156,29 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
 
           <div className="mt-4" aria-live="polite">
             {estado.tipo === "limite" && (
-              <p className="border border-seal/60 bg-paper-2 px-3 py-2 text-sm text-seal">{estado.mensagem}</p>
+              <p className="border border-rule-strong bg-surface-2 px-3 py-2 text-sm text-ink">{estado.mensagem}</p>
             )}
             {estado.tipo === "erro" && (
-              <p className="border border-disputed/60 bg-paper-2 px-3 py-2 text-sm text-disputed">{estado.mensagem}</p>
+              <p className="border border-l-2 border-rule-strong border-l-ink bg-surface-2 px-3 py-2 text-sm text-ink">{estado.mensagem}</p>
             )}
             {estado.tipo === "ok" && (
-              <div className="border border-rule-strong bg-paper-2 p-4">
-                <p className="whitespace-pre-line text-sm leading-relaxed text-ink">{estado.dados.resposta}</p>
+              <div className="border border-rule-strong bg-surface-2 p-4">
+                <p className="max-w-[70ch] whitespace-pre-line text-base leading-relaxed text-ink">{estado.dados.resposta}</p>
                 {estado.dados.fontes.length > 0 && (
                   <div className="mt-3 border-t border-rule pt-3">
                     <p className="kicker text-ink-3">Fontes citadas</p>
-                    <ul className="mt-2 space-y-1.5">
+                    <ul className="mt-2 divide-y divide-rule">
                       {estado.dados.fontes.map((f, i) => (
                         <li key={i}>
                           <a
                             href={f.source_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="numero inline-flex items-center gap-1.5 text-xs text-ink-3 underline decoration-rule underline-offset-2 hover:text-seal hover:decoration-seal"
+                            className="group grid min-h-11 grid-cols-[auto_1fr] items-baseline gap-x-2 py-2 no-underline"
                           >
-                            <span className="text-seal" aria-hidden="true">↗</span>
-                            {f.titulo} — {f.source_name}
+                            <span className="text-accent" aria-hidden="true">↗</span>
+                            <span className="text-sm text-ink group-hover:text-accent group-hover:underline">{f.titulo}</span>
+                            <span className="numero col-start-2 text-xs text-ink-3">{f.source_name}</span>
                           </a>
                         </li>
                       ))}
@@ -155,14 +191,14 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
         </div>
 
         {amplo && (
-          <aside className="bg-paper-2 p-5">
+          <aside className="bg-surface-2 p-5">
             <p className="kicker">Compromissos do agente</p>
             <ul className="mt-3 space-y-4 text-sm leading-relaxed text-ink-2">
               <li><strong className="block font-medium text-ink">Responder com evidências</strong>Aponta documentos e registros usados.</li>
               <li><strong className="block font-medium text-ink">Separar fato de apuração</strong>Preserva os estados editoriais da base.</li>
               <li><strong className="block font-medium text-ink">Nunca julgar</strong>Reporta o que as fontes registram, sem juízo de culpa.</li>
             </ul>
-            <Link href="/busca" className="meta-link mt-6 text-seal hover:text-seal-soft">Usar busca literal →</Link>
+            <Link href="/busca" className="meta-link mt-6 text-accent hover:text-accent-hover">Usar busca literal →</Link>
           </aside>
         )}
       </div>

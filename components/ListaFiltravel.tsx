@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+
+import { useDialogo } from "./useDialogo";
 
 /**
  * Filtros cruzados, com o estado inteiro na query string.
@@ -81,7 +83,7 @@ function Campo({
       <select
         value={valor}
         onChange={(e) => aoMudar(chave, e.target.value)}
-        className="numero max-w-[15rem] border border-rule bg-paper-3 px-2 py-1 text-sm text-ink outline-none focus:border-ink"
+        className="filtro-campo md:max-w-[15rem]"
       >
         <option value="">todos</option>
         {opcoes.map((o) => (
@@ -110,7 +112,7 @@ function CampoData({
         type="date"
         value={valor}
         onChange={(e) => aoMudar(chave, e.target.value)}
-        className="numero border border-rule bg-paper-3 px-2 py-1 text-sm text-ink outline-none focus:border-ink"
+        className="filtro-campo"
       />
     </label>
   );
@@ -176,9 +178,45 @@ export default function ListaFiltravel({
 
   const ativos = CHAVES.filter((k) => atual[k]);
 
+  /*
+   * No celular os seis campos empurravam o primeiro resultado para fora da
+   * tela. Lá eles moram numa folha que sobe de baixo; do tablet em diante
+   * ficam em linha, como antes. O mesmo DOM serve aos dois — só muda o CSS e,
+   * com a folha aberta, a semântica de diálogo.
+   */
+  const [folha, setFolha] = useState(false);
+  const painel = useRef<HTMLDivElement>(null);
+  const fecharFolha = useCallback(() => setFolha(false), []);
+  useDialogo(folha, painel, fecharFolha);
+
   return (
     <div>
-      <div className="flex flex-wrap items-end gap-x-5 gap-y-3 border-y border-rule py-3">
+      <div className="filtros-barra md:hidden">
+        <button type="button" className="filtros-gatilho" onClick={() => setFolha(true)} aria-haspopup="dialog">
+          Filtrar{ativos.length > 0 && <span className="numero"> · {ativos.length}</span>}
+        </button>
+        {ativos.length > 0 && (
+          <button type="button" onClick={limpar} className="meta-link hover:text-accent">
+            Limpar filtros
+          </button>
+        )}
+      </div>
+
+      {folha && <div className="filtros-fundo md:hidden" onClick={fecharFolha} aria-hidden="true" />}
+      <div
+        ref={painel}
+        className={`filtros ${folha ? "is-aberta" : ""}`}
+        role={folha ? "dialog" : undefined}
+        aria-modal={folha || undefined}
+        aria-labelledby={folha ? "filtros-titulo" : undefined}
+        tabIndex={folha ? -1 : undefined}
+      >
+        <div className="filtros-topo md:hidden">
+          <p id="filtros-titulo" className="headline text-xl">Filtrar</p>
+          <button type="button" className="icone-botao" onClick={fecharFolha} aria-label="Fechar filtros" data-foco-inicial>
+            <span aria-hidden="true" className="text-xl">×</span>
+          </button>
+        </div>
         <Campo chave="pessoa" valor={atual.pessoa} opcoes={opcoes.pessoas} aoMudar={aplicar} />
         <Campo chave="tipo" valor={atual.tipo} opcoes={opcoes.tipos} aoMudar={aplicar} />
         <Campo
@@ -195,11 +233,20 @@ export default function ListaFiltravel({
           <button
             type="button"
             onClick={limpar}
-            className="kicker border border-rule px-2 py-1.5 hover:border-seal hover:text-seal"
+            className="kicker hidden border border-rule px-2 py-1.5 hover:border-accent hover:text-accent md:inline-block"
           >
             Limpar {ativos.length}
           </button>
         )}
+
+        <div className="filtros-rodape md:hidden">
+          <button type="button" onClick={limpar} disabled={ativos.length === 0} className="filtros-limpar">
+            Limpar
+          </button>
+          <button type="button" onClick={fecharFolha} className="agent-submit justify-center">
+            Ver {visiveis.length} {visiveis.length === 1 ? "resultado" : "resultados"}
+          </button>
+        </div>
       </div>
 
       <p className="kicker mt-2 normal-case tracking-normal">

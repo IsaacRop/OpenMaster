@@ -1,10 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="10" fill="#141820"/>
-  <line x1="32" y1="32" x2="50" y2="32" stroke="#E9B44C" stroke-width="4"/>
-  <line x1="32" y1="32" x2="32" y2="14" stroke="#E9B44C" stroke-width="4"/>
-  <line x1="32" y1="32" x2="19" y2="45" stroke="#E9B44C" stroke-width="4"/>
-  <circle cx="50" cy="32" r="4" fill="#E9B44C"/>
-  <circle cx="32" cy="14" r="4" fill="#E9B44C"/>
-  <circle cx="19" cy="45" r="4" fill="#E9B44C"/>
-  <circle cx="32" cy="32" r="8" fill="#141820" stroke="#FFFFFF" stroke-width="4"/>
+  <!-- Favicon segue o tema do sistema: SVG aceita media query, PNG não. -->
+  <style>
+    .fundo { fill: #F6F5F1; } .acento { stroke: #2F4BD8; fill: #2F4BD8; } .centro { fill: #F6F5F1; stroke: #141518; }
+    @media (prefers-color-scheme: dark) {
+      .fundo { fill: #0E0F12; } .acento { stroke: #7C93FF; fill: #7C93FF; } .centro { fill: #0E0F12; stroke: #ECEDEF; }
+    }
+  </style>
+  <rect class="fundo" width="64" height="64" rx="4"/>
+  <g class="acento" stroke-width="4">
+    <line x1="32" y1="32" x2="50" y2="32"/>
+    <line x1="32" y1="32" x2="32" y2="14"/>
+    <line x1="32" y1="32" x2="19" y2="45"/>
+    <circle cx="50" cy="32" r="5" stroke="none"/>
+    <circle cx="32" cy="14" r="5" stroke="none"/>
+    <circle cx="19" cy="45" r="5" stroke="none"/>
+  </g>
+  <circle class="centro" cx="32" cy="32" r="8" stroke-width="4"/>
 </svg>

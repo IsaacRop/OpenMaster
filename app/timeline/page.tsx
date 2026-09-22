@@ -22,7 +22,7 @@ export default function TimelinePage() {
     <div className="space-y-6">
       <header>
         <p className="eyebrow">O caso passo a passo</p>
-        <h2 className="headline mt-2 text-4xl text-ink">O que aconteceu</h2>
+        <h1 className="headline mt-2 text-4xl text-ink">O que aconteceu</h1>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-2">
           Reunimos {timelineDesc.length} acontecimentos em ordem, do mais recente para o mais
           antigo. Os {marcos} pontos que mudaram o rumo do caso recebem a indicação “marco”.

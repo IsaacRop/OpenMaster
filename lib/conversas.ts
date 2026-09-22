@@ -79,6 +79,12 @@ const IDS_RELATORIO_PF = [
   "vivi-moraes",
 ] as const;
 
+/**
+ * Quantas conversas a seção publica (as do relatório da PF mais a da Martha
+ * Graeff), sem baixar nada: a capa é estática e só precisa do número.
+ */
+export const TOTAL_CONVERSAS = IDS_RELATORIO_PF.length + 1;
+
 export type ConversaMensagem = {
   id: number;
   timestamp: string;

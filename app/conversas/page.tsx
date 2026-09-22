@@ -33,7 +33,7 @@ export default async function ConversasPage() {
     <article className="space-y-8">
       <header>
         <p className="kicker">Conversas</p>
-        <h2 className="headline mt-1 text-4xl text-ink">Celular de Daniel Vorcaro</h2>
+        <h1 className="headline mt-1 text-4xl text-ink">Celular de Daniel Vorcaro</h1>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-2">
           Visualização, no formato de um app de mensagens, das conversas extraídas dos celulares
           apreendidos de Daniel Vorcaro. Os textos não são produzidos por este painel — vêm ao
@@ -42,7 +42,7 @@ export default async function ConversasPage() {
             href="https://github.com/rafaelbressan/masterzap"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline decoration-rule underline-offset-2 hover:text-seal hover:decoration-seal"
+            className="underline decoration-rule underline-offset-2 hover:text-accent hover:decoration-accent"
           >
             MasterWhats
           </a>
@@ -72,9 +72,9 @@ export default async function ConversasPage() {
               <li key={c.id}>
                 <Link
                   href={`/conversas/${c.id}`}
-                  className="flex items-center gap-3 px-1 py-2.5 no-underline transition-colors hover:bg-paper-2"
+                  className="flex items-center gap-3 px-1 py-2.5 no-underline transition-colors hover:bg-surface-2"
                 >
-                  <span className="numero flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-rule bg-paper-2 text-xs text-ink-2">
+                  <span className="numero flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-rule bg-surface-2 text-xs text-ink-2">
                     {iniciais(nome)}
                   </span>
                   <span className="min-w-0 flex-1">

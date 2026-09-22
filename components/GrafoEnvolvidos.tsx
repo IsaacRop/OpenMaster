@@ -132,6 +132,9 @@ export default function GrafoEnvolvidos({ nos, arestas }: { nos: NoGrafo[]; ares
   });
   const arrasto = useRef<{ x: number; y: number; vx: number; vy: number; moveu: boolean } | null>(null);
   const suprirCliqueAposPan = useRef(false);
+  /** Dedos na tela, por `pointerId`. Dois deles viram pinça. */
+  const ponteiros = useRef(new Map<number, { x: number; y: number }>());
+  const pinca = useRef<{ distancia: number; k: number; mundo: { x: number; y: number } } | null>(null);
   const quadroPan = useRef<number | null>(null);
   const vistaPendente = useRef<Vista | null>(null);
   /**
@@ -341,30 +344,80 @@ export default function GrafoEnvolvidos({ nos, arestas }: { nos: NoGrafo[]; ares
   const alternarTipo = (tipo: TipoNo) => { const novos = new Set(tiposAtivos); if (novos.has(tipo)) { if (novos.size === 1) return; novos.delete(tipo); } else novos.add(tipo); setTiposAtivos(novos); navegar({ tipos: novos }, "replace"); };
   const mudarZoom = (fator: number) => { const atual = vistaRef.current; const px = vb.x + vb.largura / 2; const py = vb.y + vb.altura / 2; const k = limitar(atual.k * fator, K_MIN, K_MAX); animarVista({ k, x: px - ((px - atual.x) / atual.k) * k, y: py - ((py - atual.y) / atual.k) * k }); };
   // Arrastar durante uma interpolacao: a mao manda, a animacao para.
-  const iniciarPan = (event: React.PointerEvent<SVGSVGElement>) => { if (event.button !== 0) return; pararAnimacao(); suprirCliqueAposPan.current = false; event.currentTarget.setPointerCapture(event.pointerId); arrasto.current = { x: event.clientX, y: event.clientY, vx: vistaRef.current.x, vy: vistaRef.current.y, moveu: false }; };
-  const moverPan = (event: React.PointerEvent<SVGSVGElement>) => {
-    if (!arrasto.current || !svgRef.current) return;
-    const escala = vb.largura / svgRef.current.getBoundingClientRect().width;
-    const dx = event.clientX - arrasto.current.x; const dy = event.clientY - arrasto.current.y;
-    if (Math.hypot(dx, dy) > 3) { arrasto.current.moveu = true; suprirCliqueAposPan.current = true; }
-    vistaPendente.current = { ...vistaRef.current, x: arrasto.current.vx + dx * escala, y: arrasto.current.vy + dy * escala };
+  /** Ponto da tela em coordenadas do viewBox — o espaço em que a vista vive. */
+  const noViewBox = (clientX: number, clientY: number) => {
+    const caixa = svgRef.current!.getBoundingClientRect();
+    const escala = vb.largura / caixa.width;
+    return { x: vb.x + (clientX - caixa.left) * escala, y: vb.y + (clientY - caixa.top) * escala };
+  };
+  const agendarVista = (v: Vista) => {
+    vistaPendente.current = v;
     if (quadroPan.current !== null) return;
     quadroPan.current = requestAnimationFrame(() => {
       quadroPan.current = null;
       if (vistaPendente.current) escreverVista(vistaPendente.current);
     });
   };
+  const iniciarPan = (event: React.PointerEvent<SVGSVGElement>) => {
+    if (event.button !== 0) return;
+    pararAnimacao();
+    event.currentTarget.setPointerCapture(event.pointerId);
+    ponteiros.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    // Segundo dedo: o arrasto vira pinça. O ponto do mundo sob o meio dos dois
+    // dedos fica sob o meio deles durante todo o gesto — é o que faz a pinça
+    // parecer segurar o mapa, e não dar zoom num centro arbitrário.
+    if (ponteiros.current.size === 2) {
+      const [a, b] = [...ponteiros.current.values()];
+      const meio = noViewBox((a.x + b.x) / 2, (a.y + b.y) / 2);
+      const v = vistaRef.current;
+      pinca.current = { distancia: Math.hypot(a.x - b.x, a.y - b.y) || 1, k: v.k, mundo: { x: (meio.x - v.x) / v.k, y: (meio.y - v.y) / v.k } };
+      arrasto.current = null;
+      suprirCliqueAposPan.current = true;
+      return;
+    }
+    suprirCliqueAposPan.current = false;
+    arrasto.current = { x: event.clientX, y: event.clientY, vx: vistaRef.current.x, vy: vistaRef.current.y, moveu: false };
+  };
+  const moverPan = (event: React.PointerEvent<SVGSVGElement>) => {
+    if (ponteiros.current.has(event.pointerId)) ponteiros.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    if (pinca.current && ponteiros.current.size >= 2 && svgRef.current) {
+      const [a, b] = [...ponteiros.current.values()];
+      const p = pinca.current;
+      const k = limitar(p.k * (Math.hypot(a.x - b.x, a.y - b.y) / p.distancia), K_MIN, K_MAX);
+      const meio = noViewBox((a.x + b.x) / 2, (a.y + b.y) / 2);
+      agendarVista({ k, x: meio.x - p.mundo.x * k, y: meio.y - p.mundo.y * k });
+      return;
+    }
+    if (!arrasto.current || !svgRef.current) return;
+    const escala = vb.largura / svgRef.current.getBoundingClientRect().width;
+    const dx = event.clientX - arrasto.current.x; const dy = event.clientY - arrasto.current.y;
+    if (Math.hypot(dx, dy) > 3) { arrasto.current.moveu = true; suprirCliqueAposPan.current = true; }
+    agendarVista({ ...vistaRef.current, x: arrasto.current.vx + dx * escala, y: arrasto.current.vy + dy * escala });
+  };
   /**
    * O arrasto tambem escreve direto no DOM e so devolve ao React ao soltar.
    * Era o laco mais quente do componente: um `setState` por quadro de pan
    * re-renderizava o grafo inteiro enquanto o dedo estivesse na tela.
    */
-  const encerrarPan = () => {
-    if (!arrasto.current) return;
-    arrasto.current = null;
+  const assentarVista = () => {
     if (quadroPan.current !== null) { cancelAnimationFrame(quadroPan.current); quadroPan.current = null; }
     if (vistaPendente.current) { escreverVista(vistaPendente.current); vistaPendente.current = null; }
     setVista(vistaRef.current);
+  };
+  const encerrarPan = (event: React.PointerEvent<SVGSVGElement>) => {
+    ponteiros.current.delete(event.pointerId);
+    if (pinca.current) {
+      if (ponteiros.current.size >= 2) return;
+      pinca.current = null;
+      assentarVista();
+      // Sobrou um dedo: ele continua arrastando dali, sem salto.
+      const resto = [...ponteiros.current.values()][0];
+      if (resto) arrasto.current = { x: resto.x, y: resto.y, vx: vistaRef.current.x, vy: vistaRef.current.y, moveu: true };
+      return;
+    }
+    if (!arrasto.current) return;
+    arrasto.current = null;
+    assentarVista();
   };
   const origemRelacao = relacaoSelecionada ? porId.get(relacaoSelecionada.from) : null;
   const destinoRelacao = relacaoSelecionada ? porId.get(relacaoSelecionada.to) : null;

@@ -27,7 +27,7 @@ export default function PessoasPage() {
     <div className="space-y-10">
       <header>
         <p className="eyebrow">Guia de nomes</p>
-        <h2 className="headline mt-2 text-4xl text-ink">Quem é quem</h2>
+        <h1 className="headline mt-2 text-4xl text-ink">Quem é quem</h1>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-2">
           Conheça as {pessoasPorPresenca.length} pessoas e instituições que aparecem na base e
           entenda, em poucas linhas, qual é o papel de cada uma.
@@ -46,7 +46,7 @@ export default function PessoasPage() {
           <section key={nivel}>
             <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-ink pb-1.5">
               <div className="flex flex-wrap items-baseline gap-3">
-                <h3 className="headline text-2xl text-ink">{NIVEL_PRESENCA_LABEL[nivel]}</h3>
+                <h2 className="headline text-2xl text-ink">{NIVEL_PRESENCA_LABEL[nivel]}</h2>
                 <span className="kicker normal-case tracking-normal">{NOTA[nivel]}</span>
               </div>
               <span className="numero text-sm text-ink-3">{grupo.length}</span>
@@ -54,10 +54,10 @@ export default function PessoasPage() {
 
             <ul className="mt-4 grid gap-4 md:grid-cols-2">
               {grupo.map((p) => (
-                <li key={p.id} className="render-deferred-item panel flex h-full flex-col p-4 transition-colors hover:border-seal/60">
+                <li key={p.id} className="render-deferred-item panel flex h-full flex-col p-4 transition-colors hover:border-accent/60">
                   <div className="flex flex-wrap items-baseline gap-2">
                     <Link href={`/pessoas/${p.id}`} className="no-underline">
-                      <h4 className="headline text-xl text-ink hover:text-seal">{p.nome}</h4>
+                      <h3 className="headline text-xl text-ink hover:text-accent">{p.nome}</h3>
                     </Link>
                     <NivelBadge nivel={p.nivel_presenca} />
                     <ConfiancaBadge confianca={p.confianca} />
