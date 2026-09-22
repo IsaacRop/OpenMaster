@@ -86,7 +86,10 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
     return ms;
   }, [indice]);
 
+  // O campo de busca do cabeçalho chega aqui como `/busca?q=`.
   useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q");
+    if (q) setConsulta(q);
     input.current?.focus();
   }, []);
 

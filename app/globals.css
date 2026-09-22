@@ -81,6 +81,13 @@
   --escuro-apuracao: #d9a45b;
   --escuro-controverso: #e0707a;
 
+  /* Alturas do chrome. O mapa desconta as duas da viewport. */
+  --altura-cabecalho: 3.5rem;
+  --altura-abas: 3.5rem;
+  --altura-abas-total: calc(var(--altura-abas) + env(safe-area-inset-bottom));
+  /* Quanto da viewport a barra de abas ocupa: zero onde ela não existe. */
+  --desconto-abas: var(--altura-abas-total);
+
   /* Escala de espaçamento das regras escritas à mão (as utilidades têm a sua). */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -114,6 +121,10 @@
   --mapa-sombra: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
 
   color-scheme: light;
+}
+
+@media (min-width: 64rem) {
+  :root { --desconto-abas: 0px; }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -274,7 +285,28 @@
     font-weight: 700;
   }
 
-  .status-line,
+  /*
+   * Uma linha só, em qualquer largura. A altura da barra e a da barra de
+   * abas são variáveis porque o mapa desconta as duas da viewport.
+   */
+  .site-header-linha {
+    display: flex;
+    height: var(--altura-cabecalho);
+    max-width: 1440px;
+    margin-inline: auto;
+    align-items: center;
+    gap: var(--space-3);
+    padding-inline: var(--space-4);
+  }
+
+  @media (min-width: 40rem) {
+    .site-header-linha { padding-inline: var(--space-5); }
+  }
+
+  @media (min-width: 64rem) {
+    .site-header-linha { gap: var(--space-5); }
+  }
+
   .meta-link {
     display: inline-flex;
     align-items: center;
@@ -286,15 +318,23 @@
     text-decoration: none;
   }
 
+  /* Altura cheia da barra: o fio do item ativo encosta na régua de baixo. */
   .nav-link {
-    display: block;
+    display: flex;
+    height: var(--altura-cabecalho);
+    align-items: center;
     border-bottom: 2px solid transparent;
-    padding: 0.55rem 0.65rem 0.5rem;
+    padding: 2px 0.55rem 0;
     color: var(--color-ink-2);
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     font-weight: 500;
+    white-space: nowrap;
     text-decoration: none;
     transition: border-color 150ms ease, color 150ms ease;
+  }
+
+  @media (min-width: 80rem) {
+    .nav-link { padding-inline: 0.75rem; }
   }
 
   .nav-link:hover {
@@ -306,38 +346,107 @@
     color: var(--color-ink);
   }
 
-  .search-affordance {
-    display: inline-flex;
-    min-height: 2.25rem;
-    align-items: center;
-    gap: 0.65rem;
+  .menu-explorar {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    z-index: 50;
+    width: 22rem;
     border: 1px solid var(--color-rule-strong);
-    border-radius: var(--radius-sm);
+    border-top: 2px solid var(--color-accent);
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
     background: var(--color-surface);
-    padding: 0.45rem var(--space-3);
-    color: var(--color-ink-3);
-    font-size: 0.875rem;
+    padding: var(--space-2) 0;
+  }
+
+  .menu-explorar a {
+    display: grid;
+    gap: 0.1rem;
+    padding: 0.6rem var(--space-4);
     text-decoration: none;
   }
 
-  .search-affordance:hover {
-    border-color: var(--color-accent);
-    color: var(--color-ink);
+  .menu-explorar li + li a { border-top: 1px solid var(--color-rule); }
+  .menu-explorar strong { color: var(--color-ink); font-size: 0.9rem; font-weight: 500; }
+  .menu-explorar span { color: var(--color-ink-3); font-size: 0.8rem; }
+  .menu-explorar a:hover { background: var(--color-surface-2); }
+  .menu-explorar a:hover strong,
+  .menu-explorar a[aria-current="page"] strong { color: var(--color-accent); }
+
+  .busca-compacta {
+    height: 2.25rem;
+    width: clamp(8.5rem, 14vw, 15rem);
+    align-items: center;
+    gap: var(--space-2);
+    border: 1px solid var(--color-rule-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    padding-inline: 0.6rem;
+    color: var(--color-ink-3);
   }
 
+  .busca-compacta:focus-within {
+    border-color: var(--color-accent);
+    outline: 2px solid var(--color-accent);
+    outline-offset: 1px;
+  }
+
+  .busca-compacta input {
+    min-width: 0;
+    flex: 1;
+    background: transparent;
+    color: var(--color-ink);
+    font-size: 0.875rem;
+    outline: none;
+  }
+
+  .busca-compacta input::placeholder { color: var(--color-ink-3); }
+
+  .selo-dados {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    white-space: nowrap;
+    color: var(--color-ink-3);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+
+  .selo-dados > span {
+    height: 0.4rem;
+    width: 0.4rem;
+    border-radius: 999px;
+    background: var(--color-accent);
+  }
+
+  .selo-dados:hover { color: var(--color-ink); }
+
+  /* 44px no celular (alvo de toque), 36px no desktop (alvo de cursor). */
+  .icone-botao,
   .theme-toggle {
     display: inline-grid;
-    height: 2.25rem;
-    width: 2.25rem;
+    height: 2.75rem;
+    width: 2.75rem;
+    flex: none;
     place-items: center;
-    border: 1px solid var(--color-rule-strong);
     border-radius: var(--radius-sm);
     color: var(--color-ink-2);
   }
 
+  @media (min-width: 64rem) {
+    .icone-botao,
+    .theme-toggle {
+      height: 2.25rem;
+      width: 2.25rem;
+      border: 1px solid var(--color-rule-strong);
+    }
+  }
+
+  .icone-botao:hover,
   .theme-toggle:hover {
-    border-color: var(--color-accent);
-    color: var(--color-ink);
+    color: var(--color-accent);
   }
 
   /* Mostra o ícone do tema para o qual o clique leva. */
@@ -348,6 +457,115 @@
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) .theme-toggle .icone-sol { display: block; }
     :root:not([data-theme="light"]) .theme-toggle .icone-lua { display: none; }
+  }
+
+  /* Gaveta (celular) ---------------------------------------------------- */
+
+  .sem-rolagem { overflow: hidden; }
+
+  .gaveta { position: fixed; inset: 0; z-index: 60; }
+
+  .gaveta-fundo {
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--escuro-bg) 55%, transparent);
+    animation: mapa-surge .2s ease both;
+  }
+
+  .gaveta-painel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    width: min(22rem, 88vw);
+    flex-direction: column;
+    overflow-y: auto;
+    border-left: 1px solid var(--color-rule-strong);
+    background: var(--color-bg);
+    padding: 0 var(--space-4) calc(var(--space-5) + env(safe-area-inset-bottom));
+    animation: gaveta-entra .26s cubic-bezier(.25, .46, .45, .94) both;
+  }
+
+  .gaveta-topo {
+    display: flex;
+    height: var(--altura-cabecalho);
+    flex: none;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-rule);
+    margin-bottom: var(--space-3);
+  }
+
+  .gaveta-primarios a,
+  .gaveta-secundarios a {
+    display: flex;
+    min-height: 2.75rem;
+    align-items: center;
+    border-bottom: 1px solid var(--color-rule);
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .gaveta-primarios a { min-height: 3.25rem; font-family: var(--font-serif); font-size: 1.35rem; font-weight: 600; }
+  .gaveta-secundarios { margin-top: var(--space-2); }
+  .gaveta-secundarios a { color: var(--color-ink-2); font-size: 1rem; }
+
+  .gaveta-primarios a[aria-current="page"],
+  .gaveta-secundarios a[aria-current="page"] {
+    padding-left: var(--space-3);
+    color: var(--color-accent);
+    box-shadow: inset 2px 0 0 var(--color-accent);
+  }
+
+  /* Barra de abas (celular) --------------------------------------------- */
+
+  .tab-bar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 40;
+    border-top: 1px solid var(--color-rule);
+    background: color-mix(in srgb, var(--color-bg) 94%, transparent);
+    backdrop-filter: blur(16px);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .tab-bar ul {
+    display: grid;
+    /* A régua de cima entra na conta: a barra inteira mede `--altura-abas`. */
+    height: calc(var(--altura-abas) - 1px);
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .tab-bar a,
+  .tab-bar button {
+    display: flex;
+    height: 100%;
+    min-height: 2.75rem;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    color: var(--color-ink-3);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .tab-bar [aria-current="page"] {
+    color: var(--color-accent);
+    box-shadow: inset 0 2px 0 var(--color-accent);
+  }
+
+  /*
+   * O conteúdo termina acima das abas. `:has` porque a barra some em
+   * `/conversas/[id]`, e ali o espaço reservado viraria uma faixa vazia.
+   */
+  @media (max-width: 63.999rem) {
+    body:has(.tab-bar) { padding-bottom: var(--altura-abas-total); }
   }
 
   .hub-section-title {
@@ -543,10 +761,15 @@
    * padding vertical do `<main>`, que é compartilhado com as outras páginas.
    */
   .mapa-palco.mapa-tela {
-    height: calc(100svh - var(--mapa-cabecalho, 4.5rem));
+    height: calc(100svh - var(--mapa-cabecalho, var(--altura-cabecalho)) - var(--desconto-abas));
     min-height: 40rem;
     margin-top: -1rem;
     border: 0;
+  }
+
+  /* Acompanha o `sm:py-6` do `<main>`; com -1rem sobrava uma fresta de 0,5rem. */
+  @media (min-width: 40rem) {
+    .mapa-palco.mapa-tela { margin-top: -1.5rem; }
   }
 
   /* Textura: dá escala ao vazio sem competir com o grafo. Some embaixo. */
@@ -775,7 +998,8 @@
   .mapa-instrucoes p:last-child { text-align: right; }
 
   @media (max-width: 48rem) {
-    .mapa-palco.mapa-tela { min-height: 36rem; }
+    /* Cabe num iPhone SE (667px) com cabeçalho e abas, sem rolar a página. */
+    .mapa-palco.mapa-tela { min-height: 26rem; }
     .mapa-topbar { top: .8rem; left: .8rem; right: .8rem; align-items: center; }
     .mapa-capitulo { display: none; }
     .mapa-titulo strong { font-size: 1rem; }
@@ -841,6 +1065,7 @@
 @keyframes mapa-sobe { from { opacity: 0; transform: translateY(.4rem); } to { opacity: 1; transform: none; } }
 @keyframes mapa-ficha-entra { from { opacity: 0; transform: translateX(1.6rem); } to { opacity: 1; transform: none; } }
 @keyframes mapa-popover-entra { from { opacity: 0; transform: translateY(-.5rem) scale(.985); } to { opacity: 1; transform: none; } }
+@keyframes gaveta-entra { from { transform: translateX(100%); } to { transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -850,6 +1075,7 @@
    * movimento, e some-la tiraria um indicador de selecao de quem pediu menos
    * animacao — nao menos informacao.
    */
+  .gaveta-painel, .gaveta-fundo,
   .mapa-ficha, .mapa-ficha > *, .mapa-popover, .mapa-no-nome, .mapa-no-papel { animation: none; }
 }
 
