@@ -5,6 +5,7 @@
 ## Atualizações temáticas
 
 - [Valadão, Lagoinha, Nikolas e Prime You — 22/09/2026](ATUALIZACAO_2026-09-22_VALADAO_LAGOINHA_NIKOLAS.md)
+- [Lula, integrantes do governo e Banco Master — 22/09/2026](ATUALIZACAO_2026-09-22_LULA_GOVERNO_MASTER.md)
 
 ## 1. Matéria-Índice Central (Poder360)
 

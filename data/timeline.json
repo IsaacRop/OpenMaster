@@ -1733,5 +1733,76 @@
     "source_url": "https://iclnoticias.com.br/flavio-bolsonaro-aniversario-da-filha-em-mansao/",
     "source_name": "ICL Notícias — Alice Maciel",
     "source_date": "2026-09-09"
+  },
+  {
+    "id": "2024-12-04-reuniao-lula-vorcaro",
+    "data": "2024-12-04",
+    "titulo": "Lula recebe Vorcaro no Planalto fora da agenda oficial",
+    "descricao": "Em reunião intermediada por Guido Mantega, Lula recebe Daniel Vorcaro e Augusto Lima. Galípolo, Rui Costa e Alexandre Silveira também participam. Segundo Galípolo, Lula encaminha as questões do Master para análise técnica do Banco Central; a reunião não comprova favorecimento ou participação em fraude.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "lula",
+      "vorcaro",
+      "augusto-lima",
+      "guido-mantega",
+      "galipolo",
+      "rui-costa",
+      "alexandre-silveira"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://legis.senado.leg.br/escriba-servicosweb/reuniao/pdf/14571",
+    "source_name": "Senado Federal — depoimento de Gabriel Galípolo",
+    "source_date": "2026-04-08"
+  },
+  {
+    "id": "2026-04-08-galipolo-depoimento-reuniao",
+    "data": "2026-04-08",
+    "titulo": "Galípolo detalha ao Senado reunião de Lula com Vorcaro",
+    "descricao": "Na CPI do Crime Organizado, o presidente do BC confirma o encontro de dezembro de 2024, identifica participantes e relata que Lula orientou análise técnica pelo Banco Central. Trata-se do relato do depoente, não de uma conclusão judicial sobre a reunião.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "galipolo",
+      "lula",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www12.senado.leg.br/noticias/materias/2026/04/08/galipolo-nega-atuacao-do-bc-em-favor-do-master-e-justifica-liquidacao-em-2025",
+    "source_name": "Agência Senado",
+    "source_date": "2026-04-08"
+  },
+  {
+    "id": "2026-06-18-nona-fase-wagner-augusto",
+    "data": "2026-06-18",
+    "titulo": "9ª fase da Compliance Zero investiga Wagner e Augusto Lima",
+    "descricao": "O STF autoriza buscas e medidas cautelares na apuração da possível relação entre gestores do Master e Jaques Wagner. A PF investiga suspeitas de vantagens indevidas e atuação parlamentar em temas de interesse do banco. Wagner nega favorecimento e contesta as medidas; Lula não é apontado como alvo desta fase.",
+    "milestone": false,
+    "tipo": "operacao",
+    "confianca": "apuracao",
+    "processos": [
+      "pet-16229",
+      "pet-16230"
+    ],
+    "pessoas": [
+      "jaques-wagner",
+      "augusto-lima",
+      "vorcaro",
+      "pf"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://noticias.stf.jus.br/postsnoticias/stf-autoriza-9a-fase-da-operacao-compliance-zero-em-sp-ba-e-df/",
+    "source_name": "STF — notícia institucional da 9ª fase",
+    "source_date": "2026-06-18"
   }
 ]

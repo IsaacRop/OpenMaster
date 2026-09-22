@@ -815,15 +815,15 @@
     "id": "jaques-wagner",
     "nome": "Jaques Wagner",
     "tipo": "pessoa",
-    "papel": "senador da República (PT-BA)",
+    "papel": "senador (PT-BA) e líder do governo no Senado",
     "grupo": "outros",
     "descricao": "",
-    "nivel_presenca": "periferico",
-    "resumo_participacao": "Senador citado em autos desclassificados na 2ª leva do STF, sob apuração preliminar de conduta relacionada ao caso Banco Master.",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Alvo da 9ª fase da Operação Compliance Zero. A PF apura possíveis vantagens oferecidas por Augusto Lima, pagamentos a empresa ligada a seu núcleo familiar e eventual atuação parlamentar favorável ao Master. Wagner nega favorecimento e contesta as medidas no STF; a investigação não estabelece participação de Lula.",
     "confianca": "apuracao",
-    "source_url": "https://www.poder360.com.br/poder-justica/mendonca-derruba-sigilo-de-processos-sobre-dark-horse-ciro-e-castro/",
-    "source_name": "Poder360",
-    "source_date": "2026-09-11",
+    "source_url": "https://static.congressoemfoco.com.br/2026/06/18/attachment/2026/06/18/155f34_jaques_wagner.pdf",
+    "source_name": "STF — decisão na Pet 16.229/DF",
+    "source_date": "2026-06-17",
     "pos": {
       "x": 939,
       "y": 480
@@ -1582,5 +1582,113 @@
     "source_url": "https://www.bol.uol.com.br/economia/2025/04/11/igreja-lagoinha-lanca-banco-digital-comandado-por-andre-valadao-e-esposa.htm",
     "source_name": "UOL",
     "source_date": "2025-04-11"
+  },
+  {
+    "id": "lula",
+    "nome": "Luiz Inácio Lula da Silva",
+    "tipo": "pessoa",
+    "papel": "presidente da República",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Recebeu Daniel Vorcaro no Palácio do Planalto em 4/12/2024, em reunião fora da agenda oficial. Segundo depoimento de Gabriel Galípolo ao Senado, encaminhou a questão do Banco Master à análise técnica do Banco Central. A reunião documenta contato institucional, não participação do presidente nas irregularidades investigadas.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 1025,
+      "y": 625
+    },
+    "source_url": "https://www12.senado.leg.br/noticias/materias/2026/04/08/galipolo-nega-atuacao-do-bc-em-favor-do-master-e-justifica-liquidacao-em-2025",
+    "source_name": "Agência Senado — depoimento de Gabriel Galípolo",
+    "source_date": "2026-04-08"
+  },
+  {
+    "id": "guido-mantega",
+    "nome": "Guido Mantega",
+    "tipo": "pessoa",
+    "papel": "ex-ministro da Fazenda e consultor do Banco Master",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Ex-ministro da Fazenda que atuou como consultor do Banco Master e, segundo Lula, pediu a reunião de Vorcaro no Planalto. Galípolo confirmou sua presença no encontro de dezembro de 2024. Dados do banco enviados à CPI e examinados pela Folha registram pagamentos à sua consultoria, mas o encontro, por si só, não demonstra interferência presidencial.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 815,
+      "y": 605
+    },
+    "source_url": "https://www.cnnbrasil.com.br/politica/lula-esteve-com-vorcaro-em-encontro-fora-da-agenda-em-dezembro-de-2024/",
+    "source_name": "CNN Brasil",
+    "source_date": "2026-01-26"
+  },
+  {
+    "id": "augusto-lima",
+    "nome": "Augusto Ferreira Lima",
+    "tipo": "pessoa",
+    "papel": "ex-sócio de Vorcaro no Banco Master",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Ex-sócio de Vorcaro e participante da reunião no Planalto em dezembro de 2024. A PF investiga sua relação com Jaques Wagner e possíveis vantagens ligadas ao Banco Master; os fatos são objeto de apuração, não de condenação.",
+    "confianca": "apuracao",
+    "pos": {
+      "x": 780,
+      "y": 475
+    },
+    "source_url": "https://static.congressoemfoco.com.br/2026/06/18/attachment/2026/06/18/155f34_jaques_wagner.pdf",
+    "source_name": "STF — decisão na Pet 16.229/DF",
+    "source_date": "2026-06-17"
+  },
+  {
+    "id": "rui-costa",
+    "nome": "Rui Costa",
+    "tipo": "pessoa",
+    "papel": "ministro da Casa Civil em dezembro de 2024",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Galípolo o identificou entre os presentes na reunião de Lula com Vorcaro no Planalto em dezembro de 2024. Sua presença não demonstra atuação em favor do Master nem envolvimento nas irregularidades investigadas.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 1090,
+      "y": 520
+    },
+    "source_url": "https://legis.senado.leg.br/escriba-servicosweb/reuniao/pdf/14571",
+    "source_name": "Senado Federal — notas taquigráficas, CPI do Crime Organizado",
+    "source_date": "2026-04-08"
+  },
+  {
+    "id": "alexandre-silveira",
+    "nome": "Alexandre Silveira",
+    "tipo": "pessoa",
+    "papel": "ministro de Minas e Energia em dezembro de 2024",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Galípolo confirmou sua presença na reunião de Lula com Vorcaro no Planalto em dezembro de 2024. A presença, por si só, não prova favorecimento ao Master.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 1150,
+      "y": 650
+    },
+    "source_url": "https://legis.senado.leg.br/escriba-servicosweb/reuniao/pdf/14571",
+    "source_name": "Senado Federal — notas taquigráficas, CPI do Crime Organizado",
+    "source_date": "2026-04-08"
+  },
+  {
+    "id": "ricardo-lewandowski",
+    "nome": "Ricardo Lewandowski",
+    "tipo": "pessoa",
+    "papel": "ex-ministro do STF e ex-ministro da Justiça",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Confirmou ter prestado consultoria jurídica ao Banco Master após deixar o STF e antes de assumir o Ministério da Justiça em janeiro de 2024. O escritório de sua família manteve o banco como cliente. Jaques Wagner confirmou ter sugerido seu nome à direção do Master; isso não demonstra participação de Lula na contratação.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 935,
+      "y": 710
+    },
+    "source_url": "https://www.cnnbrasil.com.br/politica/lider-do-governo-confirma-ter-sugerido-lewandowski-a-banco-master/",
+    "source_name": "CNN Brasil — declarações de Wagner e Lewandowski",
+    "source_date": "2026-01-27"
   }
 ]
