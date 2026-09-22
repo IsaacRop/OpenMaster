@@ -8,6 +8,7 @@ import { createPortal } from "react-dom";
 import Icone from "./Icone";
 import LogoMark from "./LogoMark";
 import ThemeToggle from "./ThemeToggle";
+import { useDialogo } from "./useDialogo";
 import { PRIMARIOS, SECUNDARIOS, ativo, explorarAtivo } from "./navegacao";
 
 /** A barra de abas pede a gaveta por evento: os dois ficam em pontas opostas do `<body>`. */
@@ -103,43 +104,7 @@ function MenuExplorar() {
 function Gaveta({ aberta, fechar, dataCorteBR }: { aberta: boolean; fechar: () => void; dataCorteBR: string }) {
   const pathname = usePathname();
   const painel = useRef<HTMLDivElement>(null);
-  const origem = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    if (!aberta) return;
-    origem.current = document.activeElement as HTMLElement | null;
-    const irmaos = [...document.body.children].filter(
-      (el) => !el.contains(painel.current) && el.tagName !== "SCRIPT",
-    ) as HTMLElement[];
-    irmaos.forEach((el) => (el.inert = true));
-    document.documentElement.classList.add("sem-rolagem");
-    painel.current?.querySelector<HTMLElement>("[data-foco-inicial]")?.focus();
-
-    const aoTeclar = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        fechar();
-        return;
-      }
-      if (e.key !== "Tab" || !painel.current) return;
-      const focaveis = [...painel.current.querySelectorAll<HTMLElement>("a[href], button:not([disabled])")];
-      const primeiro = focaveis[0];
-      const ultimo = focaveis.at(-1);
-      if (e.shiftKey && document.activeElement === primeiro) {
-        e.preventDefault();
-        ultimo?.focus();
-      } else if (!e.shiftKey && document.activeElement === ultimo) {
-        e.preventDefault();
-        primeiro?.focus();
-      }
-    };
-    document.addEventListener("keydown", aoTeclar);
-    return () => {
-      document.removeEventListener("keydown", aoTeclar);
-      irmaos.forEach((el) => (el.inert = false));
-      document.documentElement.classList.remove("sem-rolagem");
-      origem.current?.focus();
-    };
-  }, [aberta, fechar]);
+  useDialogo(aberta, painel, fechar);
 
   if (!aberta) return null;
 

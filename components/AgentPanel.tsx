@@ -66,6 +66,24 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  /*
+   * No celular o campo fica preso ao pé da tela. O teclado virtual cobre a
+   * viewport de layout sem redimensioná-la (Safari e Chrome atuais), então
+   * `bottom: 0` ficaria atrás dele; o `visualViewport` diz quanto ele ocupa.
+   */
+  const [teclado, setTeclado] = useState(0);
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const medir = () => setTeclado(Math.max(0, Math.round(window.innerHeight - vv.height - vv.offsetTop)));
+    vv.addEventListener("resize", medir);
+    vv.addEventListener("scroll", medir);
+    return () => {
+      vv.removeEventListener("resize", medir);
+      vv.removeEventListener("scroll", medir);
+    };
+  }, []);
+
   function aoEnviar(e: FormEvent) {
     e.preventDefault();
     perguntar(pergunta);
@@ -93,7 +111,11 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
             Faça perguntas em linguagem simples. As respostas são limitadas aos dados do OpenMaster e mostram as fontes usadas.
           </p>
 
-          <form onSubmit={aoEnviar} className="mt-4 border border-rule-strong bg-surface-2 p-2">
+          <form
+            onSubmit={aoEnviar}
+            className="agente-compositor"
+            style={teclado > 0 ? ({ "--teclado": `${teclado}px` } as React.CSSProperties) : undefined}
+          >
             <label htmlFor="pergunta-agente" className="sr-only">Pergunta para o agente OpenMaster</label>
             <textarea
               id="pergunta-agente"
@@ -102,7 +124,7 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
               onChange={(e) => setPergunta(e.target.value)}
               placeholder="Ex.: Por que a Pet 16.662 é importante para o caso?"
               maxLength={500}
-              className="block w-full resize-none bg-transparent px-2 py-2 text-base leading-relaxed text-ink placeholder:text-ink-3 disabled:cursor-not-allowed disabled:opacity-60"
+              className="agente-campo block w-full resize-none bg-transparent px-2 py-2 text-base leading-relaxed text-ink placeholder:text-ink-3 disabled:cursor-not-allowed disabled:opacity-60"
               disabled={carregando}
             />
             <div className="flex flex-wrap items-center justify-between gap-3 border-t border-rule px-2 pt-2">
@@ -141,21 +163,22 @@ export default function AgentPanel({ amplo = false }: { amplo?: boolean }) {
             )}
             {estado.tipo === "ok" && (
               <div className="border border-rule-strong bg-surface-2 p-4">
-                <p className="whitespace-pre-line text-sm leading-relaxed text-ink">{estado.dados.resposta}</p>
+                <p className="max-w-[70ch] whitespace-pre-line text-base leading-relaxed text-ink">{estado.dados.resposta}</p>
                 {estado.dados.fontes.length > 0 && (
                   <div className="mt-3 border-t border-rule pt-3">
                     <p className="kicker text-ink-3">Fontes citadas</p>
-                    <ul className="mt-2 space-y-1.5">
+                    <ul className="mt-2 divide-y divide-rule">
                       {estado.dados.fontes.map((f, i) => (
                         <li key={i}>
                           <a
                             href={f.source_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="numero inline-flex items-center gap-1.5 text-xs text-ink-3 underline decoration-rule underline-offset-2 hover:text-accent hover:decoration-accent"
+                            className="group grid min-h-11 grid-cols-[auto_1fr] items-baseline gap-x-2 py-2 no-underline"
                           >
                             <span className="text-accent" aria-hidden="true">↗</span>
-                            {f.titulo} — {f.source_name}
+                            <span className="text-sm text-ink group-hover:text-accent group-hover:underline">{f.titulo}</span>
+                            <span className="numero col-start-2 text-xs text-ink-3">{f.source_name}</span>
                           </a>
                         </li>
                       ))}

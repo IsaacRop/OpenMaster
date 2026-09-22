@@ -21,7 +21,7 @@ export default function ProcessosPage() {
     <div className="space-y-6">
       <header>
         <p className="eyebrow">Frentes do caso</p>
-        <h2 className="headline mt-2 text-4xl text-ink">Processos do caso</h2>
+        <h1 className="headline mt-2 text-4xl text-ink">Processos do caso</h1>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-2">
           O caso não acontece em um único processo. Aqui estão as {processos.length} frentes que
           acompanhamos, com o assunto, quem conduz e a movimentação mais recente de cada uma.

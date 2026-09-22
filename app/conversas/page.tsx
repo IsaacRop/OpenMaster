@@ -33,7 +33,7 @@ export default async function ConversasPage() {
     <article className="space-y-8">
       <header>
         <p className="kicker">Conversas</p>
-        <h2 className="headline mt-1 text-4xl text-ink">Celular de Daniel Vorcaro</h2>
+        <h1 className="headline mt-1 text-4xl text-ink">Celular de Daniel Vorcaro</h1>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-2">
           Visualização, no formato de um app de mensagens, das conversas extraídas dos celulares
           apreendidos de Daniel Vorcaro. Os textos não são produzidos por este painel — vêm ao

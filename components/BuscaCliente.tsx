@@ -189,7 +189,7 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
                             </span>
                           </div>
                           {r.texto && (
-                            <p className="mt-1 max-w-3xl text-sm leading-relaxed text-ink-2">
+                            <p className="mt-1 max-w-[70ch] text-sm leading-relaxed text-ink-2">
                               <Realce texto={trecho(r.texto, termos)} termos={termos} />
                             </p>
                           )}

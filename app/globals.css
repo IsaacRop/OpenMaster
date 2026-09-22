@@ -291,7 +291,8 @@
    */
   .site-header-linha {
     display: flex;
-    height: var(--altura-cabecalho);
+    /* A régua de baixo entra na conta: a barra inteira mede `--altura-cabecalho`. */
+    height: calc(var(--altura-cabecalho) - 1px);
     max-width: 1440px;
     margin-inline: auto;
     align-items: center;
@@ -321,7 +322,7 @@
   /* Altura cheia da barra: o fio do item ativo encosta na régua de baixo. */
   .nav-link {
     display: flex;
-    height: var(--altura-cabecalho);
+    height: 100%;
     align-items: center;
     border-bottom: 2px solid transparent;
     padding: 2px 0.55rem 0;
@@ -632,6 +633,43 @@
     color: var(--color-ink-3);
   }
 
+  .agente-compositor {
+    margin-top: var(--space-4);
+    border: 1px solid var(--color-rule-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface-2);
+    padding: var(--space-2);
+  }
+
+  .agente-compositor:focus-within { border-color: var(--color-accent); }
+
+  /*
+   * Celular e tablet: o campo gruda no pé, logo acima da barra de abas — ou
+   * do teclado virtual, quando ele abre (`--teclado`, medido no componente;
+   * a barra de abas fica atrás do teclado nessa hora).
+   */
+  @media (max-width: 63.999rem) {
+    .agente-compositor {
+      position: fixed;
+      right: 0;
+      bottom: var(--teclado, var(--desconto-abas));
+      left: 0;
+      z-index: 30;
+      margin: 0;
+      border: 0;
+      border-top: 1px solid var(--color-rule-strong);
+      border-radius: 0;
+      background: color-mix(in srgb, var(--color-bg) 96%, transparent);
+      backdrop-filter: blur(16px);
+      padding: var(--space-2) var(--space-4);
+    }
+
+    .agente-campo { height: 3.25rem; }
+
+    /* O que o campo fixo cobriria no fim da página. */
+    main:has(.agente-compositor) { padding-bottom: 8.5rem; }
+  }
+
   /* Vocabulário tipográfico editorial ------------------------------------ */
 
   /*
@@ -711,6 +749,280 @@
     background: var(--color-accent-soft);
     padding: 0.8rem var(--space-4);
     color: var(--color-ink-2);
+  }
+
+  /* Listas filtráveis ----------------------------------------------------- */
+
+  /* 16px no celular: abaixo disso o Safari do iPhone dá zoom ao focar o campo. */
+  .filtro-campo {
+    width: 100%;
+    min-height: 2.75rem;
+    border: 1px solid var(--color-rule-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    padding: 0 var(--space-2);
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .filtro-campo:focus { border-color: var(--color-accent); }
+
+  .filtros-barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    border-block: 1px solid var(--color-rule);
+    padding-block: var(--space-2);
+  }
+
+  .filtros-gatilho {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    border: 1px solid var(--color-rule-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    padding-inline: var(--space-4);
+    color: var(--color-ink);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .filtros-gatilho:hover { border-color: var(--color-accent); }
+
+  .filtros-fundo {
+    position: fixed;
+    inset: 0;
+    z-index: 59;
+    background: color-mix(in srgb, var(--escuro-bg) 55%, transparent);
+    animation: mapa-surge .2s ease both;
+  }
+
+  /* Celular: folha que sobe de baixo, fechada até alguém pedir. */
+  .filtros { display: none; }
+
+  .filtros.is-aberta {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 60;
+    display: grid;
+    max-height: 88svh;
+    gap: var(--space-4);
+    overflow-y: auto;
+    border-top: 1px solid var(--color-rule-strong);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    background: var(--color-bg);
+    padding: 0 var(--space-4) calc(var(--space-4) + env(safe-area-inset-bottom));
+    outline: none;
+    animation: folha-sobe .26s cubic-bezier(.25, .46, .45, .94) both;
+  }
+
+  .filtros-topo {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-rule);
+    background: var(--color-bg);
+    padding-block: var(--space-2);
+  }
+
+  .filtros-rodape {
+    position: sticky;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-3);
+    border-top: 1px solid var(--color-rule);
+    background: var(--color-bg);
+    padding-top: var(--space-3);
+  }
+
+  .filtros-rodape .agent-submit { min-height: 2.75rem; }
+
+  .filtros-limpar {
+    min-height: 2.75rem;
+    border: 1px solid var(--color-rule-strong);
+    border-radius: var(--radius-sm);
+    padding-inline: var(--space-4);
+    color: var(--color-ink-2);
+  }
+
+  .filtros-limpar:disabled { opacity: 0.5; }
+
+  @media (min-width: 48rem) {
+    .filtros,
+    .filtros.is-aberta {
+      position: static;
+      display: flex;
+      max-height: none;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: var(--space-3) var(--space-5);
+      overflow: visible;
+      border: 0;
+      border-block: 1px solid var(--color-rule);
+      border-radius: 0;
+      padding: var(--space-3) 0;
+      animation: none;
+    }
+
+    .filtro-campo { width: auto; min-height: 2.25rem; font-size: 0.875rem; }
+  }
+
+  /* Conversas: moldura de celular ---------------------------------------- */
+
+  .telefone-tela {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg);
+  }
+
+  .telefone-topo {
+    flex: none;
+    border-bottom: 1px solid var(--color-rule);
+    background: var(--color-surface-2);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .telefone-miolo {
+    flex: 1;
+    padding: var(--space-3);
+  }
+
+  .telefone-base {
+    flex: none;
+    border-top: 1px solid var(--color-rule);
+    background: var(--color-surface-2);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  @media (max-width: 39.999rem) {
+    /* Largura toda: a margem negativa desfaz o respiro lateral do `<main>`. */
+    .telefone { margin-inline: calc(-1 * var(--space-4)); }
+
+    .telefone-lista .telefone-topo {
+      position: sticky;
+      top: var(--altura-cabecalho);
+      z-index: 5;
+    }
+
+    /*
+     * Tela cheia abaixo da barra do site (a barra de abas some nesta rota).
+     * `svh` para o rodapé não cair atrás da barra do navegador; o próprio
+     * rodapé desconta o indicador de início do iPhone.
+     */
+    .telefone-chat { margin-block: calc(-1 * var(--space-4)); }
+    .telefone-chat .telefone-tela { height: calc(100svh - var(--altura-cabecalho)); }
+    .telefone-chat .telefone-miolo { overflow-y: auto; overscroll-behavior: contain; }
+    .telefone-chat .telefone-base { padding-bottom: calc(var(--space-2) + env(safe-area-inset-bottom)); }
+  }
+
+  @media (min-width: 40rem) {
+    .telefone {
+      width: fit-content;
+      max-width: 100%;
+      margin-inline: auto;
+      border: 6px solid var(--color-surface);
+      border-radius: 2rem;
+      background: var(--color-surface);
+      outline: 1px solid var(--color-rule-strong);
+    }
+
+    .telefone-tela {
+      aspect-ratio: 9 / 19.5;
+      overflow: hidden;
+      border-radius: 1.5rem;
+    }
+
+    .telefone-miolo { overflow-y: auto; }
+
+    .telefone-lista .telefone-tela { width: 360px; min-height: 520px; max-height: 85vh; }
+
+    /* Cabeçalho, respiro do `<main>` e a linha de crédito abaixo da moldura. */
+    .telefone-chat .telefone-tela {
+      width: auto;
+      min-width: 320px;
+      height: calc(100dvh - var(--altura-cabecalho) - 6.5rem);
+      max-height: 780px;
+    }
+  }
+
+  /* Páginas de entidade --------------------------------------------------- */
+
+  .ficha-dados {
+    display: grid;
+    margin-top: var(--space-4);
+  }
+
+  /* Celular: uma linha por par, rótulo à esquerda, fio fino entre elas. */
+  .ficha-dados > div {
+    display: grid;
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: var(--space-3);
+    border-bottom: 1px solid var(--color-rule);
+    padding-block: 0.55rem;
+  }
+
+  .ficha-dados dt {
+    color: var(--color-ink-3);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .ficha-dados dd {
+    min-width: 0;
+    color: var(--color-ink);
+    font-size: 0.95rem;
+  }
+
+  @media (min-width: 40rem) {
+    .ficha-dados {
+      grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+      gap: var(--space-4) var(--space-6);
+      border-bottom: 1px solid var(--color-rule);
+      padding-bottom: var(--space-4);
+    }
+
+    .ficha-dados > div {
+      grid-template-columns: none;
+      gap: 0.3rem;
+      border-bottom: 0;
+      padding-block: 0;
+    }
+  }
+
+  /*
+   * Corpo e referências. No celular as referências vêm depois do conteúdo;
+   * do desktop em diante, na coluna da direita — a leitura principal fica
+   * com a largura de linha confortável e o que aponta para cá fica à mão.
+   */
+  .detalhe-grade {
+    display: grid;
+    gap: var(--space-7);
+    margin-top: var(--space-6);
+  }
+
+  .detalhe-corpo {
+    display: grid;
+    min-width: 0;
+    align-content: start;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 64rem) {
+    .detalhe-grade { grid-template-columns: minmax(0, 1fr) 22rem; gap: var(--space-7); }
+    .detalhe-lateral { border-left: 1px solid var(--color-rule); padding-left: var(--space-6); }
   }
 
   /* Capa ------------------------------------------------------------------ */
@@ -1292,6 +1604,16 @@
     .mapa-instrucoes p:last-child { margin-top: .35rem; text-align: left; }
   }
 
+  /*
+   * Celular estreito: o título ocupava duas linhas e empurrava "Filtros" para
+   * fora da tela. O palco já tem título para leitor de tela, e a aba "Mapa"
+   * marca onde se está; os controles ficam com a largura.
+   */
+  @media (max-width: 29.999rem) {
+    .mapa-titulo { display: none; }
+    .mapa-topbar { justify-content: flex-end; }
+  }
+
   /* Fluidez — transições e entradas -------------------------------------- */
 
   /*
@@ -1333,6 +1655,7 @@
 @keyframes mapa-ficha-entra { from { opacity: 0; transform: translateX(1.6rem); } to { opacity: 1; transform: none; } }
 @keyframes mapa-popover-entra { from { opacity: 0; transform: translateY(-.5rem) scale(.985); } to { opacity: 1; transform: none; } }
 @keyframes gaveta-entra { from { transform: translateX(100%); } to { transform: none; } }
+@keyframes folha-sobe { from { transform: translateY(100%); } to { transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -1342,7 +1665,7 @@
    * movimento, e some-la tiraria um indicador de selecao de quem pediu menos
    * animacao — nao menos informacao.
    */
-  .gaveta-painel, .gaveta-fundo,
+  .gaveta-painel, .gaveta-fundo, .filtros.is-aberta, .filtros-fundo,
   .mapa-ficha, .mapa-ficha > *, .mapa-popover, .mapa-no-nome, .mapa-no-papel { animation: none; }
 }
 

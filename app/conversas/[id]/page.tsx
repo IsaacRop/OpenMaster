@@ -98,15 +98,15 @@ export default async function ConversaPage({
   const diaProximo = idxDia >= 0 && idxDia < datas.length - 1 ? datas[idxDia + 1].date : undefined;
 
   return (
-    <article className="flex h-[calc(100dvh-150px)] min-h-[560px] flex-col items-center justify-center gap-2 overflow-hidden">
+    <article className="sm:flex sm:min-h-[560px] sm:flex-col sm:items-center sm:justify-center sm:gap-2">
       <PhoneFrame
-        sizeClassName="h-[calc(100dvh-150px)] max-h-[780px] min-w-[320px] w-auto"
+        modo="chat"
         header={
           <div className="flex items-center gap-2">
             <Link
               href="/conversas"
               aria-label="Voltar para a lista de conversas"
-              className="shrink-0 px-1 text-lg text-ink-2 no-underline hover:text-accent"
+              className="-ml-2 grid h-11 w-11 shrink-0 place-items-center text-lg text-ink-2 no-underline hover:text-accent"
             >
               ←
             </Link>
@@ -127,7 +127,7 @@ export default async function ConversaPage({
                   aria-disabled={!diaAnterior}
                   aria-label="Dia anterior"
                   title="Dia anterior"
-                  className={`shrink-0 border px-3 py-1.5 text-center text-sm no-underline ${
+                  className={`grid h-11 w-11 shrink-0 place-items-center border text-center text-base no-underline sm:h-auto sm:w-auto sm:px-3 sm:py-1.5 sm:text-sm ${
                     diaAnterior
                       ? "border-rule text-ink-2 hover:border-accent hover:text-accent"
                       : "cursor-not-allowed border-rule/40 text-ink-3/40"
@@ -148,7 +148,7 @@ export default async function ConversaPage({
                   aria-disabled={!diaProximo}
                   aria-label="Dia seguinte"
                   title="Dia seguinte"
-                  className={`shrink-0 border px-3 py-1.5 text-center text-sm no-underline ${
+                  className={`grid h-11 w-11 shrink-0 place-items-center border text-center text-base no-underline sm:h-auto sm:w-auto sm:px-3 sm:py-1.5 sm:text-sm ${
                     diaProximo
                       ? "border-rule text-ink-2 hover:border-accent hover:text-accent"
                       : "cursor-not-allowed border-rule/40 text-ink-3/40"
@@ -160,7 +160,7 @@ export default async function ConversaPage({
               <form
                 action={`/conversas/${id}`}
                 method="get"
-                className="flex items-center gap-1.5 text-[0.625rem] text-ink-3"
+                className="flex items-center gap-1.5 text-xs text-ink-3 sm:text-[0.625rem]"
               >
                 <span className="shrink-0">Ir direto para:</span>
                 <select
@@ -168,7 +168,7 @@ export default async function ConversaPage({
                   defaultValue={diaAtivo}
                   name="data"
                   aria-label="Pular para um dia específico da conversa"
-                  className="min-w-0 flex-1 border border-rule bg-surface-2 px-1.5 py-1 text-[0.625rem] text-ink"
+                  className="min-h-11 min-w-0 flex-1 border border-rule bg-surface-2 px-1.5 text-base text-ink sm:min-h-0 sm:py-1 sm:text-[0.625rem]"
                 >
                   {datas.map((d) => (
                     <option key={d.date} value={d.date}>
@@ -178,7 +178,7 @@ export default async function ConversaPage({
                 </select>
                 <button
                   type="submit"
-                  className="shrink-0 border border-rule px-2 py-1 text-[0.625rem] text-ink-2 hover:border-accent hover:text-accent"
+                  className="min-h-11 shrink-0 border border-rule px-3 text-sm text-ink-2 hover:border-accent hover:text-accent sm:min-h-0 sm:px-2 sm:py-1 sm:text-[0.625rem]"
                 >
                   Ir
                 </button>
@@ -189,6 +189,19 @@ export default async function ConversaPage({
           )
         }
       >
+        {/* No celular a linha de crédito de baixo sai da tela; o aviso vem para dentro do chat. */}
+        <p className="mx-auto mb-3 max-w-[90%] text-center text-xs leading-relaxed text-ink-3 sm:hidden">
+          Buscado ao vivo do{" "}
+          <a
+            href="https://www.masterwhats.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-rule underline-offset-2"
+          >
+            MasterWhats
+          </a>
+          , não verificado de forma independente.
+        </p>
         <ul className="space-y-2">
           {mensagensExibidas.map((m) => (
             <ChatMensagem key={m.id} msg={m} souDV={m.sender === "DV"} />
@@ -196,7 +209,7 @@ export default async function ConversaPage({
         </ul>
       </PhoneFrame>
 
-      <p className="shrink-0 text-center text-[0.6875rem] leading-none text-ink-3">
+      <p className="hidden shrink-0 text-center text-[0.6875rem] leading-none text-ink-3 sm:block">
         <Link href="/conversas" className="underline hover:text-accent">
           ← todas as conversas
         </Link>

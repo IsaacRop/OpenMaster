@@ -18,7 +18,7 @@ export default function DocumentosPage() {
     <div className="space-y-8">
       <header>
         <p className="eyebrow">Base documental</p>
-        <h2 className="headline mt-2 text-4xl text-ink">Documentos identificados</h2>
+        <h1 className="headline mt-2 text-4xl text-ink">Documentos identificados</h1>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-2">
           Decisões, ordens e ofícios mencionados pelas fontes públicas. Para cada um dos{" "}
           {documentosDesc.length} documentos, mostramos quem assinou, a qual processo pertence e o

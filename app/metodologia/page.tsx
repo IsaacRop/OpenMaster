@@ -24,7 +24,7 @@ function Secao({ titulo, children }: { titulo: string; children: React.ReactNode
   return (
     <section>
       <h3 className="headline border-b border-ink pb-1.5 text-2xl text-ink">{titulo}</h3>
-      <div className="mt-3 max-w-3xl space-y-3 text-base leading-relaxed text-ink-2">
+      <div className="mt-3 max-w-[70ch] space-y-3 text-base leading-relaxed text-ink-2">
         {children}
       </div>
     </section>
@@ -36,13 +36,13 @@ export default function MetodologiaPage() {
     <div className="space-y-10">
       <header>
         <p className="kicker">Como este painel é feito</p>
-        <h2 className="headline mt-1 text-4xl text-ink">Metodologia</h2>
+        <h1 className="headline mt-1 text-4xl text-ink">Metodologia</h1>
         <div className="rule-thick mt-4" />
       </header>
 
       <div className="border-l-4 border-accent bg-surface-2/60 px-5 py-4">
         <p className="kicker text-accent">Corte temporal desta edição</p>
-        <p className="mt-2 max-w-3xl text-base leading-relaxed text-ink">
+        <p className="mt-2 max-w-[70ch] text-base leading-relaxed text-ink">
           Base verificada até {dataBR(dataCorte)} — a data mais recente entre as movimentações
           registradas nos processos. Verifique a matéria fonte antes de tratar qualquer item
           futuro como resultado.

@@ -27,7 +27,7 @@ export default function PessoasPage() {
     <div className="space-y-10">
       <header>
         <p className="eyebrow">Guia de nomes</p>
-        <h2 className="headline mt-2 text-4xl text-ink">Quem é quem</h2>
+        <h1 className="headline mt-2 text-4xl text-ink">Quem é quem</h1>
         <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-2">
           Conheça as {pessoasPorPresenca.length} pessoas e instituições que aparecem na base e
           entenda, em poucas linhas, qual é o papel de cada uma.

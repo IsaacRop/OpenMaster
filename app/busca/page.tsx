@@ -14,8 +14,8 @@ export default function BuscaPage() {
     <div className="space-y-6">
       <header>
         <p className="eyebrow">Pesquisa na base</p>
-        <h2 className="headline mt-2 text-4xl text-ink">O que você procura?</h2>
-        <p className="mt-3 max-w-3xl text-base leading-relaxed text-ink-2">
+        <h1 className="headline mt-2 text-4xl text-ink">O que você procura?</h1>
+        <p className="mt-3 max-w-[70ch] text-base leading-relaxed text-ink-2">
           Digite um nome, número de processo, decisão ou assunto. A busca percorre processos,
           acontecimentos, pessoas e documentos ao mesmo tempo — e acontece somente no seu
           navegador.
