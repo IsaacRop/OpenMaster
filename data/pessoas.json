@@ -1374,15 +1374,213 @@
     "papel": "deputado federal (PL-MG)",
     "grupo": "outros",
     "descricao": "",
-    "nivel_presenca": "periferico",
-    "resumo_participacao": "Deputado federal que divulgou, em 04/09/2026, vídeo com trechos de relatório da PF sobre relações entre Vorcaro e Alexandre de Moraes. Em 19/09/2026, protocolou ofício a Edson Fachin pedindo o afastamento cautelar do procurador-geral Paulo Gonet, após a divulgação de foto de Gonet com Vorcaro em evento em Londres (2024) e de conversas sobre despesas do filho de Gonet custeadas por Vorcaro.",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Usou, com o pastor Guilherme Batista, aeronave operada pela Prime You na caravana pró-Bolsonaro de 20 a 28/10/2022; em 2026 admitiu que Vorcaro foi um dos financiadores dos deslocamentos. Mensagens de 2024 mostram André Valadão intermediando uma cobrança de Vorcaro após críticas de Nikolas a evento patrocinado pelo Master. Em 30/03/2025, Nikolas pediu a Vorcaro ajuda para um ativo minerário ligado a seu advogado e ex-assessor Thiago Rodrigues de Faria; as mensagens não demonstram que o pedido tenha sido atendido. A PF, segundo documento citado pelo parlamentar, não viu indícios suficientes para inquérito específico contra ele.",
     "confianca": "confirmado",
     "pos": {
       "x": 610,
       "y": 90
     },
-    "source_url": "https://ncnews.com.br/2026/09/19/nikolas-ferreira-pede-ao-stf-afastamento-cautelar-de-paulo-gonet-apos-foto-com-vorcaro/",
-    "source_name": "NC News",
-    "source_date": "2026-09-19"
+    "source_url": "https://veja.abril.com.br/politica/nikolas-minimiza-audio-com-vorcaro-e-diz-que-investigacao-nao-lhe-atribui-nenhum-crime/",
+    "source_name": "Veja",
+    "source_date": "2026-09-03"
+  },
+  {
+    "id": "andre-valadao",
+    "nome": "André Valadão",
+    "tipo": "pessoa",
+    "papel": "pastor e presidente da Lagoinha Global",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Amigo de longa data de Daniel Vorcaro e dirigente da rede Igreja Batista da Lagoinha. Mensagens de abril de 2024 mostram que Vorcaro lhe pediu ajuda para conter críticas de Nikolas Ferreira ao patrocínio do Master a um evento em Londres; Valadão respondeu que falaria com o deputado e depois relatou suas desculpas. Também preside o Clava Forte Bank, fintech voltada ao ecossistema da Lagoinha.",
+    "confianca": "apuracao",
+    "pos": {
+      "x": 430,
+      "y": 180
+    },
+    "source_url": "https://iclnoticias.com.br/nikolas-voos-vorcaro-mensagens-master/",
+    "source_name": "ICL Notícias — Juliana Dal Piva",
+    "source_date": "2026-09-03"
+  },
+  {
+    "id": "igreja-batista-lagoinha",
+    "nome": "Igreja Batista da Lagoinha",
+    "tipo": "instituicao",
+    "papel": "rede evangélica presidida por André Valadão",
+    "grupo": "instituicao",
+    "descricao": "",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Rede religiosa com vínculo histórico com a família Vorcaro: Henrique Vorcaro financiou projetos da igreja, Daniel apresentou programa musical na Rede Super e Fabiano Zettel dirigiu voluntariamente a unidade do Belvedere. A Lagoinha Global afirma que não possui vínculo institucional com o Banco Master e que cada igreja local tem gestão administrativa e jurídica própria.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 340,
+      "y": 230
+    },
+    "source_url": "https://www1.folha.uol.com.br/amp/mercado/2026/03/cunhado-pastor-divida-de-bmw-e-valsa-as-relacoes-da-igreja-da-lagoinha-com-a-familia-vorcaro.shtml",
+    "source_name": "Folha de S.Paulo",
+    "source_date": "2026-03-13"
+  },
+  {
+    "id": "lagoinha-belvedere",
+    "nome": "Lagoinha Belvedere",
+    "tipo": "instituicao",
+    "papel": "unidade local da Igreja Batista da Lagoinha em Belo Horizonte",
+    "grupo": "instituicao",
+    "descricao": "",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Unidade que tinha Fabiano Zettel como presidente e pastor voluntário. Relatório do Coaf apontou R$ 57,1 milhões em entradas e saídas consideradas atípicas entre 24/12/2024 e 08/12/2025, ante faturamento anual estimado em cerca de R$ 950 mil. A Lagoinha Global diz que os valores foram captados por Zettel para obras, sem participação da administração global; a unidade foi fechada em 2026.",
+    "confianca": "apuracao",
+    "pos": {
+      "x": 260,
+      "y": 240
+    },
+    "source_url": "https://www1.folha.uol.com.br/mercado/2026/09/igreja-da-lagoinha-gerida-por-cunhado-de-vorcaro-teve-movimentacao-atipica-de-r-57-mi-diz-coaf.shtml",
+    "source_name": "Folha de S.Paulo — relatório do Coaf",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "natalia-vorcaro",
+    "nome": "Natalia Vorcaro",
+    "tipo": "pessoa",
+    "papel": "irmã de Daniel Vorcaro e esposa de Fabiano Zettel",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Irmã de Daniel Vorcaro e esposa de Fabiano Zettel. Seu casamento com Zettel, celebrado por André Valadão em 2018, é um dos vínculos familiares documentados entre os Vorcaro e a liderança da Igreja Batista da Lagoinha.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 85,
+      "y": 320
+    },
+    "source_url": "https://www1.folha.uol.com.br/amp/mercado/2026/03/cunhado-pastor-divida-de-bmw-e-valsa-as-relacoes-da-igreja-da-lagoinha-com-a-familia-vorcaro.shtml",
+    "source_name": "Folha de S.Paulo",
+    "source_date": "2026-03-13"
+  },
+  {
+    "id": "clava-forte-bank",
+    "nome": "Clava Forte Bank",
+    "tipo": "instituicao",
+    "papel": "fintech voltada ao ecossistema da Lagoinha",
+    "grupo": "instituicao",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Fintech presidida por André Valadão e dirigida por sua esposa, Cassiane Valadão, apresentada como solução exclusiva para igrejas, pastores e projetos da Lagoinha. Não era banco autorizado diretamente pelo Banco Central; declarou operar legalmente como correspondente bancário e Banking as a Service sobre a infraestrutura da CDC SCD. Seu site saiu do ar após a prisão de Vorcaro, coincidência que motivou pedidos parlamentares de informação, sem prova pública de operação conjunta com o Master.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 450,
+      "y": 300
+    },
+    "source_url": "https://www.bol.uol.com.br/economia/2025/04/11/igreja-lagoinha-lanca-banco-digital-comandado-por-andre-valadao-e-esposa.htm",
+    "source_name": "UOL",
+    "source_date": "2025-04-11"
+  },
+  {
+    "id": "guilherme-batista",
+    "nome": "Guilherme Batista",
+    "tipo": "pessoa",
+    "papel": "pastor ligado à Igreja Batista da Lagoinha",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Pastor ligado à Lagoinha que viajou com Nikolas Ferreira na caravana Juventude pelo Brasil, entre 20 e 28/10/2022, em apoio à reeleição de Jair Bolsonaro. Os deslocamentos por nove estados e pelo Distrito Federal usaram aeronave operada pela Prime You, empresa da qual Daniel Vorcaro era sócio minoritário à época.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 525,
+      "y": 170
+    },
+    "source_url": "https://www.metropoles.com/colunas/igor-gadelha/nikolas-se-pronuncia-sobre-ter-viajado-em-jatinho-de-vorcaro-em-2022",
+    "source_name": "Metrópoles",
+    "source_date": "2026-03-03"
+  },
+  {
+    "id": "thiago-rodrigues-faria",
+    "nome": "Thiago Rodrigues de Faria",
+    "tipo": "pessoa",
+    "papel": "advogado e ex-assessor de Nikolas Ferreira",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Advogado e ex-assessor de Nikolas Ferreira em favor de quem o deputado pediu ajuda a Daniel Vorcaro, em março de 2025, para uma pendência envolvendo ativo minerário. A PF identificou contrato de seu escritório com a Gmais que previa participação em eventual negócio ligado à liberação de lavra; as mensagens não demonstram que Vorcaro tenha atendido ao pedido.",
+    "confianca": "apuracao",
+    "pos": {
+      "x": 710,
+      "y": 170
+    },
+    "source_url": "https://veja.abril.com.br/politica/nikolas-minimiza-audio-com-vorcaro-e-diz-que-investigacao-nao-lhe-atribui-nenhum-crime/",
+    "source_name": "Veja",
+    "source_date": "2026-09-03"
+  },
+  {
+    "id": "prime-you",
+    "nome": "Prime You",
+    "tipo": "instituicao",
+    "papel": "gestora de bens de luxo em propriedade compartilhada",
+    "grupo": "instituicao",
+    "descricao": "",
+    "nivel_presenca": "recorrente",
+    "resumo_participacao": "Empresa especializada em gestão compartilhada de imóveis, aeronaves e embarcações. Daniel Vorcaro foi sócio entre setembro de 2021 e setembro de 2025, e a companhia continuou administrando parte de bens a ele atribuídos. Operava o jato usado por Nikolas Ferreira em 2022 e administra a mansão de Angra usada por Flávio Bolsonaro em fevereiro de 2026; isso não significa que Vorcaro fosse proprietário desses dois ativos.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 1000,
+      "y": 740
+    },
+    "source_url": "https://iclnoticias.com.br/flavio-bolsonaro-aniversario-da-filha-em-mansao/",
+    "source_name": "ICL Notícias — Alice Maciel",
+    "source_date": "2026-09-09"
+  },
+  {
+    "id": "willer-tomaz",
+    "nome": "Willer Tomaz",
+    "tipo": "pessoa",
+    "papel": "advogado e amigo de Flávio Bolsonaro",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Amigo de Flávio Bolsonaro e proprietário, por meio da WT Administração de Imóveis e Bens, de uma cota de 25% da mansão de Angra dos Reis administrada pela Prime You. Declarou ter cedido gratuitamente o imóvel ao senador para o aniversário da filha em fevereiro de 2026 e negou qualquer vínculo pessoal ou empresarial com Daniel Vorcaro.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 1180,
+      "y": 760
+    },
+    "source_url": "https://iclnoticias.com.br/flavio-bolsonaro-aniversario-da-filha-em-mansao/",
+    "source_name": "ICL Notícias — Alice Maciel",
+    "source_date": "2026-09-09"
+  },
+  {
+    "id": "marcio-valadao",
+    "nome": "Márcio Valadão",
+    "tipo": "pessoa",
+    "papel": "pastor que liderou a Lagoinha por cinco décadas",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Pastor que comandava a Igreja Batista da Lagoinha quando Serafim Vorcaro levou o filho Henrique à denominação. Depois da conversão, Henrique passou a financiar projetos da igreja e ajudou a viabilizar a compra da Rede Super. Márcio presidiu a Lagoinha até 2022, quando foi sucedido pelo filho André Valadão.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 320,
+      "y": 145
+    },
+    "source_url": "https://piaui.uol.com.br/web/quem-e-daniel-vorcaro-banco-master/",
+    "source_name": "revista piauí",
+    "source_date": "2025-11-18"
+  },
+  {
+    "id": "cassiane-valadao",
+    "nome": "Cassiane Valadão",
+    "tipo": "pessoa",
+    "papel": "diretora do Clava Forte Bank",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Esposa de André Valadão e diretora do Clava Forte Bank, fintech voltada a igrejas, pastores e fiéis do ecossistema da Lagoinha. A empresa declarou operar como correspondente bancário no modelo Banking as a Service, e não como instituição diretamente autorizada pelo Banco Central.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 500,
+      "y": 250
+    },
+    "source_url": "https://www.bol.uol.com.br/economia/2025/04/11/igreja-lagoinha-lanca-banco-digital-comandado-por-andre-valadao-e-esposa.htm",
+    "source_name": "UOL",
+    "source_date": "2025-04-11"
   }
 ]
