@@ -56,18 +56,18 @@
     "relator_atual": "Min. Edson Fachin (Presidente)",
     "historico_relatoria": [],
     "ultima_movimentacao": {
-      "data": "2026-09-17",
-      "descricao": "Fachin retira a Pet 16.704 da pauta de 23/09 porque a questão de ordem pendente na Pet 16.662 alcança a regularidade da própria relatoria; nova data será designada oportunamente.",
+      "data": "2026-09-22",
+      "descricao": "André Mendonça protocola resposta negando irregularidades na sua atuação e pede arquivamento da representação contra si, além de apuração contra Alexandre de Moraes por denunciação caluniosa e abuso de autoridade, alegando distorção de documentos e ampliação indevida do inquérito das fake news.",
       "origem": "manual"
     },
     "movimentacoes": [],
     "proximo_evento": null,
     "sync": "sem_numero_cnj",
     "sync_checked_at": null,
-    "updated_at": "2026-09-20",
-    "source_url": "https://portal.stf.jus.br/processos/abaAndamentos.asp?incidente=7687920",
-    "source_name": "STF — andamento processual da Pet 16.704",
-    "source_date": "2026-09-17"
+    "updated_at": "2026-09-22",
+    "source_url": "https://www.conjur.com.br/2026-set-22/mendonca-nega-falhas-na-sua-atuacao-e-pede-nova-apuracao-contra-alexandre/",
+    "source_name": "ConJur",
+    "source_date": "2026-09-22"
   },
   {
     "id": "rcl-88121",

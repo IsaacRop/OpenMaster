@@ -1040,5 +1040,17 @@
     "source_url": "https://www.gazetadopovo.com.br/republica/vorcaro-ameaca-expor-relacao-ministros-stf-pgr-se-pai-nao-for-liberado-da-prisao/",
     "source_name": "Gazeta do Povo",
     "source_date": "2026-09-18"
+  },
+  {
+    "id": "nikolas-ferreira-gonet",
+    "from": "nikolas-ferreira",
+    "to": "gonet",
+    "rotulo": "pediu afastamento cautelar ao STF",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "confirmado",
+    "source_url": "https://ncnews.com.br/2026/09/19/nikolas-ferreira-pede-ao-stf-afastamento-cautelar-de-paulo-gonet-apos-foto-com-vorcaro/",
+    "source_name": "NC News",
+    "source_date": "2026-09-19"
   }
 ]

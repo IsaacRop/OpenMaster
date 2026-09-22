@@ -1366,5 +1366,23 @@
     "source_url": "https://www.gazetadopovo.com.br/republica/vorcaro-ameaca-expor-relacao-ministros-stf-pgr-se-pai-nao-for-liberado-da-prisao/",
     "source_name": "Gazeta do Povo",
     "source_date": "2026-09-18"
+  },
+  {
+    "id": "nikolas-ferreira",
+    "nome": "Nikolas Ferreira",
+    "tipo": "pessoa",
+    "papel": "deputado federal (PL-MG)",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "resumo_participacao": "Deputado federal que divulgou, em 04/09/2026, vídeo com trechos de relatório da PF sobre relações entre Vorcaro e Alexandre de Moraes. Em 19/09/2026, protocolou ofício a Edson Fachin pedindo o afastamento cautelar do procurador-geral Paulo Gonet, após a divulgação de foto de Gonet com Vorcaro em evento em Londres (2024) e de conversas sobre despesas do filho de Gonet custeadas por Vorcaro.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 610,
+      "y": 90
+    },
+    "source_url": "https://ncnews.com.br/2026/09/19/nikolas-ferreira-pede-ao-stf-afastamento-cautelar-de-paulo-gonet-apos-foto-com-vorcaro/",
+    "source_name": "NC News",
+    "source_date": "2026-09-19"
   }
 ]
