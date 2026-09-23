@@ -239,7 +239,14 @@
     },
     "source_url": "https://conjur.com.br/2026-set-13/para-entender-o-caso-banco-master-vorcaro-no-stf-pet-16-662/",
     "source_name": "ConJur — Alexandre Morais da Rosa",
-    "source_date": "2026-09-13"
+    "source_date": "2026-09-13",
+    "foto": {
+      "url": "/media/nodes/rodrigues.jpg",
+      "credito": "Edilson Rodrigues/Agência Senado (recorte)",
+      "licenca": "CC BY 2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:CSP_-_Comiss%C3%A3o_de_Seguran%C3%A7a_P%C3%BAblica_(54441563769).jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "almada",
@@ -852,6 +859,13 @@
     "pos": {
       "x": 584,
       "y": 30
+    },
+    "foto": {
+      "url": "/media/nodes/viviane-barci.jpg",
+      "credito": "Ricardo Stuckert",
+      "licenca": "CC BY-SA 4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Alexandre_de_Moraes_and_Viviane_Barci,_August_2022_(cropped).jpg",
+      "source_name": "Wikimedia Commons"
     }
   },
   {
@@ -1383,7 +1397,14 @@
     },
     "source_url": "https://veja.abril.com.br/politica/nikolas-minimiza-audio-com-vorcaro-e-diz-que-investigacao-nao-lhe-atribui-nenhum-crime/",
     "source_name": "Veja",
-    "source_date": "2026-09-03"
+    "source_date": "2026-09-03",
+    "foto": {
+      "url": "/media/nodes/nikolas-ferreira.jpg",
+      "credito": "Pablo Valadares/Câmara dos Deputados",
+      "licenca": "CC BY 3.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Nikolas_Ferreira_in_2023_(cropped).jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "andre-valadao",
@@ -1401,7 +1422,14 @@
     },
     "source_url": "https://iclnoticias.com.br/nikolas-voos-vorcaro-mensagens-master/",
     "source_name": "ICL Notícias — Juliana Dal Piva",
-    "source_date": "2026-09-03"
+    "source_date": "2026-09-03",
+    "foto": {
+      "url": "/media/nodes/andre-valadao.jpg",
+      "credito": "Magno dos Santos",
+      "licenca": "CC BY-SA 3.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Andre_Machado_Valad%C3%A3o_do_Diante_do_Trono_(cropped).jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "igreja-batista-lagoinha",
@@ -1419,7 +1447,14 @@
     },
     "source_url": "https://www1.folha.uol.com.br/amp/mercado/2026/03/cunhado-pastor-divida-de-bmw-e-valsa-as-relacoes-da-igreja-da-lagoinha-com-a-familia-vorcaro.shtml",
     "source_name": "Folha de S.Paulo",
-    "source_date": "2026-03-13"
+    "source_date": "2026-03-13",
+    "foto": {
+      "url": "/media/nodes/igreja-batista-lagoinha.png",
+      "credito": "DavidStarIsrael7",
+      "licenca": "CC BY-SA 4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Lagoinha_logo.png",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "lagoinha-belvedere",
@@ -1545,7 +1580,14 @@
     },
     "source_url": "https://iclnoticias.com.br/flavio-bolsonaro-aniversario-da-filha-em-mansao/",
     "source_name": "ICL Notícias — Alice Maciel",
-    "source_date": "2026-09-09"
+    "source_date": "2026-09-09",
+    "foto": {
+      "url": "/media/nodes/willer-tomaz.jpg",
+      "credito": "Edilson Rodrigues/Agência Senado",
+      "licenca": "CC BY 2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Willer_Tomaz_de_Souza.jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "marcio-valadao",
@@ -1599,7 +1641,14 @@
     },
     "source_url": "https://www12.senado.leg.br/noticias/materias/2026/04/08/galipolo-nega-atuacao-do-bc-em-favor-do-master-e-justifica-liquidacao-em-2025",
     "source_name": "Agência Senado — depoimento de Gabriel Galípolo",
-    "source_date": "2026-04-08"
+    "source_date": "2026-04-08",
+    "foto": {
+      "url": "/media/nodes/lula.jpg",
+      "credito": "Ricardo Stuckert/PR",
+      "licenca": "CC BY 2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_(ombros)_denoise.jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "guido-mantega",
@@ -1617,7 +1666,14 @@
     },
     "source_url": "https://www.cnnbrasil.com.br/politica/lula-esteve-com-vorcaro-em-encontro-fora-da-agenda-em-dezembro-de-2024/",
     "source_name": "CNN Brasil",
-    "source_date": "2026-01-26"
+    "source_date": "2026-01-26",
+    "foto": {
+      "url": "/media/nodes/guido-mantega.jpg",
+      "credito": "Roosewelt Pinheiro/ABr",
+      "licenca": "CC BY 3.0 BR",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Guido_mantega.jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "augusto-lima",
@@ -1653,7 +1709,14 @@
     },
     "source_url": "https://legis.senado.leg.br/escriba-servicosweb/reuniao/pdf/14571",
     "source_name": "Senado Federal — notas taquigráficas, CPI do Crime Organizado",
-    "source_date": "2026-04-08"
+    "source_date": "2026-04-08",
+    "foto": {
+      "url": "/media/nodes/rui-costa.jpg",
+      "credito": "Ricardo Stuckert/PR",
+      "licenca": "CC BY 2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Rui_Costa_2023.jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "alexandre-silveira",
@@ -1671,7 +1734,14 @@
     },
     "source_url": "https://legis.senado.leg.br/escriba-servicosweb/reuniao/pdf/14571",
     "source_name": "Senado Federal — notas taquigráficas, CPI do Crime Organizado",
-    "source_date": "2026-04-08"
+    "source_date": "2026-04-08",
+    "foto": {
+      "url": "/media/nodes/alexandre-silveira.jpg",
+      "credito": "Rodrigo Viana/Senado Federal",
+      "licenca": "CC BY 2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Fotos_Oficiais_dos_Senadores_da_56%C2%AA_Legislatura_-_Alexandre_Silveira_(52261299526).jpg",
+      "source_name": "Wikimedia Commons"
+    }
   },
   {
     "id": "ricardo-lewandowski",
@@ -1689,6 +1759,13 @@
     },
     "source_url": "https://www.cnnbrasil.com.br/politica/lider-do-governo-confirma-ter-sugerido-lewandowski-a-banco-master/",
     "source_name": "CNN Brasil — declarações de Wagner e Lewandowski",
-    "source_date": "2026-01-27"
+    "source_date": "2026-01-27",
+    "foto": {
+      "url": "/media/nodes/ricardo-lewandowski.jpg",
+      "credito": "Marcelo Camargo/Agência Brasil",
+      "licenca": "CC BY 2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ricardo_Lewandowski_em_novembro_de_2016_(recorte).jpg",
+      "source_name": "Wikimedia Commons"
+    }
   }
 ]
