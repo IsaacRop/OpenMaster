@@ -7,9 +7,8 @@ import { createPortal } from "react-dom";
 
 import Icone from "./Icone";
 import LogoMark from "./LogoMark";
-import ThemeToggle from "./ThemeToggle";
 import { useDialogo } from "./useDialogo";
-import { PRIMARIOS, SECUNDARIOS, ativo, explorarAtivo } from "./navegacao";
+import { PRIMARIOS, SECUNDARIOS, ativo, explorarAtivo, type ItemNav } from "./navegacao";
 
 /** A barra de abas pede a gaveta por evento: os dois ficam em pontas opostas do `<body>`. */
 export const EVENTO_ABRIR_MENU = "om:abrir-menu";
@@ -85,6 +84,9 @@ function MenuExplorar() {
                 aria-current={ativo(item.href, pathname) ? "page" : undefined}
                 onClick={() => setAberto(false)}
               >
+                <span className="glifo" aria-hidden="true">
+                  {item.glifo}
+                </span>
                 <strong>{item.label}</strong>
                 <span>{item.descricao}</span>
               </Link>
@@ -99,7 +101,7 @@ function MenuExplorar() {
 /**
  * Gaveta do celular. Diálogo modal de verdade: foco preso, Esc fecha, o
  * resto da página sai da árvore de acessibilidade (`inert`) e da rolagem.
- * O foco volta para quem abriu — o botão do cabeçalho ou a aba "Explorar".
+ * O foco volta para quem abriu: a aba "Explorar".
  */
 function Gaveta({ aberta, fechar, dataCorteBR }: { aberta: boolean; fechar: () => void; dataCorteBR: string }) {
   const pathname = usePathname();
@@ -108,10 +110,13 @@ function Gaveta({ aberta, fechar, dataCorteBR }: { aberta: boolean; fechar: () =
 
   if (!aberta) return null;
 
-  const link = (href: string, label: string) => (
-    <li key={href}>
-      <Link href={href} aria-current={ativo(href, pathname) ? "page" : undefined} onClick={fechar}>
-        {label}
+  const link = (item: ItemNav) => (
+    <li key={item.href}>
+      <Link href={item.href} aria-current={ativo(item.href, pathname) ? "page" : undefined} onClick={fechar}>
+        <span className="glifo" aria-hidden="true">
+          {item.glifo}
+        </span>
+        {item.label}
       </Link>
     </li>
   );
@@ -121,21 +126,23 @@ function Gaveta({ aberta, fechar, dataCorteBR }: { aberta: boolean; fechar: () =
   return createPortal(
     <div className="gaveta" ref={painel}>
       <div className="gaveta-fundo" onClick={fechar} aria-hidden="true" />
-      <div role="dialog" aria-modal="true" aria-labelledby="gaveta-titulo" className="gaveta-painel">
+      <div role="dialog" aria-modal="true" aria-label="Menu de navegação" className="gaveta-painel">
         <div className="gaveta-topo">
-          <p id="gaveta-titulo" className="kicker">Navegação</p>
+          <p className="wordmark" aria-hidden="true">
+            Open<b>Master</b>
+          </p>
           <button type="button" className="icone-botao" onClick={fechar} aria-label="Fechar menu" data-foco-inicial>
             <Icone nome="fechar" />
           </button>
         </div>
         <nav aria-label="Principal">
-          <ul className="gaveta-primarios">{PRIMARIOS.map((i) => link(i.href, i.label))}</ul>
+          <ul className="gaveta-primarios">{PRIMARIOS.map((i) => link(i))}</ul>
         </nav>
         <nav aria-label="Explorar a base">
-          <p className="kicker mt-6">Explorar</p>
-          <ul className="gaveta-secundarios">{SECUNDARIOS.map((i) => link(i.href, i.label))}</ul>
+          <p className="gaveta-rotulo">Explorar a base</p>
+          <ul className="gaveta-secundarios">{SECUNDARIOS.map((i) => link(i))}</ul>
         </nav>
-        <div className="mt-auto pt-6">
+        <div className="mt-auto px-2 pt-6">
           <SeloDados dataCorteBR={dataCorteBR} />
         </div>
       </div>
@@ -160,14 +167,14 @@ export default function SiteHeader({ dataCorteBR }: { dataCorteBR: string }) {
     <header className="site-header">
       <div className="site-header-linha">
         <Link href="/" className="inline-flex shrink-0 items-center gap-2 no-underline" aria-label="OpenMaster — início">
-          <LogoMark size={28} />
+          <LogoMark size={30} />
           <span className="wordmark">
             Open<b>Master</b>
           </span>
         </Link>
 
-        <nav aria-label="Principal" className="hidden lg:block">
-          <ul className="flex items-center">
+        <nav aria-label="Principal" className="hidden min-w-0 lg:block">
+          <ul className="flex items-center gap-1">
             {PRIMARIOS.map((item) => (
               <li key={item.href}>
                 <Link
@@ -185,30 +192,21 @@ export default function SiteHeader({ dataCorteBR }: { dataCorteBR: string }) {
           </ul>
         </nav>
 
-        <div className="ml-auto flex items-center gap-2 lg:gap-3">
-          <form action="/busca" role="search" className="busca-compacta hidden lg:flex">
-            <Icone nome="busca" tamanho={16} />
+        <div className="ml-auto flex items-center gap-2">
+          <form action="/busca" role="search" className="busca-compacta hidden xl:flex">
+            <Icone nome="busca" tamanho={15} />
             <label htmlFor="busca-cabecalho" className="sr-only">
               Buscar na base
             </label>
-            <input id="busca-cabecalho" name="q" type="search" placeholder="Buscar" autoComplete="off" />
+            <input id="busca-cabecalho" name="q" type="search" placeholder="Pessoas, processos…" autoComplete="off" />
           </form>
-          <span className="hidden lg:inline-flex">
-            <SeloDados dataCorteBR={dataCorteBR} />
-          </span>
-          <Link href="/busca" className="icone-botao lg:hidden" aria-label="Buscar na base">
-            <Icone nome="busca" />
+          <Link href="/busca" className="icone-botao xl:hidden" aria-label="Buscar na base">
+            <Icone nome="busca" tamanho={18} />
           </Link>
-          <ThemeToggle />
-          <button
-            type="button"
-            className="icone-botao lg:hidden"
-            aria-label="Abrir menu"
-            aria-expanded={gaveta}
-            onClick={() => setGaveta(true)}
-          >
-            <Icone nome="menu" />
-          </button>
+          {/* A barra de abas já leva ao agente no celular; aqui é o CTA principal. */}
+          <Link href="/agente" className="cta-principal cta-compacto hidden lg:inline-flex">
+            Perguntar ao agente
+          </Link>
         </div>
       </div>
 

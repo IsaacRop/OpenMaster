@@ -10,17 +10,17 @@ import type { RefEntidade, TipoEntidade } from "@/lib/backlinks";
  */
 
 export const MARCA_TIPO: Record<TipoEntidade, { sigla: string; classe: string }> = {
-  processo: { sigla: "PROC", classe: "border-ink-2 text-ink-2" },
-  pessoa: { sigla: "PESS", classe: "border-rule-strong text-ink-2" },
-  documento: { sigla: "DOC", classe: "border-rule-strong text-ink-3" },
-  evento: { sigla: "EVT", classe: "border-ink-3 text-ink-3" },
+  processo: { sigla: "Processo", classe: "bg-accent-soft text-accent" },
+  pessoa: { sigla: "Pessoa", classe: "bg-surface-2 text-ink-2" },
+  documento: { sigla: "Documento", classe: "bg-surface-2 text-ink-2" },
+  evento: { sigla: "Evento", classe: "bg-surface-2 text-ink-3" },
 };
 
 export function TipoBadge({ tipo }: { tipo: TipoEntidade }) {
   const m = MARCA_TIPO[tipo];
   return (
     <span
-      className={`numero inline-block shrink-0 border ${m.classe} px-1 py-px text-[0.625rem] uppercase tracking-[0.12em]`}
+      className={`inline-block shrink-0 rounded-full ${m.classe} px-2 py-px text-[0.7rem] font-medium`}
     >
       {m.sigla}
     </span>
@@ -42,7 +42,7 @@ export function EntidadeLink({
       {comTipo && <TipoBadge tipo={entidade.tipo} />}
       <Link
         href={entidade.href}
-        className={`${entidade.tipo === "processo" || entidade.tipo === "documento" ? "numero" : "headline"} text-base text-ink no-underline decoration-rule hover:text-accent hover:underline`}
+        className={`${entidade.tipo === "processo" || entidade.tipo === "documento" ? "numero" : "headline"} text-base font-semibold text-ink no-underline decoration-rule hover:text-accent hover:underline`}
       >
         {entidade.rotulo}
       </Link>

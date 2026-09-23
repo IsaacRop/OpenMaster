@@ -1,9 +1,9 @@
 import { NIVEL_PRESENCA_LABEL, type NivelPresenca } from "@/lib/schema";
 
 const ESTILO: Record<NivelPresenca, string> = {
-  central: "border-accent text-accent",
-  recorrente: "border-ink-2 text-ink-2",
-  periferico: "border-rule text-ink-3",
+  central: "bg-accent-soft text-accent",
+  recorrente: "bg-surface-2 text-ink-2",
+  periferico: "bg-surface-2 text-ink-3",
 };
 
 const TITULO: Record<NivelPresenca, string> = {
@@ -21,7 +21,7 @@ export function NivelBadge({ nivel }: { nivel: NivelPresenca }) {
   return (
     <span
       title={TITULO[nivel]}
-      className={`numero inline-block border ${ESTILO[nivel]} px-1.5 py-px text-[0.625rem] uppercase tracking-[0.12em]`}
+      className={`inline-block rounded-full ${ESTILO[nivel]} px-2 py-0.5 text-[0.72rem] font-medium`}
     >
       {NIVEL_PRESENCA_LABEL[nivel]}
     </span>

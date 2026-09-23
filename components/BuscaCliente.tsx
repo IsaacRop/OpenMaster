@@ -115,7 +115,7 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
 
   return (
     <div>
-      <div className="border-y-2 border-ink py-3">
+      <div className="rounded-2xl border border-rule bg-surface px-4 py-3 shadow-sm transition-shadow focus-within:border-accent focus-within:shadow-[0_0_0_3px_var(--color-accent-soft)]">
         <label htmlFor="busca" className="kicker">
           Buscar em {indice.length} registros
         </label>
@@ -145,10 +145,10 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
                   type="button"
                   onClick={() => alternarTipo(t)}
                   aria-pressed={!oculto}
-                  className={`numero border px-2 py-0.5 text-[0.625rem] uppercase tracking-[0.12em] transition-colors ${
+                  className={`rounded-full border px-3 py-1 text-xs font-medium ${
                     oculto
-                      ? "border-rule text-ink-3 line-through"
-                      : "border-ink bg-ink text-surface"
+                      ? "border-rule text-ink-3 line-through hover:border-rule-strong"
+                      : "border-transparent bg-accent-soft text-accent"
                   }`}
                 >
                   {TITULO_GRUPO[t]} {contagem(t)}
@@ -170,10 +170,10 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
                 if (doTipo.length === 0) return null;
                 return (
                   <section key={tipo}>
-                    <h2 className="kicker border-b border-ink pb-1">
+                    <h2 className="titulo-secao">
                       {TITULO_GRUPO[tipo]} · {doTipo.length}
                     </h2>
-                    <ul className="divide-y divide-rule">
+                    <ul className="panel divide-y divide-rule px-4">
                       {doTipo.map((r) => (
                         <li key={r.id} className="py-3">
                           <div className="flex flex-wrap items-baseline gap-2">
@@ -184,7 +184,7 @@ export default function BuscaCliente({ indice }: { indice: DocBusca[] }) {
                             >
                               <Realce texto={r.titulo} termos={termos} />
                             </Link>
-                            <span className="kicker normal-case tracking-normal">
+                            <span className="nota">
                               {r.subtitulo}
                             </span>
                           </div>

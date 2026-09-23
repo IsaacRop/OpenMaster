@@ -130,7 +130,7 @@ export default async function ProcessoPage({
                   <p className="mt-1 text-sm leading-relaxed text-ink-2">
                     {p.ultima_movimentacao.descricao}
                   </p>
-                  <p className="kicker mt-1 normal-case tracking-normal">
+                  <p className="nota mt-1">
                     origem: {p.ultima_movimentacao.origem === "datajud" ? "DataJud/CNJ" : "curadoria manual"}
                   </p>
                 </>
@@ -162,7 +162,7 @@ export default async function ProcessoPage({
 
           {p.movimentacoes.length > 0 && (
             <section>
-              <h2 className="kicker border-b border-ink pb-1.5">
+              <h2 className="titulo-secao">
                 Movimentações (DataJud/CNJ)
               </h2>
               <ul className="mt-3 divide-y divide-rule">
@@ -178,7 +178,7 @@ export default async function ProcessoPage({
 
           {eventos.length > 0 && (
             <section>
-              <h2 className="kicker border-b border-ink pb-1.5">O que aconteceu neste processo</h2>
+              <h2 className="titulo-secao">O que aconteceu neste processo</h2>
               <div className="mt-2">
                 <Timeline eventos={eventos} compacta />
               </div>
@@ -187,7 +187,7 @@ export default async function ProcessoPage({
 
           {pecas.length > 0 && (
             <section>
-              <h2 className="kicker border-b border-ink pb-1.5">
+              <h2 className="titulo-secao">
                 Documentos identificados · {pecas.length}
               </h2>
               <p className="mt-2 max-w-3xl text-sm text-ink-2">

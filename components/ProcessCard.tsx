@@ -6,8 +6,8 @@ import { SourceTag } from "./SourceTag";
 
 const STATUS_ESTILO: Record<Processo["status"], string> = {
   pautado: "bg-accent text-on-accent",
-  em_aberto: "border border-ink-2 text-ink-2",
-  decidido: "border border-rule text-ink-3",
+  em_aberto: "bg-surface-2 text-ink-2",
+  decidido: "bg-surface-2 text-ink-3",
 };
 
 const SYNC_NOTA: Record<Processo["sync"], string | null> = {
@@ -25,19 +25,19 @@ export default function ProcessCard({ processo: p }: { processo: Processo }) {
   const syncNota = SYNC_NOTA[p.sync];
 
   return (
-    <article className="panel group flex h-full flex-col p-4 transition-colors hover:border-accent/60">
+    <article className="panel cartao-vivo group flex h-full flex-col p-5">
       <header className="flex items-start justify-between gap-3">
         <Link href={`/processos/${p.id}`} className="-my-2 inline-flex min-h-11 items-center no-underline">
-          <h2 className="numero text-lg font-medium text-ink hover:text-accent">{p.numero}</h2>
+          <h2 className="numero font-display text-lg font-bold text-ink hover:text-accent">{p.numero}</h2>
         </Link>
         <span
-          className={`numero shrink-0 px-2 py-0.5 text-[0.625rem] uppercase tracking-[0.12em] ${STATUS_ESTILO[p.status]}`}
+          className={`shrink-0 rounded-full px-2.5 py-0.5 text-[0.72rem] font-medium ${STATUS_ESTILO[p.status]}`}
         >
           {STATUS_LABEL[p.status]}
         </span>
       </header>
 
-      <p className="mt-1 text-base font-semibold text-ink-2">{p.apelido}</p>
+      <p className="mt-1 text-base font-medium text-ink-2">{p.apelido}</p>
 
       <p className="mt-3 text-sm leading-relaxed text-ink-2 line-clamp-3">{p.objeto}</p>
 
@@ -69,7 +69,7 @@ export default function ProcessCard({ processo: p }: { processo: Processo }) {
       </dl>
 
       <div className="mt-auto pt-4">
-        {syncNota && <p className="kicker mb-1 normal-case tracking-normal">{syncNota}</p>}
+        {syncNota && <p className="nota mb-1">{syncNota}</p>}
         <SourceTag fonte={p} />
       </div>
     </article>

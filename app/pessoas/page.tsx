@@ -44,10 +44,10 @@ export default function PessoasPage() {
         if (grupo.length === 0) return null;
         return (
           <section key={nivel}>
-            <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-ink pb-1.5">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-rule pb-2">
               <div className="flex flex-wrap items-baseline gap-3">
                 <h2 className="headline text-2xl text-ink">{NIVEL_PRESENCA_LABEL[nivel]}</h2>
-                <span className="kicker normal-case tracking-normal">{NOTA[nivel]}</span>
+                <span className="nota">{NOTA[nivel]}</span>
               </div>
               <span className="numero text-sm text-ink-3">{grupo.length}</span>
             </div>
@@ -62,7 +62,7 @@ export default function PessoasPage() {
                     <NivelBadge nivel={p.nivel_presenca} />
                     <ConfiancaBadge confianca={p.confianca} />
                   </div>
-                  <p className="kicker mt-1 normal-case tracking-normal">{p.papel}</p>
+                  <p className="nota mt-1">{p.papel}</p>
                   <p className="mt-2 text-sm leading-relaxed text-ink-2">
                     {p.resumo_participacao}
                   </p>

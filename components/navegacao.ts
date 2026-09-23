@@ -4,24 +4,28 @@
  * apareça num menu e falte no outro.
  */
 
-export type ItemNav = { href: string; label: string; curto?: string; descricao?: string };
+/**
+ * `glifo`: o ícone da marca é tipográfico (guia de marca, "Componentes"), em
+ * Bodoni, e não um desenho de traço.
+ */
+export type ItemNav = { href: string; label: string; glifo: string; curto?: string; descricao?: string };
 
 /** O que o leitor procura primeiro: ficam sempre à vista. */
 export const PRIMARIOS: ItemNav[] = [
-  { href: "/", label: "Início" },
-  { href: "/mapa", label: "Mapa" },
-  { href: "/conversas", label: "Conversas" },
-  { href: "/agente", label: "Agente IA", curto: "Agente" },
+  { href: "/", label: "Início", glifo: "⌂" },
+  { href: "/mapa", label: "Mapa", glifo: "⌘" },
+  { href: "/conversas", label: "Conversas", glifo: "“" },
+  { href: "/agente", label: "Agente IA", glifo: "✦", curto: "Agente" },
 ];
 
 /** A base de consulta: agrupada em "Explorar". */
 export const SECUNDARIOS: ItemNav[] = [
-  { href: "/timeline", label: "Linha do tempo", descricao: "Os acontecimentos em ordem, com fonte" },
-  { href: "/processos", label: "Processos", descricao: "As frentes do caso e seu estado" },
-  { href: "/pessoas", label: "Pessoas e instituições", descricao: "Quem é quem e qual o papel de cada um" },
-  { href: "/documentos", label: "Documentos", descricao: "Decisões, liminares e ofícios citados" },
-  { href: "/busca", label: "Busca", descricao: "Texto completo, no seu navegador" },
-  { href: "/metodologia", label: "Metodologia", descricao: "De onde vêm os dados e como corrigir" },
+  { href: "/timeline", glifo: "→", label: "Linha do tempo", descricao: "Os acontecimentos em ordem, com fonte" },
+  { href: "/processos", glifo: "§", label: "Processos", descricao: "As frentes do caso e seu estado" },
+  { href: "/pessoas", glifo: "¶", label: "Pessoas e instituições", descricao: "Quem é quem e qual o papel de cada um" },
+  { href: "/documentos", glifo: "fl.", label: "Documentos", descricao: "Decisões, liminares e ofícios citados" },
+  { href: "/busca", glifo: "?", label: "Busca", descricao: "Texto completo, no seu navegador" },
+  { href: "/metodologia", glifo: "*", label: "Metodologia", descricao: "De onde vêm os dados e como corrigir" },
 ];
 
 export function ativo(href: string, pathname: string) {

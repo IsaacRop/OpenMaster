@@ -1604,5 +1604,205 @@
     "source_url": "https://www.conjur.com.br/2026-set-22/mendonca-nega-falhas-na-sua-atuacao-e-pede-nova-apuracao-contra-alexandre/",
     "source_name": "ConJur",
     "source_date": "2026-09-22"
+  },
+  {
+    "id": "2022-10-20-nikolas-caravana-jato-prime-you",
+    "data": "2022-10-20",
+    "titulo": "Nikolas e pastor da Lagoinha iniciam caravana em jato operado pela Prime You",
+    "descricao": "Entre 20 e 28/10/2022, Nikolas Ferreira e o pastor Guilherme Batista percorrem nove Estados e o Distrito Federal na caravana pró-Bolsonaro Juventude pelo Brasil, usando aeronave operada pela Prime You. Vorcaro era sócio minoritário da empresa; a operadora negou que ele fosse dono do jato. Em 2026, Nikolas admitiu que Vorcaro foi um dos financiadores dos deslocamentos.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "nikolas-ferreira",
+      "guilherme-batista",
+      "prime-you",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.itatiaia.com.br/politica/nikolas-ferreira-explica-por-que-chamava-daniel-vorcaro-de-dani-e-como-contatou-o-banqueiro/",
+    "source_name": "Rádio Itatiaia — manifestação de Nikolas Ferreira",
+    "source_date": "2026-09-03"
+  },
+  {
+    "id": "2024-04-27-vorcaro-pede-mediacao-valadao-nikolas",
+    "data": "2024-04-27",
+    "titulo": "Vorcaro pede a Valadão que intervenha após críticas de Nikolas",
+    "descricao": "Após Nikolas Ferreira questionar o patrocínio do Banco Master a um evento em Londres, mensagens mostram Daniel Vorcaro pedindo a André Valadão que falasse com o deputado. Valadão disse que faria a interlocução e, dois dias depois, relatou que Nikolas pedira desculpas e tentaria contornar a repercussão.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "vorcaro",
+      "andre-valadao",
+      "nikolas-ferreira"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://iclnoticias.com.br/nikolas-voos-vorcaro-mensagens-master/",
+    "source_name": "ICL Notícias — Juliana Dal Piva",
+    "source_date": "2026-09-03"
+  },
+  {
+    "id": "2024-12-24-lagoinha-belvedere-movimentacao-coaf",
+    "data": "2024-12-24",
+    "titulo": "Começa intervalo de movimentação atípica na Lagoinha Belvedere",
+    "descricao": "Relatório do Coaf identifica, entre 24/12/2024 e 08/12/2025, R$ 57,1 milhões em créditos e débitos considerados atípicos na conta da Lagoinha Belvedere, então presidida por Fabiano Zettel. A Lagoinha Global afirma que os recursos foram captados pelo próprio Zettel para obras e que não passaram por sua administração central.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "lagoinha-belvedere",
+      "zettel",
+      "igreja-batista-lagoinha"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www1.folha.uol.com.br/mercado/2026/09/igreja-da-lagoinha-gerida-por-cunhado-de-vorcaro-teve-movimentacao-atipica-de-r-57-mi-diz-coaf.shtml",
+    "source_name": "Folha de S.Paulo — relatório do Coaf",
+    "source_date": "2026-09-11"
+  },
+  {
+    "id": "2025-03-30-nikolas-pede-ajuda-ativo-minerario",
+    "data": "2025-03-30",
+    "titulo": "Nikolas pede ajuda a Vorcaro para ativo minerário de ex-assessor",
+    "descricao": "Nikolas Ferreira envia áudio a Daniel Vorcaro pedindo que avalie pendência de um ativo minerário ligado a Thiago Rodrigues de Faria, seu advogado e ex-assessor. Vorcaro recebe o contato e responde dias depois 'deixa comigo', mas as mensagens não permitem concluir que a ajuda tenha ocorrido ou que o negócio tenha avançado.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "apuracao",
+    "processos": [],
+    "pessoas": [
+      "nikolas-ferreira",
+      "vorcaro",
+      "thiago-rodrigues-faria"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://veja.abril.com.br/coluna/faria-lima-news/o-que-nikolas-ferreira-pediu-a-daniel-vorcaro-do-banco-master/",
+    "source_name": "Veja",
+    "source_date": "2026-09-03"
+  },
+  {
+    "id": "2025-04-11-clava-forte-divulgado",
+    "data": "2025-04-11",
+    "titulo": "Clava Forte Bank é divulgado como fintech do ecossistema Lagoinha",
+    "descricao": "A fintech presidida por André Valadão passa a ser divulgada como solução financeira para igrejas, pastores e fiéis. O Clava Forte não era instituição diretamente autorizada pelo Banco Central e declarou operar legalmente como correspondente bancário, usando infraestrutura de instituição licenciada no modelo Banking as a Service.",
+    "milestone": false,
+    "tipo": "imprensa",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "clava-forte-bank",
+      "andre-valadao",
+      "cassiane-valadao",
+      "igreja-batista-lagoinha"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www.bol.uol.com.br/economia/2025/04/11/igreja-lagoinha-lanca-banco-digital-comandado-por-andre-valadao-e-esposa.htm",
+    "source_name": "UOL",
+    "source_date": "2025-04-11"
+  },
+  {
+    "id": "2026-02-15-flavio-festa-mansao-prime-you",
+    "data": "2026-02-15",
+    "titulo": "Flávio celebra aniversário da filha em mansão administrada pela Prime You",
+    "descricao": "Flávio Bolsonaro publica foto da comemoração familiar em mansão de Angra dos Reis administrada pela Prime You. O advogado Willer Tomaz, cuja empresa detém 25% do imóvel, afirma tê-lo cedido gratuitamente por amizade ao senador e nega vínculo com Daniel Vorcaro. Vorcaro não era cotista da mansão, mas havia sido sócio da gestora até setembro de 2025.",
+    "milestone": false,
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "flavio-bolsonaro",
+      "willer-tomaz",
+      "prime-you",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://iclnoticias.com.br/flavio-bolsonaro-aniversario-da-filha-em-mansao/",
+    "source_name": "ICL Notícias — Alice Maciel",
+    "source_date": "2026-09-09"
+  },
+  {
+    "id": "2024-12-04-reuniao-lula-vorcaro",
+    "data": "2024-12-04",
+    "titulo": "Lula recebe Vorcaro no Planalto fora da agenda oficial",
+    "descricao": "Em reunião intermediada por Guido Mantega, Lula recebe Daniel Vorcaro e Augusto Lima. Galípolo, Rui Costa e Alexandre Silveira também participam. Segundo Galípolo, Lula encaminha as questões do Master para análise técnica do Banco Central; a reunião não comprova favorecimento ou participação em fraude.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "lula",
+      "vorcaro",
+      "augusto-lima",
+      "guido-mantega",
+      "galipolo",
+      "rui-costa",
+      "alexandre-silveira"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://legis.senado.leg.br/escriba-servicosweb/reuniao/pdf/14571",
+    "source_name": "Senado Federal — depoimento de Gabriel Galípolo",
+    "source_date": "2026-04-08"
+  },
+  {
+    "id": "2026-04-08-galipolo-depoimento-reuniao",
+    "data": "2026-04-08",
+    "titulo": "Galípolo detalha ao Senado reunião de Lula com Vorcaro",
+    "descricao": "Na CPI do Crime Organizado, o presidente do BC confirma o encontro de dezembro de 2024, identifica participantes e relata que Lula orientou análise técnica pelo Banco Central. Trata-se do relato do depoente, não de uma conclusão judicial sobre a reunião.",
+    "milestone": false,
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "processos": [],
+    "pessoas": [
+      "galipolo",
+      "lula",
+      "vorcaro"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://www12.senado.leg.br/noticias/materias/2026/04/08/galipolo-nega-atuacao-do-bc-em-favor-do-master-e-justifica-liquidacao-em-2025",
+    "source_name": "Agência Senado",
+    "source_date": "2026-04-08"
+  },
+  {
+    "id": "2026-06-18-nona-fase-wagner-augusto",
+    "data": "2026-06-18",
+    "titulo": "9ª fase da Compliance Zero investiga Wagner e Augusto Lima",
+    "descricao": "O STF autoriza buscas e medidas cautelares na apuração da possível relação entre gestores do Master e Jaques Wagner. A PF investiga suspeitas de vantagens indevidas e atuação parlamentar em temas de interesse do banco. Wagner nega favorecimento e contesta as medidas; Lula não é apontado como alvo desta fase.",
+    "milestone": false,
+    "tipo": "operacao",
+    "confianca": "apuracao",
+    "processos": [
+      "pet-16229",
+      "pet-16230"
+    ],
+    "pessoas": [
+      "jaques-wagner",
+      "augusto-lima",
+      "vorcaro",
+      "pf"
+    ],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "source_url": "https://noticias.stf.jus.br/postsnoticias/stf-autoriza-9a-fase-da-operacao-compliance-zero-em-sp-ba-e-df/",
+    "source_name": "STF — notícia institucional da 9ª fase",
+    "source_date": "2026-06-18"
   }
 ]

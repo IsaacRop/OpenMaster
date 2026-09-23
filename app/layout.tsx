@@ -1,38 +1,41 @@
 import type { Metadata, Viewport } from "next";
-import Link from "next/link";
-import { IBM_Plex_Mono, Inter, Newsreader } from "next/font/google";
+import { Bodoni_Moda, Kalam, Plus_Jakarta_Sans } from "next/font/google";
 
 import ConditionalDisclaimer from "@/components/ConditionalDisclaimer";
+import DefsMarca from "@/components/DefsMarca";
 import SiteHeader from "@/components/SiteHeader";
 import TabBar from "@/components/TabBar";
-import { COR_TEMA, SCRIPT_TEMA } from "@/components/tema";
 import { dataCorte } from "@/lib/data";
 import "./globals.css";
 
 /*
- * Três vozes: Newsreader para o que é manchete (tem eixo de tamanho óptico,
- * então o mesmo arquivo serve ao título de 52px e ao de 17px), Inter para a
- * interface e o corpo, IBM Plex Mono para datas, números e metadados.
+ * Três vozes, três funções: Bodoni Moda nas manchetes (eixo de tamanho óptico,
+ * então o mesmo arquivo serve ao título de 68px e ao de 17px), Plus Jakarta
+ * Sans na interface e nos dados, Kalam só nas notas a lápis.
  */
-const serif = Newsreader({
+// Só o estilo normal: o itálico não é usado e dobrava o peso da pré-carga.
+const display = Bodoni_Moda({
   subsets: ["latin"],
   weight: "variable",
   axes: ["opsz"],
-  variable: "--font-newsreader",
+  variable: "--font-bodoni",
   display: "swap",
 });
 
-const sans = Inter({
+const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: "variable",
+  variable: "--font-jakarta",
   display: "swap",
 });
 
-const mono = IBM_Plex_Mono({
+// Uma nota a lápis nunca é o maior texto da tela: sem pré-carga, chega depois.
+const lapis = Kalam({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-plex-mono",
+  weight: "400",
+  variable: "--font-kalam",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -46,27 +49,23 @@ export const viewport: Viewport = {
   // Sem `cover`, `env(safe-area-inset-bottom)` vale zero no iOS e a barra de
   // abas fica sob o indicador de início.
   viewportFit: "cover",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: COR_TEMA.light },
-    { media: "(prefers-color-scheme: dark)", color: COR_TEMA.dark },
-  ],
+  // O preto mesa de `--color-bg`: o site é escuro sempre.
+  themeColor: "#0C0B0A",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    // `data-theme` é escrito pelo script abaixo antes da hidratação.
-    <html lang="pt-BR" className={`${serif.variable} ${sans.variable} ${mono.variable}`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: SCRIPT_TEMA }} />
-      </head>
+    <html lang="pt-BR" className={`${display.variable} ${sans.variable} ${lapis.variable}`}>
       <body className="min-h-screen antialiased">
+        <DefsMarca />
         <a href="#conteudo" className="skip-link">
           Pular para o conteúdo
         </a>
 
         <SiteHeader dataCorteBR={dataCorte.split("-").reverse().join("/")} />
 
-        <main id="conteudo" className="mx-auto max-w-[1440px] px-4 py-4 sm:px-6 sm:py-6">
+        <main id="conteudo" className="mx-auto max-w-[1304px] px-4 py-4 sm:px-8 sm:py-6">
           {children}
         </main>
 
