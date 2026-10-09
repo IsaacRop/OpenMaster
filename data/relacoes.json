@@ -1532,5 +1532,65 @@
     "source_url": "https://legis.senado.leg.br/escriba-servicosweb/reuniao/pdf/14571",
     "source_name": "Senado Federal — notas taquigráficas, CPI do Crime Organizado",
     "source_date": "2026-04-08"
+  },
+  {
+    "id": "huck-vorcaro",
+    "from": "luciano-huck",
+    "to": "vorcaro",
+    "rotulo": "mensagens sobre patrocínio do Will Bank (2023–2025)",
+    "peso": "normal",
+    "direcionada": false,
+    "confianca": "apuracao",
+    "source_url": "https://www.poder360.com.br/poder-gente/mensagens-mostram-proximidade-de-luciano-huck-com-vorcaro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-30"
+  },
+  {
+    "id": "justus-vorcaro",
+    "from": "roberto-justus",
+    "to": "vorcaro",
+    "rotulo": "cobrou aporte na SteelCorp (2024–2025)",
+    "peso": "normal",
+    "direcionada": false,
+    "confianca": "apuracao",
+    "source_url": "https://ndmais.com.br/justica/roberto-justus-e-vorcaro-empresario-quebra-silencio-apos-troca-de-mensagens/",
+    "source_name": "ND Mais (a partir do Poder360)",
+    "source_date": "2026-10-03"
+  },
+  {
+    "id": "campos-neto-bcb",
+    "from": "roberto-campos-neto",
+    "to": "bcb",
+    "rotulo": "ex-presidente (gestão em que Máxima virou Master)",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "confirmado",
+    "source_url": "https://cnnbrasil.com.br/blogs/elijonasmaia/politica/master-galipolo-depoe-a-pf-sobre-relacao-de-servidores-do-bc-com-vorcaro",
+    "source_name": "CNN Brasil",
+    "source_date": "2026-10-06"
+  },
+  {
+    "id": "campos-neto-pf",
+    "from": "roberto-campos-neto",
+    "to": "pf",
+    "rotulo": "convocado como testemunha (07/10, adiado)",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "confirmado",
+    "source_url": "https://timesbrasil.com.br/brasil/pf-adia-depoimento-de-roberto-campos-neto-sobre-caso-banco-master/",
+    "source_name": "Times Brasil",
+    "source_date": "2026-10-07"
+  },
+  {
+    "id": "esteves-pf",
+    "from": "andre-esteves",
+    "to": "pf",
+    "rotulo": "convocado como testemunha (05/10, adiado)",
+    "peso": "normal",
+    "direcionada": true,
+    "confianca": "confirmado",
+    "source_url": "https://timesbrasil.com.br/brasil/pf-adia-depoimento-de-roberto-campos-neto-sobre-caso-banco-master/",
+    "source_name": "Times Brasil",
+    "source_date": "2026-10-07"
   }
 ]
