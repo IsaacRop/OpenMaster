@@ -1767,5 +1767,77 @@
       "source_url": "https://commons.wikimedia.org/wiki/File:Ricardo_Lewandowski_em_novembro_de_2016_(recorte).jpg",
       "source_name": "Wikimedia Commons"
     }
+  },
+  {
+    "tipo": "pessoa",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "id": "luciano-huck",
+    "nome": "Luciano Huck",
+    "papel": "apresentador de TV (Globo)",
+    "resumo_participacao": "Mensagens extraídas do celular de Vorcaro, publicadas pelo Poder360, mostram conversa de 05/11/2023 a 17/11/2025 sobre o patrocínio do Will Bank ao Domingão com Huck (contrato em dez/2024), com valores citados por Huck de R$ 83 milhões em mídia e R$ 26 milhões em contrato pessoal, convites e pedidos de uso de aviões. A assessoria diz que a relação se limitou ao patrocínio, com contrato e notas fiscais, e nega sociedade. O Poder360 avalia que os diálogos não mostram relação ilegal.",
+    "confianca": "apuracao",
+    "pos": {
+      "x": 365,
+      "y": 330
+    },
+    "source_url": "https://www.poder360.com.br/poder-gente/mensagens-mostram-proximidade-de-luciano-huck-com-vorcaro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-30"
+  },
+  {
+    "tipo": "pessoa",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "id": "roberto-justus",
+    "nome": "Roberto Justus",
+    "papel": "empresário (SteelCorp)",
+    "resumo_participacao": "Mensagens extraídas do celular de Vorcaro mostram Justus cobrando solução para aporte feito em 2024 na SteelCorp e citando, em set/2025, risco de recuperação judicial; depois propôs recomprar a participação por R$ 130 milhões. Em vídeo de 03/10/2026, diz que os diálogos foram tirados de contexto e que era dívida a converter em ações. Segundo a reportagem, as mensagens não indicam ilegalidade dele.",
+    "confianca": "apuracao",
+    "pos": {
+      "x": 428,
+      "y": 400
+    },
+    "source_url": "https://ndmais.com.br/justica/roberto-justus-e-vorcaro-empresario-quebra-silencio-apos-troca-de-mensagens/",
+    "source_name": "ND Mais (a partir do Poder360)",
+    "source_date": "2026-10-03"
+  },
+  {
+    "tipo": "pessoa",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "id": "roberto-campos-neto",
+    "nome": "Roberto Campos Neto",
+    "papel": "ex-presidente do Banco Central",
+    "resumo_participacao": "Presidia o BC quando o Banco Máxima virou Master. Foi citado por Paulo Sérgio Neves, ex-diretor do BC, em depoimento à PF e convocado como testemunha; a oitiva marcada para 07/10/2026 foi adiada, sem nova data. Não é apontado como investigado nas fontes consultadas.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 215,
+      "y": 158
+    },
+    "source_url": "https://timesbrasil.com.br/brasil/pf-adia-depoimento-de-roberto-campos-neto-sobre-caso-banco-master/",
+    "source_name": "Times Brasil",
+    "source_date": "2026-10-07"
+  },
+  {
+    "tipo": "pessoa",
+    "grupo": "outros",
+    "descricao": "",
+    "nivel_presenca": "periferico",
+    "id": "andre-esteves",
+    "nome": "André Esteves",
+    "papel": "empresário, dono do BTG Pactual",
+    "resumo_participacao": "Citado por Paulo Sérgio Neves, ex-diretor do BC, em depoimento à PF e convocado como testemunha no inquérito do caso Master; a oitiva de 05/10/2026 foi adiada a pedido da defesa, que alegou compromissos profissionais, sem nova data. Não é apontado como investigado nas fontes consultadas.",
+    "confianca": "confirmado",
+    "pos": {
+      "x": 240,
+      "y": 552
+    },
+    "source_url": "https://timesbrasil.com.br/brasil/pf-adia-depoimento-de-roberto-campos-neto-sobre-caso-banco-master/",
+    "source_name": "Times Brasil",
+    "source_date": "2026-10-07"
   }
 ]
