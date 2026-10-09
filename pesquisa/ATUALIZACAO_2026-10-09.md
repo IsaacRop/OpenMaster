@@ -25,4 +25,4 @@
 - Não incluído por falta de fonte sólida: alegação de propina ao Instituto Lula, possível delação e entrevista de Vorcaro.
 - Mensagens: o conteúdo vem de reportagens (Estadão, Veja, piauí) republicadas por terceiros; não vi os originais. Nenhum veículo conclui irregularidade das autoridades citadas.
 - Não incluído: áudios atribuídos ao Estadão sobre Lula e Moraes, só encontrados em site de linha partidária, sem confirmação em veículo de referência.
-- Huck, Justus, Campos Neto e André Esteves não estão em `pessoas.json`; não foram vinculados.
+- Huck, Justus, Campos Neto e André Esteves foram cadastrados como pessoas (PR #21) e vinculados aos eventos.
