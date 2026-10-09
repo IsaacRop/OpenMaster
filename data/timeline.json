@@ -1954,5 +1954,71 @@
     "source_url": "https://jornaldebrasilia.com.br/noticias/politica-e-poder/advogado-de-vorcaro-tentou-salvar-banco-master-com-ajuda-do-governo-lula-indicam-mensagens/",
     "source_name": "Jornal de Brasília (a partir da Veja)",
     "source_date": "2026-10-09"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "id": "2026-09-24-estadao-flavio-vorcaro-seis-encontros",
+    "data": "2026-09-24",
+    "titulo": "Mensagens citam seis possíveis encontros entre Flávio e Vorcaro",
+    "descricao": "Segundo o Estadão, mensagens extraídas pela PF do celular de Vorcaro mostram contato com Flávio Bolsonaro desde dezembro de 2024 e citam seis possíveis encontros; só o primeiro, em 20/08/2025, parece ter ocorrido. Flávio usava apagamento automático em 90 dias, então restam mensagens de cerca de 20/08 a 16/11/2025. Não está claro se houve ajuda no pedido de Vorcaro sobre Dubai. A assessoria de Flávio não respondeu; Eduardo Bolsonaro diz nunca ter falado com Vorcaro.",
+    "pessoas": [
+      "vorcaro",
+      "flavio-bolsonaro",
+      "eduardo-bolsonaro",
+      "pf"
+    ],
+    "source_url": "https://ndmais.com.br/politica/conversa-de-vorcaro-com-flavio-revela-tres-meses-de-mensagens-e-mencoes-a-seis-encontros/",
+    "source_name": "ND Mais (a partir do Estadão)",
+    "source_date": "2026-09-24"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "id": "2026-10-06-estadao-mensagens-ciro-soares-gilmar",
+    "data": "2026-10-06",
+    "titulo": "Mensagens indicam tentativa de aproximar Vorcaro e Gilmar",
+    "descricao": "Segundo o Estadão, mensagens do celular de Vorcaro mostram o advogado Ciro Soares relatando em 17/06/2024 que Gilmar Mendes queria jantar com o banqueiro; o ex-senador Chiquinho Feitosa, cunhado de Gilmar, foi contratado pelo Master por R$ 500 mil mensais para atuar em processos no STF. O gabinete de Gilmar nega o jantar, diz que não convidou Vorcaro e que as mensagens foram trocadas por terceiros. Ciro afirma que não houve irregularidade. As mensagens não comprovam que o encontro ocorreu.",
+    "pessoas": [
+      "vorcaro",
+      "gilmar",
+      "ciro-soares"
+    ],
+    "source_url": "https://timesbrasil.com.br/brasil/mensagens-apontam-tentativa-de-aproximar-vorcaro-e-gilmar/",
+    "source_name": "Times Brasil (a partir do Estadão)",
+    "source_date": "2026-10-06"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "id": "2026-10-07-piaui-fabio-faria-festas-vorcaro",
+    "data": "2026-10-07",
+    "titulo": "piauí: mensagens mostram Fábio Faria em festas e viagens de Vorcaro",
+    "descricao": "A piauí publica fotos e mensagens recuperadas pela PF: Fábio Faria teria ajudado a montar listas de convidados, compartilhado com Vorcaro o telefone de Alexandre de Moraes e sido citado em jantar em sua casa em Brasília com o ministro presente. Faria diz que apenas repassava convites e que recomendou o escritório de Viviane Barci sem conhecer o contrato. A própria reportagem afirma que a participação descrita nas mensagens não constitui, isoladamente, prova de crime.",
+    "pessoas": [
+      "vorcaro",
+      "faria",
+      "moraes",
+      "viviane-barci",
+      "pf"
+    ],
+    "source_url": "https://ibahia.com/diversao/nem-te-conto/relembre-o-casamento-de-patricia-abravanel-com-fabio-faria-que-enfrenta-forte-crise-apos-polemica-com-vorcaro-391733",
+    "source_name": "iBahia (a partir da piauí)",
+    "source_date": "2026-10-07"
   }
 ]
