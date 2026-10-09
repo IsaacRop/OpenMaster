@@ -1804,5 +1804,155 @@
     "source_url": "https://noticias.stf.jus.br/postsnoticias/stf-autoriza-9a-fase-da-operacao-compliance-zero-em-sp-ba-e-df/",
     "source_name": "STF — notícia institucional da 9ª fase",
     "source_date": "2026-06-18"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "id": "2026-09-25-csmpf-rejeita-investigar-gonet",
+    "data": "2026-09-25",
+    "titulo": "Conselho do MPF rejeita abrir investigação contra Gonet",
+    "descricao": "Por 5 votos a 4, o Conselho Superior do MPF arquivou o pedido do Partido Novo para investigar Paulo Gonet por prevaricação, a partir de menções a ele em mensagens do celular de Vorcaro. O afastamento de Gonet das apurações do caso Master foi rejeitado por unanimidade: os conselheiros entenderam que não cabia ao Conselho decidir sobre isso. Gonet, impedido, não votou; diz que teve um único encontro com Vorcaro, em abril de 2024, com várias autoridades.",
+    "tipo": "institucional",
+    "confianca": "confirmado",
+    "pessoas": [
+      "gonet",
+      "vorcaro"
+    ],
+    "source_url": "https://www.poder360.com.br/poder-justica/conselho-do-mpf-rejeita-abrir-investigacao-contra-gonet/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-25"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "id": "2026-09-30-vorcaro-depoe-pf-a-turma",
+    "data": "2026-09-30",
+    "titulo": "Vorcaro e o pai depõem à PF sobre o grupo \"A Turma\"",
+    "descricao": "Em videoconferência, Daniel Vorcaro nega participação em atos violentos ou intimidatórios e diz não conhecer os grupos \"A Turma\" ou \"Os Meninos\"; afirma que Luiz Phillipi Mourão tinha contrato formal de segurança e inteligência. Henrique Vorcaro nega ser o organizador, que a PF lhe atribui, e diz ter apenas relações comerciais com três integrantes. Segundo a PF, o grupo é suposto; as negativas são apresentadas pelas defesas, que pedem a liberdade de ambos.",
+    "tipo": "movimentacao",
+    "confianca": "apuracao",
+    "pessoas": [
+      "vorcaro",
+      "henrique-vorcaro",
+      "mourao",
+      "pf"
+    ],
+    "source_url": "https://www.tnh1.com.br/noticia/nid/vorcaro-depoe-a-pf-e-nega-existencia-de-grupo-criminoso-a-turma/",
+    "source_name": "TNH1",
+    "source_date": "2026-09-30"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "id": "2026-10-06-galipolo-depoe-pf-testemunha",
+    "data": "2026-10-06",
+    "titulo": "Galípolo depõe à PF como testemunha sobre fiscalização do Master",
+    "descricao": "O presidente do Banco Central presta depoimento por videoconferência no inquérito do caso Master. A PF pergunta se ele sabia da parceria dos ex-diretores Belline Santana e Paulo Sérgio Neves com Vorcaro, a quem aponta como consultores pessoais que teriam recebido propina; os dois negam. Galípolo afirma ter havido \"demora injustificada\" de servidores na fiscalização, segundo a legenda da reportagem. A previsão é concluir o inquérito em outubro.",
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "pessoas": [
+      "galipolo",
+      "bcb",
+      "belline-santana",
+      "paulo-sergio-neves-souza",
+      "vorcaro",
+      "pf"
+    ],
+    "source_url": "https://cnnbrasil.com.br/blogs/elijonasmaia/politica/master-galipolo-depoe-a-pf-sobre-relacao-de-servidores-do-bc-com-vorcaro",
+    "source_name": "CNN Brasil",
+    "source_date": "2026-10-06"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "id": "2026-10-07-pf-adia-depoimentos-campos-neto-esteves",
+    "data": "2026-10-07",
+    "titulo": "PF adia depoimentos de Campos Neto e André Esteves",
+    "descricao": "A PF adia a oitiva do ex-presidente do BC Roberto Campos Neto, marcada para 7/10, e a de André Esteves, do BTG Pactual, marcada para 5/10 (a defesa alegou compromissos profissionais). Ambos foram convocados como testemunhas após citação de Paulo Sérgio Neves, que nega ter recebido propina de Vorcaro. Não há novas datas.",
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "pessoas": [
+      "pf",
+      "vorcaro",
+      "paulo-sergio-neves-souza"
+    ],
+    "source_url": "https://timesbrasil.com.br/brasil/pf-adia-depoimento-de-roberto-campos-neto-sobre-caso-banco-master/",
+    "source_name": "Times Brasil",
+    "source_date": "2026-10-07"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "id": "2026-10-08-defesa-vorcaro-cobra-fachin-soltura",
+    "data": "2026-10-08",
+    "titulo": "Defesa de Vorcaro cobra Fachin sobre pedido de soltura parado",
+    "descricao": "Os advogados pedem que Fachin devolva os autos a Mendonça ou o autorize a decidir sobre a revogação da prisão preventiva, parada desde 18/09 e descrita como \"limbo\" processual. Segundo a Gazeta do Povo, o caso foi enviado à Presidência do STF em 12/09, sem novo relator sorteado; a defesa diz que a Presidência orientou levar os pedidos a Mendonça, cujo gabinete teria solicitado os autos sem resposta. Não há manifestação de Fachin ou do STF na matéria.",
+    "tipo": "movimentacao",
+    "confianca": "confirmado",
+    "pessoas": [
+      "vorcaro",
+      "fachin",
+      "mendonca"
+    ],
+    "source_url": "https://www.gazetadopovo.com.br/republica/defesa-de-vorcaro-cobra-fachin-por-analise-de-soltura-e-critica-limbo-processual-no-stf/",
+    "source_name": "Gazeta do Povo",
+    "source_date": "2026-10-08"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "id": "2026-10-08-mensagens-vorcaro-nova-reuniao-lula-2025",
+    "data": "2026-10-08",
+    "titulo": "Mensagens indicam que Vorcaro buscou nova reunião com Lula em 2025",
+    "descricao": "Segundo mensagens do celular de Vorcaro divulgadas pelo Estadão, em julho de 2025 o advogado Walfrido Warde sugeriu buscar Guido Mantega em Londres para levá-lo a Lula, na tentativa de evitar sanções do BC ao Master. O Planalto diz que houve um único encontro, em 04/12/2024, não agendado, com Mantega, Rui Costa e Galípolo presentes, e nenhum outro contato. Mantega e Warde não responderam; o material não foi verificado de forma independente e não comprova nova reunião.",
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "pessoas": [
+      "vorcaro",
+      "lula",
+      "guido-mantega"
+    ],
+    "source_url": "https://gazetadopovo.com.br/republica/vorcaro-acionou-mantega-e-buscou-nova-reuniao-com-lula-em-2025",
+    "source_name": "Gazeta do Povo (a partir do Estadão)",
+    "source_date": "2026-10-08"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "id": "2026-10-09-veja-mensagens-warde-governo-lula",
+    "data": "2026-10-09",
+    "titulo": "Veja: mensagens mostram advogado de Vorcaro buscando saída com o governo",
+    "descricao": "Capturas de tela do celular de Vorcaro, divulgadas pela Veja, indicam que o advogado Walfrido Warde articulou contatos no governo para tentar saída à crise do Master, incluindo o BC e a venda ao BRB. Em julho de 2025 ele teria pedido que o recado chegasse a Lula, criticando Galípolo. A reportagem afirma que as mensagens não comprovam, por si, irregularidade das autoridades citadas nem interferência de Lula no BC. Warde não quis comentar.",
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "pessoas": [
+      "vorcaro",
+      "lula",
+      "galipolo"
+    ],
+    "source_url": "https://jornaldebrasilia.com.br/noticias/politica-e-poder/advogado-de-vorcaro-tentou-salvar-banco-master-com-ajuda-do-governo-lula-indicam-mensagens/",
+    "source_name": "Jornal de Brasília (a partir da Veja)",
+    "source_date": "2026-10-09"
   }
 ]
