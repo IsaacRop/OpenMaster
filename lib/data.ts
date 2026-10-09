@@ -80,9 +80,12 @@ export const pessoasPorPresenca = [...pessoas].sort(
     a.nome.localeCompare(b.nome, "pt-BR"),
 );
 
-/** Data de corte do painel: a movimentação mais recente registrada. */
-export const dataCorte = [...processos]
-  .map((p) => p.updated_at)
+/**
+ * Data de corte do painel: o registro mais recente, seja movimentação de
+ * processo ou evento da timeline. Só os processos não bastam: o sync atualiza
+ * `updated_at` e a timeline avança sem ele, e a capa filtra por esta data.
+ */
+export const dataCorte = [...processos.map((p) => p.updated_at), ...timeline.map((e) => e.data)]
   .sort()
   .at(-1)!;
 

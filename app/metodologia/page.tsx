@@ -44,7 +44,7 @@ export default function MetodologiaPage() {
         <p className="kicker text-accent">Corte temporal desta edição</p>
         <p className="mt-2 max-w-[70ch] text-base leading-relaxed text-ink">
           Base verificada até {dataBR(dataCorte)} — a data mais recente entre as movimentações
-          registradas nos processos. Verifique a matéria fonte antes de tratar qualquer item
+          dos processos e os eventos da linha do tempo. Verifique a matéria fonte antes de tratar qualquer item
           futuro como resultado.
         </p>
       </div>
