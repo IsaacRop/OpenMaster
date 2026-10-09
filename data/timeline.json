@@ -1806,7 +1806,7 @@
     "source_date": "2026-06-18"
   },
   {
-    "milestone": false,
+    "milestone": true,
     "processos": [],
     "sigilo_ack": false,
     "tweet": false,
@@ -1886,7 +1886,9 @@
     "pessoas": [
       "pf",
       "vorcaro",
-      "paulo-sergio-neves-souza"
+      "paulo-sergio-neves-souza",
+      "roberto-campos-neto",
+      "andre-esteves"
     ],
     "source_url": "https://timesbrasil.com.br/brasil/pf-adia-depoimento-de-roberto-campos-neto-sobre-caso-banco-master/",
     "source_name": "Times Brasil",
@@ -1954,5 +1956,112 @@
     "source_url": "https://jornaldebrasilia.com.br/noticias/politica-e-poder/advogado-de-vorcaro-tentou-salvar-banco-master-com-ajuda-do-governo-lula-indicam-mensagens/",
     "source_name": "Jornal de Brasília (a partir da Veja)",
     "source_date": "2026-10-09"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "id": "2026-09-24-estadao-flavio-vorcaro-seis-encontros",
+    "data": "2026-09-24",
+    "titulo": "Mensagens citam seis possíveis encontros entre Flávio e Vorcaro",
+    "descricao": "Segundo o Estadão, mensagens extraídas pela PF do celular de Vorcaro mostram contato com Flávio Bolsonaro desde dezembro de 2024 e citam seis possíveis encontros; só o primeiro, em 20/08/2025, parece ter ocorrido. Flávio usava apagamento automático em 90 dias, então restam mensagens de cerca de 20/08 a 16/11/2025. Não está claro se houve ajuda no pedido de Vorcaro sobre Dubai. A assessoria de Flávio não respondeu; Eduardo Bolsonaro diz nunca ter falado com Vorcaro.",
+    "pessoas": [
+      "vorcaro",
+      "flavio-bolsonaro",
+      "eduardo-bolsonaro",
+      "pf"
+    ],
+    "source_url": "https://ndmais.com.br/politica/conversa-de-vorcaro-com-flavio-revela-tres-meses-de-mensagens-e-mencoes-a-seis-encontros/",
+    "source_name": "ND Mais (a partir do Estadão)",
+    "source_date": "2026-09-24"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "id": "2026-10-06-estadao-mensagens-ciro-soares-gilmar",
+    "data": "2026-10-06",
+    "titulo": "Mensagens indicam tentativa de aproximar Vorcaro e Gilmar",
+    "descricao": "Segundo o Estadão, mensagens do celular de Vorcaro mostram o advogado Ciro Soares relatando em 17/06/2024 que Gilmar Mendes queria jantar com o banqueiro; o ex-senador Chiquinho Feitosa, cunhado de Gilmar, foi contratado pelo Master por R$ 500 mil mensais para atuar em processos no STF. O gabinete de Gilmar nega o jantar, diz que não convidou Vorcaro e que as mensagens foram trocadas por terceiros. Ciro afirma que não houve irregularidade. As mensagens não comprovam que o encontro ocorreu.",
+    "pessoas": [
+      "vorcaro",
+      "gilmar",
+      "ciro-soares"
+    ],
+    "source_url": "https://timesbrasil.com.br/brasil/mensagens-apontam-tentativa-de-aproximar-vorcaro-e-gilmar/",
+    "source_name": "Times Brasil (a partir do Estadão)",
+    "source_date": "2026-10-06"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "id": "2026-10-07-piaui-fabio-faria-festas-vorcaro",
+    "data": "2026-10-07",
+    "titulo": "piauí: mensagens mostram Fábio Faria em festas e viagens de Vorcaro",
+    "descricao": "A piauí publica fotos e mensagens recuperadas pela PF: Fábio Faria teria ajudado a montar listas de convidados, compartilhado com Vorcaro o telefone de Alexandre de Moraes e sido citado em jantar em sua casa em Brasília com o ministro presente. Faria diz que apenas repassava convites e que recomendou o escritório de Viviane Barci sem conhecer o contrato. A própria reportagem afirma que a participação descrita nas mensagens não constitui, isoladamente, prova de crime.",
+    "pessoas": [
+      "vorcaro",
+      "faria",
+      "moraes",
+      "viviane-barci",
+      "pf"
+    ],
+    "source_url": "https://ibahia.com/diversao/nem-te-conto/relembre-o-casamento-de-patricia-abravanel-com-fabio-faria-que-enfrenta-forte-crise-apos-polemica-com-vorcaro-391733",
+    "source_name": "iBahia (a partir da piauí)",
+    "source_date": "2026-10-07"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "id": "2026-09-30-poder360-mensagens-huck-vorcaro",
+    "data": "2026-09-30",
+    "titulo": "Mensagens mostram Luciano Huck e Vorcaro em torno do patrocínio do Will Bank",
+    "descricao": "O Poder360 publica a conversa entre Luciano Huck e Vorcaro, extraída do celular do banqueiro, de 05/11/2023 a 17/11/2025, dia da prisão. Ela inclui o patrocínio do Will Bank ao Domingão com Huck (contrato em dez/2024), valores citados por Huck em 28/10/2025 (R$ 83 milhões em mídia e R$ 26 milhões em \"contrato pessoal\"), convites e ao menos três pedidos de uso de aviões de Vorcaro. A assessoria de Huck diz que a relação se limitou ao patrocínio, com contrato e notas fiscais, e nega sociedade; o Poder360 avalia que os diálogos não mostram relação ilegal.",
+    "pessoas": [
+      "vorcaro",
+      "luciano-huck"
+    ],
+    "source_url": "https://www.poder360.com.br/poder-gente/mensagens-mostram-proximidade-de-luciano-huck-com-vorcaro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-30"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "id": "2026-10-01-poder360-mensagens-justus-vorcaro-steelcorp",
+    "data": "2026-10-01",
+    "titulo": "Mensagens mostram Roberto Justus cobrando Vorcaro por aporte na SteelCorp",
+    "descricao": "Segundo o Poder360, mensagens extraídas pela PF do celular de Vorcaro mostram Roberto Justus cobrando solução para o aporte feito em 2024 na SteelCorp e citando, em setembro de 2025, risco de recuperação judicial. Vorcaro teria respondido que a conversão em participação enfrentava entraves técnicos e jurídicos; depois Justus propôs recomprar a participação por R$ 130 milhões. Em vídeo de 03/10, Justus diz que os diálogos foram tirados de contexto, que era dívida a converter em ações e que não deve ser julgado por fatos posteriores. A PF aponta Vorcaro como líder da fraude; as mensagens, por si, não indicam ilegalidade de Justus, segundo a reportagem.",
+    "pessoas": [
+      "vorcaro",
+      "pf",
+      "roberto-justus"
+    ],
+    "source_url": "https://ndmais.com.br/justica/roberto-justus-e-vorcaro-empresario-quebra-silencio-apos-troca-de-mensagens/",
+    "source_name": "ND Mais (a partir do Poder360)",
+    "source_date": "2026-10-03"
   }
 ]
