@@ -1806,7 +1806,7 @@
     "source_date": "2026-06-18"
   },
   {
-    "milestone": false,
+    "milestone": true,
     "processos": [],
     "sigilo_ack": false,
     "tweet": false,
