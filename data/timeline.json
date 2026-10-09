@@ -2020,5 +2020,44 @@
     "source_url": "https://ibahia.com/diversao/nem-te-conto/relembre-o-casamento-de-patricia-abravanel-com-fabio-faria-que-enfrenta-forte-crise-apos-polemica-com-vorcaro-391733",
     "source_name": "iBahia (a partir da piauí)",
     "source_date": "2026-10-07"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "id": "2026-09-30-poder360-mensagens-huck-vorcaro",
+    "data": "2026-09-30",
+    "titulo": "Mensagens mostram Luciano Huck e Vorcaro em torno do patrocínio do Will Bank",
+    "descricao": "O Poder360 publica a conversa entre Luciano Huck e Vorcaro, extraída do celular do banqueiro, de 05/11/2023 a 17/11/2025, dia da prisão. Ela inclui o patrocínio do Will Bank ao Domingão com Huck (contrato em dez/2024), valores citados por Huck em 28/10/2025 (R$ 83 milhões em mídia e R$ 26 milhões em \"contrato pessoal\"), convites e ao menos três pedidos de uso de aviões de Vorcaro. A assessoria de Huck diz que a relação se limitou ao patrocínio, com contrato e notas fiscais, e nega sociedade; o Poder360 avalia que os diálogos não mostram relação ilegal.",
+    "pessoas": [
+      "vorcaro"
+    ],
+    "source_url": "https://www.poder360.com.br/poder-gente/mensagens-mostram-proximidade-de-luciano-huck-com-vorcaro/",
+    "source_name": "Poder360",
+    "source_date": "2026-09-30"
+  },
+  {
+    "milestone": false,
+    "processos": [],
+    "sigilo_ack": false,
+    "tweet": false,
+    "tweeted_at": null,
+    "tipo": "imprensa",
+    "confianca": "apuracao",
+    "id": "2026-10-01-poder360-mensagens-justus-vorcaro-steelcorp",
+    "data": "2026-10-01",
+    "titulo": "Mensagens mostram Roberto Justus cobrando Vorcaro por aporte na SteelCorp",
+    "descricao": "Segundo o Poder360, mensagens extraídas pela PF do celular de Vorcaro mostram Roberto Justus cobrando solução para o aporte feito em 2024 na SteelCorp e citando, em setembro de 2025, risco de recuperação judicial. Vorcaro teria respondido que a conversão em participação enfrentava entraves técnicos e jurídicos; depois Justus propôs recomprar a participação por R$ 130 milhões. Em vídeo de 03/10, Justus diz que os diálogos foram tirados de contexto, que era dívida a converter em ações e que não deve ser julgado por fatos posteriores. A PF aponta Vorcaro como líder da fraude; as mensagens, por si, não indicam ilegalidade de Justus, segundo a reportagem.",
+    "pessoas": [
+      "vorcaro",
+      "pf"
+    ],
+    "source_url": "https://ndmais.com.br/justica/roberto-justus-e-vorcaro-empresario-quebra-silencio-apos-troca-de-mensagens/",
+    "source_name": "ND Mais (a partir do Poder360)",
+    "source_date": "2026-10-03"
   }
 ]

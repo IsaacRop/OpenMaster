@@ -1,6 +1,6 @@
 # Atualização de pesquisa — 25/09 a 09/10/2026
 
-**Data de corte:** 09/10/2026. Dez eventos acrescentados à timeline; todos com fonte jornalística secundária (não localizei nota primária do STF, da PF ou do MPF).
+**Data de corte:** 09/10/2026. Doze eventos acrescentados à timeline; todos com fonte jornalística secundária (não localizei nota primária do STF, da PF ou do MPF).
 
 | Data | Evento | Confiança | Fonte |
 |---|---|---|---|
@@ -14,6 +14,8 @@
 | 24/09 | Mensagens (Estadão): seis possíveis encontros entre Flávio Bolsonaro e Vorcaro; histórico apagado após 90 dias | apuração | [ND Mais](https://ndmais.com.br/politica/conversa-de-vorcaro-com-flavio-revela-tres-meses-de-mensagens-e-mencoes-a-seis-encontros/) |
 | 06/10 | Mensagens (Estadão): Ciro Soares tenta aproximar Vorcaro e Gilmar; gabinete nega o jantar | apuração | [Times Brasil](https://timesbrasil.com.br/brasil/mensagens-apontam-tentativa-de-aproximar-vorcaro-e-gilmar/) |
 | 07/10 | piauí: Fábio Faria em festas e viagens de Vorcaro; repassou telefone de Moraes | apuração | [iBahia](https://ibahia.com/diversao/nem-te-conto/relembre-o-casamento-de-patricia-abravanel-com-fabio-faria-que-enfrenta-forte-crise-apos-polemica-com-vorcaro-391733) |
+| 30/09 | Poder360: mensagens Luciano Huck–Vorcaro sobre o patrocínio do Will Bank | apuração | [Poder360](https://www.poder360.com.br/poder-gente/mensagens-mostram-proximidade-de-luciano-huck-com-vorcaro/) |
+| 01/10 | Poder360: mensagens Roberto Justus–Vorcaro sobre aporte na SteelCorp | apuração | [ND Mais](https://ndmais.com.br/justica/roberto-justus-e-vorcaro-empresario-quebra-silencio-apos-troca-de-mensagens/) |
 
 ## Ressalvas
 
@@ -23,4 +25,4 @@
 - Não incluído por falta de fonte sólida: alegação de propina ao Instituto Lula, possível delação e entrevista de Vorcaro.
 - Mensagens: o conteúdo vem de reportagens (Estadão, Veja, piauí) republicadas por terceiros; não vi os originais. Nenhum veículo conclui irregularidade das autoridades citadas.
 - Não incluído: áudios atribuídos ao Estadão sobre Lula e Moraes, só encontrados em site de linha partidária, sem confirmação em veículo de referência.
-- Campos Neto e André Esteves não estão em `pessoas.json`; não foram vinculados.
+- Huck, Justus, Campos Neto e André Esteves não estão em `pessoas.json`; não foram vinculados.
