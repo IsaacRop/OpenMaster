@@ -79,6 +79,9 @@ const TRACOS = {
   filtro: <path d="M4 6h16M7 12h10M10 18h4" />,
   fechar: <path d="M6 6l12 12M18 6 6 18" />,
   seta: <path d="m7 10 5 5 5-5" />,
+  compartilhar: <path d="M12 15V4m0 0L8 8m4-4 4 4M5 13v5.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V13" strokeLinejoin="round" />,
+  link: <path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1" strokeLinejoin="round" />,
+  check: <path d="m5 12.5 4.5 4.5L19 7.5" strokeLinejoin="round" />,
 } as const;
 
 export type NomeIcone = keyof typeof TRACOS;

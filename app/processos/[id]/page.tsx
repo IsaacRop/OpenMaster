@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import Backlinks from "@/components/Backlinks";
+import Compartilhar from "@/components/Compartilhar";
 import FichaDados from "@/components/FichaDados";
+import { SITE_URL } from "@/lib/site";
 import { DataBR } from "@/components/ProcessCard";
 import Timeline from "@/components/Timeline";
 import { ConfiancaBadge, SourceTag } from "@/components/SourceTag";
@@ -75,6 +77,7 @@ export default async function ProcessoPage({
             ["Confiança", <ConfiancaBadge confianca={p.confianca} />],
           ]}
         />
+        <Compartilhar url={`${SITE_URL}/processos/${p.id}`} texto={`Processo ${p.numero} — ${p.apelido}, no OpenMaster`} />
       </header>
 
       <div className="detalhe-grade">

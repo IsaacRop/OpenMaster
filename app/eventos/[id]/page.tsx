@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import Backlinks from "@/components/Backlinks";
+import Compartilhar from "@/components/Compartilhar";
 import FichaDados from "@/components/FichaDados";
+import { SITE_URL } from "@/lib/site";
 import { EntidadeLink } from "@/components/Entidade";
 import { ConfiancaBadge, SourceTag } from "@/components/SourceTag";
 import { backlinks, dataBR, ref } from "@/lib/backlinks";
@@ -53,6 +55,7 @@ export default async function EventoPage({ params }: { params: Promise<{ id: str
             ["Confiança", <ConfiancaBadge confianca={e.confianca} />],
           ]}
         />
+        <Compartilhar url={`${SITE_URL}/eventos/${e.id}`} texto={`${e.titulo} — com a fonte, no OpenMaster`} />
       </header>
 
       <div className="detalhe-grade">

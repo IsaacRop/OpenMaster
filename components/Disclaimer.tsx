@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import Compartilhar from "./Compartilhar";
+import { SITE_URL } from "@/lib/site";
 import { dataCorte } from "@/lib/data";
 
 export default function Disclaimer() {
@@ -27,6 +29,9 @@ export default function Disclaimer() {
             foi extraída — confira a fonte antes de citar. Onde a própria fonte trata o fato como
             apuração em curso, o painel o marca como tal.
           </p>
+          <div className="mt-5">
+            <Compartilhar url={SITE_URL} texto="OpenMaster: o caso Banco Master, com a fonte de cada afirmação à vista." />
+          </div>
           <p className="numero mt-5 flex flex-wrap gap-x-5 gap-y-2 border-t border-[rgb(255_255_255_/_0.08)] pt-4 text-[0.8rem] text-ink-3">
             <span>Dados com corte em {dataCorte.split("-").reverse().join("/")}</span>
             <span>Código e dados sob licença MIT</span>

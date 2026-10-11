@@ -397,6 +397,71 @@
 
   .cta-principal,
   .botao-vidro,
+  /* Compartilhar: a chamada da capa e a linha discreta das fichas. */
+  .compartilhar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+
+  .compartilhar-rotulo {
+    margin-right: 0.25rem;
+    color: var(--color-ink-3);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .compartilhar-botao {
+    display: inline-flex;
+    min-height: 2.25rem;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid rgb(255 255 255 / 0.16);
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.05);
+    padding: 0.35rem 0.9rem;
+    color: var(--color-ink);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .compartilhar-botao:hover { border-color: rgb(255 255 255 / 0.32); background: rgb(255 255 255 / 0.1); }
+
+  .compartilhar-destaque {
+    border-color: transparent;
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+
+  .compartilhar-destaque:hover { background: var(--color-accent-hover); }
+
+  .compartilhar-barra { margin-top: 1rem; }
+  .compartilhar-cartao .compartilhar-botao { min-height: 2.75rem; padding-inline: 1.1rem; font-size: 0.875rem; }
+
+  .chamada {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+  }
+
+  .chamada-titulo {
+    margin: 0.25rem 0 0.6rem;
+    max-width: 24ch;
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    line-height: 1.12;
+  }
+
+  .chamada-sub { max-width: 52ch; color: var(--color-ink-2); font-size: 0.95rem; line-height: 1.6; }
+  .chamada-acao { display: grid; align-content: center; gap: 1rem; }
+  .chamada-contador { color: var(--color-ink-2); font-size: 0.95rem; }
+  .chamada-contador strong { color: var(--color-accent); font-size: 1.75rem; font-weight: 800; margin-right: 0.25rem; }
+
+  @media (min-width: 64rem) {
+    .chamada { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 3rem; padding: 2rem 2.25rem; }
+  }
+
   .botao-contorno {
     display: inline-flex;
     min-height: 2.75rem;
