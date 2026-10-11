@@ -393,10 +393,6 @@
     font-size: 1.05rem;
   }
 
-  /* Botões ---------------------------------------------------------------- */
-
-  .cta-principal,
-  .botao-vidro,
   /* Compartilhar: a chamada da capa e a linha discreta das fichas. */
   .compartilhar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
 
@@ -462,6 +458,10 @@
     .chamada { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 3rem; padding: 2rem 2.25rem; }
   }
 
+  /* Botões ---------------------------------------------------------------- */
+
+  .cta-principal,
+  .botao-vidro,
   .botao-contorno {
     display: inline-flex;
     min-height: 2.75rem;
