@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bodoni_Moda, Kalam, Plus_Jakarta_Sans } from "next/font/google";
 
 import ConditionalDisclaimer from "@/components/ConditionalDisclaimer";
+import RegistrarVisita from "@/components/RegistrarVisita";
 import DefsMarca from "@/components/DefsMarca";
 import SiteHeader from "@/components/SiteHeader";
 import TabBar from "@/components/TabBar";
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className={`${display.variable} ${sans.variable} ${lapis.variable}`}>
       <body className="min-h-screen antialiased">
         <DefsMarca />
+        <RegistrarVisita />
         <a href="#conteudo" className="skip-link">
           Pular para o conteúdo
         </a>

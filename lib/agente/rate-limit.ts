@@ -173,8 +173,8 @@ let avisouFallback = false;
 
 function store(): ArmazenamentoLimite {
   if (storeCache) return storeCache;
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
   storeCache = url && token ? new ArmazenamentoUpstash(url, token) : new ArmazenamentoLocal();
   return storeCache;
 }
@@ -197,6 +197,9 @@ async function incrementarComFallback(chave: string, janelaMs: number): Promise<
 // ---------------------------------------------------------------------------
 // API pública
 // ---------------------------------------------------------------------------
+
+/** Contador genérico com janela, para outras rotas reaproveitarem o mesmo store (e o mesmo fallback). */
+export const contarNaJanela = incrementarComFallback;
 
 const JANELA_MS = Number(process.env.AGENTE_RATE_LIMIT_WINDOW_MS) || 10 * 60 * 1000;
 const LIMITE_POR_IP = Number(process.env.AGENTE_RATE_LIMIT_MAX) || 10;
