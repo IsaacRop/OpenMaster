@@ -1,7 +1,9 @@
 import Link from "next/link";
 
+import ChamadaCompartilhar from "@/components/ChamadaCompartilhar";
 import FiltroExtrato from "@/components/FiltroExtrato";
 import { ConfiancaBadge, SourceTag } from "@/components/SourceTag";
+import { SITE_URL } from "@/lib/site";
 import { dataBR, grau } from "@/lib/backlinks";
 import { TOTAL_CONVERSAS } from "@/lib/conversas";
 import { dataCorte, documentos, pessoas, processoPorId, processos, relacoes, timeline, timelineDesc } from "@/lib/data";
@@ -240,6 +242,11 @@ export default function Home() {
           </form>
         </div>
       </section>
+
+      <ChamadaCompartilhar
+        url={SITE_URL}
+        texto="OpenMaster: o caso Banco Master, com a fonte de cada afirmação à vista."
+      />
 
       <div className="capa-grade entra">
         <section aria-labelledby="ultimas" className="panel extrato">

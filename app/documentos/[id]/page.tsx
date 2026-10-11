@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import Backlinks from "@/components/Backlinks";
+import Compartilhar from "@/components/Compartilhar";
 import FichaDados from "@/components/FichaDados";
+import { SITE_URL } from "@/lib/site";
 import { EntidadeLink } from "@/components/Entidade";
 import { ConfiancaBadge, SourceTag } from "@/components/SourceTag";
 import { backlinks, dataBR, ref } from "@/lib/backlinks";
@@ -53,6 +55,7 @@ export default async function DocumentoPage({ params }: { params: Promise<{ id: 
             ["Confiança", <ConfiancaBadge confianca={d.confianca} />],
           ]}
         />
+        <Compartilhar url={`${SITE_URL}/documentos/${d.id}`} texto={`${d.numero_referencia} — documento do caso, no OpenMaster`} />
       </header>
 
       <div className="detalhe-grade">
